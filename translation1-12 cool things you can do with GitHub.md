@@ -1,6 +1,6 @@
 ---
-title: {译}你可以用GitHub做的12件Cool事情
-date: 2017-11-05 12:35:14
+title: 【译】你可以用GitHub做的12件Cool事情
+date: 2017/11/5 01:01:54       
 categories: 
 - 翻译
 tags: 
