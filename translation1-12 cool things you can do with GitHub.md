@@ -16,7 +16,7 @@ tags:
 
 Isn’t that wild? It creates the fork for you!
 
-不再需要`fork`,`pull`,本地编辑再`push`以及创建一个`PR`了。
+不再需要`fork`,`pull`,本地编辑再`push`以及创建一个`PR`这样的流程了。
 ![](https://ws3.sinaimg.cn/large/006tKfTcgy1fl5eo3789hj30m80mjwhy.jpg)
 
 这非常适用于修复拼写错误。
@@ -27,7 +27,7 @@ Isn’t that wild? It creates the fork for you!
 
 
 ## 3 格式化代码
-如果你要写一段代码，你可以使用三个反引号开始-就想
+如果你要写一段代码，你可以使用三个反引号开始——就像你在学习[掌握`MarkDown`](https://guides.github.com/features/mastering-markdown/)时所学到的。
 
 ## 4 在PR中用特殊词关闭Issues
 
