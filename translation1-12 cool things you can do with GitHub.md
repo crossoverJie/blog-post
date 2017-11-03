@@ -37,16 +37,18 @@ Isn’t that wild? It creates the fork for you!
 ```
 
 ![](https://ws1.sinaimg.cn/large/006tKfTcgy1fl5fe2vu3rj30b607kq39.jpg)
+
 这意味着代码段将会呈现出:
+
 ![](https://ws4.sinaimg.cn/large/006tKfTcgy1fl5ffl8q7sj30bz06gq36.jpg)
 
-(这个扩展与`gists`,顺便说一句，如果你使用`.jsx`后缀，就会得到JSX的语法高亮)
+(这个扩展于`gists`。顺便说一句，如果你使用`.jsx`后缀，就会得到JSX的语法高亮)
 
 这儿有所有支持的[语法列表](https://github.com/github/linguist/blob/fc1404985abb95d5bc33a0eba518724f1c3c252e/vendor/README.md)。
 
 ## 4 在PR中用特殊词关闭Issues
 
-假设你创建了一个`PR`用于修复`Issues` #234.
+假设你创建了一个`PR`用于修复`Issues #234`.
 
 ## 5 链接到评论
 
