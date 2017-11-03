@@ -27,7 +27,14 @@ Isn’t that wild? It creates the fork for you!
 
 
 ## 3 格式化代码
-如果你要写一段代码，你可以使用三个反引号开始——就像你在学习[掌握`MarkDown`](https://guides.github.com/features/mastering-markdown/)时所学到的。
+如果你要写一段代码，你可以使用三个反引号开始——就像你在学习[掌握`MarkDown`](https://guides.github.com/features/mastering-markdown/)时所学到的——之后GitHub会尝试猜出你所写的那种语言。
+
+但是如果你写了一些类似于Vue, Typescript, JSX,你可以详细的指定出正确的高亮现实。
+
+注意第一行中的
+```
+```jsx
+```
 
 ## 4 在PR中用特殊词关闭Issues
 
