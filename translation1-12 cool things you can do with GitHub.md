@@ -1,5 +1,5 @@
 ---
-title: 【译】你可以用GitHub做的12件Cool事情
+title: 【译】你可以用GitHub做的12件 Cool 事情
 date: 2017/11/5 01:01:54       
 categories: 
 - 翻译
@@ -12,11 +12,11 @@ tags:
 
 我将会从我认为大家都知道的一件事情开始(尽管我是直到一周前才知道)。
 
-当你处于GitHub，查看文件(任何文本文件，任何仓库中)，在右上角都会有一个小铅笔图标。点击就可以编辑文件了。当你完成之后点击**Propose file change**按钮GitHub将会自动帮你fork该项目并且创建一个`pull request`。
+当你处于GitHub，查看文件时(任何文本文件，任何仓库中)，在右上角都会有一个小铅笔图标。点击就可以编辑文件了。当你完成之后点击 **Propose file change** 按钮GitHub将会自动帮你fork该项目并且创建一个 `pull request` 。
 
 Isn’t that wild? It creates the fork for you!
 
-不再需要`fork`,`pull`,本地编辑再`push`以及创建一个`PR`这样的流程了。
+不再需要 `fork` , `pull` ,本地编辑再 `push` 以及创建一个 `PR` 这样的流程了。
 ![](https://ws3.sinaimg.cn/large/006tKfTcgy1fl5eo3789hj30m80mjwhy.jpg)
 
 这非常适用于修复拼写错误。
@@ -27,9 +27,9 @@ Isn’t that wild? It creates the fork for you!
 
 
 ## 3 格式化代码
-如果你要写一段代码，你可以使用三个反引号开始——就像你在学习[掌握`MarkDown`](https://guides.github.com/features/mastering-markdown/)时所学到的——之后GitHub会尝试猜出你所写的那种语言。
+如果你要写一段代码，你可以使用三个反引号开始——就像你在学习[掌握`MarkDown`](https://guides.github.com/features/mastering-markdown/)时所学到的 —— 之后GitHub会尝试猜出你所写的那种语言。
 
-但是如果你写了一些类似于Vue, Typescript, JSX,你可以详细的指定出正确的高亮现实。
+但是如果你写了一些类似于 Vue, Typescript, JSX,你可以详细的指定出正确的高亮现实。
 
 注意第一行中的
 ```
@@ -42,15 +42,20 @@ Isn’t that wild? It creates the fork for you!
 
 ![](https://ws4.sinaimg.cn/large/006tKfTcgy1fl5ffl8q7sj30bz06gq36.jpg)
 
-(这个扩展于`gists`。顺便说一句，如果你使用`.jsx`后缀，就会得到JSX的语法高亮)
+(这个扩展于 `gists` 。顺便说一句，如果你使用 `.jsx` 后缀，就会得到JSX的语法高亮)
 
 这儿有所有支持的[语法列表](https://github.com/github/linguist/blob/fc1404985abb95d5bc33a0eba518724f1c3c252e/vendor/README.md)。
 
-## 4 在PR中用特殊词关闭Issues
+## 4 在 PR 中用关键词关闭 Issues
 
-假设你创建了一个`PR`用于修复`Issues #234`.
+假设你创建了一个 `PR` 用于修复`Issues #234`。你可以在你的 `PR` 填写 `fixes #234` (或者在该`PR` 的任意评论中填写都是可以的)。
+
+之后合并这个 `PR` 时将会自动关闭填写的 `Issues`。怎么样很 cool 吧。
+
+更多相关的[内容](https://help.github.com/articles/closing-issues-using-keywords/)。
 
 ## 5 链接到评论
+你是否有过想要连接到特殊的 `comment ` 但却无法奏效？那是因为你不知道怎么做。
 
 ## 6 链接到代码
 
