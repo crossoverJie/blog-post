@@ -55,9 +55,19 @@ Isn’t that wild? It creates the fork for you!
 更多相关的[内容](https://help.github.com/articles/closing-issues-using-keywords/)。
 
 ## 5 链接到评论
-你是否有过想要连接到特殊的 `comment ` 但却无法奏效？那是因为你不知道怎么做。
+你是否有过想要链接到特殊 `comment ` 的想法但却无法实现？那是因为你不知道怎么做。朋友那都是过去式了，现在我就告诉你，点击用户名旁边的日期/时间即可链接到该 `comment ` 。
+
+![](https://ws3.sinaimg.cn/large/006tKfTcly1fl69xkm5rtj30d003zq37.jpg)
 
 ## 6 链接到代码
+
+我知道你也想链接到具体的代码行上。
+
+尝试:查看文件时，点击代码旁边的行号。
+
+看到了吧，浏览器的 `URL` 已经被更新为行号了。如果你再按住 `shift` 点击其他行号，`URL` 再次被更新了，并且页面也会高亮现实一段代码。
+
+分享这个 `URL` 访问时将会链接到该文件已经选中的那些代码段。等等，这指向的是当前的分支，如果文件改变了呢？也许 `permalink` 
 
 ## 7 像命令行一样使用GitHub链接
 
