@@ -76,7 +76,17 @@ Isn’t that wild? It creates the fork for you!
 谈到网址。。。
 
 ## 7 像命令行一样使用GitHub链接
+使用 GitHub 自带的UI浏览也还不错，但有时直接在 URL 中输入效率更高。比如，我想要跳转到我正在工作的分支并和 master 进行对比，就可以直接在项目名称后面接上 `/compare/branch-name` 。
 
+与选中分支的对比页将会显示出来:
+![](https://ws2.sinaimg.cn/large/006tKfTcly1fl8rqb8egpj30u50pbaea.jpg)
+
+以上就是和 master 分支的差异，如果想要合并分支的话，只需要输入 `/compare/integration-branch...my-branch
+` 即可。
+
+![](https://ws2.sinaimg.cn/large/006tKfTcly1fl8s3yraqrj30u50pbgpx.jpg)
+
+不仅如此，你还可以使用快捷键来达到同样的效果， `ctrl + L` 或者 `cmd + L` 可以将光标移动到 `URL` 上(至少在 Chrome 中可以)。 
 
 
 ## 8 在Issues创建列表
