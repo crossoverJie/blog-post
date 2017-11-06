@@ -86,10 +86,34 @@ Isn’t that wild? It creates the fork for you!
 
 ![](https://ws2.sinaimg.cn/large/006tKfTcly1fl8s3yraqrj30u50pbgpx.jpg)
 
-不仅如此，你还可以使用快捷键来达到同样的效果， `ctrl + L` 或者 `cmd + L` 可以将光标移动到 `URL` 上(至少在 Chrome 中可以)。 
+不仅如此，你还可以使用快捷键来达到同样的效果， `ctrl + L` 或者 `cmd + L` 可以将光标移动到 `URL` 上(至少在 Chrome 中可以)。 加上浏览器的自动补全 -- 即可方便的在两个分支之间切换了。
 
 
 ## 8 在Issues创建列表
+
+你想在你的 issue 中看到复选框列表嘛?
+
+![](https://ws2.sinaimg.cn/large/006tKfTcly1fl8snpyb0jj30e708sdgl.jpg)
+
+并且当查看 issue 列表的时候你想看到一个漂亮的 `2 of 5` 进度条嘛？
+
+![](https://ws1.sinaimg.cn/large/006tKfTcly1fl8u3bn88hj30dn06jdg9.jpg)
+
+很好，你可以用以下语法来创建一个具有交互的复选框:
+
+```
+ - [ ] Screen width (integer)
+ - [x] Service worker support
+ - [x] Fetch support
+ - [ ] CSS flexbox support
+ - [ ] Custom elements
+```
+
+是由一个空格、中横线、空格、左括号、空格(或者是 X )、右括号、空格以及一些文本组成。
+
+你甚至可以真正的 选中/取消 这些复选框！基于某些原因，对于我来说你看起来像是技术魔力。是真的能够选中这些复选框！甚至它还更新了底层源码。
+
+> ps：以下包括第九点 基于GitHub的项目面板 由于用的不多就没有翻译。
 
 ## 10 GitHub wiki
 
