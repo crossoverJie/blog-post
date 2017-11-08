@@ -124,8 +124,18 @@ Isn’t that wild? It creates the fork for you!
 我们继续，让 Gwiki 动起来，我从 `NodeJS` 的文档中复制了几页来作为 wiki 页面。并创建了一个自定义侧边栏来更好的模拟一些实际的目录结构。尽管它不会突出的显示你当前的页面位置，但也会一直存在。
 
 这些链接需要你自己手动维护，但总的来说说，我认为它会做的很好。
+如果需要的话可以[看看](https://github.com/davidgilbertson/about-github/wiki)。
+
+![](https://ws2.sinaimg.cn/large/006tKfTcgy1fl9yl6mhlzj30rw0dqwgn.jpg)
+
+它不会和 `GitBook` ( [Redux 文档](http://redux.js.org/)所使用的)或者是定制网站存在竞争关系。在你的 repo 中他是 80% 值得信赖的。
+
+我的建议是: 如果你已经有了多个 `README.md` 文件了，并且想要为用户指南或更详细的文档需要一些不同的页面，那么你应该选择 Gwiki。
+
+如果你开始觉得缺乏结构化/导航使你不爽的话，那就继续其他的就好了。
 
 ## 11 GitHub Pages
+你可能已经知道可以使用 `GitHub Pages` 来托管一个静态网站，如果你不知道如何下手的，这一节是专门用于讨论使用 `Jekyll` 来构建网站的。
 
 ## 12 把GitHub当做CRM
 
