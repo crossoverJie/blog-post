@@ -135,7 +135,7 @@ Isn’t that wild? It creates the fork for you!
 如果你开始觉得缺乏结构化/导航使你不爽的话，那就继续其他的就好了。
 
 ## 11 GitHub Pages
-你可能已经知道可以使用 `GitHub Pages` 来托管一个静态网站，如果你不知道如何下手的，这一节是专门用于讨论使用 `Jekyll` 来构建网站的。
+你可能已经知道可以使用 `GitHub Pages` 来托管一个静态网站，如果你不知道如何下手，这一节是专门用于讨论使用 `Jekyll` 来构建
 
 ## 12 把GitHub当做CRM
 
