@@ -78,7 +78,7 @@ tags:
 谈到网址。。。
 
 ## 7 像命令行一样使用GitHub链接
-使用 GitHub 自带的UI浏览也还不错，但有时直接在 URL 中输入效率更高。比如，我想要跳转到我正在工作的分支并和 master 进行对比，就可以直接在项目名称后面接上 `/compare/branch-name` 。
+使用 GitHub 自带的 UI 浏览也还不错，但有时直接在 URL 中输入效率更高。比如，我想要跳转到我正在工作的分支并和 master 进行对比，就可以直接在项目名称后面接上 `/compare/branch-name` 。
 
 与选中分支的对比页将会显示出来:
 ![](https://ws2.sinaimg.cn/large/006tKfTcly1fl8rqb8egpj30u50pbaea.jpg)
@@ -88,7 +88,7 @@ tags:
 
 ![](https://ws2.sinaimg.cn/large/006tKfTcly1fl8s3yraqrj30u50pbgpx.jpg)
 
-不仅如此，你还可以使用快捷键来达到同样的效果， `ctrl + L` 或者 `cmd + L` 可以将光标移动到 `URL` 上(至少在 Chrome 中可以)。 加上浏览器的自动补全 -- 即可方便的在两个分支之间切换了。
+不仅如此，你还可以使用快捷键来达到同样的效果， `ctrl + L` 或者 `cmd + L` 可以将光标移动到 `URL` 上(至少在 Chrome 中可以)。 加上浏览器的自动补全 —— 即可方便的在两个分支之间切换了。
 
 
 ## 8 在Issues创建列表
@@ -119,7 +119,7 @@ tags:
 
 ## 10 GitHub wiki
 
-作为一个非结构化的页面集合 -- 就像维基百科 -- `GitHub Wiki`(我把它称之为 `Gwiki` ) 是一个非常棒的功能。
+作为一个非结构化的页面集合 —— 就像维基百科 —— `GitHub Wiki`(我把它称之为 `Gwiki` ) 是一个非常棒的功能。
 
 对于结构化的页面来说 -- 就拿你的文档来举例:不能说这个页面是其他页面的子页面，或则是有 “下一节”，“上一节” 这样的好东西。并且 `Hansel` 和 `Gretel` 也完蛋了，因为结构化页面并没有 `breadcrumbs` 这样的设计。
 
