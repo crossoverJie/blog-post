@@ -159,4 +159,40 @@ Isn’t that wild? It creates the fork for you!
 
 ## 12 把 GitHub 当做 CRM 使用
 
+假设你有一个存有一些文本内容的网站，你不想将文本内容存储于真正的 `HTML` 源码中。
+
+相反的，你想要将这些文本块存储于某个地方可以方便的让非开发人员轻松的进行编辑。可能是一个版本控制系统，甚至也可以是一个审核流程。
+
+我的建议是:使用 GitHub 厂库中的 Markdown 文件来存储这些文本内容，然后使用前端组件来拉取这些文本块并展示在页面上。
+
+我是搞 React 的，这有一个 解析 `Markdown` 的组件例子，给定一些 Markdown 文件路径，它将会自动拉取并作为 `HTML` 显示出来。
+
+```react
+class Markdown extends React.Component {
+    constructor(props) {
+      super(props);
+      
+      // replace with your URL, obviously
+      this.baseUrl = 'https://raw.githubusercontent.com/davidgilbertson/about-github/master/text-snippets';
+      
+      this.state = {
+        markdown: '',
+      };
+    }
+
+    componentDidMount() {
+      fetch(`${this.baseUrl}/${this.props.url}`)
+        .then(response => response.text())
+        .then((markdown) => {
+          this.setState({markdown});
+        });
+    }
+
+    render() {
+      return (
+        <div dangerouslySetInnerHTML={{__html: marked(this.state.markdown)}} />
+      );
+    }
+}
+```
 
