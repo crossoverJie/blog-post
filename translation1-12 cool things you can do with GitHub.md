@@ -14,7 +14,7 @@ tags:
 
 当你在 GitHub 查看文件时(任何文本文件，任何仓库中)，在右上角都会有一个小铅笔图标。点击就可以编辑文件了。完成之后点击 **Propose file change** 按钮 GitHub 将会自动帮你 fork 该项目并且创建一个 `pull request` 。
 
-很厉害吧！他自动帮你 `fork` 了该 repo
+很厉害吧！他自动帮你 `fork` 了该 repo。
 
 不再需要 `fork` , `pull` ,本地编辑再 `push` 以及创建一个 `PR` 这样的流程了。
 ![](https://ws3.sinaimg.cn/large/006tKfTcgy1fl5eo3789hj30m80mjwhy.jpg)
@@ -23,13 +23,13 @@ tags:
 
 ## 2 粘贴图片
 
-在评论和 `issue `描述时不仅限于输入文本，你知道可以直接从粘贴板中粘贴图片嘛？当你粘贴时，你会看到图片已经被上传了(毫无疑问肯定是被上传到云端了。)之后会变成`Markdown`语法来显示图片。
+在评论和 `issue `描述时不仅限于输入文本，你知道可以直接从粘贴板中粘贴图片嘛？当你粘贴时，你会看到图片已经被上传了(毫无疑问肯定是被上传到云端了)之后会变成 `Markdown` 语法来显示图片。
 
 
 ## 3 格式化代码
-如果你要写一段代码，你可以使用三个反引号开始——就像你在学习[掌握`MarkDown`](https://guides.github.com/features/mastering-markdown/)时所学到的 —— 之后GitHub会尝试猜出你所写的那种语言。
+如果你要写一段代码，你可以使用三个反引号开始 —— 就像你在学习[掌握`MarkDown`](https://guides.github.com/features/mastering-markdown/)时所学到的 —— 之后 GitHub 会尝试猜出你所写的那种语言。
 
-但是如果你写了一些类似于 Vue, Typescript, JSX,你可以详细的指定出正确的高亮现实。
+但是如果你写了一些类似于 Vue, Typescript, JSX这样的语言，你可以明确的指出以的到正确的高亮。
 
 注意第一行中的
 ```
