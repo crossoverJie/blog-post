@@ -6,6 +6,9 @@ categories:
 tags: 
 - GitHub
 ---
+
+![](https://ws3.sinaimg.cn/large/006tNc79ly1flef224anmj31kw0ebgnt.jpg)
+
 ### [原文链接](https://hackernoon.com/12-cool-things-you-can-do-with-github-f3e0424cf2f0)
 
 ## 1 在 GitHub.com 编辑代码
@@ -121,16 +124,19 @@ tags:
 
 作为一个非结构化的页面集合 —— 就像维基百科 —— `GitHub Wiki`(我把它称之为 `Gwiki` ) 是一个非常棒的功能。
 
-对于结构化的页面来说 -- 就拿你的文档来举例:不能说这个页面是其他页面的子页面，或则是有 “下一节”，“上一节” 这样的好东西。并且 `Hansel` 和 `Gretel` 也完蛋了，因为结构化页面并没有 `breadcrumbs` 这样的设计。
+对于结构化的页面来说 —— 就拿你的文档来举例:不能说这个页面是其他页面的子页面，或则是有 “下一节”，“上一节” 这样的好东西。并且 `Hansel` 和 `Gretel` 也没有，因为结构化页面并没有 `breadcrumbs` 这样的设计。
 
 我们继续，让 Gwiki 动起来，我从 `NodeJS` 的文档中复制了几页来作为 wiki 页面。并创建了一个自定义侧边栏来更好的模拟一些实际的目录结构。尽管它不会突出的显示你当前的页面位置，但也会一直存在。
 
-这些链接需要你自己手动维护，但总的来说说，我认为它会做的很好。
+这些链接需要你自己手动维护，但总的来说，我认为它会做的很好。
 如果需要的话可以[看看](https://github.com/davidgilbertson/about-github/wiki)。
 
 ![](https://ws2.sinaimg.cn/large/006tKfTcgy1fl9yl6mhlzj30rw0dqwgn.jpg)
 
-它不会和 `GitBook` ( [Redux 文档](http://redux.js.org/)所使用的)或者是定制网站存在竞争关系。在你的 repo 中他是 80% 值得信赖的。
+它不会和 `GitBook` ( [Redux 文档](http://redux.js.org/)所使用的)或者是定制网站存在竞争关系。
+
+But it’s a solid 80% and it’s all right there in your repo.
+`在你的 repo 中他是 80% 值得信赖的。`
 
 我的建议是: 如果你已经有了多个 `README.md` 文件了，并且想要为用户指南或更详细的文档需要一些不同的页面，那么你应该选择 Gwiki。
 
@@ -206,7 +212,7 @@ class Markdown extends React.Component {
 
 ![](https://ws2.sinaimg.cn/large/006tNc79ly1flee4cevv3j30rs0hygnv.jpg)
 
-通过这个[视频](https://www.youtube.com/watch?v=NhlzMcSyQek&index=2&list=PLNYkxOF6rcIB3ci6nwNyLYNU6RDOU3YyL)我了解到了 [octobox](https://octobox.io/)，它看起来想当不错，是用于管理你的 `GitHub Issues` 收件箱。
+通过这个[视频](https://www.youtube.com/watch?v=NhlzMcSyQek&index=2&list=PLNYkxOF6rcIB3ci6nwNyLYNU6RDOU3YyL)我了解到了 [octobox](https://octobox.io/)，它看起来相当不错，是用于管理你的 `GitHub Issues` 收件箱。
 
 以上就是针对于 `octobox` 我要说的了。
 
