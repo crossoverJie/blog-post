@@ -8,13 +8,13 @@ tags:
 ---
 ### [原文链接](https://hackernoon.com/12-cool-things-you-can-do-with-github-f3e0424cf2f0)
 
-## 1 在GitHub.com编辑代码
+## 1 在 GitHub.com 编辑代码
 
 我将会从我认为大家都知道的一件事情开始(尽管我是直到一周前才知道)。
 
-当你处于 GitHub，查看文件时(任何文本文件，任何仓库中)，在右上角都会有一个小铅笔图标。点击就可以编辑文件了。当你完成之后点击 **Propose file change** 按钮GitHub将会自动帮你 fork 该项目并且创建一个 `pull request` 。
+当你在 GitHub 查看文件时(任何文本文件，任何仓库中)，在右上角都会有一个小铅笔图标。点击就可以编辑文件了。完成之后点击 **Propose file change** 按钮 GitHub 将会自动帮你 fork 该项目并且创建一个 `pull request` 。
 
-Isn’t that wild? It creates the fork for you!
+很厉害吧！他自动帮你 `fork` 了该 repo
 
 不再需要 `fork` , `pull` ,本地编辑再 `push` 以及创建一个 `PR` 这样的流程了。
 ![](https://ws3.sinaimg.cn/large/006tKfTcgy1fl5eo3789hj30m80mjwhy.jpg)
