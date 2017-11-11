@@ -210,6 +210,7 @@ class Markdown extends React.Component {
 
 ## 其他
 
-就是这样了，我希望这里有三件事你不知道，最后：
+就是这样了，我希望这里有三件事你不知道，
 
+最后:
 hava a nice day！
