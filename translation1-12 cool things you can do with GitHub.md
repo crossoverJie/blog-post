@@ -196,3 +196,20 @@ class Markdown extends React.Component {
 }
 ```
 
+### 奖励环节 -- GitHub 工具
+
+我已经使用了 [Octotree Chrome extension](https://chrome.google.com/webstore/detail/octotree/bkhaagjahfmjljalopjnoealnfndnagc?hl=en-US) 很长一段时间了，我推荐它！
+
+无论你是在查看哪个 repo 它都会在左侧给你一个树状面板。
+
+![](https://ws2.sinaimg.cn/large/006tNc79ly1flee4cevv3j30rs0hygnv.jpg)
+
+通过这个[视频](https://www.youtube.com/watch?v=NhlzMcSyQek&index=2&list=PLNYkxOF6rcIB3ci6nwNyLYNU6RDOU3YyL)我了解到了 [octobox](https://octobox.io/)，它看起来想当不错，是用于管理你的 `GitHub Issues` 收件箱。
+
+以上就是针对于 `octobox` 我要说的了。
+
+## 其他
+
+就是这样了，我希望这里有三件事你不知道，最后：
+
+hava a nice day！
