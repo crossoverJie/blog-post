@@ -135,7 +135,21 @@ Isn’t that wild? It creates the fork for you!
 如果你开始觉得缺乏结构化/导航使你不爽的话，那就继续其他的就好了。
 
 ## 11 GitHub Pages
-你可能已经知道可以使用 `GitHub Pages` 来托管一个静态网站，如果你不知道如何下手，这一节是专门用于讨论使用 `Jekyll` 来构建
+你可能已经知道可以使用 `GitHub Pages` 来托管一个静态网站，And if you didn’t now you do.，这一节是专门用于讨论使用 `Jekyll` 来构建一个站点的。
+
+最简单的就是： `GitHub Pages + Jekyll` 通过一个漂亮的主题来渲染你的 `README.md` 文件。例如:通过 [about-github](https://github.com/davidgilbertson/about-github) 来查看的我的 `README` 页面。
+
+![](https://ws3.sinaimg.cn/large/006tNc79ly1fle60d5j7hj311l0np78i.jpg)
+
+如果我在 GitHub 中点击了 `settings`选项，切换到 `Github Pages` 设置，然后选择一个 `Jekyll theme`。。。
+
+![](https://ws1.sinaimg.cn/large/006tNc79ly1fle73empc8j30l30bcdh1.jpg)
+
+我就可以得到 [Jekyll-themed 页面](https://davidgilbertson.github.io/about-github/)。
+
+![](https://ws4.sinaimg.cn/large/006tNc79ly1fle74nogxlj311l0npgos.jpg)
+
+从这点上:可以主要围绕易编辑的 `Markdown` 文件来构建一个完整的静态站点。本质上是把 GitHub当做了 `CMS`。
 
 ## 12 把GitHub当做CRM
 
