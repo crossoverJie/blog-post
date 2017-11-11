@@ -149,8 +149,14 @@ Isn’t that wild? It creates the fork for you!
 
 ![](https://ws4.sinaimg.cn/large/006tNc79ly1fle74nogxlj311l0npgos.jpg)
 
-从这点上:可以主要围绕易编辑的 `Markdown` 文件来构建一个完整的静态站点。本质上是把 GitHub当做了 `CMS`。
+从这点上:可以主要围绕易编辑的 `Markdown` 文件来构建一个完整的静态站点。本质上是把 GitHub 变成了 `CMS`。
 
-## 12 把GitHub当做CRM
+我虽然没有实际使用过，但是 `React` `Bootstrap` 的网站都是使用它来构建的。所以看起来还不错。
+
+注意:它需要本地的 `Ruby` 运行环境( Windows 自行安装， macOS 自带)。
+
+
+
+## 12 把 GitHub 当做 CRM 使用
 
 
