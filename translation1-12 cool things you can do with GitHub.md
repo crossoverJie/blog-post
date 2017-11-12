@@ -99,11 +99,12 @@ tags:
 
 ![](https://ws2.sinaimg.cn/large/006tKfTcly1fl8snpyb0jj30e708sdgl.jpg)
 
-并且当查看 issue 列表的时候你想看到一个漂亮的 `2 of 5` 进度条吗？
+你想在查看 issue 列表是它们已好看的 `2 of 5` 呈现吗？
 
 ![](https://ws1.sinaimg.cn/large/006tKfTcly1fl8u3bn88hj30dn06jdg9.jpg)
 
-很好，你可以用以下语法来创建一个具有交互的复选框:
+
+太好了！你可以用以下语法来创建一个交互性的复选框:
 
 ```
  - [ ] Screen width (integer)
