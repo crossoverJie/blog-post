@@ -30,9 +30,9 @@ tags:
 
 
 ## 3 格式化代码
-如果你要写一段代码，你可以使用三个反引号开始 —— 就像你在学习[掌握`MarkDown`](https://guides.github.com/features/mastering-markdown/)时所学到的 —— 之后 GitHub 会尝试猜出你所写的那种语言。
+如果你想写一段代码，你可以三个反引号开始 —— 就像你在[研究`MarkDown`](https://guides.github.com/features/mastering-markdown/)时所学到的 —— 之后 GitHub 会试着猜测你写的语言。
 
-但是如果你写了一些类似于 Vue, Typescript, JSX 这样的语言，你可以明确的指出以的到正确的高亮。
+但如果你写了一些类似于 Vue, Typescript, JSX 这样的语言，你可以明确指定得到正确的高亮。
 
 注意第一行中的
 ```
