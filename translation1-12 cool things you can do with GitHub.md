@@ -80,7 +80,7 @@ tags:
 谈到网址。。。
 
 ## 7 像命令行一样使用GitHub链接
-使用 GitHub 自带的 UI 浏览也还不错，但有时直接在 URL 中输入效率更高。比如，我想要跳转到我正在工作的分支并和 master 进行对比，就可以直接在项目名称后面接上 `/compare/branch-name` 。
+使用 GitHub 自带的 UI 浏览也还不错，但有时直接在 URL 中输入是最快的方法。比如，我想跳转到我正在编辑的分支并和 `master` 进行对比，就可以在项目名称后面接上 `/compare/branch-name` 。
 
 与选中分支的对比页将会显示出来:
 ![](https://ws2.sinaimg.cn/large/006tKfTcly1fl8rqb8egpj30u50pbaea.jpg)
