@@ -13,16 +13,16 @@ tags:
 
 ## 1 在 GitHub.com 编辑代码
 
-我将会从我认为大家都知道的一件事情开始(尽管我是直到一周前才知道)。
+我将从我认为大家都知道的一件事情开始(尽管我是直到一周前才知道)。
 
-当你在 GitHub 查看文件时(任何文本文件，任何仓库中)，在右上角都会有一个小铅笔图标。点击就可以编辑文件了。完成之后点击 **Propose file change** 按钮 GitHub 将会自动帮你 fork 该项目并且创建一个 `pull request` 。
+当你在 GitHub 查看文件时(任何文本文件，任何仓库中)，右上角会有一个小铅笔图标，点击它就可以编辑文件了。完成之后点击 **Propose file change** 按钮 GitHub 将会自动帮你 fork 该项目并且创建一个 `pull request` 。
 
 很厉害吧！他自动帮你 `fork` 了该 repo。
 
 不再需要 `fork` , `pull` ,本地编辑再 `push` 以及创建一个 `PR` 这样的流程了。
 ![](https://ws3.sinaimg.cn/large/006tKfTcgy1fl5eo3789hj30m80mjwhy.jpg)
 
-这非常适用于修复拼写错误。
+这非常适合修复编写代码中出现的拼写错误和修正一个不太理想的想法。
 
 ## 2 粘贴图片
 
