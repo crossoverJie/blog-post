@@ -51,11 +51,10 @@ tags:
 
 ## 4 在 PR 中用关键词关闭 Issues
 
-假设你创建了一个 `PR` 用于修复`Issues #234`。你可以在你的 `PR` 填写 `fixes #234` (或者在该`PR` 的任意评论中填写都是可以的)。
+假设你创建了一个用于修复 `Issues #234` 的 PR ,你可以在你 PR 的描述中填写 `fixes #234` (或是在你 PR 任意评论中填写都是可以的)。
+之后合并这个 `PR` 时将会自动关闭填写的 `Issues`。怎么样,很 cool 吧。
 
-之后合并这个 `PR` 时将会自动关闭填写的 `Issues`。怎么样很 cool 吧。
-
-更多相关的[内容](https://help.github.com/articles/closing-issues-using-keywords/)。
+了解更多相关的[内容](https://help.github.com/articles/closing-issues-using-keywords/)。
 
 ## 5 链接到评论
 你是否有过想要链接到特殊 `comment ` 的想法但却无法实现？那是因为你不知道怎么做。朋友那都是过去式了，现在我就告诉你，点击用户名旁边的日期/时间即可链接到该 `comment ` 。
