@@ -90,16 +90,16 @@ tags:
 
 ![](https://ws2.sinaimg.cn/large/006tKfTcly1fl8s3yraqrj30u50pbgpx.jpg)
 
-不仅如此，你还可以使用快捷键来达到同样的效果， `ctrl + L` 或者 `cmd + L` 可以将光标移动到 `URL` 上(至少在 Chrome 中可以)。 加上浏览器的自动补全 —— 即可方便的在两个分支之间切换了。
+你还可以利用快捷键达到同样的效果，使用 `ctrl + L` 或者 `cmd + L` 可以将光标移动到 `URL` 上(至少在 Chrome 中可以)。 加上浏览器的自动补全 —— 你就可以在两个分支之间轻松切换了。
 
 
 ## 8 在Issues创建列表
 
-你想在你的 issue 中看到复选框列表嘛?
+你想在你的 issue 中看到复选框列表吗?
 
 ![](https://ws2.sinaimg.cn/large/006tKfTcly1fl8snpyb0jj30e708sdgl.jpg)
 
-并且当查看 issue 列表的时候你想看到一个漂亮的 `2 of 5` 进度条嘛？
+并且当查看 issue 列表的时候你想看到一个漂亮的 `2 of 5` 进度条吗？
 
 ![](https://ws1.sinaimg.cn/large/006tKfTcly1fl8u3bn88hj30dn06jdg9.jpg)
 
