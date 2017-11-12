@@ -204,7 +204,7 @@ class Markdown extends React.Component {
 }
 ```
 
-### 奖励环节 -- GitHub 工具
+### 奖励环节 —— GitHub 工具
 
 我已经使用了 [Octotree Chrome extension](https://chrome.google.com/webstore/detail/octotree/bkhaagjahfmjljalopjnoealnfndnagc?hl=en-US) 很长一段时间了，我推荐它！
 
