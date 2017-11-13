@@ -99,7 +99,7 @@ tags:
 
 ![](https://ws2.sinaimg.cn/large/006tKfTcly1fl8snpyb0jj30e708sdgl.jpg)
 
-你想在查看 issue 列表是它们以好看的 `2 of 5` 呈现吗？
+你想在查看 issue 列表是它们以好看的 `2 of 5` 进度条呈现吗？
 
 ![](https://ws1.sinaimg.cn/large/006tKfTcly1fl8u3bn88hj30dn06jdg9.jpg)
 
@@ -132,14 +132,11 @@ tags:
 
 ![](https://ws2.sinaimg.cn/large/006tKfTcgy1fl9yl6mhlzj30rw0dqwgn.jpg)
 
-它不会和 `GitBook` ( [Redux 文档](http://redux.js.org/)所使用的)或者是定制网站存在竞争关系。
+虽然它与 `GitBook` ( [Redux 文档](http://redux.js.org/)所使用的)或者是定制网站相比仍有差距。但在你的 repo 中它有 80% 完全值得信赖的。
 
-But it’s a solid 80% and it’s all right there in your repo.
-`在你的 repo 中他是 80% 值得信赖的。`
+我的建议是: 如果你已经有多个 `README.md` 文件，并且想要一些关于用户指南或更详细的文档的不同的页面，那么你应该选择 `Gwiki`。
 
-我的建议是: 如果你已经有了多个 `README.md` 文件了，并且想要为用户指南或更详细的文档需要一些不同的页面，那么你应该选择 Gwiki。
-
-如果你开始觉得缺乏结构化/导航使你不爽的话，那就继续其他的就好了。
+如果缺乏结构化/导航开始让你不爽的话，那就试试其他的吧。
 
 ## 11 GitHub Pages
 你可能已经知道可以使用 `GitHub Pages` 来托管一个静态网站，And if you didn’t now you do.，这一节是专门用于讨论使用 `Jekyll` 来构建一个站点的。
