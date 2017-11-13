@@ -99,7 +99,7 @@ tags:
 
 ![](https://ws2.sinaimg.cn/large/006tKfTcly1fl8snpyb0jj30e708sdgl.jpg)
 
-你想在查看 issue 列表是它们已好看的 `2 of 5` 呈现吗？
+你想在查看 issue 列表是它们以好看的 `2 of 5` 呈现吗？
 
 ![](https://ws1.sinaimg.cn/large/006tKfTcly1fl8u3bn88hj30dn06jdg9.jpg)
 
