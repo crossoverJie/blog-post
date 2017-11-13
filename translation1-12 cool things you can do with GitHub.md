@@ -139,9 +139,9 @@ tags:
 如果缺乏结构化/导航开始让你不爽的话，那就试试其他的吧。
 
 ## 11 GitHub Pages
-你可能已经知道可以使用 `GitHub Pages` 来托管一个静态网站，And if you didn’t now you do.，这一节是专门用于讨论使用 `Jekyll` 来构建一个站点的。
+你可能已经知道使用 `GitHub Pages` 来托管一个静态网站。如果你不知道，现在就来学习，这一节是专门用于讨论使用 `Jekyll` 来构建一个站点的。
 
-最简单的就是： `GitHub Pages + Jekyll` 通过一个漂亮的主题来渲染你的 `README.md` 文件。例如:通过 [about-github](https://github.com/davidgilbertson/about-github) 来查看的我的 `README` 页面。
+最简单的就是： `GitHub Pages + Jekyll `会通过一个漂亮的主题来渲染你的 `README.md` 文件。例如:通过 [about-github](https://github.com/davidgilbertson/about-github)  来查看的我的 `README` 页面。
 
 ![](https://ws3.sinaimg.cn/large/006tNc79ly1fle60d5j7hj311l0np78i.jpg)
 
@@ -153,16 +153,15 @@ tags:
 
 ![](https://ws4.sinaimg.cn/large/006tNc79ly1fle74nogxlj311l0npgos.jpg)
 
-从这点上:可以主要围绕易编辑的 `Markdown` 文件来构建一个完整的静态站点。本质上是把 GitHub 变成了 `CMS`。
+从这点上我可以主要依据易编辑的 `Markdown` 文件来构建一个完整的静态站点。本质上是把 GitHub 变成了 `CMS`。
 
-我虽然没有实际使用过，但是 `React` `Bootstrap` 的网站都是使用它来构建的。所以看起来还不错。
+虽然我没有实际使用过，但是 `React Bootstrap` 的网站都是使用它来构建的。所以它不会糟糕。
 
-注意:它需要本地的 `Ruby` 运行环境( Windows 自行安装， macOS 自带)。
+注意:它要求 `Ruby` 运行本地环境( Windows 自行安装， macOS 自带)。
 
 
 
 ## 12 把 GitHub 当做 CRM 使用
-
 假设你有一个存有一些文本内容的网站，你不想将文本内容存储于真正的 `HTML` 源码中。
 
 相反的，你想要将这些文本块存储于某个地方可以方便的让非开发人员轻松的进行编辑。可能是一个版本控制系统，甚至也可以是一个审核流程。
