@@ -206,13 +206,9 @@ class Markdown extends React.Component {
 
 ![](https://ws2.sinaimg.cn/large/006tNc79ly1flee4cevv3j30rs0hygnv.jpg)
 
-通过这个[视频](https://www.youtube.com/watch?v=NhlzMcSyQek&index=2&list=PLNYkxOF6rcIB3ci6nwNyLYNU6RDOU3YyL)我了解到了 [octobox](https://octobox.io/)，它看起来相当不错，是用于管理你的 `GitHub Issues` 收件箱。
-
-以上就是针对于 `octobox` 我要说的了。
+通过这个[视频](https://www.youtube.com/watch?v=NhlzMcSyQek&index=2&list=PLNYkxOF6rcIB3ci6nwNyLYNU6RDOU3YyL)我了解到了 octobox，它是用于管理你的 `GitHub Issues` 收件箱，看起来相当不错！
+以上就是我针对于`octobox`的全部想法。
 
 ## 其他
-
-就是这样了，我希望这里有三件事你不知道，
-
-最后:
-hava a nice day！
+就是这样了！我希望这里至少有三件事是你还不知道的。
+最后: hava a nice day！
