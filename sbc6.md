@@ -72,6 +72,30 @@ tags:
 </dependency>
 ```
 
+紧接着配置一些项目基本信息:
+
+```properties
+# 项目配置
+spring.application.name=sbc-gateway-zuul
+server.context-path=/
+server.port=8383
+
+# eureka地址
+eureka.client.serviceUrl.defaultZone=http://node1:8888/eureka/
+eureka.instance.prefer-ip-address=true
+```
+
+在启动类中加入开启 `Zuul` 的注解，一个网关应用就算是搭好了。
+
+```java
+@SpringBootApplication
+
+//开启zuul代理
+@EnableZuulProxy
+public class SbcGateWayZuulApplication {
+}
+```
+
 # 服务路由
 
 
