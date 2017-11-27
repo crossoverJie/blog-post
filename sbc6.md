@@ -1,5 +1,5 @@
 ---
-title: sbc(六)Hystrix-服务容错与保护
+title: sbc(六) Zuul GateWay 网关应用
 date: 2017/11/25 01:13:22    
 categories: 
 - sbc
@@ -17,9 +17,9 @@ tags:
 看过之前[SBC](https://crossoverjie.top/categories/sbc/)系列的小伙伴应该都可以搭建一个高可用、分布式的微服务了。 目前的结构图应该如下所示:
 ![](https://ws1.sinaimg.cn/large/006tKfTcly1flvyjrv2unj30dc0gwaaw.jpg)
 
-各个微服务之间都不存在单点，并且都注册于 `Eureka` ，并基于此进行服务的注册于发现，再通过 `Ribbon` 进行服务调用，并具有客户端负载功能。
+各个微服务之间都不存在单点，并且都注册于 `Eureka` ，基于此进行服务的注册于发现，再通过 `Ribbon` 进行服务调用，并具有客户端负载功能。
 
-一切看起来都比较美好，整个系统的各个服务之间也能串联起来。但这里却忘了一个重要的细节。
+一切看起来都比较美好，但这里却忘了一个重要的细节：
 
 > 当我们需要对外提供服务时怎么处理？
 
@@ -27,7 +27,7 @@ tags:
 
 那又如何来实现负载呢？
 
-这也可以实现，可以通过 `Nginx F5` 之类的工具进行负载。
+简单！可以通过 `Nginx F5` 之类的工具进行负载。
 
 但是如果系统庞大，服务拆分的足够多那又有谁来维护这些路由关系呢？
 
@@ -43,11 +43,13 @@ tags:
 
 ![](https://ws2.sinaimg.cn/large/006tKfTcly1flw0fbfukxj30mp0icdgk.jpg)
 
+<!--more-->
+
 我们在所有的请求进来之前抽出一层网关应用，将服务提供的所有细节都进行了包装，这样所有的客户端都是和网关进行交互，简化了客户端开发。
 
 同时具有如下功能:
 
-- Zuul 注册于 `Eureka` 并集成了 `Ribbon` 所以自然也是可以从注册中心获取到服务列表进行客户端的负载。
+- Zuul 注册于 `Eureka` 并集成了 `Ribbon` 所以自然也是可以从注册中心获取到服务列表进行客户端负载。
 - 功能丰富的路由功能，解放运维。
 - 具有过滤器，所以鉴权、验签都可以集成。
 
@@ -104,7 +106,7 @@ public class SbcGateWayZuulApplication {
 路由是网关的核心功能之一，可以使系统有一个统一的对外接口，下面来看看具体的应用。
 
 ## 传统路由
-传统路由非常简单，和 `Nginx` 类似，由开发、运维人员来收到维护请求地址和对应服务的映射关系，类似于:
+传统路由非常简单，和 `Nginx` 类似，由开发、运维人员来维护请求地址和对应服务的映射关系，类似于:
 
 ```properties
 zuul.routes.user-service.path=/user-service/**
@@ -113,7 +115,7 @@ zuul.routes.user-sercice.url=http://localhost:8080/
 
 这样当我们访问 `http://localhost:8383/user-service/getUserInfo/1` 网关就会自动给我们路由到 `http://localhost:8080/getUserInfo/1` 上。
 
-可见只要我们维护好找个映射关系即可自由的配置路由信息(`user-sercice 可自定义`)，但是很明显这种方式不管是对运维还是开发都不友好。由于实际这种方式用的不多就再过多展开。
+可见只要我们维护好这个映射关系即可自由的配置路由信息(`user-sercice 可自定义`)，但是很明显这种方式不管是对运维还是开发都不友好。由于实际这种方式用的不多就再过多展开。
 
 ## 服务路由
 对此 `Zuul` 提供了一种基于服务的路由方式。我们只需要维护请求地址与服务 ID 之间的映射关系即可，并且由于集成了 `Ribbon` , Zuul 还可以在路由的时候通过 Eureka 实现负载调用。
@@ -150,14 +152,14 @@ zuul.routes.sbc-user=/api/user/**
 - `*` 只能匹配任意字符，如 `/api/user/*` 就只能匹配 `/api/user/x /api/user/xy /api/user/xyz`。
 - `**` 可以匹配任意字符、任意层级。结合了以上两种通配符的特点，如 `/api/user/**` 则可以匹配 `/api/user/x /api/user/x/y /api/user/x/y/zzz `这样的路径，最简单粗暴！
 
-谈到通配符匹配就不得不提到一个问题，如上面的 `sbc-user` 服务由于后期迭代更新，将 sbc-user 中的一部分逻辑抽成了一个服务 `sbc-user-pro`。新应用的路由规则是 `/api/user/pro/**`,如果我们按照:
+谈到通配符匹配就不得不提到一个问题，如上面的 `sbc-user` 服务由于后期迭代更新，将 sbc-user 中的一部分逻辑抽成了另一个服务 `sbc-user-pro`。新应用的路由规则是 `/api/user/pro/**`,如果我们按照:
 
 ```properties
 zuul.routes.sbc-user=/api/user/**
 zuul.routes.sbc-user-pro=/api/user/pro/**
 ```
 
-进行配置的话，我们想通过 `/api/user/pro/` 来访问 `sbc-user-pro` 应用，却由于满足第一个路由规则，所以会被 Zuul 路由到 `sbc-user` 这个应用上。该怎么解决这个问题呢？
+进行配置的话，我们想通过 `/api/user/pro/` 来访问 `sbc-user-pro` 应用，却由于满足第一个路由规则，所以会被 Zuul 路由到 `sbc-user` 这个应用上，这显然是不对的。该怎么解决这个问题呢？
 
 翻看路由源码 `org.springframework.cloud.netflix.zuul.filters.SimpleRouteLocator` 中的 `locateRoutes()` 方法:
 
@@ -308,7 +310,7 @@ Zuul 现在既然作为了对外的第一入口，那肯定不能是单节点，
 
 ![](https://ws2.sinaimg.cn/large/006tKfTcly1flx73gaco0j30o80jgq3p.jpg)
 
-这样虽然简单易维护，但是有一个验证的缺点：那就是客户端也得注册到 Eureka 上才能对 Zuul 的调用做到负载，这显然是不现实的。
+这样虽然简单易维护，但是有一个严重的缺点：那就是客户端也得注册到 Eureka 上才能对 Zuul 的调用做到负载，这显然是不现实的。
 
 所以下面这种做法更为常见。
 
