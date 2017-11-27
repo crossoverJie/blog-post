@@ -148,7 +148,34 @@ zuul.routes.sbc-user=/api/user/**
 
 - `?` 只能匹配任意的单个字符，如 `/api/user/?` 就只能匹配 `/api/user/x  /api/user/y /api/user/z` 这样的路径。
 - `*` 只能匹配任意字符，如 `/api/user/*` 就只能匹配 `/api/user/x /api/user/xy /api/user/xyz`。
-- `**` 可以匹配任意字符、任意层级。结合了以上两中通配符的特点，如 `/api/user/**` 则可以匹配 `/api/user/x /api/user/x/y /api/user/x/y/zzz `这样的路径，最简单粗暴！
+- `**` 可以匹配任意字符、任意层级。结合了以上两种通配符的特点，如 `/api/user/**` 则可以匹配 `/api/user/x /api/user/x/y /api/user/x/y/zzz `这样的路径，最简单粗暴！
+
+谈到通配符匹配就不得不提到一个问题，如上面的 `sbc-user` 服务由于后期迭代更新，将 sbc-user 中的一部分逻辑抽成了一个服务 `sbc-user-pro`。新应用的路由规则是 `/api/user/pro/**`,如果我们按照:
+
+```properties
+zuul.routes.sbc-user=/api/user/**
+zuul.routes.sbc-user-pro=/api/user/pro/**
+```
+
+进行配置的话，我们想通过 `/api/user/pro/` 来访问 `sbc-user-pro` 应用，却由于满足第一个路由规则，所以会被 Zuul 路由到 `sbc-user` 这个应用上。该怎么解决这个问题呢？
+
+翻看路由源码 `org.springframework.cloud.netflix.zuul.filters.SimpleRouteLocator` 中的 `locateRoutes()` 方法:
+
+```java
+	/**
+	 * Compute a map of path pattern to route. The default is just a static map from the
+	 * {@link ZuulProperties}, but subclasses can add dynamic calculations.
+	 */
+	protected Map<String, ZuulRoute> locateRoutes() {
+		LinkedHashMap<String, ZuulRoute> routesMap = new LinkedHashMap<String, ZuulRoute>();
+		for (ZuulRoute route : this.properties.getRoutes().values()) {
+			routesMap.put(route.getPath(), route);
+		}
+		return routesMap;
+	}
+```
+
+发现路由规则是遍历配置文件并放入 `**LinkedHashMap**` 中，由于 `LinkedHashMap` 是有序的，所以为了达到上文的效果，配置文件的加载顺序非常重要，因此我们只需要将优先匹配的路由规则放前即可解决。
 
 # 过滤器
 
