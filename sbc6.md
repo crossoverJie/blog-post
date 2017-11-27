@@ -178,6 +178,124 @@ zuul.routes.sbc-user-pro=/api/user/pro/**
 发现路由规则是遍历配置文件并放入 **`LinkedHashMap`** 中，由于 `LinkedHashMap` 是有序的，所以为了达到上文的效果，配置文件的加载顺序非常重要，因此我们只需要将优先匹配的路由规则放前即可解决。
 
 # 过滤器
+过滤器可以说是整个 Zuul 最核心的功能，包括上文提到路由功能也是由过滤器来实现的。
+
+摘抄官方的解释: Zuul 的核心就是一系列的过滤器，他能够在整个 `HTTP` 请求、响应过程中执行各样的操作。
+
+其实总结下来就是四个特征:
+
+- 过滤类型
+- 过滤顺序
+- 执行条件
+- 具体实现
+
+其实就是 `ZuulFilter` 接口中所定义的四个接口:
+
+```
+String filterType();
+
+int filterOrder();
+
+boolean shouldFilter();
+
+Object run();
+```
+
+官方流程图(生命周期):
+
+![](https://ws3.sinaimg.cn/large/006tKfTcly1flx65zw2qpj30qo0k0tae.jpg)
+
+简单理解下就是:
+
+当一个请求进来时，首先是进入 `pre` 过滤器，可以做一些鉴权，记录调试日志等操作。之后进入 `routing` 过滤器进行路由转发，转发可以使用 `Apache HttpClient` 或者是 `Ribbon` 。
+`post` 过滤器呢则是处理服务响应之后的数据，可以进行一些包装来返回客户端。 `error` 则是在有异常发生时才会调用，相当于是全局异常拦截器。
+
+
+## 自定义过滤器
+接下来实现一个文初所提到的鉴权操作:
+
+新建一个 `RequestFilter` 类继承与 `ZuulFilter` 接口
+
+```java
+/**
+ * Function: 请求拦截
+ *
+ * @author crossoverJie
+ *         Date: 2017/11/20 00:33
+ * @since JDK 1.8
+ */
+public class RequestFilter extends ZuulFilter {
+    private Logger logger = LoggerFactory.getLogger(RequestFilter.class) ;
+    /**
+     * 请求路由之前被拦截 实现 pre 拦截器
+     * @return
+     */
+    @Override
+    public String filterType() {
+        return "pre";
+    }
+
+    @Override
+    public int filterOrder() {
+        return 0;
+    }
+
+    @Override
+    public boolean shouldFilter() {
+        return true;
+    }
+
+    @Override
+    public Object run() {
+
+        RequestContext currentContext = RequestContext.getCurrentContext();
+        HttpServletRequest request = currentContext.getRequest();
+        String token = request.getParameter("token");
+        if (StringUtil.isEmpty(token)){
+            logger.warn("need token");
+            //过滤请求
+            currentContext.setSendZuulResponse(false);
+            currentContext.setResponseStatusCode(400);
+            return null ;
+        }
+        logger.info("token ={}",token) ;
+
+        return null;
+    }
+}
+```
+
+非常 easy，就简单校验下请求中是否包含 `token`，不包含就返回 401 code。
+
+不但如此，还需要将该类加入到 Spring 进行管理:
+
+新建了 `FilterConf` 类:
+
+```java
+@Configuration
+@Component
+public class FilterConf {
+
+    @Bean
+    public RequestFilter filter(){
+        return  new RequestFilter() ;
+    }
+}
+```
+
+这样重启之后就可以看到效果了:
+
+不传 token 时：
+![](https://ws1.sinaimg.cn/large/006tKfTcly1flx6pypmzqj30pt0f1jsq.jpg)
+
+![](https://ws2.sinaimg.cn/large/006tKfTcly1flx6qeu2nfj310l03jjtc.jpg)
+
+传入 token 时：
+![](https://ws2.sinaimg.cn/large/006tKfTcly1flx6rad3ffj30q00bpjsn.jpg)
+
+可见一些鉴权操作是可以放到这里来进行统一处理的。
+
+
 
 # Zuul 高可用
 
