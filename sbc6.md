@@ -111,7 +111,37 @@ zuul.routes.user-service.path=/user-service/**
 zuul.routes.user-sercice.url=http://localhost:8080/
 ```
 
+这样当我们访问 `http://localhost:8383/user-service/getUserInfo/1` 网关就会自动给我们路由到 `http://localhost:8080/getUserInfo/1` 上。
+
+可见只要我们维护好找个映射关系即可自由的配置路由信息(`user-sercice 可自定义`)，但是很明显这种方式不管是对运维还是开发都不友好。由于实际这种方式用的不多就再过多展开。
+
 ## 服务路由
+对此 `Zuul` 提供了一种基于服务的路由方式。我们只需要维护请求地址与服务 ID 之间的映射关系即可，并且由于集成了 `Ribbon` , Zuul 还可以在路由的时候通过 Eureka 实现负载调用。
+
+具体配置：
+
+```properties
+zuul.routes.sbc-user.path=/api/user/**
+zuul.routes.sbc-user.serviceId=sbc-user
+```
+
+这样当输入 `http://localhost:8383/api/user/getUserInfo/1` 时就会路由到注册到 `Eureka` 中服务 ID 为 `sbc-user` 的服务节点，如果有多节点就会按照 Ribbon 的负载算法路由到其中一台上。
+
+以上配置还可以简写为:
+
+```properties
+# 服务路由 简化配置
+zuul.routes.sbc-user=/api/user/**
+```
+
+这样让我们访问 `http://127.0.0.1:8383/api/user/userService/getUserByHystrix` 时候就会根据负载算法帮我们路由到 sbc-user 应用上，如下图所示:
+
+![](https://ws1.sinaimg.cn/large/006tKfTcly1flx4pbe3nsj31ga0e5gnq.jpg)
+启动了两个 sbc-user 服务。
+
+请求结果:
+![](https://ws4.sinaimg.cn/large/006tKfTcly1flx4q2zktbj30yd0ll79b.jpg)
+
 
 ## 请求负载
 
