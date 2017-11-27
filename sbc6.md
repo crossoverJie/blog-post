@@ -51,7 +51,29 @@ tags:
 - 功能丰富的路由功能，解放运维。
 - 具有过滤器，所以鉴权、验签都可以集成。
 
+基于此我们来看看之前的架构中如何集成 `Zuul` 。
+
+# 集成 Zuul
+为此我新建了一个项目 `sbc-gateway-zuul` 就是一个基础的 `SpringBoot` 结构。其中加入了 Zuul 的依赖：
+
+```xml
+	<dependency>
+		<groupId>org.springframework.cloud</groupId>
+		<artifactId>spring-cloud-starter-zuul</artifactId>
+	</dependency>
+```
+
+由于需要将网关也注册到 `Eureka` 中，所以自然也需要:
+
+```xml
+	<dependency>
+		<groupId>org.springframework.cloud</groupId>
+		<artifactId>spring-cloud-starter-eureka</artifactId>
+	</dependency>
+```
+
 # 服务路由
+
 
 ## 传统路由
 
