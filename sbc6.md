@@ -142,8 +142,13 @@ zuul.routes.sbc-user=/api/user/**
 请求结果:
 ![](https://ws4.sinaimg.cn/large/006tKfTcly1flx4q2zktbj30yd0ll79b.jpg)
 
+一次路由就算完成了。
 
-## 请求负载
+在上面的配置中有看到 `/api/user/**` 这样的通配符配置，具体有以下三种配置需要了解:
+
+- `?` 只能匹配任意的单个字符，如 `/api/user/?` 就只能匹配 `/api/user/x  /api/user/y /api/user/z` 这样的路径。
+- `*` 只能匹配任意字符，如 `/api/user/*` 就只能匹配 `/api/user/x /api/user/xy /api/user/xyz`。
+- `**` 可以匹配任意字符、任意层级。结合了以上两中通配符的特点，如 `/api/user/**` 则可以匹配 `/api/user/x /api/user/x/y /api/user/x/y/zzz `这样的路径，最简单粗暴！
 
 # 过滤器
 
