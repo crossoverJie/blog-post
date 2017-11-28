@@ -102,7 +102,7 @@ public class SbcGateWayZuulApplication {
 
 ![](https://ws4.sinaimg.cn/large/006tKfTcly1flx2fwc3v2j314y085dgp.jpg)
 
-# 服务路由
+# 路由
 路由是网关的核心功能之一，可以使系统有一个统一的对外接口，下面来看看具体的应用。
 
 ## 传统路由
