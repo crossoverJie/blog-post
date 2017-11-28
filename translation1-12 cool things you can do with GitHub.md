@@ -41,6 +41,8 @@ tags:
 
 ![](https://ws1.sinaimg.cn/large/006tKfTcgy1fl5fe2vu3rj30b607kq39.jpg)
 
+<!--more-->
+
 这意味着代码段将会呈现出:
 
 ![](https://ws4.sinaimg.cn/large/006tKfTcgy1fl5ffl8q7sj30bz06gq36.jpg)
