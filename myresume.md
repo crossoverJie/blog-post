@@ -15,7 +15,7 @@ tags:
 
 手机号码： 18523985794
 
-github； [https://github.com/crossoverJie](https://github.com/crossoverJie)
+GitHub: [https://github.com/crossoverJie](https://github.com/crossoverJie)
 
 邮箱：crossoverjie@gmail.com
 
@@ -26,7 +26,7 @@ github； [https://github.com/crossoverJie](https://github.com/crossoverJie)
 ### 项目名称： ***IOP智能营销平台***
 职责:  **Java后端开发工程师**
 使用技术：
-> Netty、Kafka 等。。
+> Kafka 等。。
 
 项目描述：根据用户DNA数据、当前位置等信息合理的推送相应的营销活动给用户。
 
