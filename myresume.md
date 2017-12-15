@@ -10,7 +10,6 @@ tags:
 # 个人信息
 
  - 陈杰/男/1994 
- - 专科/重庆信息学院
  - 工作年限：3年
  - 技术博客：https://crossoverjie.top 
  - Github：http://github.com/crossoverjie 
