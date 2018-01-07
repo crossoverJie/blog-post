@@ -70,7 +70,7 @@ categories:
 
 这样只需要在原有的基础上多一步由虚拟节点映射到实际节点的步骤即可让少量节点也能满足均匀性。
 
-# 号外
+## 号外
 最近在总结一些 Java 相关的知识点，感兴趣的朋友可以一起维护。
 
 > 地址: [https://github.com/crossoverJie/Java-Interview](https://github.com/crossoverJie/Java-Interview)
