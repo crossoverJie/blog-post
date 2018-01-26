@@ -10,7 +10,7 @@ tags:
 
 ![](https://ws1.sinaimg.cn/large/006tKfTcly1fnt9p6qc88j31g80yu41d.jpg)
 
-	使用 `synchronize` 来做同步处理时，锁的获取和释放都是隐式的，实现的原理是通过编译后加上不同的机器指令来实现。
+使用 `synchronize` 来做同步处理时，锁的获取和释放都是隐式的，实现的原理是通过编译后加上不同的机器指令来实现。
 
 而 `ReentrantLock` 就是一个普通的类，它是基于 `AQS(AbstractQueuedSynchronizer)`来实现的。
 
