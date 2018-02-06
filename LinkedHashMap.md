@@ -274,3 +274,7 @@ LinkedHashMap 的 `get()` 方法也重写了：
 因为是继承与 `HashMap` 的，所以一些 `HashMap` 存在的问题 `LinkedHashMap` 也会存在，比如不支持并发等。
 
 
+## 号外
+最近在总结一些 Java 相关的知识点，感兴趣的朋友可以一起维护。
+
+> 地址: [https://github.com/crossoverJie/Java-Interview](https://github.com/crossoverJie/Java-Interview)
