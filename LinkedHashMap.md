@@ -145,7 +145,7 @@ tags:
 ```
 其实也就是对 `header` 进行了初始化。
 
-## put() 方法
+## put 方法
 
 看 `LinkedHashMap` 的 `put()` 方法之前先看看 `HashMap` 的 `put` 方法：
 
