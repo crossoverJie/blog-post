@@ -367,7 +367,7 @@ public class LRUAbstractMap extends java.util.AbstractMap {
 
 感兴趣的朋友可以直接从:
 
-[https://github.com/crossoverJie/Java-Interview/blob/master/src/main/java/com/crossoverjie/actual/AbstractMap.java](https://github.com/crossoverJie/Java-Interview/blob/master/src/main/java/com/crossoverjie/actual/AbstractMap.java)
+[https://github.com/crossoverJie/Java-Interview/blob/master/src/main/java/com/crossoverjie/actual/LRUAbstractMap.java](https://github.com/crossoverJie/Java-Interview/blob/master/src/main/java/com/crossoverjie/actual/LRUAbstractMap.java)
 
 下载代码本地运行。
 
@@ -619,6 +619,9 @@ public class LRUMap<K, V> {
 }
 ```
 
+源码：
+[https://github.com/crossoverJie/Java-Interview/blob/master/src/main/java/com/crossoverjie/actual/LRUMap.java](https://github.com/crossoverJie/Java-Interview/blob/master/src/main/java/com/crossoverjie/actual/LRUMap.java)
+
 实际效果，写入时：
 
 ```java
@@ -774,6 +777,9 @@ public class LRULinkedMap<K,V> {
     }
 }
 ```
+
+源码：
+[https://github.com/crossoverJie/Java-Interview/blob/master/src/main/java/com/crossoverjie/actual/LRULinkedMap.java](https://github.com/crossoverJie/Java-Interview/blob/master/src/main/java/com/crossoverjie/actual/LRULinkedMap.java)
 
 这次就比较简洁了，也就几行代码（具体的逻辑 LinkedHashMap 已经帮我们实现好了）
 
