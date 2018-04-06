@@ -27,6 +27,9 @@ LRU 是 `Least Recently Used` 的简写，字面意思则是`最近最少使用`
 > 摘抄自:[https://github.com/CyC2018/Interview-Notebook/blob/master/notes/Redis.md#%E5%8D%81%E4%B8%89%E6%95%B0%E6%8D%AE%E6%B7%98%E6%B1%B0%E7%AD%96%E7%95%A5](https://github.com/CyC2018/Interview-Notebook/blob/master/notes/Redis.md#%E5%8D%81%E4%B8%89%E6%95%B0%E6%8D%AE%E6%B7%98%E6%B1%B0%E7%AD%96%E7%95%A5)
 
 
+<!--more-->
+
+
 ## 实现一
 
 之前也有接触过一道面试题，大概需求是：
