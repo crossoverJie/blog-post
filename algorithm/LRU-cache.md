@@ -709,8 +709,150 @@ lruMap.put("4",4) ;
 ```
 ![](https://ws1.sinaimg.cn/large/006tNc79gy1fq3hfl5r8ij30kn0b374s.jpg)
 
+
+### 获取数据时
+
+数据和上文一样：
+
+```java
+Integer integer = lruMap.get("2");
+```
+
+![](https://ws2.sinaimg.cn/large/006tNc79gy1fq3hjbou5pj30k70aj3yy.jpg)
+
+通过以上几张图应该是很好理解数据是如何存放的了。
+
 ## 实现三
 
+其实如果对 Java 的集合比较熟悉的话，会发现上文的结构和 LinkedHashMap 非常类似。
+
+对此不太熟悉的朋友可以先了解下 [LinkedHashMap 底层分析](http://crossoverjie.top/2018/02/06/LinkedHashMap/) 。
+
+所以我们完全可以借助于它来实现：
+
+```java
+public class LRULinkedMap<K,V> {
+
+
+    /**
+     * 最大缓存大小
+     */
+    private int cacheSize;
+
+    private LinkedHashMap<K,V> cacheMap ;
+
+
+    public LRULinkedMap(int cacheSize) {
+        this.cacheSize = cacheSize;
+
+        cacheMap = new LinkedHashMap(16,0.75F,true){
+            @Override
+            protected boolean removeEldestEntry(Map.Entry eldest) {
+                if (cacheSize + 1 == cacheMap.size()){
+                    return true ;
+                }else {
+                    return false ;
+                }
+            }
+        };
+    }
+
+    public void put(K key,V value){
+        cacheMap.put(key,value) ;
+    }
+
+    public V get(K key){
+        return cacheMap.get(key) ;
+    }
+
+
+    public Collection<Map.Entry<K, V>> getAll() {
+        return new ArrayList<Map.Entry<K, V>>(cacheMap.entrySet());
+    }
+}
+```
+
+这次就比较简洁了，也就几行代码（具体的逻辑 LinkedHashMap 已经帮我们实现好了）
+
+实际效果:
+
+```java
+    @Test
+    public void put() throws Exception {
+        LRULinkedMap<String,Integer> map = new LRULinkedMap(3) ;
+        map.put("1",1);
+        map.put("2",2);
+        map.put("3",3);
+
+        for (Map.Entry<String, Integer> e : map.getAll()){
+            System.out.print(e.getKey() + " : " + e.getValue() + "\t");
+        }
+
+        System.out.println("");
+        map.put("4",4);
+        for (Map.Entry<String, Integer> e : map.getAll()){
+            System.out.print(e.getKey() + " : " + e.getValue() + "\t");
+        }
+    }
+    
+//输出
+1 : 1	2 : 2	3 : 3	
+2 : 2	3 : 3	4 : 4	    
+```
+
+使用时：
+
+```java
+    @Test
+    public void get() throws Exception {
+        LRULinkedMap<String,Integer> map = new LRULinkedMap(4) ;
+        map.put("1",1);
+        map.put("2",2);
+        map.put("3",3);
+        map.put("4",4);
+
+        for (Map.Entry<String, Integer> e : map.getAll()){
+            System.out.print(e.getKey() + " : " + e.getValue() + "\t");
+        }
+
+        System.out.println("");
+        map.get("1") ;
+        for (Map.Entry<String, Integer> e : map.getAll()){
+            System.out.print(e.getKey() + " : " + e.getValue() + "\t");
+        }
+    }
+
+}
+
+//输出
+1 : 1	2 : 2	3 : 3	4 : 4	
+2 : 2	3 : 3	4 : 4	1 : 1
+```
+
+LinkedHashMap 内部也有维护一个双向队列，在初始化时也会给定一个缓存大小的阈值。初始化时自定义是否需要删除最近不常使用的数据，如果是则会按照实现二中的方式管理数据。
+
+其实主要代码就是重写了 LinkedHashMap 的 removeEldestEntry 方法:
+
+```java
+    protected boolean removeEldestEntry(Map.Entry<K,V> eldest) {
+        return false;
+    }
+```
+
+它默认是返回 false，也就是不会管有没有超过阈值。
+
+所以我们自定义大于了阈值时返回 true，这样 LinkedHashMap 就会帮我们删除最近最少使用的数据。
+
 ## 总结
+
+以上就是对 LRU 缓存的实现，了解了这些至少在平时使用时可以知其所以然。
+
+当然业界使用较多的还有 [guava](https://github.com/google/guava) 的实现，并且它还支持多种过期策略。
+
+
+## 号外
+最近在总结一些 Java 相关的知识点，感兴趣的朋友可以一起维护。
+
+> 地址: [https://github.com/crossoverJie/Java-Interview](https://github.com/crossoverJie/Java-Interview)
 
 
