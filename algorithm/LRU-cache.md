@@ -677,6 +677,38 @@ public class LRUMap<K, V> {
 - 在写入头结点时有判断链表大小等于 2 时需要删除初始化的头尾结点。这是因为初始化时候生成了两个双向节点，没有数据只是为了形成一个数据结构。当真实数据进来之后需要删除以方便后续的操作（这点可以继续优化）。
 - 以上的所有操作都是线程不安全的，需要使用则自行控制。
 
+下面是对象关系图：
+
+### 初始化时
+
+![](https://ws1.sinaimg.cn/large/006tNc79gy1fq3h4xsf4cj30dh09hglr.jpg)
+
+### 写入数据时
+
+```java
+LRUMap<String,Integer> lruMap = new LRUMap(3) ;
+lruMap.put("1",1) ;
+```
+
+![](https://ws4.sinaimg.cn/large/006tNc79gy1fq3h892nalj30ef09jdg2.jpg)
+
+
+```java
+lruMap.put("2",2) ;
+```
+![](https://ws3.sinaimg.cn/large/006tNc79gy1fq3hayffy1j30jr0b6q3a.jpg)
+
+
+```java
+lruMap.put("3",3) ;
+```
+![](https://ws4.sinaimg.cn/large/006tNc79gy1fq3hcfq95pj30gp0bot93.jpg)
+
+```java
+lruMap.put("4",4) ;
+```
+![](https://ws1.sinaimg.cn/large/006tNc79gy1fq3hfl5r8ij30kn0b374s.jpg)
+
 ## 实现三
 
 ## 总结
