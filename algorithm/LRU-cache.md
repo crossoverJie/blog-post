@@ -532,25 +532,27 @@ public class LRUMap<K, V> {
     }
 
 
+
     /**
      * 添加头结点
      *
      * @param node
      */
-    private void addNode(K key, V value) {
-
-        Node<K, V> node = new Node<>(key, value);
-
-        //容量满了删除最后一个
-        if (cacheSize == nodeCount) {
-            //删除尾结点
-            delTail();
-        }
+    private void addHead(Node<K, V> node) {
 
         //写入头结点
-        addHead(node);
+        header.next = node;
+        node.tail = header;
+        header = node;
+        nodeCount++;
 
-    }
+        //如果写入的数据大于2个 就将初始化的头尾结点删除
+        if (nodeCount == 2) {
+            tailer.next.next.tail = null;
+            tailer = tailer.next.next;
+        }
+
+    }    
 
     private void delTail() {
         //把尾结点从缓存中删除
