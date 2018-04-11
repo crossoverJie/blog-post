@@ -12,9 +12,9 @@ Python？Java？Ruby？JavaScript？有非常多的选择。选择一种编程�
 
 ![](https://ws2.sinaimg.cn/large/006tKfTcgy1fq952y5gn6j318g0p0q88.jpg)
 
-事实上：你将要学习的语言并不是特别重要，更重要的是要学习编程的理念。对于任何编程语言来说知识的可传递性都是至关重要的。
+事实上：你将要学习的语言并不是特别重要，更重要的是学习编程的理念。对于任何编程语言来说知识的可传递性都是至关重要的。
 
-我学习的第一门语言是 Java，学习了循环，while 循环，条件，函数，面向对象编程以及很多的编程理念。
+我学习的第一门语言是 Java，学习了循环，while 循环，条件，函数，面向对象编程还有很多的编程理念。
 
 然而选择一门在该地区更容易找到一份工作是更可取的。对于初学者来说，我这里有一份列表推荐给你：
 
@@ -57,3 +57,5 @@ JavaScript 是我用过的最灵活的语言之一。
 
 
 如果你想要学习如何学习一门新语言的话，可以阅读我的文章 “[How to Learn a New Programming Language or Framework](https://hackernoon.com/what-is-the-best-programming-language-to-start-8ca8fb5e9a60)”，将会非常有用。
+
+
