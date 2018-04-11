@@ -29,13 +29,13 @@ Python 在美国大学里是最受欢迎的入门型语言。
 
 Java 是企业环境中使用最多的语言，根据 TIOBE 统计 Java 长年占据编程语言榜首。Java 是强类型的静态语言，可以更容易的去描述一些编程理念。
 
-作为使用最多的语言，在这段编码之旅中你可以很轻松的找到 Java 相关课程和指南来获得帮助。你可以使用 Java 来构建服务端应用、Android APP 等应用程序。
+作为使用最多的语言，在这段编码之旅中你可以很轻松的找到 Java 相关课程和指南来获得帮助。可以使用 Java 来构建服务端应用、Android APP 等应用程序。
 
 ### Ruby
 
 Ruby 是我最喜欢的编程语言，它编写简单，容易理解并且工作舒适。
 
-就像 JavaScript 一样，它学起来简单但是不易掌握。Ruby 在很多公司中被广泛应用，比如 Airbnb, EBANX, Shopify, Twitter, GitHub 等等。它还有一个很棒的 7*24 小时在线社区可以获得帮助。
+就像 JavaScript 一样，它学起来简单但是不易掌握。Ruby 在很多公司中被广泛应用，比如 Airbnb, EBANX, Shopify, Twitter, GitHub 等等。它还有一个很棒的 7*24 小时的在线社区可以获得帮助。
 
 Ruby 以  Ruby on Rails 框架著称，它可以帮你很轻松的构建整个 web 应用。
 
