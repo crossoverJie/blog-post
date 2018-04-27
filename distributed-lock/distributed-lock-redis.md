@@ -2,9 +2,9 @@
 title: 基于 Redis 的分布式锁
 date: 2018/03/29 20:10:36 
 categories: 
-- 分布式锁
+- Distributed Tools
 tags: 
-- Redis
+- Distributed Lock
 ---
 
 ![](https://ws3.sinaimg.cn/large/006tKfTcgy1fpvathnbf6j31kw11xwl3.jpg)
