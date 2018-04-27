@@ -111,7 +111,53 @@ public void doSomething(){}
 
 会在调用达到阈值时抛出异常。
 
-为了模拟并发，在 [User](https://github.com/crossoverJie/springboot-cloud/blob/master/sbc-user/user/src/main/java/com/crossoverJie/sbcuser/controller/UserController.java#L72-L91) 应用中开启了 10 个线程进行调用(也可使用专业的并发测试工具 JMeter 等)。
+为了模拟并发，在 [User](https://github.com/crossoverJie/springboot-cloud/blob/master/sbc-user/user/src/main/java/com/crossoverJie/sbcuser/controller/UserController.java#L72-L91) 应用中开启了 10 个线程调用 Order(**限流次数为5**) 接口(也可使用专业的并发测试工具 JMeter 等)。
+
+<!--more-->
+
+```java
+    @Override
+    public BaseResponse<UserResVO> getUserByFeign(@RequestBody UserReqVO userReq) {
+        //调用远程服务
+        OrderNoReqVO vo = new OrderNoReqVO();
+        vo.setAppId(1L);
+        vo.setReqNo(userReq.getReqNo());
+
+        for (int i = 0; i < 10; i++) {
+            executorService.execute(new Worker(vo, orderServiceClient));
+        }
+
+        UserRes userRes = new UserRes();
+        userRes.setUserId(123);
+        userRes.setUserName("张三");
+
+        userRes.setReqNo(userReq.getReqNo());
+        userRes.setCode(StatusEnum.SUCCESS.getCode());
+        userRes.setMessage("成功");
+
+        return userRes;
+    }
+    
+
+    private static class Worker implements Runnable {
+
+        private OrderNoReqVO vo;
+        private OrderServiceClient orderServiceClient;
+
+        public Worker(OrderNoReqVO vo, OrderServiceClient orderServiceClient) {
+            this.vo = vo;
+            this.orderServiceClient = orderServiceClient;
+        }
+
+        @Override
+        public void run() {
+
+            BaseResponse<OrderNoResVO> orderNo = orderServiceClient.getOrderNoCommonLimit(vo);
+            logger.info("远程返回:" + JSON.toJSONString(orderNo));
+
+        }
+    }    
+```
 
 > 为了验证分布式效果启动了两个 Order 应用。
 
@@ -120,7 +166,6 @@ public void doSomething(){}
 效果如下：
 ![](https://ws1.sinaimg.cn/large/006tKfTcly1fqrlvvj8cbj31kw0f1wws.jpg)
 
-<!--more-->
 
 ![](https://ws4.sinaimg.cn/large/006tKfTcly1fqrlznycdnj31kw0gbh0n.jpg)
 
@@ -132,7 +177,7 @@ public void doSomething(){}
 
 其中 Redis 就非常适合这样的场景。
 
-- 每次请求时将当前时间(精确到秒)作为 Key 写入到 Redis 中，Redis 将该 Key 的值进行自增。
+- 每次请求时将当前时间(精确到秒)作为 Key 写入到 Redis 中，超时时间设置为 2 秒，Redis 将该 Key 的值进行自增。
 - 当达到阈值时返回错误。
 - 写入 Redis 的操作用 Lua 脚本来完成，利用 Redis 的单线程机制可以保证每个 Redis 请求的原子性。
 
