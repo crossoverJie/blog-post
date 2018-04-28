@@ -99,7 +99,7 @@ tags:
 
 针对于单个应用的限流 `RateLimiter` 够用了，如果是分布式环境可以借助 `Redis` 来完成。
 
-最近也对了一个，可以[参考](https://crossoverjie.top/2018/04/28/sbc/sbc7-Distributed-Limit/)。
+最近也怼了一个，可以[参考](https://crossoverjie.top/2018/04/28/sbc/sbc7-Distributed-Limit/)。
 
 > 项目：[https://github.com/crossoverJie/springboot-cloud](https://github.com/crossoverJie/springboot-cloud)
 
