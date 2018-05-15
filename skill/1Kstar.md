@@ -13,6 +13,9 @@ tags:
 
 首先标题党一下，其实这篇文章主要是记录我的第二个过 `1K star` 的项目 [Java-Interview](https://github.com/crossoverJie/Java-Interview)，顺便分享下其中的过程及经验。
 
+![4.png](https://i.loli.net/2018/05/15/5af9b89e8bff8.png)
+
+
 # 需求选择
 
 ## [Java-Interview](https://github.com/crossoverJie/Java-Interview)
@@ -64,11 +67,17 @@ tags:
 
 > 切记不要什么东西都往 README.MD 中写，保持一个简洁的文档可以加分哦。
 
+当然也可以在首页加入一些徽章如：
+
+![3.png](https://i.loli.net/2018/05/15/5af9b66c55453.png)
+
+也能起到一些积极作用。
+
 # 积极推荐
 
 代码质量这个就不多说了，这应该是最基本的要求。
 
-俗话说：，酒香不怕巷子深。
+俗话说：酒香不怕巷子深。
 
 但对于做开源项目来说就不太适应了，当你幸辛苦苦做了一个自认为很不错的项目，结果一年过去了都无人问津，这不免会有点打击积极性。
 
