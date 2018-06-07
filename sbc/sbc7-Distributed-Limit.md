@@ -5,7 +5,7 @@ categories:
 - sbc
 - Distributed Tools
 tags: 
-- Distributed Lock
+- Distributed Limited
 ---
 
 ![](https://ws3.sinaimg.cn/large/006tKfTcly1fqrle104hwj31i6104aig.jpg)
