@@ -12,16 +12,16 @@ tags:
 
 ## 前言
 
-之前在做 [秒杀架构实践](https://crossoverjie.top/2018/05/07/ssm/SSM18-seconds-kill/) 时有提到对 [distributed-redis-tool](https://github.com/crossoverJie/distributed-redis-tool) 的一次小升级，但是没具体说原因。
+之前在做 [秒杀架构实践](https://crossoverjie.top/2018/05/07/ssm/SSM18-seconds-kill/#distributed-redis-tool-%E2%AC%86%EF%B8%8Fv1-0-3) 时有提到对 [distributed-redis-tool](https://github.com/crossoverJie/distributed-redis-tool) 的一次小升级，但是没有细说。
 
 其实主要原因是：
 
-> 秒杀时我做压测：由于集成了这个限流组件，并发又比较大，所以导致 连接、断开 Redis 非常频繁。
+> 秒杀时我做压测：由于集成了这个限流组件，并发又比较大，所以导致连接、断开 Redis 非常频繁。
 > 最终导致获取不了 Redis connection 的异常。
 
 ## 池化技术
 
-这就是一个典型的对稀缺资源不善导致的。
+这就是一个典型的对稀缺资源使用不善导致的。
 
 何为稀缺资源？常见的有：
 
@@ -29,33 +29,73 @@ tags:
 - 数据库连接
 - 网络连接等
 
-这些资源都有共同的特点：创建销毁成本较高。
+这些资源都有共同的特点：**创建销毁成本较高**。
 
-这里涉及到的 Redis 连接属于该类资源。
+<!--more-->
 
-我们希望将这些稀有资源管理起来放到一个池子里，当需要时就从中获取一个，用完就放回去，不够用时就等待（或返回）。
+这里涉及到的 Redis 连接也属于该类资源。
 
-这样我们只需要初始化好这个池子，并维护好就能避免频繁的创建、销毁这些资源。
+我们希望将这些稀有资源管理起来放到一个池子里，当需要时就从中获取，用完就放回去，不够用时就等待（或返回）。
+
+这样我们只需要初始化并维护好这个池子，就能避免频繁的创建、销毁这些资源（也有资源长期未使用需要缩容的情况）。
 
 通常我们称这项姿势为池化技术，如常见的：
 
 - 线程池
 - 各种资源的连接池等。
 
-为此我将使用到 Redis 的 [分布式锁](https://crossoverjie.top/%2F2018%2F03%2F29%2Fdistributed-lock%2Fdistributed-lock-redis%2F)、[分布式限流](https://crossoverjie.top/2018/04/28/sbc/sbc7-Distributed-Limit/) 都升级为利用连接池来获取和 Redis 的链接。
+为此我将使用到 Redis 的 [分布式锁](https://crossoverjie.top/%2F2018%2F03%2F29%2Fdistributed-lock%2Fdistributed-lock-redis%2F)、[分布式限流](https://crossoverjie.top/2018/04/28/sbc/sbc7-Distributed-Limit/) 都升级为利用连接池来获取 Redis 的连接。
 
 这里以[分布式锁](https://github.com/crossoverJie/distributed-redis-tool#distributed-lock)为例：
 
 将使用的 api 修改为：
 
+原有：
+
 ```java
-RedisLock redisLock = new RedisLock.Builder(jedisConnectionFactory, RedisToolsConstant.SINGLE)
+@Configuration
+public class RedisLockConfig {
+
+    @Bean
+    public RedisLock build(){
+        //Need to get Redis connection 
+        RedisLock redisLock = new RedisLock() ;
+        HostAndPort hostAndPort = new HostAndPort("127.0.0.1",7000) ;
+        JedisCluster jedisCluster = new JedisCluster(hostAndPort) ;
+        RedisLock redisLock = new RedisLock.Builder(jedisCluster)
+                .lockPrefix("lock_test")
+                .sleepTime(100)
+                .build();
+                
+        return redisLock ;
+    }
+
+}
+```
+
+现在：
+```java
+@Configuration
+public class RedisLockConfig {
+    private Logger logger = LoggerFactory.getLogger(RedisLockConfig.class);
+    
+    
+    @Autowired
+    private JedisConnectionFactory jedisConnectionFactory;
+    
+    @Bean
+    public RedisLock build() {
+        RedisLock redisLock = new RedisLock.Builder(jedisConnectionFactory,RedisToolsConstant.SINGLE)
                 .lockPrefix("lock_")
                 .sleepTime(100)
                 .build();
+
+        return redisLock;
+    }
+}
 ```
 
-将以前的 Jedis 修改为 `JedisConnectionFactory`，后续的 Redis 链接就可通过这个对象获取。
+将以前的 Jedis 修改为 `JedisConnectionFactory`，后续的 Redis 连接就可通过这个对象获取。
 
 并且显示的传入使用 RedisCluster 还是单机的 Redis。
 
@@ -99,7 +139,7 @@ RedisLock redisLock = new RedisLock.Builder(jedisConnectionFactory, RedisToolsCo
     }    
 ```
 
-最大的改变就是将原有操作 Redis 的对象（`T extends JedisCommands`）改为从连接池中获取的对象。
+最大的改变就是将原有操作 Redis 的对象（`T extends JedisCommands`）改为从连接池中获取。
 
 由于使用了 `org.springframework.data.redis.connection.jedis.JedisConnectionFactory` 作为 Redis 连接池。
 
@@ -138,9 +178,9 @@ RedisLock redisLock = new RedisLock.Builder(jedisConnectionFactory, RedisToolsCo
 
 ```
 
-看起比较麻烦，需要构建很多对象。
+看起比较麻烦，需要构建对象的较多。
 
-但整合 Spring 使用时候就要清晰许多。
+但整合 Spring 使用时就要清晰许多。
 
 
 ## 配合 Spring
