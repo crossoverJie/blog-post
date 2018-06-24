@@ -10,7 +10,7 @@ categories:
 
 ## 前言
 
-最近有些朋友在面试阿里，加上 [Java-Interview](https://github.com/crossoverJie/Java-Interview) 项目的原因也有小伙伴和我讨论，近期也在负责部门的招牌，这让我想起年初那段长达三个月的奇葩面试经历🤣。
+最近有些朋友在面试阿里，加上 [Java-Interview](https://github.com/crossoverJie/Java-Interview) 项目的原因也有小伙伴和我讨论，近期也在负责部门的招聘，这让我想起年初那段长达三个月的奇葩面试经历🤣。
 
 本来没想拿出来说的，毕竟最后也没成。
 
