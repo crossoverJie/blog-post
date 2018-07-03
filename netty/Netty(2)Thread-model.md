@@ -19,7 +19,7 @@ tags:
 
 ## 传统 IO
 
-在 Netty 以及 NIO 出现之前，我们写 IO 应用其实用的都是用 `java.io.InputStream` 下所提供的包。  
+在 Netty 以及 NIO 出现之前，我们写 IO 应用其实用的都是用 `java.io.*` 下所提供的包。  
 
 
 比如下面的伪代码：
