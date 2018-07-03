@@ -1,6 +1,6 @@
 ---
 title: Netty(二) 从线程模型的角度看 Netty 为什么是高性能的？
-date: 2018/06/04 01:01:14       
+date: 2018/07/04 01:01:14       
 categories: 
 - Netty
 tags: 
@@ -11,9 +11,9 @@ tags:
 
 ## 前言
 
-在之前的 [SpringBoot 整合长连接心跳机制](https://crossoverjie.top/2018/05/24/netty/Netty(1)TCP-Heartbeat/)一起认识了下 Netty。
+在之前的 [SpringBoot 整合长连接心跳机制](http://t.cn/Rd7He1Z) 一文中认识了 Netty。
 
-但其实只是能用，为什么要 Netty？它有哪些优势？这些其实都不知道。
+但其实只是能用，为什么要用 Netty？它有哪些优势？这些其实都不知道。
 
 本文就来从历史源头来说道说道。
 
@@ -35,6 +35,8 @@ while((request = in.readLine()) != null){
 	
 }
 ```
+
+<!--more-->
 
 大概是这样，其实主要想表达的是这样一个线程只能处理一个连接。
 
