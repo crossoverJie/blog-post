@@ -32,7 +32,7 @@ BufferReader in = .... ;
 String request ;
  
 while((request = in.readLine()) != null){
-	
+	new Thread(new Task()).start()
 }
 ```
 
