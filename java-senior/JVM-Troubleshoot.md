@@ -14,7 +14,7 @@ tags:
 
 ## 前言
 
-之前我或多或少分享过一些[内存模型](https://github.com/crossoverJie/Java-Interview/blob/master/MD/MemoryAllocation.md)、[对象创建](https://crossoverjie.top/2018/01/18/newObject/)之类的内容，其实大部分人看完都是懵懵懂懂，也不知道这些的实际意义。
+之前或多或少分享过一些[内存模型](https://github.com/crossoverJie/Java-Interview/blob/master/MD/MemoryAllocation.md)、[对象创建](https://crossoverjie.top/2018/01/18/newObject/)之类的内容，其实大部分人看完都是懵懵懂懂，也不知道这些的实际意义。
 
 直到有一天你会碰到线上奇奇怪怪的问题，如：
 
@@ -32,13 +32,13 @@ tags:
 
 我这其实是一个定时任务，在固定的时间会开启 N 个线程并发的从 Redis 中获取数据进行运算。
 
-**业务逻辑非常简单，但一般应用涉及到多线程之后再简单的事情都要小心对待。**
+**业务逻辑非常简单，但应用一般涉及到多线程之后再简单的事情都要小心对待。**
 
-于是这次就出现问题了。
+果不其然这次就出问题了。
 
-现象就是:原本只需要执行几分钟的任务执行了几个小时都没退出。翻遍了所有的日志都没看到异常。
+现象:原本只需要执行几分钟的任务执行了几个小时都没退出。翻遍了所有的日志都没找到异常。
 
-于是便开始定位定位问题之路。
+于是便开始定位问题之路。
 
 
 ### 定位问题
@@ -65,11 +65,11 @@ tags:
 
 ![](https://ws1.sinaimg.cn/large/006tNc79gy1ft2fd0q5hhj30sn0cz0yn.jpg)
 
-> 所以通常建议大家线程名字给的有意义，再排查问题时很有必要。
+> 所以通常建议大家线程名字给的有意义，在排查问题时很有必要。
 
-其实其他几个线程都和这里的堆栈类似，很明显的看出都是再做 Redis 连接。
+其实其他几个线程都和这里的堆栈类似，很明显的看出都是在做 Redis 连接。
 
-于是我登录 Redis 查看了现在 Redis 的连接数，发现已经非常高了。
+于是我登录 Redis 查看了当前的连接数，发现已经非常高了。
 
 这样 Redis 的响应自然也就变慢了。
 
@@ -95,6 +95,18 @@ tags:
 
 [https://github.com/crossoverJie/Java-Interview/blob/master/src/main/java/com/crossoverjie/oom/heap/HeapOOM.java](https://github.com/crossoverJie/Java-Interview/blob/master/src/main/java/com/crossoverjie/oom/heap/HeapOOM.java)
 
+```java
+public class HeapOOM {
+
+    public static void main(String[] args) {
+        List<String> list = new ArrayList<>(10) ;
+        while (true){
+            list.add("1") ;
+        }
+    }
+}
+```
+
 启动参数如下：
 
 ```shell
@@ -116,9 +128,9 @@ tags:
 
 ### 内存分析
 
-这时就需要想要的工具进行分析了，最常用的自然就是 MAT 了。
+这时就需要相应的工具进行分析了，最常用的自然就是 MAT 了。
 
-这次我试了一个在线工具也不错（文件大了就不适合了）：
+我试了一个在线工具也不错（文件大了就不适合了）：
 
 [http://heaphero.io/index.jsp](http://heaphero.io/index.jsp)
 
@@ -130,7 +142,7 @@ tags:
 
 ![](https://ws3.sinaimg.cn/large/006tNc79gy1ft2gbw5g3pj30zx0g4wge.jpg)
 
-这里也有提示，这个很有可能就是内存溢出的对象，点进去之后：
+也有相应提示，这个很有可能就是内存溢出的对象，点进去之后：
 
 ![](https://ws3.sinaimg.cn/large/006tNc79gy1ft2gcmd00lj30kz0bjmyo.jpg)
 
@@ -153,7 +165,7 @@ tags:
 
 ## 总结
 
-线上问题定位需要综合技能的，所以是需要点一些基础技能的如线程、内存模型、Linux 等。
+线上问题定位需要综合技能，所以是需要一些基础技能。如线程、内存模型、Linux 等。
 
 当然这些问题没有实操过都是纸上谈兵；如果第一次碰到线上问题，不要慌张，反而应该庆幸解决之后你又会习得一项技能。
 
