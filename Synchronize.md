@@ -124,6 +124,9 @@ public class com.crossoverjie.synchronize.Synchronize {
 
 > 如果某个锁自旋很少成功获得，那么下一次就会减少自旋。
 
+## 总结
+
+synchronize 现在已经不像以前那么重了，拿 1.8 中的 ConcurrentHashMap 就可以看出，里面大量的使用了 synchronize 来进行同步。
 
 ## 号外
 最近在总结一些 Java 相关的知识点，感兴趣的朋友可以一起维护。
