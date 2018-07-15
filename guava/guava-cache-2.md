@@ -276,7 +276,7 @@ loadingCache = CacheBuilder.newBuilder()
 
 ![](https://ws3.sinaimg.cn/large/006tKfTcgy1ftau23uj5aj30mp08odh8.jpg)
 
-根据 LocalCache 中的 `getLiveValue()` 中判断到缓存过期，跟着这里的调用关系就会一直跟到：
+根据 LocalCache 中的 `getLiveValue()` 中判断缓存过期时，跟着这里的调用关系就会一直跟到：
 
 ![](https://ws1.sinaimg.cn/large/006tKfTcgy1ftau4ed7dcj30rm0a5acd.jpg)
 
