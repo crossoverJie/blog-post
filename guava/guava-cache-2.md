@@ -13,7 +13,7 @@ tags:
 
 在上文「[Guava 源码分析（Cache 原理）](https://crossoverjie.top/2018/06/13/guava/guava-cache/)」中分析了 `Guava Cache` 的相关原理。
 
-在文末提到了**回收机制、移除时间通知**等内容，许多朋友也挺感兴趣，这次就这两个内容再来分析分析。
+文末提到了**回收机制、移除时间通知**等内容，许多朋友也挺感兴趣，这次就这两个内容再来分析分析。
 
 
 > 在开始之前先补习下 Java 自带的两个特性，Guava 中都有具体的应用。
@@ -101,6 +101,26 @@ public class Caller {
 ```
 
 Notifier 收到提问，执行计算（耗时操作），最后做出响应（回调接口，告诉 Caller 结果）。
+
+
+```java
+public class Notifier {
+
+    private final static Logger LOGGER = LoggerFactory.getLogger(Notifier.class);
+
+    public void execute(Caller caller, String msg) throws InterruptedException {
+        LOGGER.info("收到消息=【{}】", msg);
+
+        LOGGER.info("等待响应中。。。。。");
+        TimeUnit.SECONDS.sleep(2);
+
+
+        caller.getCallBackListener().callBackNotify("我在北京！");
+
+    }
+
+}
+```
 
 
 模拟执行：
@@ -214,7 +234,7 @@ key 也是相同的道理：
 
 ![](https://ws2.sinaimg.cn/large/006tKfTcgy1ftattls2uzj30w005eq4t.jpg)
 
-这样当使用这样的构造方式时，弱引用的 key 和 value 都会被垃圾回收。
+当使用这样的构造方式时，弱引用的 key 和 value 都会被垃圾回收。
 
 当然我们也可以显式的回收：
 
@@ -270,7 +290,7 @@ loadingCache = CacheBuilder.newBuilder()
 2018-07-15 20:41:10.462 [main] INFO  c.crossoverjie.guava.CacheLoaderTest - 缓存的所有内容={1000=0}
 ```
 
-可以看出当缓存被删除的时候会回调我们定义的函数，并告知删除原因。
+可以看出当缓存被删除的时候会回调我们自定义的函数，并告知删除原因。
 
 那么 Guava 是如何实现的呢？
 
@@ -284,7 +304,7 @@ loadingCache = CacheBuilder.newBuilder()
 
 ![](https://ws1.sinaimg.cn/large/006tKfTcgy1ftau5ywcojj30rs0750u9.jpg)
 
-`enqueueNotification()` 方法会将回收的缓存（包含了 key，value）以及回收原因包装成之前定义的事件接口加入到一个本地队列中。
+`enqueueNotification()` 方法会将回收的缓存（包含了 key，value）以及回收原因包装成之前定义的事件接口加入到一个**本地队列**中。
 
 ![](https://ws4.sinaimg.cn/large/006tKfTcgy1ftau7hpijrj30sl06wtaf.jpg)
 
@@ -300,7 +320,7 @@ loadingCache = CacheBuilder.newBuilder()
 
 ![](https://ws1.sinaimg.cn/large/006tKfTcgy1ftaubaco48j30lw0513zi.jpg)
 
-一直跟进来就会发现这里消费了队列，将之前包装好的移除消息调用了我们定义的事件，这样就完成了一次事件回调。
+一直跟进来就会发现这里消费了队列，将之前包装好的移除消息调用了我们自定义的事件，这样就完成了一次事件回调。
 
 ## 总结
 
