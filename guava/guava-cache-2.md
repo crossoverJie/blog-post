@@ -284,7 +284,7 @@ loadingCache = CacheBuilder.newBuilder()
 
 ![](https://ws1.sinaimg.cn/large/006tKfTcgy1ftau5ywcojj30rs0750u9.jpg)
 
-`enqueueNotification()` 方法会将回收的缓存（包含了 key，value）以及回收原因下入到一个本地队列中。
+`enqueueNotification()` 方法会将回收的缓存（包含了 key，value）以及回收原因包装成之前定义的事件接口加入到一个本地队列中。
 
 ![](https://ws4.sinaimg.cn/large/006tKfTcgy1ftau7hpijrj30sl06wtaf.jpg)
 
