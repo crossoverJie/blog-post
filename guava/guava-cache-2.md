@@ -304,7 +304,21 @@ loadingCache = CacheBuilder.newBuilder()
 
 ## 总结
 
-以上源码
+以上所有源码：
 
 [https://github.com/crossoverJie/Java-Interview/blob/master/src/main/java/com/crossoverjie/guava/callback/Main.java](https://github.com/crossoverJie/Java-Interview/blob/master/src/main/java/com/crossoverjie/guava/callback/Main.java)
+
+通过分析 Guava 的源码可以让我们学习到顶级的设计及实现方式，甚至自己也能尝试编写。
+
+Guava 里还有很多强大的增强实现，值得我们再好好研究。
+
+## 号外
+最近在总结一些 Java 相关的知识点，感兴趣的朋友可以一起维护。
+
+> 地址: [https://github.com/crossoverJie/Java-Interview](https://github.com/crossoverJie/Java-Interview)
+
+
+
+
+**欢迎关注公众号一起交流：**
 
