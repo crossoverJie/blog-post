@@ -39,7 +39,7 @@ tags:
 
 ## 事件回调
 
-事件回调其实是一种常见的设计模式，比如之前讲过的 [Netty](https://crossoverjie.top/categories/Netty/) 就使用了这样的设计模式。
+事件回调其实是一种常见的设计模式，比如之前讲过的 [Netty](https://crossoverjie.top/categories/Netty/) 就使用了这样的设计。
 
 这里采用一个 demo，试下如下功能：
 
