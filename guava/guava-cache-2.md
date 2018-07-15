@@ -151,7 +151,7 @@ Guava 就是利用了上文的两个特性来实现了**引用回收**及**移�
 
 ![](https://ws2.sinaimg.cn/large/006tKfTcgy1ftatngp76aj30n20h6gpn.jpg)
 
-在上文的分析中可以看出 Cache 中的 `ReferenceEntry` 是类 HashMap 的 Entry 存放数据的。
+在上文的分析中可以看出 Cache 中的 `ReferenceEntry` 是类似于 HashMap 的 Entry 存放数据的。
 
 来看看 ReferenceEntry 的定义：
 
