@@ -348,7 +348,7 @@ Iterator<String> iterator = map.keySet().iterator();
 第一种可以把 key value 同时取出，第二种还得需要通过 key 取一次 value，效率较低。
 
 
-> 简单总结下 HashMap：无论是 1.7 还是 1.8 其实都能看出 JDK 没有对它做任何的同步操作，所以并发会出问题，甚至出现死循环导致系统不可用。
+> 简单总结下 HashMap：无论是 1.7 还是 1.8 其实都能看出 JDK 没有对它做任何的同步操作，所以并发会出问题，甚至 1.7 中出现死循环导致系统不可用（1.8 已经修复死循环问题）。
 
 
 因此 JDK 推出了专项专用的 ConcurrentHashMap ，该类位于 ` java.util.concurrent` 包下，专门用于解决并发问题。
