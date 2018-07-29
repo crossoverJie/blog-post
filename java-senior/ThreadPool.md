@@ -215,7 +215,7 @@ public class TreadPoolConfig {
 
 线程怎么说都是稀缺资源，对线程池的监控可以知道自己任务执行的状况、效率等。
 
-关于 actuator 就不再说了，感兴趣的可以看看[这篇](http://t.cn/ReimM0o)，有详细整理过如何暴露监控端点。
+关于 actuator 就不再细说了，感兴趣的可以看看[这篇](http://t.cn/ReimM0o)，有详细整理过如何暴露监控端点。
 
 其实 ThreadPool 本身已经提供了不少 api 可以获取线程状态：
 
