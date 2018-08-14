@@ -8,7 +8,9 @@ tags:
 - CXF
 - IDEA
 ---
-![](http://img.blog.csdn.net/20160802154107534)
+
+![](https://ws4.sinaimg.cn/large/0069RVTdly1fu8071ru87j30jg0a00tb.jpg)
+
 # 前言
 webservice这个不知道大家首次接触的时候是怎么理解的，反正我记得我当时第一次接触这个东西的时候以为又是一个XX框架，觉得还挺高大上。然而这一切在之后我使用过后才发现这些全都是YY。
 那么webservice到底是什么呢，根据我自己的理解：简单来说就像是一个公开的接口，其他系统不管你是用什么语言来编写的都可以调用这个接口，并可以返回相应的数据给你。就像是现在很多的天气应用，他们肯定不会自己去搞一个气象局之类的部门去监测天气，大多都是直接调用一个天气接口，然后返回天气数据，相关应用就可以将这些信息展示给用户了。
@@ -46,8 +48,10 @@ webservice这个不知道大家首次接触的时候是怎么理解的，反正�
         </dependency>
 ```
 <!--more-->
+
 ## web.xml配置
 接着我们需要配置一个CXF的servlet：
+
 ```xml
     <!--定义一个cxf的servlet-->
     <servlet>
@@ -64,7 +68,9 @@ webservice这个不知道大家首次接触的时候是怎么理解的，反正�
 ## 整合Spring配置
 接下来是最重要的一部，用Spring整合CXF：
 在这之前我有新建一个CXF的包，如下图：
-![目录结构](http://img.blog.csdn.net/20160802160407964)
+
+![](https://ws1.sinaimg.cn/large/0069RVTdly1fu807oo9j7j309x0p1q46.jpg)
+
 这里有两个主要类
  - HelloWorld接口。
  - 实现HelloWorld接口的HelloWorldImpl类。
@@ -130,7 +136,10 @@ public class HelloWorldImpl implements HelloWorld {
 更加具体的配置可以查看官方给出的文档:[http://cxf.apache.org/docs/how-do-i-develop-a-service.html](http://cxf.apache.org/docs/how-do-i-develop-a-service.html)。
 `#helloWorld`指的是我们在`HelloWorldImpl`类中所自定义的名字，`/HelloWorld`则是我们需要访问的地址。
 之后我们运行项目输入该地址：[http://127.0.0.1:8080/ssm/webservice/HelloWorld?wsdl](http://127.0.0.1:8080/ssm/webservice/HelloWorld?wsdl)如果出现如下界面：
-![xml](http://img.blog.csdn.net/20160802170000891)则说明我们的webservice发布成功了。
+
+![](https://ws2.sinaimg.cn/large/0069RVTdly1fu8086ottdj30jg0733zm.jpg)
+
+则说明我们的webservice发布成功了。
 接下来只需要通过客户端调用这个接口即可获得返回结果了。
 
 

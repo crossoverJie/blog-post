@@ -7,7 +7,7 @@ tags:
 - Java
 - Reflect
 ---
-![构建日志对象.jpg](https://ooo.0o0.ooo/2017/05/07/590ea69c8052e.jpg)
+![](https://ws2.sinaimg.cn/large/0069RVTdly1fu80mbr19lj30jg09dq3r.jpg)
 
 
 # 前言

@@ -17,11 +17,14 @@ tags:
 `Redis`的应用场景非常多这里就不一一列举了，这次就以一个最简单的也最常用的 **缓存数据** 来举例。
 先来看一张效果图：
 
-![01.gif](https://dn-mhke0kuv.qbox.me/6ea54b0dca15c3628c9f.gif)
+![](https://ws4.sinaimg.cn/large/0069RVTdly1fu80fqs5n1j30bo072gm4.jpg)
+
 <!--more-->
 作用就是在每次查询接口的时候首先判断`Redis`中是否有缓存，有的话就读取，没有就查询数据库并保存到`Redis`中，下次再查询的话就会直接从缓存中读取了。
 `Redis`中的结果：
-![02.gif](https://dn-mhke0kuv.qbox.me/7d31e66e85cf06538085.gif)
+
+![](https://ws4.sinaimg.cn/large/0069RVTdly1fu80glfhi6j30go0afjst.jpg)
+
 之后查询redis发现确实是存进来了。
 
 
@@ -32,7 +35,8 @@ tags:
 - 将下载下来的'reidis-3.2.5-tar.gz'上传到`usr/local`这个目录进行解压。
 
 - 进入该目录。
-![03.jpg](http://img.blog.csdn.net/20161218204129539?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMTg2NjE3OTM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+
+![](https://ws2.sinaimg.cn/large/0069RVTdly1fu80h2y8z2j30eg02yt92.jpg)
 
 -  编译安装
 ```linux

@@ -7,7 +7,8 @@ tags:
 - Java
 - AOP
 ---
-![SSM(八)动态切换数据源.jpg](https://ooo.0o0.ooo/2017/05/07/590ea8fc28454.jpg)
+
+![](https://ws1.sinaimg.cn/large/0069RVTdly1fu80j3f2uvj30jg0ay0tx.jpg)
 
 
 # 前言
@@ -346,7 +347,9 @@ public interface JoinPoint {
         System.out.println(JSON.toJSONString(rediscontent));
     }
 ```
-![3](http://img.blog.csdn.net/20170105012845706?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMTg2NjE3OTM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+
+![](https://ws3.sinaimg.cn/large/0069RVTdly1fu80k99qn7j30jg053q49.jpg)
+
 这样看起来就和使用一个数据源这样简单，再也不用关心切换的问题了。
 
 
