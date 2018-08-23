@@ -347,6 +347,6 @@ Java 基础则是走向 Java 高级的必经之路。
 
 上文大部分的知识点都有维护在 GitHub 上，感兴趣的朋友可以自行查阅：
 
-![](https://ws1.sinaimg.cn/large/0069RVTdgy1fu70nx80yyj30s90qhn3i.jpg)
+![](https://ws1.sinaimg.cn/large/0069RVTdgy1fuc1ejsp0fj31kw1hx4qp.jpg)
 
-[https://github.com/crossoverJie/Java-Interview](https://github.com/crossoverJie/Java-Interview)
+[https://github.com/crossoverJie/JCSprout](https://github.com/crossoverJie/JCSprout)
