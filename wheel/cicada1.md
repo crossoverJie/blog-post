@@ -54,7 +54,7 @@ tags:
 <dependency>
     <groupId>top.crossoverjie.opensource</groupId>
     <artifactId>cicada-core</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 </dependency>
 ```
 
