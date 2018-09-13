@@ -123,5 +123,15 @@ Alice 能够按照如下 GitHub 方式提交 `pull request`。
 > 我们现在团队就是按照这样的方式进行开发，确实可以尽可能的减少代码管理上的问题。
 
 
+# 题外话
+
+像之前那篇[《如何成为一位「不那么差」的程序员》](https://crossoverjie.top/2018/08/12/personal/how-to-be-developer/#English-%E6%8C%BA%E9%87%8D%E8%A6%81)说的那样，建议大家都多看看国外的优质博客。
+
+甚至尝试和作者交流，经过沟通原作者也会在原文中贴上我的翻译链接。大家互惠互利使好的文章转播的更广。
+
+![](https://ws3.sinaimg.cn/large/0069RVTdgy1fv0bxa6p94j30uq0rgjvc.jpg)
+
+![](https://ws3.sinaimg.cn/large/0069RVTdgy1fv0bxs6fp9j30us0qydkt.jpg)
+
 
 **你的点赞与转发是最大的支持。**
