@@ -17,9 +17,9 @@ tags:
 两天前写了文章[《「造个轮子」——cicada(轻量级 WEB 框架)》
 ](https://crossoverjie.top/2018/09/03/wheel/cicada1/) 向大家介绍了 `cicada` 之后收到很多反馈，也有许多不错的建议。
 
-同时在 GitHub 也收获了 80 几颗 小♥♥（绝对不是刷的。。）
+同时在 GitHub 也收获了 100 多颗 小♥♥（绝对不是刷的。。）
 
-![](https://ws1.sinaimg.cn/large/006tNbRwgy1fuy25kq0tvj31jx6ffe82.jpg)
+![](https://ws4.sinaimg.cn/large/0069RVTdgy1fv81i7wo6qj31kw1jch3g.jpg)
 
 也有朋友希望能出一个源码介绍，本文就目前的 `v1.0.1` 版本来一起分析分析。
 
