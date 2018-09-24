@@ -95,7 +95,7 @@ tags:
 
 ![](https://ws2.sinaimg.cn/large/006tNbRwgy1fvkj6oe4rej30k104c0tg.jpg)
 
-同时为了可以通过 Channel 获取到客户端唯一标识（手机号码），还需要在 Channel 中设置对应的熟悉：
+同时为了可以通过 Channel 获取到客户端唯一标识（手机号码），还需要在 Channel 中设置对应的属性：
 
 ```java
     public static void putClientId(Channel channel, String clientId) {
