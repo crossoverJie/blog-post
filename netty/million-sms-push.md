@@ -91,7 +91,7 @@ tags:
 
 假设客户端的唯一标识是手机号码，那就需要把手机号码和当前的 Channel 维护到一个 Map 中。
 
-这点和之前 [Netty(一) SpringBoot 整合长连接心跳机制](https://crossoverjie.top/2018/05/24/netty/Netty(1)TCP-Heartbeat/#%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BF%83%E8%B7%B3) 类似。
+这点和之前 [SpringBoot 整合长连接心跳机制](http://t.cn/EPcNHFZ) 类似。
 
 ![](https://ws2.sinaimg.cn/large/006tNbRwgy1fvkj6oe4rej30k104c0tg.jpg)
 
