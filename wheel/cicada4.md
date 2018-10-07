@@ -79,12 +79,12 @@ void execute(CicadaContext context ,Param param) throws Exception;
 - 获取请求 `URL`。
 - 获取请求的 `method`（get/post）等。
 
-其实通过这些特点可以看出这些信息其实都和一次 `请求、响应` 密切相关，并且各个请求之间的信息应当互不影响。
+其实通过这些特点可以看出这些信息其实都和一次 `请求、响应` 密切相关，并且各个请求之间的信息应互不影响。
 
 
 这样的特性是不是非常熟悉，没错那就是 `ThreadLocal`，它可以将每个线程的信息存储起来互不影响。
 
-> ThreadLocal 的原理本次不做过多分析，只谈它在 cicada 中的应用。
+> ThreadLocal 的原理本次不做过多分析，只谈它在 Cicada 中的应用。
 
 ## CicadaContext.class
 
