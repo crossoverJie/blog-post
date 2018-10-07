@@ -8,6 +8,7 @@ tags:
 - Java
 - HTTP
 - Netty
+- ThreadLocal
 ---
 
 ![](https://ws4.sinaimg.cn/large/006tNbRwgy1fvyf0zkwadj31g80teqh0.jpg)
