@@ -172,7 +172,7 @@ log.info("客户端下线，TelNo=" +  telNo);
 
 上行还有一点需要注意；由于是基于长连接，所以客户端需要定期发送心跳包用于维护本次连接。同时服务端也会有相应的检查，N 个时间间隔没有收到消息之后将会主动断开连接节省资源。
 
-这点使用一个 `IdleStateHandler` 就可实现，更多内容可以查看 [Netty(一) SpringBoot 整合长连接心跳机制](https://crossoverjie.top/2018/05/24/netty/Netty(1)TCP-Heartbeat/#%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BF%83%E8%B7%B3)。
+这点使用一个 `IdleStateHandler` 就可实现，更多内容可以查看 [Netty(一) SpringBoot 整合长连接心跳机制](http://t.cn/EPcNHFZ)。
 
 
 
