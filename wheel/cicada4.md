@@ -20,7 +20,7 @@ tags:
 
 所以本次的主要更新为：
 
-- [Cicada](https://github.com/TogetherOS/cicada) 采用合理的线程分配来处理接入请求以及 IO 线程。
+- [Cicada](https://github.com/TogetherOS/cicada) 采用合理的线程分配来处理接入请求线程以及 IO 线程。
 - 支持多种响应方式（以前只有 json，现在支持 text）。
 - 为了满足上者引入了 `context`。
 - 优雅停机。
