@@ -14,7 +14,7 @@ tags:
 
 # 前言
 
-本次 [cicada](https://github.com/TogetherOS/cicada) 已经更新到了 [![](https://maven-badges.herokuapp.com/maven-central/top.crossoverjie.opensource/cicada-core/badge.svg)](https://maven-badges.herokuapp.com/maven-central/top.crossoverjie.opensource/cicada-core/) `v1.0.3`。
+本次 [Cicada](https://github.com/TogetherOS/cicada) 已经更新到了 [![](https://maven-badges.herokuapp.com/maven-central/top.crossoverjie.opensource/cicada-core/badge.svg)](https://maven-badges.herokuapp.com/maven-central/top.crossoverjie.opensource/cicada-core/) `v1.0.3`。
 
 主要是解决了两个 issue，[#9](https://github.com/TogetherOS/cicada/issues/9) [#8](https://github.com/TogetherOS/cicada/issues/8)。
 
@@ -29,7 +29,7 @@ tags:
 
 # 多种响应方式
 
-在起初 `cicada` 默认只能响应 `json`，这一点确实不够灵活。加上后续也打算支持模板解析，所以不如直接在 API 中加入可让用户自行选择不同的响应方式。
+在起初 `Cicada` 默认只能响应 `json`，这一点确实不够灵活。加上后续也打算支持模板解析，所以不如直接在 API 中加入可让用户自行选择不同的响应方式。
 
 因此调整后的 API 如下。
 
