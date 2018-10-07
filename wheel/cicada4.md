@@ -25,7 +25,7 @@ tags:
 - 为了满足上者引入了 `context`。
 - 优雅停机。
 
-其中我觉得最核心也最有用的就是这个 Context，并为此重构了大部分代码。
+其中我觉得最核心也最有用的就是这个 `Context`，并为此重构了大部分代码。
 
 # 多种响应方式
 
@@ -63,7 +63,7 @@ public class TextAction implements WorkAction {
 void execute(CicadaContext context ,Param param) throws Exception;
 ```
 
-下面就来看看这个 Context 是如何完成的。
+下面就来看看这个 `Context` 是如何完成的。
 
 # Cicada Context
 
@@ -75,9 +75,9 @@ void execute(CicadaContext context ,Param param) throws Exception;
 
 - 获取请求头。
 - 设置响应头。
-- 设置 cookie。
-- 获取请求 URL。
-- 获取请求的 method（get/post）等。
+- 设置 `cookie`。
+- 获取请求 `URL`。
+- 获取请求的 `method`（get/post）等。
 
 其实通过这些特点可以看出这些信息其实都和一次 `请求、响应` 密切相关，并且各个请求之间的信息应当互不影响。
 
