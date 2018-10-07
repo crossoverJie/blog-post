@@ -92,7 +92,7 @@ void execute(CicadaContext context ,Param param) throws Exception;
 
 ![](https://ws2.sinaimg.cn/large/006tNbRwgy1fvzqkl5ct6j30nl0kb0w7.jpg)
 
-成员变量是两个接口 `CicadaRequest、CicadaResponse`，看名称就能看出肯定是存放请求和响应数据的。
+成员变量是两个接口 `CicadaRequest、CicadaResponse`，名称就能看出肯定是存放请求和响应数据的。
 
 
 ## HttpDispatcher.class
@@ -101,16 +101,16 @@ void execute(CicadaContext context ,Param param) throws Exception;
 
 ![](https://ws3.sinaimg.cn/large/006tNbRwgy1fvzqt0dlwhj30ne0kudjn.jpg)
 
-这里改的较大的就是两个红框处，第一部分是做山下文初始化及赋值。
+这里改的较大的就是两个红框处，第一部分是做上下文初始化及赋值。
 
-第二部分自然就是卸载山下文。
+第二部分自然就是卸载上下文。
 
 
 > 先看初始化。
 
 `CicadaRequest cicadaRequest = CicadaHttpRequest.init(defaultHttpRequest) ;`
 
-首先是讲 request 初始化：
+首先是将 request 初始化：
 
 `CicadaHttpRequest` 自然是实现了 `CicadaRequest` 接口：
 
@@ -156,7 +156,7 @@ CicadaContext.setContext(new CicadaContext(cicadaRequest,cicadaResponse));
 
 ![](https://ws4.sinaimg.cn/large/006tNbRwgy1fvzr73fkrsj30o404ygm8.jpg)
 
-其实就是设置了对应想响应方式、以及把响应内容写入了 `CicadaResponse` 的 `httpContent` 中。
+其实就是设置了对应的响应方式、以及把响应内容写入了 `CicadaResponse` 的 `httpContent` 中。
 
 业务处理完后调用 `responseContent()` 进行响应：
 
@@ -170,9 +170,9 @@ responseContent(ctx,CicadaContext.getResponse().getHttpContent());
 
 最后有点非常重要，那就是 **卸载上下文**。
 
-如果这里不做处理，之后随着请求的增多，ThreadLocal 里存放的数据也越来越多，最后肯定会导致内存溢出。
+如果这里不做处理，之后随着请求的增多，`ThreadLocal` 里存放的数据也越来越多，最终肯定会导致内存溢出。
 
-所以 `CicadaContext.removeContext()` 就是为了及时删除当前上下文的。
+所以 `CicadaContext.removeContext()` 就是为了及时删除当前上下文。
 
 
 # 优雅停机
@@ -181,9 +181,9 @@ responseContent(ctx,CicadaContext.getResponse().getHttpContent());
 
 ![](https://ws3.sinaimg.cn/large/006tNbRwgy1fvzrfl6dsnj30j60bi75u.jpg)
 
-其实也就是利用 Hook 函数实现的。
+其实也就是利用 `Hook` 函数实现的。
 
-由于目前 Cicada 开的线程，占用的资源都不是特别多，所以只是关闭了 Netty 所使用的线程。
+由于目前 `Cicada` 开的线程，占用的资源都不是特别多，所以只是关闭了 Netty 所使用的线程。
 
 如果后续新增了自身的线程等资源，那也可以全部放到这里来进行释放。
 
