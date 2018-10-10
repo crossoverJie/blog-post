@@ -232,19 +232,19 @@ acks,retries,requestTimeout
 
 # Producer 参数解析
 
-发送流程讲完了再来看看 Producer 中比较重要的几个参数。
+发送流程讲完了再来看看 `Producer` 中比较重要的几个参数。
 
 ## acks
 
-acks 是一个影响消息吞吐量的一个关键参数。
+`acks` 是一个影响消息吞吐量的一个关键参数。
 
 ![](https://ws2.sinaimg.cn/large/006tNbRwly1fw3l52birsj30u607o0ta.jpg)
 
 主要有 `[all、-1, 0, 1]` 这几个参数，默认为 1。
 
-由于 Kafka 不是才去的主备模式，而是采用类似于 Zookeeper 的主备模式。
+由于 `Kafka` 不是才去的主备模式，而是采用类似于 Zookeeper 的主备模式。
 
-> 前提是 Topic 配置副本数量 replica > 1。 
+> 前提是 `Topic` 配置副本数量 `replica > 1`。 
 
 当 `acks = all/-1` 时：
 
