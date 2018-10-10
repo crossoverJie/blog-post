@@ -12,7 +12,7 @@ tags:
 
 # 前言
 
-在上文 [设计一个百万级的消息推送系统](https://crossoverjie.top/2018/09/25/netty/million-sms-push/) 中提到消息使用的是 `Kafka` 作为中间。
+在上文 [设计一个百万级的消息推送系统](https://crossoverjie.top/2018/09/25/netty/million-sms-push/) 中提到消息流转采用的是 `Kafka` 作为中间件。
 
 其中有朋友咨询在大量消息的情况下 `Kakfa` 是如何保证消息的高效及一致性呢？
 
