@@ -257,7 +257,7 @@ acks,retries,requestTimeout
 
 当 `acks = 0` 时：
 
-producer 不会等待副本的任何响应，这样最容易丢失消息但同时性能确实最好的！
+producer 不会等待副本的任何响应，这样最容易丢失消息但同时性能却是最好的！
 
 当 `acks = 1` 时：
 
