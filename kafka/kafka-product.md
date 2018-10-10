@@ -240,7 +240,7 @@ acks,retries,requestTimeout
 
 ![](https://ws2.sinaimg.cn/large/006tNbRwly1fw3l52birsj30u607o0ta.jpg)
 
-主要有 `[all、-1, 0, 1]` 这几个参数，默认为 1。
+主要有 `[all、-1, 0, 1]` 这几个选项，默认为 1。
 
 由于 `Kafka` 不是才去的主备模式，而是采用类似于 Zookeeper 的主备模式。
 
