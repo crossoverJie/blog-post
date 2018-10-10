@@ -102,9 +102,11 @@ Future<RecordMetadata> send(ProducerRecord<K, V> producer, Callback callback);
 
 ## 发送流程
 
-为了直观的了解发送的流程，简单的画了几个在发送过程中重要的步骤。
+为了直观的了解发送的流程，简单的画了几个在发送过程中关键的步骤。
 
 ![](https://ws3.sinaimg.cn/large/006tNbRwly1fw3j5x05izj30a40btmxt.jpg)
+
+从上至下依次是：
 
 - 初始化以及真正发送消息的 `kafka-producer-network-thread` IO 线程。
 - 将消息序列化。
