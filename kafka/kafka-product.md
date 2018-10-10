@@ -1,5 +1,5 @@
 ---
-title: 从源码分析如何优雅的向 Kafka 发送消息
+title: 从源码分析如何优雅的使用 Kafka 生产者
 date: 2018/10/10 00:01:14       
 categories: 
 - Kafka
