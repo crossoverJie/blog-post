@@ -123,7 +123,7 @@ Future<RecordMetadata> send(ProducerRecord<K, V> producer, Callback callback);
 
 ![](https://ws1.sinaimg.cn/large/006tNbRwly1fw3jc9hvwbj30rc0273yn.jpg)
 
-调用该构造方法进行初始化时，不止是简单的将基本数据写入 `KafkaProducer`。比较麻烦的是初始化 `Sender` 线程进行缓冲区消费。
+调用该构造方法进行初始化时，不止是简单的将基本参数写入 `KafkaProducer`。比较麻烦的是初始化 `Sender` 线程进行缓冲区消费。
 
 初始化 IO 线程处：
 
@@ -147,11 +147,11 @@ acks,retries,requestTimeout
 
 ![](https://ws4.sinaimg.cn/large/006tNbRwly1fw3jq5h0nyj30p607oq4e.jpg)
 
-我们也可以自己实现序列化方式，只需要实现 `org.apache.kafka.common.serialization.Serializer` 接口即可。
+我们也可以自己实现序列化，只需要实现 `org.apache.kafka.common.serialization.Serializer` 接口即可。
 
 ### 路由分区
 
-接下来就是路由分区，通常我们使用的 Topic 为了实现扩展性以及高性能都会创建多个分区。
+接下来就是路由分区，通常我们使用的 `Topic` 为了实现扩展性以及高性能都会创建多个分区。
 
 如果是一个分区好说，所有消息都往里面写入即可。
 
@@ -199,7 +199,7 @@ acks,retries,requestTimeout
 
 - 获取 Topic 分区数。
 - 将内部维护的一个线程安全计数器 +1。
-- 与分区数取模得到分区数。
+- 与分区数取模得到分区编号。
 
 其实这就是很典型的轮询的方式，所以只要分区数不频繁变动这种方式也会比较均匀。
 
