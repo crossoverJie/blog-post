@@ -70,7 +70,7 @@ tags:
 Future<RecordMetadata> send(ProducerRecord<K, V> producer, Callback callback);
 ```
 
-`Callback` 其实是一个回调接口，在消息发送完成之后可以回调我们自定义的实现。
+`Callback` 是一个回调接口，在消息发送完成之后可以回调我们自定义的实现。
 
 ![](https://ws3.sinaimg.cn/large/006tNbRwly1fw3g4hce6aj30zv0b0dhp.jpg)
 
@@ -99,7 +99,7 @@ Future<RecordMetadata> send(ProducerRecord<K, V> producer, Callback callback);
 现在只掌握了基本的消息发送，想要深刻的理解发送中的一些参数配置还是得源码说了算。
 
 首先还是来谈谈消息发送时的整个流程是怎么样的，`Kafka` 并不是简单的把消息通过网络发送到了 `broker` 中，在 Java 内部还是经过了许多优化和设计。
-I
+
 ## 发送流程
 
 为了直观的了解发送的流程，简单的画了几个在发送过程中重要的步骤。
