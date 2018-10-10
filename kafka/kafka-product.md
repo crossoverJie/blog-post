@@ -242,7 +242,7 @@ acks,retries,requestTimeout
 
 主要有 `[all、-1, 0, 1]` 这几个选项，默认为 1。
 
-由于 `Kafka` 不是才去的主备模式，而是采用类似于 Zookeeper 的主备模式。
+由于 `Kafka` 不是采取的主备模式，而是采用类似于 Zookeeper 的主备模式。
 
 > 前提是 `Topic` 配置副本数量 `replica > 1`。 
 
