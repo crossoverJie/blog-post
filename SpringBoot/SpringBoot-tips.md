@@ -155,11 +155,11 @@ BaseResponse.createSuccess(DateUtil.getLongTime() + "", "mock orderNo success"))
 
 ![](https://ws4.sinaimg.cn/large/006tNbRwly1fw87imdlhgj30qr0emdhh.jpg)
 
-再次请求就并没有报错，并且获得了我们默认的返回。
+再次请求没有报错，并且获得了我们默认的返回。
 
 ![](https://ws4.sinaimg.cn/large/006tNbRwly1fw87k3ut7yj319p07gq82.jpg)
 
-通过日志也会发现 `OrderServiceClient` 最后一句被 `Mock` 代理了，并不会去调用真正的方法。
+通过日志也会发现 `OrderServiceClient` 最后已经被 `Mock` 代理了，并不会去调用真正的方法。
 
 # 配置加密
 
