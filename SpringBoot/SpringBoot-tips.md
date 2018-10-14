@@ -239,6 +239,8 @@ public class DataSourceProcess implements BeanPostProcessor {
 }
 ```
 
+这样就可以在真正使用时还原为明文。
+
 同时也可以在启动命令中配置刚才的密码：
 
 ```
