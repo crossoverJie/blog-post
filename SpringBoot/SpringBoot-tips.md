@@ -121,7 +121,7 @@ public class OrderMockServiceConfig implements CommandLineRunner {
 ```
 
 
-其中实现了 `CommandLineRunner` 接口，可以在 Spring 容器初始化完成之后调用 run() 方法。
+其中实现了 `CommandLineRunner` 接口，可以在 `Spring` 容器初始化完成之后调用 `run()` 方法。
 
 代码非常简单，简单来说首先判断下是什么环境，毕竟除开本地环境其余的都是需要真正调用远程服务的。
 
@@ -151,7 +151,7 @@ BaseResponse.createSuccess(DateUtil.getLongTime() + "", "mock orderNo success"))
 因为没有配置 fallback 所以会报错，表示找不到这个服务。
 
 
-我在启动之前的替换：
+替换掉 bean 时：
 
 ![](https://ws4.sinaimg.cn/large/006tNbRwly1fw87imdlhgj30qr0emdhh.jpg)
 
