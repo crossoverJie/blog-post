@@ -51,7 +51,7 @@ tags:
 
 大致的流程分为以下几步：
 
-- `SpringBoot` 启动之后在 `Spring` 中找出你需要屏蔽的那个 API 的 `bean`（通常情况下这个接口都是交给 `Spring` 管理的）。
+- `SpringBoot` 启动之后在 `Spring` 中找出你需要屏蔽的那个 `API` 的 `bean`（通常情况下这个接口都是交给 `Spring` 管理的）。
 - 手动从 `bean` 容器中删除该 `bean`。
 - 重新创建一个该 `API` 的对象，只不过是通过 `Mock` 出来的。
 - 再手动注册进 `bean` 容器中。
@@ -70,6 +70,8 @@ tags:
         return orderNo;
     }
 ```
+
+它依赖于 `orderServiceClient` 获取一个订单号。
 
 > 这是一个 SpringCloud 应用。
 
