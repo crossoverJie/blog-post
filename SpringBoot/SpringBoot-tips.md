@@ -209,7 +209,7 @@ jasypt.encryptor.password=123456
 
 由于我这里是对数据库用户名和密码加密，所以还得有一个解密的过程。
 
-利用 Spring Bean 的一个增强接口即可实现：
+利用 `Spring Bean` 的一个增强接口即可实现：
 
 ```java
 @Component
