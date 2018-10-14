@@ -71,9 +71,11 @@ tags:
     }
 ```
 
-它依赖于 `orderServiceClient` 获取一个订单号。
 
 > 这是一个 SpringCloud 应用。
+
+它依赖于 `orderServiceClient` 获取一个订单号。
+
 
 其中的 `orderServiceClient` 就是一个外部 API，也是被 Spring 所管理。
 
