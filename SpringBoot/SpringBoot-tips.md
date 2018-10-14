@@ -171,7 +171,7 @@ BaseResponse.createSuccess(DateUtil.getLongTime() + "", "mock orderNo success"))
 
 - 首先根据加密密码将需要加密的配置加密为密文。
 - 替换原本明文保存的配置。
-- 再使用处进行解密。
+- 再使用时进行解密。
 
 使用该包也只需要引入一个依赖即可：
 
