@@ -189,7 +189,7 @@ public abstract class CicadaInterceptor {
 
 其中的 `loadInterceptors()` 会将所有的拦截器加入到责任链中。
 
-再提供了两个函数分别对应了拦截器和拦截后的入口：
+再提供了两个函数分别对应了拦截前和拦截后的入口：
 
 ![](https://ws1.sinaimg.cn/large/006tNbRwly1fwgblxcj46j315a0osq79.jpg)
 
@@ -201,7 +201,7 @@ public abstract class CicadaInterceptor {
 
 在请求的 `handle` 中首先进行加载（`loadInterceptors(AppConfig appConfig)`），也就是初始化责任链。
 
-接下来则是客户端的入口，调用拦截前后的入口即可。
+接下来则是客户端的入口；调用拦截前后的入口方法即可。
 
 > 由于是拦截器，那么在 `before` 函数中是可以对请求进行拦截的。只要返回 `false` 就不会继续向后处理。所以这里做了一个返回值的判断。
 
@@ -211,7 +211,7 @@ public abstract class CicadaInterceptor {
 
 1. 记录一个业务 `handle` 的执行时间。
 2. 在 `after` 里打印了请求参数。
-3. 同时可在第一个拦截器中返回 false 让请求被拦截。
+3. 同时可在第一个拦截器中返回 `false` 让请求被拦截。
 
 先来做前两个试验：
 
@@ -255,7 +255,7 @@ public abstract class CicadaInterceptor {
 
 ![](https://ws2.sinaimg.cn/large/006tNbRwly1fwgc9n4x9mj31kw05mgop.jpg)
 
-确实也是打印执行时间的拦截器先执行。
+发现打印执行时间的拦截器先执行。
 
 
 那这个执行执行顺序如何时间自定义配置的呢？
