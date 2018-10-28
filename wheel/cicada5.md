@@ -291,7 +291,7 @@ public abstract class CicadaInterceptor {
 
 上文中的源码如下：
 
-- [https://github.com/TogetherOS/cicada:一个高性能 HTTP 框架](https://github.com/TogetherOS/cicada)
+- [https://github.com/TogetherOS/cicada:一个高性能、轻量 HTTP 框架](https://github.com/TogetherOS/cicada)
 - [https://git.io/fxKid](https://git.io/fxKid)
 
 
