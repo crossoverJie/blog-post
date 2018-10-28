@@ -96,9 +96,9 @@ java -jar nows-0.0.1-SNAPSHOT.jar /xx/Hexo/source/_posts
 
 读取之后将文件的路径保持到一个集合中。
 
-> 需要注意的时候这个递归次数需要控制下，避免出现栈溢出(`StackOverflow`)。
+> 需要注意的是这个递归次数需要控制下，避免出现栈溢出(`StackOverflow`)。
 
-最后读取文件内容则是使用 JDK8 中的流来进行读取，这样代码可以更简洁：
+最后读取文件内容则是使用 `Java8` 中的流来进行读取，这样代码可以更简洁：
 
 ```java
 Stream<String> stringStream = Files.lines(Paths.get(path), StandardCharsets.UTF_8);
@@ -109,7 +109,7 @@ List<String> collect = stringStream.collect(Collectors.toList());
 
 # 扩展能力
 
-简单的处理可在上面的代码中遍历 `collect` 然后把其中的需要过滤的内容替换为空就行。
+简单处理可在上面的代码中遍历 `collect` 然后把其中需要过滤的内容替换为空就行。
 
 但每个人的想法可能都不一样。比如我只想过滤掉`空格、换行、超链接`就行了，但有些人需要去掉其中所有的英文单词，甚至换行还得留着（就像写作文一样可以充字数）。
 
@@ -117,7 +117,7 @@ List<String> collect = stringStream.collect(Collectors.toList());
 
 看过上文[《利用责任链模式设计一个拦截器》](https://crossoverjie.top/2018/10/22/wheel/cicada5/)应该很容易想到这样的场景责任链模式再合适不过了。
 
-关于`责任链模式`具体的内容就不在详述了，感兴趣的可以查看上文。
+关于`责任链模式`具体的内容就不在详述了，感兴趣的可以查看[上文](https://crossoverjie.top/2018/10/22/wheel/cicada5/)。
 
 这里直接看实现吧：
 
@@ -239,7 +239,7 @@ public class ScanNumTask implements Runnable {
 执行结果：
 ![](https://ws2.sinaimg.cn/large/006tNbRwly1fwoa1bup8ij31g604jmz9.jpg)
 
-我们会发现无论执行多少次，这个值都会小于我们的预期的值。
+我们会发现无论执行多少次，这个值都会小于我们的预期值。
 
 来看看统计那里是怎么实现的。
 
@@ -260,13 +260,13 @@ public class TotalWords {
 
 可以看到就是对一个基本类型进行累加而已。那导致这个值比预期小的原因是什么呢？
 
-我想大部分人都会说：多线程运行时会导致有些线程把其他线程运算的值覆盖导致的。
+我想大部分人都会说：多线程运行时会导致有些线程把其他线程运算的值覆盖。
 
 > 但其实这只是导致这个问题的表象，根本原因还是没有讲清楚。
 
 ## 内存可见性
 
-核心原因其实是由 Java 内存模型（`JMM`）所规定的。
+核心原因其实是由 Java 内存模型（`JMM`）的规定导致的。
 
 这里引用一段之前写的[《你应该知道的 volatile 关键字》](https://crossoverjie.top/2018/03/09/volatile/)一段解释：
 
