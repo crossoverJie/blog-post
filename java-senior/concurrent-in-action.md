@@ -307,7 +307,7 @@ public class TotalWords {
 }
 ```
 
-只是试用了它的两个 `API` 而已。再来运行下程序会发现**结果还是不对**。
+只是使用了它的两个 `API` 而已。再来运行下程序会发现**结果居然还是不对**。
 
 ![](https://ws4.sinaimg.cn/large/006tNbRwly1fwoagwv1xdj315103f0ui.jpg)
 
