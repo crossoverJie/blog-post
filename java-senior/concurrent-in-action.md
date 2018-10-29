@@ -402,7 +402,7 @@ logger.info("total sum=[{}],[{}] ms",total,end-start);
 - 怎么实现一个多线程程序？
 - 多线程带来的问题及解决方案？
 
-文中的代码都此处。
+文中的代码都在此处。
 
 [https://github.com/crossoverJie/NOWS](https://github.com/crossoverJie/NOWS)
 
