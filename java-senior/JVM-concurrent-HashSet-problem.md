@@ -264,4 +264,10 @@ public class Worker extends Thread{
 
 
 
+同时我会将文章更到这里，方便大家阅读和查询。
+
+[https://crossoverjie.top/JCSprout/](https://crossoverjie.top/JCSprout/)
+
+
+
 **你的点赞与分享是对我最大的支持**
