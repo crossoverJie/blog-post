@@ -1,5 +1,5 @@
 ---
-title: 老板让我写个 Bug
+title: 老板让我写个 BUG
 date: 2018/12/12 08:01:36 
 categories: 
 - Java 进阶
