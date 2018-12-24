@@ -2,12 +2,11 @@
 title: GoodBye 2016,Welcome 2017 | 码农砌墙记
 date: 2016-12-31 23:35:14
 categories: 
-- blog
-tags: 
-- 总结
+- annual-summary
 ---
 # 前言
-![agenda-1928416_1920.jpg](https://ooo.0o0.ooo/2017/05/07/590ea6ebdbc57.jpg)
+
+![](https://ws1.sinaimg.cn/large/006tNbRwly1fyiaehl295j31960u0h35.jpg)
 
 
 早在这个月初的时候我就很想写一篇年终总结了，因为这一年相对于去年确实是经历的太多了。
@@ -44,7 +43,8 @@ tags:
 上面说到我看了嘟爷的博客才开始搭建自己的博客，到现在为止由于我的拖延症(`加上是真的懒`)一共写了20篇。不能说写的有多好，但确实是我在工作和学习中的一些总结。
 
 让我意外的是我博客的访问量，下图是我`cnzz`的统计截图：
-![2](http://img.blog.csdn.net/20161231225404369?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMTg2NjE3OTM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+
+![](https://ws3.sinaimg.cn/large/006tNbRwly1fyiae4xuczj31lk0qqgrg.jpg)
 
 # 六月二十一-开源项目
 关于开源项目，之前我在`github`上面看很多优秀的开源项目，也很佩服那些作者，于是就想着自己能不能也搞一个，但是一来就造个轮子对我来说确实有点不现实。
@@ -55,7 +55,8 @@ tags:
 `会不定期更新一些在实际开发中使用的技巧(ps:目前不是很忙基本上一周一更)。 没有复杂的业务流程，更不是XXXX系统，只有一些技术的分享。`
 
 从六月二十一号到现在还是有100多颗星了：
-![3](http://img.blog.csdn.net/20161231230128550?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMTg2NjE3OTM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+
+![](https://ws3.sinaimg.cn/large/006tNbRwly1fyiaezuuv2j314m0ocjut.jpg)
 
 # 九月二十三-第二次跳槽
 看到这里是不是觉得我有病啊，怎么又是跳槽。。。
