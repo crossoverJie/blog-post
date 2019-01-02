@@ -8,6 +8,8 @@ tags:
 - 推送
 - IM
 - IOT
+- Zookeeper
+- Redis
 ---
 
 ![](https://ws4.sinaimg.cn/large/006tNbRwly1fyr320o1ymj31hc0u0qew.jpg)
