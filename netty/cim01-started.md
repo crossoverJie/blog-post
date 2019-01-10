@@ -2,8 +2,8 @@
 title: 为自己搭建一个分布式 IM(即时通讯) 系统
 date: 2019/01/02 00:01:14       
 categories:
-- cim 
 - Netty
+- cim
 tags: 
 - 推送
 - IM
@@ -56,9 +56,9 @@ tags:
 > 点击下方链接可以查看视频版 Demo。
 
 | YouTube | Bilibili|
-| :------:| :------: |
-| [群聊](https://youtu.be/_9a4lIkQ5_o) [私聊](https://youtu.be/kfEfQFPLBTQ) | [群聊](https://www.bilibili.com/video/av39405501) [私聊](https://www.bilibili.com/video/av39405821) |
-| ![](https://ws4.sinaimg.cn/large/006tNbRwly1fylq36zy83j31ga0n71ky.jpg)| ![](https://ws4.sinaimg.cn/large/006tNbRwly1fylq36zy83j31ga0n71ky.jpg)
+| :------:| :------: | 
+| [群聊](https://youtu.be/_9a4lIkQ5_o) [私聊](https://youtu.be/kfEfQFPLBTQ) | [群聊](https://www.bilibili.com/video/av39405501) [私聊](https://www.bilibili.com/video/av39405821) | 
+| <img src="https://ws3.sinaimg.cn/large/006tNbRwly1fys8flaofrj315e0ose81.jpg"  height="295px" />  | <img src="https://ws4.sinaimg.cn/large/006tNbRwly1fys8mpa6wij31240lghdt.jpg" height="295px" />
 
 
 也在公网部署了一套演示环境，想要试一试的可以联系我加入内测群获取账号一起尬聊😋。
