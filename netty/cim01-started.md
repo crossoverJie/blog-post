@@ -23,11 +23,6 @@ tags:
 
 老读者应该还记得我在去年国庆节前分享过一篇[《设计一个百万级的消息推送系统》](https://crossoverjie.top/2018/09/25/netty/million-sms-push/)；虽然我在文中有贴一些伪代码，依然有些朋友希望能直接分享一些可以运行的源码；这么久了是时候把坑填上了。
 
-目录结构：
-
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fyrjwtbi0cj304i0jfgm3.jpg)
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fyrjy5iu3sj305c03x0sm.jpg)
-
 > 本文较长，高能预警；带好瓜子板凳。
 
 
