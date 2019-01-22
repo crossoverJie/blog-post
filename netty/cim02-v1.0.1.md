@@ -16,7 +16,7 @@ tags:
 > 最近这段时间确实有点忙，这篇的目录还是在飞机上敲出来了的。
 
 
-言归正传，上周更新了 [cim](https://github.com/crossoverJie/cim) 第一版；没想到反响热烈，最高时上了 `GitHub Trending  Java` 版块的首位，一天收到了 300+ 的 star。
+言归正传，上周更新了 [cim](https://github.com/crossoverJie/cim) 第一版：[为自己搭建一个分布式 IM(即时通讯) 系统](https://crossoverjie.top/2019/01/02/netty/cim01-started/)；没想到反响热烈，最高时上了 `GitHub Trending  Java` 版块的首位，一天收到了 300+ 的 star。
 
 ![](https://ws2.sinaimg.cn/large/006tNc79ly1fz5aqd48f4j31m80dk40h.jpg)
 
@@ -38,7 +38,6 @@ tags:
 
 # AI 模式
 
-![](https://ws1.sinaimg.cn/large/006tNc79ly1fz5bhiysb8j30ty10ead0.jpg)
 
 大家应该还记得这个之前刷爆朋友圈的 `估值两个一个亿的 AI 核心代码`。
 
