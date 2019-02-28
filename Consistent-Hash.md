@@ -1,5 +1,5 @@
 ---
-title: 一致 Hash 算法分析
+title: 一致性 Hash 算法分析
 date: 2018/01/08 02:01:36 
 categories: 
 - 算法
