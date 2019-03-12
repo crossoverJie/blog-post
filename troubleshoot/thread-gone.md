@@ -13,7 +13,9 @@ tags:
 
 ![](https://ws1.sinaimg.cn/large/006tKfTcly1g0z9cox30rj31c00u010w.jpg)
 
-# 前言 
+# 背景 
+
+事情（事故）是这样的，突然收到监控报警线上某个应用里业务逻辑没有执行
 
 # 尝试定位
 
