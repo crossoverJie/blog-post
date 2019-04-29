@@ -7,7 +7,7 @@ tags:
 - db
 ---
 
-![](https://ws2.sinaimg.cn/large/006tNc79ly1g23egdv1f8j30m80chq6e.jpg)
+![](https://i.loli.net/2019/04/29/5cc65343e8bc4.jpg)
 
 # 前言
 

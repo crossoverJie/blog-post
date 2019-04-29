@@ -5,7 +5,7 @@ categories:
 - VLOG
 ---
 
-![](https://ws3.sinaimg.cn/large/006tNc79ly1g2a9nkb5i3j31400p01kx.jpg)
+![](https://i.loli.net/2019/04/29/5cc652f48e019.jpg)
 
 周末轻松一下。
 

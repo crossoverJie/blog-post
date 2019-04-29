@@ -8,7 +8,8 @@ tags:
 - ArrayBlockingQueue
 ---
 
-![](https://ws4.sinaimg.cn/large/006tNc79ly1g1vn9xpgp4j31ak0u013m.jpg)
+![](https://i.loli.net/2019/04/29/5cc6544d1fa9c.jpeg)
+
 
 
 
@@ -30,7 +31,8 @@ tags:
 
 既然开了一个新坑，就不想做的太差；所以我打算将这个列表下的大部分类都讲到。
 
-![](https://ws2.sinaimg.cn/large/006tNc79ly1g1vpwdqbkrj30ab09nmy9.jpg)
+![](https://i.loli.net/2019/04/29/5cc5dc4cc3a13.jpg)
+
 
 
 所以本次重点讨论 `ArrayBlockingQueue`。
@@ -104,7 +106,7 @@ tags:
     private Object empty = new Object();
 ```
 
-![](https://ws2.sinaimg.cn/large/006tNc79ly1g1wf8de8jzj30te0tin1i.jpg)
+![](https://i.loli.net/2019/04/29/5cc65481da328.jpg)
 
 所以这里声明了两个对象用于队列满、空情况下的互相通知作用。
 
@@ -118,11 +120,11 @@ tags:
 
 上文也提到了：当队列为空时，获取队列的线程需要被阻塞，直到队列中有数据时才被唤醒。
 
-![](https://ws1.sinaimg.cn/large/006tNc79ly1g1wfhr3r6qj30tg0tiwit.jpg)
+![](https://i.loli.net/2019/04/29/5cc654c0a8f9d.jpg)
 
 代码和写入的非常类似，也很好理解；只是这里的等待、唤醒恰好是相反的，通过下面这张图可以很好理解：
 
-![](https://ws3.sinaimg.cn/large/006tNc79ly1g1wfwr016gj30o20ksq59.jpg)
+![](https://i.loli.net/2019/04/29/5cc654e141818.jpg)
 
 总的来说就是：
 
