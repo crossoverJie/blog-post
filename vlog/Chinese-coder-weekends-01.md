@@ -5,7 +5,7 @@ categories:
 - VLOG
 ---
 
-![](https://ws1.sinaimg.cn/large/006tKfTcly1g19m0d3qs8j31400p0e81.jpg)
+![](https://i.loli.net/2019/04/29/5cc6563f56b0c.jpg)
 
 上次发了一个[《VLOG-004：国产程序员的一天》](https://crossoverjie.top/2019/02/20/vlog/Chinese-coder-daily)评论和播放量都还不错，这次趁热打铁更新了周末业余生活是怎么样的。
 

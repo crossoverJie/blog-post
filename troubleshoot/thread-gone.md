@@ -11,7 +11,7 @@ tags:
 - disruptor
 ---
 
-![](https://ws1.sinaimg.cn/large/006tKfTcly1g0z9cox30rj31c00u010w.jpg)
+![](https://i.loli.net/2019/04/29/5cc656743cc4f.jpg)
 
 # 背景 
 

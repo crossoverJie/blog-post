@@ -5,7 +5,7 @@ categories:
 - 算法
 ---
 
-![](https://ws3.sinaimg.cn/large/006tNc79gy1fn8l7h65v6j30v90kujsd.jpg)
+![](https://i.loli.net/2019/04/29/5cc656bda3f66.jpg)
 
 当我们在做数据库分库分表或者是分布式缓存时，不可避免的都会遇到一个问题:
 

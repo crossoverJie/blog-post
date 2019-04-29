@@ -10,7 +10,7 @@ tags:
 - concurrent
 ---
 
-![](https://ws4.sinaimg.cn/large/006tKfTcly1g14ndc0hrkj31hc0u0ae4.jpg)
+![](https://i.loli.net/2019/04/29/5cc655fb0f18c.jpg)
 
 # 背景
 

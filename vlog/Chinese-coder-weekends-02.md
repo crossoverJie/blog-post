@@ -5,7 +5,7 @@ categories:
 - VLOG
 ---
 
-![](https://ws4.sinaimg.cn/large/006tKfTcly1g1kprtzb43j30zk0k0din.jpg)
+![](https://i.loli.net/2019/04/29/5cc655bdd866b.jpg)
 
 承接上期[《VLOG-006:一个程序员的周末（上）》](https://crossoverjie.top/2019/03/21/vlog/Chinese-coder-weekends-01/)
 

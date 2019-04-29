@@ -5,7 +5,7 @@ categories:
 - VLOG
 ---
 
-![](https://ws4.sinaimg.cn/large/006tKfTcly1g0dz3to9eqj30zk0k0dgx.jpg)
+![](https://i.loli.net/2019/04/29/5cc656ede2e8e.jpg)
 
 `VLOG` 近些年非常流行，最近这段时间我也拍了一些来记录生活。
 
