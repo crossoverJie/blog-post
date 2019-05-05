@@ -9,7 +9,7 @@ tags:
 - 策略模式
 ---
 
-![](https://ws1.sinaimg.cn/large/006tNc79gy1fzon6u7cf7j31cn0u0n82.jpg)
+![](https://i.loli.net/2019/05/05/5ccef1ffd774f.jpg)
 
 # 前言
 
@@ -44,21 +44,21 @@ if(a){
 
 这次终于忍无可忍就把他重构了，重构之后这里的结构如下：
 
-![](https://ws1.sinaimg.cn/large/006tNc79gy1fzonach7qrj31e60fkq5a.jpg)
+![](https://i.loli.net/2019/05/05/5ccef221d1575.jpg)
 
 最后直接变为两行代码，简洁了许多。
 
 而之前所有的实现逻辑都单独抽取到其他实现类中。
 
-![](https://ws3.sinaimg.cn/large/006tNc79gy1fzonc9y7voj30ds09o0u0.jpg)
-![](https://ws2.sinaimg.cn/large/006tNc79gy1fzond3y6ruj31e80e0gov.jpg)
+![](https://i.loli.net/2019/05/05/5ccef23ed1f7c.jpg)
+![](https://i.loli.net/2019/05/05/5ccef256abc9b.jpg)
 
 这样每当我需要新增一个 `else` 逻辑，只需要新增一个类实现同一个接口便可完成。每个处理逻辑都互相独立互不干扰。
 
 
 # 实现
 
-![](https://ws3.sinaimg.cn/large/006tNc79gy1fzoojq332xj315g0k4gq8.jpg)
+![](https://i.loli.net/2019/05/05/5ccef2723156b.jpg)
 
 按照目前的实现画了一个草图。
 
@@ -73,7 +73,7 @@ if(a){
 
 从源码上来看最主要的就是 `InnerCommandContext` 类，他会根据当前客户端命令动态获取 `InnerCommand` 实例。
 
-![](https://ws2.sinaimg.cn/large/006tNc79gy1fzoowixr31j31do0modli.jpg)
+![](https://i.loli.net/2019/05/05/5ccef28c2eedc.jpg)
 
 - 第一步是获取所有的 `InnerCommand` 实例列表。
 - 根据客户端输入的命令从第一步的实例列表中获取类类型。
@@ -82,7 +82,7 @@ if(a){
 
 因此首先第一步需要维护各个命令所对应的类类型。
 
-![](https://ws4.sinaimg.cn/large/006tNc79gy1fzoozp44ofj310q0aowhy.jpg)
+![](https://i.loli.net/2019/05/05/5ccef2b72abb8.jpg)
 
 所以在之前的枚举中就维护了命令和类类型的关系，只需要知道命令就能知道他的类类型。
 
