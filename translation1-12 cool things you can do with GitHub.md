@@ -7,7 +7,7 @@ tags:
 - GitHub
 ---
 
-![](https://ws3.sinaimg.cn/large/006tNc79ly1flef224anmj31kw0ebgnt.jpg)
+![](https://i.loli.net/2019/05/08/5cd1ba387b5a8.jpg)
 
 ### [原文链接](https://hackernoon.com/12-cool-things-you-can-do-with-github-f3e0424cf2f0)
 
@@ -20,7 +20,7 @@ tags:
 很厉害吧！他自动帮你 `fork` 了该 repo。
 
 不再需要 `fork` , `pull` ,本地编辑再 `push` 以及创建一个 `PR` 这样的流程了。
-![](https://ws3.sinaimg.cn/large/006tKfTcgy1fl5eo3789hj30m80mjwhy.jpg)
+![](https://i.loli.net/2019/05/08/5cd1ba3b3e25e.jpg)
 
 这非常适合修复编写代码中出现的拼写错误和修正一个不太理想的想法。
 
@@ -39,13 +39,13 @@ tags:
 ```jsx
 ```
 
-![](https://ws1.sinaimg.cn/large/006tKfTcgy1fl5fe2vu3rj30b607kq39.jpg)
+![](https://i.loli.net/2019/05/08/5cd1ba3eac6e5.jpg)
 
 <!--more-->
 
 这意味着代码段将会呈现出:
 
-![](https://ws4.sinaimg.cn/large/006tKfTcgy1fl5ffl8q7sj30bz06gq36.jpg)
+![](https://i.loli.net/2019/05/08/5cd1ba43b2edd.jpg)
 
 (这个扩展于 `gists` 。顺便说一句，如果你使用 `.jsx` 后缀，就会得到JSX的语法高亮)
 
@@ -61,7 +61,7 @@ tags:
 ## 5 链接到评论
 你是否有过想要链接到特殊 `comment ` 的想法但却无法实现？那是因为你不知道怎么做。朋友那都是过去式了，现在我就告诉你，点击用户名旁边的日期/时间即可链接到该 `comment ` 。
 
-![](https://ws3.sinaimg.cn/large/006tKfTcly1fl69xkm5rtj30d003zq37.jpg)
+![](https://i.loli.net/2019/05/08/5cd1ba48b96bc.jpg)
 
 ## 6 链接到代码
 
@@ -77,7 +77,7 @@ tags:
 
 我很懒，所以用一张截图展示以上的所有操作。
 
-![](https://ws2.sinaimg.cn/large/006tKfTcly1fl6lw7ji6uj30m80a6mym.jpg)
+![](https://i.loli.net/2019/05/08/5cd1ba54a2c40.jpg)
 
 谈到网址。。。
 
@@ -85,12 +85,12 @@ tags:
 使用 GitHub 自带的 UI 浏览也还不错，但有时直接在 URL 中输入是最快的方法。比如，我想跳转到我正在编辑的分支并和 `master` 进行对比，就可以在项目名称后面接上 `/compare/branch-name` 。
 
 与选中分支的对比页将会显示出来:
-![](https://ws2.sinaimg.cn/large/006tKfTcly1fl8rqb8egpj30u50pbaea.jpg)
+![](https://i.loli.net/2019/05/08/5cd1ba58ca3f5.jpg)
 
 以上就是和 master 分支的差异，如果想要合并分支的话，只需要输入 `/compare/integration-branch...my-branch
 ` 即可。
 
-![](https://ws2.sinaimg.cn/large/006tKfTcly1fl8s3yraqrj30u50pbgpx.jpg)
+![](https://i.loli.net/2019/05/08/5cd1ba5c3e3e1.jpg)
 
 你还可以利用快捷键达到同样的效果，使用 `ctrl + L` 或者 `cmd + L` 可以将光标移动到 `URL` 上(至少在 Chrome 中可以)。 加上浏览器的自动补全 —— 你就可以在两个分支之间轻松切换了。
 
@@ -99,11 +99,11 @@ tags:
 
 你想在你的 issue 中看到复选框列表吗?
 
-![](https://ws2.sinaimg.cn/large/006tKfTcly1fl8snpyb0jj30e708sdgl.jpg)
+![](https://i.loli.net/2019/05/08/5cd1ba5e4f661.jpg)
 
 你想在查看 issue 列表是它们以好看的 `2 of 5` 进度条呈现吗？
 
-![](https://ws1.sinaimg.cn/large/006tKfTcly1fl8u3bn88hj30dn06jdg9.jpg)
+![](https://i.loli.net/2019/05/08/5cd1ba612afad.jpg)
 
 
 太好了！你可以用以下语法来创建一个交互性的复选框:
@@ -132,7 +132,7 @@ tags:
 
 这些链接需要你手动维护，但总的来说，我认为它可以做得很好。 如果需要的话可以[看看](https://github.com/davidgilbertson/about-github/wiki)。
 
-![](https://ws2.sinaimg.cn/large/006tKfTcgy1fl9yl6mhlzj30rw0dqwgn.jpg)
+![](https://i.loli.net/2019/05/08/5cd1ba6b987b2.jpg)
 
 虽然它与 `GitBook` ( [Redux 文档](http://redux.js.org/)所使用的)或者是定制网站相比仍有差距。但在你的 repo 中它有 80% 完全值得信赖的。
 
@@ -145,15 +145,15 @@ tags:
 
 最简单的就是： `GitHub Pages + Jekyll `会通过一个漂亮的主题来渲染你的 `README.md` 文件。例如:通过 [about-github](https://github.com/davidgilbertson/about-github)  来查看的我的 `README` 页面。
 
-![](https://ws3.sinaimg.cn/large/006tNc79ly1fle60d5j7hj311l0np78i.jpg)
+![](https://i.loli.net/2019/05/08/5cd1baf4dafe3.jpg)
 
 如果我在 GitHub 中点击了 `settings`选项，切换到 `Github Pages` 设置，然后选择一个 `Jekyll theme`。。。
 
-![](https://ws1.sinaimg.cn/large/006tNc79ly1fle73empc8j30l30bcdh1.jpg)
+![](https://i.loli.net/2019/05/08/5cd1baf78ddf9.jpg)
 
 我就可以得到 [Jekyll-themed 页面](https://davidgilbertson.github.io/about-github/)。
 
-![](https://ws4.sinaimg.cn/large/006tNc79ly1fle74nogxlj311l0npgos.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bafb61827.jpg)
 
 从这点上我可以主要依据易编辑的 `Markdown` 文件来构建一个完整的静态站点。本质上是把 GitHub 变成了 `CMS`。
 
@@ -206,7 +206,7 @@ class Markdown extends React.Component {
 我已经使用了 [Octotree Chrome extension](https://chrome.google.com/webstore/detail/octotree/bkhaagjahfmjljalopjnoealnfndnagc?hl=en-US) 有段时间了，现在我向大家推荐它！
 无论你是在查看哪个 repo 它都会在左侧给你一个树状面板。
 
-![](https://ws2.sinaimg.cn/large/006tNc79ly1flee4cevv3j30rs0hygnv.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bafe8fb45.jpg)
 
 通过这个[视频](https://www.youtube.com/watch?v=NhlzMcSyQek&index=2&list=PLNYkxOF6rcIB3ci6nwNyLYNU6RDOU3YyL)我了解到了 octobox，它是用于管理你的 `GitHub Issues` 收件箱，看起来相当不错！
 以上就是我针对于`octobox`的全部想法。

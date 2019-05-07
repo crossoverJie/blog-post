@@ -10,7 +10,7 @@ tags:
 - Hystrix
 ---
 
-![1](https://ws2.sinaimg.cn/large/006tKfTcly1fjpcdozanoj30rs0ku76w.jpg)
+![1](https://i.loli.net/2019/05/08/5cd1ba8f8f39f.jpg)
 
 
 # 前言
@@ -46,7 +46,7 @@ tags:
 
 下面是一张官方的流程图:
 
-![](https://ws1.sinaimg.cn/large/006tKfTcly1fjpdhmuzqmj31240ijn0y.jpg)
+![](https://i.loli.net/2019/05/08/5cd1ba9465427.jpg)
 
 简单介绍下:
 
@@ -62,7 +62,7 @@ tags:
 
 使用了项目原有的`sbc-user,sbc-order`来进行演示，调用关系如下图:
 
-![](https://ws1.sinaimg.cn/large/006tKfTcly1fjpedcaj4yj30c509zaaf.jpg)
+![](https://i.loli.net/2019/05/08/5cd1ba961dd9c.jpg)
 
 `User应用`通过`Order`提供出来的`order-client`依赖调用了`Order`中的创建订单服务。
 
@@ -129,7 +129,7 @@ public class OrderConfig {
 ```
 
 这样每当请求失败就会执行回退逻辑，如下图:
-![](https://ws3.sinaimg.cn/large/006tNc79ly1fjqj89qtzfj30qo0kl0vd.jpg)
+![](https://i.loli.net/2019/05/08/5cd1ba9c7c388.jpg)
 
 值得注意的是即便是执行了回退逻辑断路器也不一定打开了，我们可以通过应用的`health`端点来查看`Hystrix`的状态。
 
@@ -158,11 +158,11 @@ public interface UserService {
 
 查看`health`端点:
 
-![](https://ws4.sinaimg.cn/large/006tNc79ly1fjqjfjeeo2j30nf0n5dii.jpg)
+![](https://i.loli.net/2019/05/08/5cd1baa68a4a0.jpg)
 发现`Hystrix`的状态依然是UP状态，表明当前断路器并没有打开。
 
 反复调用多次接口之后再次查看`health`端点:
-![](https://ws1.sinaimg.cn/large/006tNc79ly1fjqjhrftuqj30ni0noju9.jpg)
+![](https://i.loli.net/2019/05/08/5cd1baaba6f4a.jpg)
 
 发现这个时候断路器已经打开了。
 
@@ -220,7 +220,7 @@ public class OrderServiceFallbackFactory implements FallbackFactory<OrderService
 # Hystrix监控
 
 Hystrix还自带了一套监控组件，只要依赖了`spring-boot-starter-actuator`即可通过`/hystrix.stream`端点来获得监控信息。
-![](https://ws3.sinaimg.cn/large/006tNc79ly1fjr1y3bymjj31kw0s5e82.jpg)
+![](https://i.loli.net/2019/05/08/5cd1babaa3ad3.jpg)
 
 冰冷的数据肯定没有实时的图表来的直观，所以`Hystrix`也自带`Dashboard`。
 
@@ -288,14 +288,14 @@ turbine.cluster-name-expression="default"
 
 将该应用启动访问`http://ip:port/hystrix.stream`：
 
-![](https://ws1.sinaimg.cn/large/006tKfTcly1fjr3wu3f4oj316a0i4dig.jpg)
+![](https://i.loli.net/2019/05/08/5cd1babf06bd4.jpg)
 
 由于我们的turbine和Dashboard是一个应用所以输入`http://localhost:8282/turbine.stream`即可。
 
-![](https://ws1.sinaimg.cn/large/006tNc79ly1fjr4apibpjj31ga0dr416.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bac102a95.jpg)
 
 详细指标如官方描述:
-![](https://ws4.sinaimg.cn/large/006tNc79ly1fjr4gjnl82j30hs0bfq4c.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bacaa0788.jpg)
 
 通过该面板我们就可以及时的了解到应用当前的各个状态，如果再加上一些报警措施就能帮我们及时的响应生产问题。
 

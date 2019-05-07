@@ -8,7 +8,7 @@ tags:
 - JSONP
 - JSON
 ---
-![](https://ws2.sinaimg.cn/large/0069RVTdly1fu80ar91nfj30jg0ayabh.jpg)
+![](https://i.loli.net/2019/05/08/5cd1ba153e527.jpg)
 
 # 前言
 不知大家在平时的开发过程中有没有遇到过跨域访问资源的问题，我不巧在上周就碰到一个这样的问题，幸运的是在公司前端同学的帮忙下解决了该问题。
@@ -30,7 +30,7 @@ tags:
 这是一个Chrome插件，可以直接在google商店搜索直接下载(当然前提你懂得)。
 之后界面就如下：
 
-![](https://ws1.sinaimg.cn/large/0069RVTdly1fu80bfxx1vj30jg08fmxz.jpg)
+![](https://i.loli.net/2019/05/08/5cd1ba18947ba.jpg)
 
 界面非常简洁，有点开发经验的童鞋应该都会使用，不太会用的直接google下就可以了比较简单。
 接着我们就可以利用`PostMan`来发起一次请求获取`JSON`了。这里以我`SSM`项目为例,也正好有暴露一个JSON的接口。地址如下:

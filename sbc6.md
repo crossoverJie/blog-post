@@ -10,12 +10,12 @@ tags:
 - Zuul
 ---
 
-![](https://ws1.sinaimg.cn/large/006tNc79gy1flrejb4pbpj30qo0cuq5s.jpg)
+![](https://i.loli.net/2019/05/08/5cd1ba39cdcae.jpg)
 
 # 前言
 
 看过之前[SBC](https://crossoverjie.top/categories/sbc/)系列的小伙伴应该都可以搭建一个高可用、分布式的微服务了。 目前的结构图应该如下所示:
-![](https://ws1.sinaimg.cn/large/006tKfTcly1flvyjrv2unj30dc0gwaaw.jpg)
+![](https://i.loli.net/2019/05/08/5cd1ba3dcabb9.jpg)
 
 各个微服务之间都不存在单点，并且都注册于 `Eureka` ，基于此进行服务的注册于发现，再通过 `Ribbon` 进行服务调用，并具有客户端负载功能。
 
@@ -41,7 +41,7 @@ tags:
 针对于这一些问题 `SpringCloud` 全家桶自然也有对应的解决方案: `Zuul`。
 当我们系统整合 Zuul 网关之后架构图应该如下所示:
 
-![](https://ws2.sinaimg.cn/large/006tKfTcly1flw0fbfukxj30mp0icdgk.jpg)
+![](https://i.loli.net/2019/05/08/5cd1ba42d4349.jpg)
 
 <!--more-->
 
@@ -100,7 +100,7 @@ public class SbcGateWayZuulApplication {
 
 启动 `Eureka` 和网关看到已经注册成功那就大功告成了:
 
-![](https://ws4.sinaimg.cn/large/006tKfTcly1flx2fwc3v2j314y085dgp.jpg)
+![](https://i.loli.net/2019/05/08/5cd1ba46868f3.jpg)
 
 # 路由
 路由是网关的核心功能之一，可以使系统有一个统一的对外接口，下面来看看具体的应用。
@@ -138,11 +138,11 @@ zuul.routes.sbc-user=/api/user/**
 
 这样让我们访问 `http://127.0.0.1:8383/api/user/userService/getUserByHystrix` 时候就会根据负载算法帮我们路由到 sbc-user 应用上，如下图所示:
 
-![](https://ws1.sinaimg.cn/large/006tKfTcly1flx4pbe3nsj31ga0e5gnq.jpg)
+![](https://i.loli.net/2019/05/08/5cd1ba4f53176.jpg)
 启动了两个 sbc-user 服务。
 
 请求结果:
-![](https://ws4.sinaimg.cn/large/006tKfTcly1flx4q2zktbj30yd0ll79b.jpg)
+![](https://i.loli.net/2019/05/08/5cd1ba5622036.jpg)
 
 一次路由就算完成了。
 
@@ -205,7 +205,7 @@ Object run();
 
 官方流程图(生命周期):
 
-![](https://ws3.sinaimg.cn/large/006tKfTcly1flx65zw2qpj30qo0k0tae.jpg)
+![](https://i.loli.net/2019/05/08/5cd1ba5d01b56.jpg)
 
 简单理解下就是:
 
@@ -288,12 +288,12 @@ public class FilterConf {
 这样重启之后就可以看到效果了:
 
 不传 token 时：
-![](https://ws1.sinaimg.cn/large/006tKfTcly1flx6pypmzqj30pt0f1jsq.jpg)
+![](https://i.loli.net/2019/05/08/5cd1ba6029eb8.jpg)
 
-![](https://ws2.sinaimg.cn/large/006tKfTcly1flx6qeu2nfj310l03jjtc.jpg)
+![](https://i.loli.net/2019/05/08/5cd1ba63013ca.jpg)
 
 传入 token 时：
-![](https://ws2.sinaimg.cn/large/006tKfTcly1flx6rad3ffj30q00bpjsn.jpg)
+![](https://i.loli.net/2019/05/08/5cd1ba6549e97.jpg)
 
 可见一些鉴权操作是可以放到这里来进行统一处理的。
 
@@ -308,7 +308,7 @@ Zuul 现在既然作为了对外的第一入口，那肯定不能是单节点，
 第一种最容易想到和实现:
 我们可以部署多个 Zuul 节点，并且都注册于 Eureka ，如下图：
 
-![](https://ws2.sinaimg.cn/large/006tKfTcly1flx73gaco0j30o80jgq3p.jpg)
+![](https://i.loli.net/2019/05/08/5cd1ba6b04b33.jpg)
 
 这样虽然简单易维护，但是有一个严重的缺点：那就是客户端也得注册到 Eureka 上才能对 Zuul 的调用做到负载，这显然是不现实的。
 
@@ -318,7 +318,7 @@ Zuul 现在既然作为了对外的第一入口，那肯定不能是单节点，
 
 在调用 Zuul 之前使用 Nginx 之类的负载均衡工具进行负载，这样 Zuul 既能注册到 Eureka ，客户端也能实现对 Zuul 的负载，如下图：
 
-![](https://ws3.sinaimg.cn/large/006tKfTcly1flx79q95c0j30o80m8757.jpg)
+![](https://i.loli.net/2019/05/08/5cd1ba6f3a9e8.jpg)
 
 
 # 总结

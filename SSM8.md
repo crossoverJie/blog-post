@@ -8,7 +8,7 @@ tags:
 - AOP
 ---
 
-![](https://ws1.sinaimg.cn/large/0069RVTdly1fu80j3f2uvj30jg0ay0tx.jpg)
+![](https://i.loli.net/2019/05/08/5cd1ba038a14a.jpg)
 
 
 # 前言
@@ -348,7 +348,7 @@ public interface JoinPoint {
     }
 ```
 
-![](https://ws3.sinaimg.cn/large/0069RVTdly1fu80k99qn7j30jg053q49.jpg)
+![](https://i.loli.net/2019/05/08/5cd1ba0707e96.jpg)
 
 这样看起来就和使用一个数据源这样简单，再也不用关心切换的问题了。
 

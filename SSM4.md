@@ -9,7 +9,7 @@ tags:
 - IDEA
 ---
 
-![](https://ws4.sinaimg.cn/large/0069RVTdly1fu8071ru87j30jg0a00tb.jpg)
+![](https://i.loli.net/2019/05/08/5cd1ba1be78e8.jpg)
 
 # 前言
 webservice这个不知道大家首次接触的时候是怎么理解的，反正我记得我当时第一次接触这个东西的时候以为又是一个XX框架，觉得还挺高大上。然而这一切在之后我使用过后才发现这些全都是YY。
@@ -69,7 +69,7 @@ webservice这个不知道大家首次接触的时候是怎么理解的，反正�
 接下来是最重要的一部，用Spring整合CXF：
 在这之前我有新建一个CXF的包，如下图：
 
-![](https://ws1.sinaimg.cn/large/0069RVTdly1fu807oo9j7j309x0p1q46.jpg)
+![](https://i.loli.net/2019/05/08/5cd1ba1e3ca45.jpg)
 
 这里有两个主要类
  - HelloWorld接口。
@@ -137,7 +137,7 @@ public class HelloWorldImpl implements HelloWorld {
 `#helloWorld`指的是我们在`HelloWorldImpl`类中所自定义的名字，`/HelloWorld`则是我们需要访问的地址。
 之后我们运行项目输入该地址：[http://127.0.0.1:8080/ssm/webservice/HelloWorld?wsdl](http://127.0.0.1:8080/ssm/webservice/HelloWorld?wsdl)如果出现如下界面：
 
-![](https://ws2.sinaimg.cn/large/0069RVTdly1fu8086ottdj30jg0733zm.jpg)
+![](https://i.loli.net/2019/05/08/5cd1ba23ed4e7.jpg)
 
 则说明我们的webservice发布成功了。
 接下来只需要通过客户端调用这个接口即可获得返回结果了。

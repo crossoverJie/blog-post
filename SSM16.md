@@ -8,7 +8,7 @@ tags:
 - shell
 - Java
 ---
-![封面](https://ws4.sinaimg.cn/large/006tNc79ly1fj8sf9847xj31kw11zhdw.jpg)
+![封面](https://i.loli.net/2019/05/08/5cd1bad139575.jpg)
 
 # 前言
 

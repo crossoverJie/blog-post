@@ -17,13 +17,13 @@ tags:
 `Redis`的应用场景非常多这里就不一一列举了，这次就以一个最简单的也最常用的 **缓存数据** 来举例。
 先来看一张效果图：
 
-![](https://ws4.sinaimg.cn/large/0069RVTdly1fu80fqs5n1j30bo072gm4.jpg)
+![](https://i.loli.net/2019/05/08/5cd1ba0ab8f76.jpg)
 
 <!--more-->
 作用就是在每次查询接口的时候首先判断`Redis`中是否有缓存，有的话就读取，没有就查询数据库并保存到`Redis`中，下次再查询的话就会直接从缓存中读取了。
 `Redis`中的结果：
 
-![](https://ws4.sinaimg.cn/large/0069RVTdly1fu80glfhi6j30go0afjst.jpg)
+![](https://i.loli.net/2019/05/08/5cd1ba0d7badf.jpg)
 
 之后查询redis发现确实是存进来了。
 
@@ -36,7 +36,7 @@ tags:
 
 - 进入该目录。
 
-![](https://ws2.sinaimg.cn/large/0069RVTdly1fu80h2y8z2j30eg02yt92.jpg)
+![](https://i.loli.net/2019/05/08/5cd1ba12c0bb0.jpg)
 
 -  编译安装
 ```linux

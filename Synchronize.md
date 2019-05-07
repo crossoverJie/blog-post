@@ -8,7 +8,7 @@ tags:
 - synchronize
 ---
 
-![](https://ws1.sinaimg.cn/large/006tKfTcly1fngjnyotvcj30z00jpn0d.jpg)
+![](https://i.loli.net/2019/05/08/5cd1ba276f063.jpg)
 
 
 众所周知 `synchronized` 关键字是解决并发问题常用解决方案，有以下三种使用方式:
@@ -29,7 +29,7 @@ tags:
 
 流程图如下:
 
-![](https://ws2.sinaimg.cn/large/006tNc79ly1fn27fkl07jj31e80hyn0n.jpg)
+![](https://i.loli.net/2019/05/08/5cd1ba2bbda92.jpg)
 
 <!--more-->
 通过一段代码来演示:

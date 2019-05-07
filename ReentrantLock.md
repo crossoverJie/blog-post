@@ -8,7 +8,7 @@ tags:
 - ReentrantLock
 ---
 
-![](https://ws1.sinaimg.cn/large/006tKfTcly1fnt9p6qc88j31g80yu41d.jpg)
+![](https://i.loli.net/2019/05/08/5cd1ba3295dda.jpg)
 
 使用 `synchronize` 来做同步处理时，锁的获取和释放都是隐式的，实现的原理是通过编译后加上不同的机器指令来实现。
 

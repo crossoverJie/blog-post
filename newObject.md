@@ -5,7 +5,7 @@ categories:
 - Java 进阶
 ---
 
-![](https://ws2.sinaimg.cn/large/006tKfTcly1fnkuy01igij31g80tetfy.jpg)
+![](https://i.loli.net/2019/05/08/5cd1ba311fbe7.jpg)
 
 ## 创建对象
 
@@ -44,7 +44,7 @@ categories:
 
 如图:
 
-![](https://ws2.sinaimg.cn/large/006tKfTcly1fnkmy0bvu3j30o60heaaq.jpg)
+![](https://i.loli.net/2019/05/08/5cd1ba333efb1.jpg)
 
 这样的好处就是：在 Java 里进行频繁的对象访问可以提升访问速度(相对于使用句柄池来说)。
 

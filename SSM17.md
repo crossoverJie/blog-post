@@ -7,7 +7,7 @@ tags:
 - Kafka
 - Java
 ---
-![](https://ws3.sinaimg.cn/large/006tKfTcly1fkpzk7hcz4j31kw11xhbz.jpg)
+![](https://i.loli.net/2019/05/08/5cd1ba77119c6.jpg)
 
 # 前言
 写这篇文章的起因是由于之前的一篇关于`Kafka`[异常消费](http://crossoverjie.top/2017/09/05/SSM16/)，当时为了解决问题不得不使用临时的方案。
@@ -50,7 +50,7 @@ tags:
 - `Partition`(分区):是`Topic`下的组成，通常一个`Topic`下有一个或多个分区，消息生产之后会按照一定的算法负载到每个分区，所以分区也是`Kafka`性能的关键。当发现性能不高时便可考虑新增分区。
 
 结构图如下:
-![](https://ws3.sinaimg.cn/large/006tNc79ly1fl314m0pe7j30bi086dge.jpg)
+![](https://i.loli.net/2019/05/08/5cd1ba7910bc2.jpg)
 
 # 创建`Topic`
 `Kafka`的安装官网有非常详细的讲解。这里谈一下在日常开发中常见的一些操作，比如创建`Topic`：
@@ -137,7 +137,7 @@ block.on.buffer.full=true
 ```shell
 sh kafka-consumer-groups.sh --bootstrap-server localhost:9094 --describe --group group1 
 ```
-![](https://ws3.sinaimg.cn/large/006tNc79ly1fl305wgpuej310z0e744u.jpg)
+![](https://i.loli.net/2019/05/08/5cd1ba7c8876f.jpg)
 其中的`lag`便是队列里的消息数量。
 
 # Kafka消费者
@@ -295,7 +295,7 @@ max.partition.fetch.bytes=2097152
 
 为此我做了一个测试，使用之前的单线程消费120009条数据的结果如下:
 
-![](https://ws1.sinaimg.cn/large/006tNc79ly1fl31iq6v9mj30t608479f.jpg)
+![](https://i.loli.net/2019/05/08/5cd1ba8705aac.jpg)
 总共花了12450毫秒。
 
 那么换成多线程消费怎么实现呢？
@@ -453,7 +453,7 @@ public class ConsumerCallable implements Callable<ConsumerFuture> {
 理一下逻辑:
 > 其实就是初始化出三个消费者实例，用于三个线程消费。其中加入了一些统计，最后也是消费120009条数据结果如下。
 
-![](https://ws4.sinaimg.cn/large/006tNc79ly1fl32335qxgj30sb04dq59.jpg)
+![](https://i.loli.net/2019/05/08/5cd1ba8b41500.jpg)
 
 由于是并行运行，可见消费120009条数据可以提高2秒左右，当数据以更高的数量级提升后效果会更加明显。
 
