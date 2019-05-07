@@ -11,7 +11,7 @@ tags:
 - OOM
 ---
 
-![](https://ws2.sinaimg.cn/large/0069RVTdgy1fupvtq0tf1j31kw11x1ab.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d2226b558.jpg)
 
 # 前言
 
@@ -37,13 +37,13 @@ tags:
 
 于是我们想根据运维之前收集到的内存数据、GC 日志尝试判断哪里出现问题。
 
-![](https://ws1.sinaimg.cn/large/0069RVTdgy1fupwodz2tlj30rd0b1tcj.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d229ad931.jpg)
 
 结果发现老年代的内存使用就算是发生 GC 也一直居高不下，而且随着时间推移也越来越高。
 
 结合 jstat 的日志发现就算是发生了 FGC 老年代也已经回收不了，内存已经到顶。
 
-![](https://ws4.sinaimg.cn/large/0069RVTdly1fupx2amu1lj30t90b17oe.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d22b93e86.jpg)
 
 甚至有几台应用 FGC 达到了上百次，时间也高的可怕。
 
@@ -66,7 +66,7 @@ tags:
 
 结果跑了 10 几分钟内存使用并没有什么问题。根据图中可以看出，每产生一次 GC 内存都能有效的回收，所以这样并没有复现问题。
 
-![](https://ws2.sinaimg.cn/large/0069RVTdly1fupxfovjhgj30vl0kywps.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d22c8db27.jpg)
 
 
 没法复现问题就很难定位了。于是我们 review 代码，发现生产的逻辑和我们用 while 循环 Mock 数据还不太一样。
@@ -77,7 +77,7 @@ tags:
 
 果然不出意外只跑了一分多钟内存就顶不住了，观察左图发现 GC 的频次非常高，但是内存的回收却是相形见拙。
 
-![](https://ws4.sinaimg.cn/large/0069RVTdly1fupxcg3yh7j31kw0xi122.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d22d99ae5.jpg)
 
 同时后台也开始打印内存溢出了，这样便复现出问题。
 
@@ -87,7 +87,7 @@ tags:
 
 于是便想看看到底是什么对象占用了这么多的内存，利用 VisualVM 的 HeapDump 功能可以立即 dump 出当前应用的内存情况。
 
-![](https://ws2.sinaimg.cn/large/0069RVTdly1fupxqxqjdcj318c0q4kb3.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d234c531b.jpg)
 
 结果发现 `com.lmax.disruptor.RingBuffer` 类型的对象占用了将近 50% 的内存。
 
@@ -103,7 +103,7 @@ tags:
 
 我也做了一个实验，证明确实如此。
 
-![](https://ws4.sinaimg.cn/large/0069RVTdly1fupy48es6lj30jd0b9dhu.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d235d0fac.jpg)
 
 我设置队列大小为 8 ，从 0~9 往里面写 10 条数据，当写到 8 的时候就会把之前 0 的位置覆盖掉，后面的以此类推（类似于 HashMap 的取模定位）。
 
@@ -117,7 +117,7 @@ tags:
 
 同样的 128M 内存，也是通过 Kafka 一直源源不断的取出数据。通过监控如下：
 
-![](https://ws4.sinaimg.cn/large/0069RVTdly1fupyds04cij31kw0xial3.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d2379a1ce.jpg)
 
 跑了 20 几分钟系统一切正常，每当一次 GC 都能回收大部分内存，最终呈现锯齿状。
 

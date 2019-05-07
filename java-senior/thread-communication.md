@@ -9,7 +9,7 @@ tags:
 - concurrent
 ---
 
-![](https://ws2.sinaimg.cn/large/006tKfTcly1fpey91u1opj30z00aogo6.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d7d3bbf16.jpg)
 
 ## 前言
 

@@ -9,7 +9,7 @@ tags:
 - Heartbeat
 ---
 
-![](https://ws4.sinaimg.cn/large/006tNc79ly1fzfe3bq7yfj30m80ew0t4.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bed3512ca.jpg)
 
 
 
@@ -49,7 +49,7 @@ tags:
 
 ---
 
-![](https://ws1.sinaimg.cn/large/006tNc79ly1fzfrb4pebbj30e403xglj.jpg)
+![](https://i.loli.net/2019/05/08/5cd1beda71e1a.jpg)
 
 如上图所示，在应用层通常是由客户端发送一个心跳包 `ping` 到服务端，服务端收到后响应一个 `pong` 表明双方都活得好好的。
 
@@ -77,11 +77,11 @@ tags:
 
 来看看 `cim` 中的实现：
 
-![](https://ws1.sinaimg.cn/large/006tNc79ly1fzfrr7rljdj30qw0a0q4t.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bedb0c84f.jpg)
 
 在 `pipeline` 中加入了一个 10秒没有收到写消息的 `IdleStateHandler`，到时他会回调 `ChannelInboundHandler` 中的 `userEventTriggered` 方法。
 
-![](https://ws4.sinaimg.cn/large/006tNc79ly1fzfruxtocvj30sl0amgnr.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bedba4a5f.jpg)
 
 所以一旦写超时就立马向服务端发送一个心跳（做的更完善应当在心跳发送失败后有一定的重试次数）；
 
@@ -95,8 +95,8 @@ tags:
 
 超过则重连。
 
-![](https://ws2.sinaimg.cn/large/006tNc79ly1fzfscuqz9dj30qz04baay.jpg)
-![](https://ws2.sinaimg.cn/large/006tNc79ly1fzfsf7bemmj30sj0a6gnn.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bedc32bf5.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bedcce886.jpg)
 
 同时在每次心跳时候都用当前时间和之前服务端响应绑定到 `Channel` 上的时间相减判断是否需要重连即可。
 
@@ -138,8 +138,8 @@ public void process(ChannelHandlerContext ctx) throws Exception {
 
 `IdleStateHandler` 作为一个 `ChannelInbound` 也重写了 `channelInactive()` 方法。
 
-![](https://ws1.sinaimg.cn/large/006tNc79ly1fzfsqipjo5j30t202ct90.jpg)
-![](https://ws1.sinaimg.cn/large/006tNc79ly1fzfsqswhh9j30qx07zmyc.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bedd54026.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bee341616.jpg)
 
 这里的 `destroy()` 方法会把之前开启的定时任务都给取消掉。
 
@@ -151,14 +151,14 @@ public void process(ChannelHandlerContext ctx) throws Exception {
 
 于是 `cim` 在客户端感知到网络断开时就会开启一个定时任务：
 
-![](https://ws1.sinaimg.cn/large/006tNc79ly1fzfsu8zmscj30so04nabd.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bee3cc343.jpg)
 
 > 之所以不在客户端启动就开启，是为了节省一点线程消耗。网络问题虽然不可避免，但在需要的时候开启更能节省资源。
 
 
-![](https://ws3.sinaimg.cn/large/006tNc79ly1fzfsw7kmqhj30sm04b3yy.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bee453e8c.jpg)
 
-![](https://ws3.sinaimg.cn/large/006tNc79ly1fzfswnvd0aj30sd03u0t1.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bee4d34ba.jpg)
 
 在这个任务重其实就是执行了重连，限于篇幅具体代码就不贴了，感兴趣的可以自行查阅。
 
@@ -167,14 +167,14 @@ public void process(ChannelHandlerContext ctx) throws Exception {
 > 启动两个服务端，再启动客户端连接上一台并保持长连接。这时突然手动关闭一台服务，客户端可以自动重连到可用的那台服务节点。
 
 
-![](https://ws1.sinaimg.cn/large/006tNc79ly1fzft78s8jbj311x01jgpv.jpg)
-![](https://ws2.sinaimg.cn/large/006tNc79ly1fzft7nnygmj30sn07htn8.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bee585fbb.jpg)
+![](https://i.loli.net/2019/05/08/5cd1beeac9619.jpg)
 
 启动客户端后服务端也能收到正常的 `ping` 消息。
 
 利用 `:info` 命令查看当前客户端的链接状态发现连的是 `9000`端口。
 
-![](https://ws2.sinaimg.cn/large/006tNc79ly1fzft9vngt1j312q026dgq.jpg)
+![](https://i.loli.net/2019/05/08/5cd1beeb441d9.jpg)
 
 > :info 是一个新增命令，可以查看一些客户端信息。
 
@@ -185,8 +185,8 @@ public void process(ChannelHandlerContext ctx) throws Exception {
 kill -9 2142
 ```
 
-![](https://ws4.sinaimg.cn/large/006tNc79ly1fzftc3fhhrj313a0bvafa.jpg)
-![](https://ws1.sinaimg.cn/large/006tNc79ly1fzftcwcuprj30rk06pwqu.jpg)
+![](https://i.loli.net/2019/05/08/5cd1beec116ff.jpg)
+![](https://i.loli.net/2019/05/08/5cd1beecdc01a.jpg)
 
 这时客户端会自动重连到可用的那台节点。
 这个节点也收到了上线日志以及心跳包。
@@ -203,7 +203,7 @@ kill -9 2142
 
 其中是 `isSuccess` 并不能作为消息发送成功与否的标准。
 
-![](https://ws3.sinaimg.cn/large/006tNc79ly1fzfts563b9j30su046aaw.jpg)
+![](https://i.loli.net/2019/05/08/5cd1beed63443.jpg)
 
 也就是说即便是客户端直接断网，服务端这里发送消息后拿到的 `success` 依旧是 `true`。
 
@@ -211,7 +211,7 @@ kill -9 2142
 
 和我之前有着一样错误理解的不在少数，这是 `Netty` 官方给的回复。
 
-![](https://ws2.sinaimg.cn/large/006tNc79ly1fzftv2uaajj30lg05z0tn.jpg)
+![](https://i.loli.net/2019/05/08/5cd1beedd6b0d.jpg)
 
 相关 `issue`：
 
@@ -222,16 +222,16 @@ kill -9 2142
 
 所以我们不能依据此来关闭客户端的连接，而是要像上文一样判断 `Channel` 上绑定的时间与当前时间只差是否超过了阈值。
 
-![](https://ws2.sinaimg.cn/large/006tNc79ly1fzftycfcj1j30so06hq4f.jpg)
-![](https://ws1.sinaimg.cn/large/006tNc79ly1fzftz1j6ihj30sh06t0u5.jpg)
-![](https://ws1.sinaimg.cn/large/006tNc79ly1fzftzlnib2j30sg08840i.jpg)
+![](https://i.loli.net/2019/05/08/5cd1beee61f44.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c2fec4fde.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c301a72b1.jpg)
 
 以上则是 `cim` 服务端的实现，逻辑和开头说的一致，也和 `Dubbo` 的心跳机制有些类似。
 
 于是来做个试验：正常通信的客户端和服务端，当我把客户端直接断网时，服务端会自动剔除客户端。
 
-![](https://ws2.sinaimg.cn/large/006tNc79ly1fzfuhlminkj307k02t74l.jpg)
-![](https://ws1.sinaimg.cn/large/006tNc79ly1fzfu7mxr4nj309907ptbg.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c304b7104.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c3070e236.jpg)
 
 # 总结
 

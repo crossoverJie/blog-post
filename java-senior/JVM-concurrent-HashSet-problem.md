@@ -14,7 +14,7 @@ tags:
 
 
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fwztw0m8okj31hc0u0tbz.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c669d9581.jpg)
 
 # 背景
 
@@ -61,7 +61,7 @@ ThreadPoolExecutor executor = new ThreadPoolExecutor(coreSize, maxSize,
 
 
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fwzum85fz9j30n30hsadh.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c66f983e1.jpg)
 
 
 
@@ -89,7 +89,7 @@ ThreadPoolExecutor executor = new ThreadPoolExecutor(coreSize, maxSize,
 
 
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fwzwvpjxzpj30ob08q76a.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c67e5a9b5.jpg)
 
 发现正好就是在处理上文提到的 `HashSet`，看这个堆栈是在查询 `key` 是否存在。通过查看 312 行的业务代码确实也是如此。
 
@@ -119,7 +119,7 @@ ThreadPoolExecutor executor = new ThreadPoolExecutor(coreSize, maxSize,
 
 通过之前的监控曲线图也可以看出：
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fwzx8rod8yj30f405cmyh.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c67c5e613.jpg)
 
 操作系统在之前一直处于高负载中，直到我们早上看到报警重启之后才降低。
 
@@ -205,11 +205,11 @@ public class Worker extends Thread{
 
 不巧的是代码中也有查询操作（`contains()`）,观察上文的堆栈情况：
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fwzwvpjxzpj30ob08q76a.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c67e5a9b5.jpg)
 
 发现是运行在 `HashMap` 的 465 行，来看看 1.7 中那里具体在做什么：
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fwzy1tp1ftj30rd08ct9x.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c687f186c.jpg)
 
 已经很明显了。这里在遍历链表，同时由于形成了环形链表导致这个 `e.next` 永远不为空，所以这个循环也不会退出了。
 

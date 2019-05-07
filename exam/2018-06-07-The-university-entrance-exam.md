@@ -7,7 +7,7 @@ categories:
 
 ## 2012/02/28
 
-![](https://ws4.sinaimg.cn/large/006tNc79gy1fs328nqn2ej30go0b3q5q.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d5256dfa7.jpg)
 
 > 2012年二月二十八日。
 
@@ -17,7 +17,7 @@ categories:
 
 > 2012年六月三日。
 
-![](https://ws2.sinaimg.cn/large/006tNc79gy1fs32g2rjm9j30im0dyq5e.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d528366b0.jpg)
 
 晚自习拿出前段时间刚拍的毕业合照，恨死摄影师，没有抓拍到我最帅的角度😡。
 
@@ -27,7 +27,7 @@ categories:
 
 > 2012年六月四日。
 
-![](https://ws1.sinaimg.cn/large/006tNc79gy1fs32bu42c5j30im0dymyj.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d52ded397.jpg)
 
 离校前的最后一晚，我们像往常每周的音乐晚自习一样，由音乐委员（@猪娅）带着大家唱可米小子的青春纪念册。
 
@@ -37,7 +37,7 @@ categories:
 
 大家拿着热和的手机（才发的，平时会收）肆意的拍着照片：
 
-![](https://ws4.sinaimg.cn/large/006tNc79gy1fs32o22ln1j30im0dyq5b.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d530ae860.jpg)
 
 那时没有美颜、没有修图，一切都是那么和谐。
 
@@ -50,7 +50,7 @@ categories:
 
 车上大家有说有笑，嗯，就像是资深导游带的一个低价旅游团，每人心里充满了惊喜却不知即将面临什么。
 
-![](https://ws3.sinaimg.cn/large/006tNc79gy1fs335w7e4bj30im0dytae.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d5331159c.jpg)
 
 ## 2012/06/07
 
@@ -64,7 +64,7 @@ categories:
 
 所以考试完全采用人卷合一的心态（能做就做，不会就过）快速的过完了这两天。
 
-![](https://ws1.sinaimg.cn/large/006tNc79gy1fs34gry1b2j30i20r3djq.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d5364e5cc.jpg)
 
 这些作文题目还看得懂嘛。。
 
@@ -88,19 +88,19 @@ categories:
 
 摆拍虽好，不要抽烟哦：
 
-![](https://ws2.sinaimg.cn/large/006tNc79gy1fs33jy8cg6j30im0dyq50.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d538da15f.jpg)
 
 
 小红姐生日快乐，永远十八：
 
-![](https://ws1.sinaimg.cn/large/006tNc79gy1fs33lewu4rj30im0ccjtt.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d53fe6643.jpg)
 
 集体生日，年年十八：
 
-![](https://ws1.sinaimg.cn/large/006tNc79gy1fs33o1d2i8j30im0ceab5.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d542680ea.jpg)
 
-![](https://ws2.sinaimg.cn/large/006tNc79gy1fs33o8y925j30im0ceta5.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d544d8c0c.jpg)
 
 状元书摊，不是第一不卖：
 
-![](https://ws2.sinaimg.cn/large/006tNc79gy1fs34c6khchj30im0dytcg.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d54662671.jpg)

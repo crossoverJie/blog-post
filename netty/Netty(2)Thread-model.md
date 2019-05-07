@@ -7,7 +7,7 @@ tags:
 - 内存模型
 ---
 
-![](https://ws1.sinaimg.cn/large/006tNc79gy1fsx42fcwsxj312v0ocjve.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d5154c72b.jpg)
 
 ## 前言
 
@@ -58,7 +58,7 @@ while((request = in.readLine()) != null){
 
 ### 单线程
 
-![](https://ws4.sinaimg.cn/large/006tNc79gy1fsx4by9581j30k60aygn7.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d517b9784.jpg)
 
 从图中可以看出：
 
@@ -69,7 +69,7 @@ while((request = in.readLine()) != null){
 
 ### 多线程
 
-![](https://ws2.sinaimg.cn/large/006tNc79gy1fsx4cctol0j30k70dq40n.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d51b21bb6.jpg)
 
 因此产生了多线程模型。
 
@@ -85,7 +85,7 @@ while((request = in.readLine()) != null){
 
 ### 主从多线程
 
-![](https://ws1.sinaimg.cn/large/006tNc79gy1fsx4iv4kmxj30gb0c0dha.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d51da676a.jpg)
 
 该模型将客户端连接那一块的线程也改为多线程，称为主线程。
 

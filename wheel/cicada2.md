@@ -10,7 +10,7 @@ tags:
 - Netty
 ---
 
-![](https://ws4.sinaimg.cn/large/006tNbRwgy1fuxz6ygcjpj30m80goq7h.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d14f1f2b1.jpg)
 
 # 前言
 
@@ -19,7 +19,7 @@ tags:
 
 同时在 GitHub 也收获了 100 多颗 小♥♥（绝对不是刷的。。）
 
-![](https://ws4.sinaimg.cn/large/0069RVTdgy1fv81i7wo6qj31kw1jch3g.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d15189c70.jpg)
 
 也有朋友希望能出一个源码介绍，本文就目前的 `v1.0.1` 版本来一起分析分析。
 
@@ -46,7 +46,7 @@ tags:
 
 最核心的自然就是 HTTP 的处理 `handle`，对应的就是 `HttpHandle` 类。
 
-![](https://ws3.sinaimg.cn/large/006tNbRwgy1fuxzvgffgyj31gk10qwm6.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d15386288.jpg)
 
 查看源码其实很容易看出具体的步骤，注释也很明显。
 
@@ -84,13 +84,13 @@ JSON 就不太方便处理了，并且在这样的场景并不用于传输自然
 
 其中核心的源码在 `routeAction` 方法中。
 
-![](https://ws4.sinaimg.cn/large/006tNbRwgy1fuy0bpwaqcj31du0l643i.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d15aa7f17.jpg)
 
 首先会全局扫描使用了 `@CicadaAction` 的注解，然后再根据请求地址找到对应的业务类。
 
 全局扫描代码：
 
-![](https://ws2.sinaimg.cn/large/006tNbRwgy1fuy0e44131j31c80zg7aj.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d15ca2e73.jpg)
 
 首先是获取到项目中自定义的所有类，然后判断是否加有 `@CicadaAction` 注解。
 
@@ -165,7 +165,7 @@ public interface Param extends Map<String, Object> {
 Param paramMap = buildParamMap(queryStringDecoder);
 ```
 
-![](https://ws4.sinaimg.cn/large/006tNbRwgy1fuy0rf0bqmj31f40es422.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d15e4425b.jpg)
 
 
 # 业务执行
@@ -174,7 +174,7 @@ Param paramMap = buildParamMap(queryStringDecoder);
 
 同时也定义了一个业务类需要实现的一个通用接口 `WorkAction`，想要实现具体业务只要实现它就行。
 
-![](https://ws1.sinaimg.cn/large/006tNbRwgy1fuy0wh6vnjj30y60amdhj.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d15f63262.jpg)
 
 而这里的方法参数自然就是刚才定义的参数接口 `Param`。
 
@@ -193,13 +193,13 @@ WorkRes execute = action.execute(paramMap);
 
 所有的响应数据都需要封装到这个对象中。
 
-![](https://ws2.sinaimg.cn/large/006tNbRwgy1fuy15og6a4j30z80iudje.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d160649b6.jpg)
 
 这个没啥好说的，都是一些基本数据。
 
 最后在 `responseMsg()` 方法中将响应数据编码为 JSON 输出即可。
 
-![](https://ws4.sinaimg.cn/large/006tNbRwgy1fuy19lsx96j31680a0tal.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d16783d38.jpg)
 
 # 拦截器设计
 
@@ -210,17 +210,17 @@ WorkRes execute = action.execute(paramMap);
 
 也是同样的思路需要定义一个接口 `CicadaInterceptor`，其中有两个方法。
 
-![](https://ws1.sinaimg.cn/large/006tNbRwgy1fuy1fd8l72j30sa0egabs.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d168565eb.jpg)
 
 看方法名字自然也能看出具体作用。
 
-![](https://ws2.sinaimg.cn/large/006tNbRwgy1fuy1g7xdrzj31ac0aygnk.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d1694b1c1.jpg)
 
 同时在这两个方法中执行具体的调用。
 
 这里重点要看看 `interceptorBefore` 方法。
 
-![](https://ws1.sinaimg.cn/large/006tNbRwgy1fuy1igk7mcj31du0hodju.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d16a97d32.jpg)
 
 其中也是加入了一个缓存，尽量的减少反射操作。
 
@@ -231,13 +231,13 @@ WorkRes execute = action.execute(paramMap);
 
 因此也提供了一个适配器 `AbstractCicadaInterceptorAdapter`。
 
-![](https://ws4.sinaimg.cn/large/006tNbRwgy1fuy1ozzeizj316k0iewgw.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d17122767.jpg)
 
 它作为一个抽象类实现了 `CicadaInterceptor` 接口，这样后续的拦截业务也可继承该接口选择性的实现方法即可。
 
 类似于这样：
 
-![](https://ws1.sinaimg.cn/large/006tNbRwgy1fuy1qerbwrj318c0b4di6.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d17301847.jpg)
 
 
 

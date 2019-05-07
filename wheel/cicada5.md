@@ -11,7 +11,7 @@ tags:
 - 责任链
 ---
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fwg8mtmstrj31c5104nfw.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c6a7aaad8.jpg)
 
 # 前言
 
@@ -158,11 +158,11 @@ public class Main {
 
 比如 `Netty` 中的 `pipeline` 就是一个典型的责任链模式，它可以让一个请求在整个管道中进行流转。
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fwgb3k3zz0j30zo0aq0uu.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c6ac3bb76.jpg)
 
 通过官方图就可以非常清楚的看出是一个责任链模式：
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fwgb6c3uxaj30ye102wih.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c6afdad1d.jpg)
 
 # 用责任链模式设计一个拦截器
 
@@ -185,19 +185,19 @@ public abstract class CicadaInterceptor {
 
 同时定义了一个 `InterceptProcess` 的客户端：
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fwgbkkvvhmj31dc0fsaef.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c6b4dc66d.jpg)
 
 其中的 `loadInterceptors()` 会将所有的拦截器加入到责任链中。
 
 再提供了两个函数分别对应了拦截前和拦截后的入口：
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fwgblxcj46j315a0osq79.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c6bb7ea9e.jpg)
 
 ## 实际应用
 
 现在来看看具体是怎么使用的吧。
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fwgbp7vwhpj313w0o6tda.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c6bff1876.jpg)
 
 在请求的 `handle` 中首先进行加载（`loadInterceptors(AppConfig appConfig)`），也就是初始化责任链。
 
@@ -215,29 +215,29 @@ public abstract class CicadaInterceptor {
 
 先来做前两个试验：
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fwgbx5806kj31ca0eoq6i.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c6c2b3ab4.jpg)
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fwgbxm6sblj319o0l2n15.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c6c693e9c.jpg)
 
 ---
 
 这样当我请求其中一个接口时会将刚才的日志打印出来：
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fwgbyfrxe7j31kw07jwix.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c6cf51a77.jpg)
 
 ---
 
 接下来我让打印执行时间的拦截器中拦截请求，同时输入向前端输入一段文本：
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fwgc0ry7vuj316i0nkn1r.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c6d354832.jpg)
 
 ---
 
 请求接口可以看到如下内容：
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fwgc1j835bj31560b4ta6.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d108d5254.jpg)
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fwgc1wziv5j31kw04ujuc.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d10a698d8.jpg)
 
 同时后面的请求参数也没有打印出来，说明请求确实被拦截下来。
 
@@ -249,11 +249,11 @@ public abstract class CicadaInterceptor {
 
 之前是打印请求参数的拦截器先执行，这次我手动将它的 order 调整为 2，而打印时间的 order 为 1 。
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fwgc6sjzu1j318m0g8tc5.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d10cc646d.jpg)
 
 再次请求接口观察后台日志：
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fwgc9n4x9mj31kw05mgop.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d10f1cb35.jpg)
 
 发现打印执行时间的拦截器先执行。
 
@@ -270,19 +270,19 @@ public abstract class CicadaInterceptor {
 
 扫描拦截器时保存 `order` 值：
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fwgcdc8iifj316c08ota5.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d116ac586.jpg)
 
 ---
 
 保存 `order` 值到拦截器中：
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fwgcf5tlrqj31bg0gigpt.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d11869eac.jpg)
 
 ---
 
 重新对责任链排序：
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fwgcft8uftj31800ck40d.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d11967bfd.jpg)
 
 
 # 总结

@@ -20,13 +20,13 @@ tags:
 
 <!--more-->
 
-![](https://ws1.sinaimg.cn/large/006tKfTcly1g1fftbaa1vj30lq050ab1.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bec753b00.jpg)
 
-![](https://ws2.sinaimg.cn/large/006tKfTcly1g13jch6xtkj30yu0u0ah3.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bec8136a7.jpg)
 
-![](https://ws1.sinaimg.cn/large/006tKfTcly1g13je0xu1qj30vv0u0aj0.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bec8ca8f7.jpg)
 
-![](https://ws4.sinaimg.cn/large/006tKfTcly1g1fgah6l5tj30i00l5wiu.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bec980288.jpg)
 
 这其实是一类共性问题，我认为主要还是两个原因：
 
@@ -46,7 +46,7 @@ tags:
 
 # 深入分析
 
-![](https://ws3.sinaimg.cn/large/006tKfTcly1g1fhhl9mwoj30g402j0sr.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bec9eea43.jpg)
 
 这里我们来做一个模拟，创建了一个核心线程、最大线程数、阻塞队列都为2的线程池。
 
@@ -54,7 +54,7 @@ tags:
 
 当我们往一个线程池丢一个任务会发生什么事呢？
 
-![](https://ws3.sinaimg.cn/large/006tKfTcly1g1fhfvpuvuj30ej0bu0tn.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bed130c18.jpg)
 
 - 第一步是生产者，也就是任务提供者他执行了一个 execute() 方法，本质上就是往这个内部队列里放了一个任务。
 - 之前已经创建好了的 Worker 线程会执行一个 `while` 循环 ---> 不停的从这个`内部队列`里获取任务。(这一步是竞争的关系，都会抢着从队列里获取任务，由这个队列内部实现了线程安全。)
@@ -62,7 +62,7 @@ tags:
 
 结合源码来看：
 
-![](https://ws3.sinaimg.cn/large/006tKfTcly1g1fhr8q4iyj30tq0kjtcy.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bed1e2402.jpg)
 
 从图中其实就对应了刚才提到的二三两步：
 
@@ -80,7 +80,7 @@ tags:
 
 结合之前的那张图来看：
 
-![](https://ws2.sinaimg.cn/large/006tKfTcly1g101rrbfpuj30ha0kkmz7.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bed23cd35.jpg)
 
 这里大家问的最多的一个点是，为什么会没有是`根本没有生产者往里边丢任务`，图中不是明明画的有一个 `product` 嘛？
 
@@ -95,7 +95,7 @@ tags:
 
 再次结合图来看：
 
-![](https://ws4.sinaimg.cn/large/006tKfTcly1g1fi8yth6gj30f70ca3ze.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bed2bd074.jpg)
 
 所以之前提到的【没有生产者往里边丢任务】是指右图放大后的那一块，也就是内部队列并没有其他线程往里边丢任务执行 `execute()` 方法。
 

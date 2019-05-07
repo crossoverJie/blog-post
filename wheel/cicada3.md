@@ -10,7 +10,7 @@ tags:
 - Netty
 ---
 
-![](https://ws3.sinaimg.cn/large/0069RVTdgy1fv838lysj4j31kw11x7c8.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d143dc8ff.jpg)
 
 
 # 前言
@@ -19,9 +19,9 @@ tags:
 
 因此我按照自己的想法创建了一个 [issue](https://github.com/TogetherOS/cicada/issues/6) ，也收集到了一些很不错的建议。
 
-![](https://ws4.sinaimg.cn/large/0069RVTdgy1fv8bo861xvj31780zo7ax.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d145eb213.jpg)
 
-![](https://ws2.sinaimg.cn/large/0069RVTdgy1fv8bow08dhj317c11gqaq.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d14b5ec72.jpg)
 
 最终其实还是按照我之前的想法来做了这个配置管理。
 
@@ -97,7 +97,7 @@ public class RedisConfiguration extends AbstractCicadaConfiguration {
 }
 ```
 
-![](https://ws3.sinaimg.cn/large/0069RVTdgy1fv5mw7p5nvj31by0fo76t.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d14d192b4.jpg)
 
 按照这样的配置也会默认从 `classpath` 读取这两个配置文件。
 
@@ -107,7 +107,7 @@ public class RedisConfiguration extends AbstractCicadaConfiguration {
 
 这也简单，代码一看就懂：
 
-![](https://ws4.sinaimg.cn/large/0069RVTdgy1fv8ealcqzij31kw07djur.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d14eb04b2.jpg)
 
 - 首先需要通过 `ConfigurationHolder` 获取各自不同配置的管理对象（需要显式指定类类型）。
 - 通过 `get()` 方法直接获取配置。
@@ -133,7 +133,7 @@ public class RedisConfiguration extends AbstractCicadaConfiguration {
 
 由于 `cicada` 需要支持多个配置文件，所有需要定义一个抽象类供所有的配置管理实现。
 
-![](https://ws4.sinaimg.cn/large/0069RVTdgy1fv8d0bujejj31cg0rkwke.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d150763bd.jpg)
 
 定义比较简单，其中有两个重要的成员变量：
 
@@ -143,7 +143,7 @@ public class RedisConfiguration extends AbstractCicadaConfiguration {
 
 接着就是在初始化时需要找出所有继承了 `AbstractCicadaConfiguration` 的类。
 
-![](https://ws2.sinaimg.cn/large/0069RVTdgy1fv8d3ryhl5j31h20p2dmk.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d152ac101.jpg)
 
 查询出来之后自然是要进行遍历同时反射创建对象。
 
@@ -159,7 +159,7 @@ public class RedisConfiguration extends AbstractCicadaConfiguration {
 String systemProperty = System.getProperty(conf.getPropertiesName());
 ```
 
-![](https://ws3.sinaimg.cn/large/0069RVTdgy1fv8d72xw2uj31ge0mwjwg.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d15444720.jpg)
 
 需要额外提一点的是：在查找所有用户自定义的配置管理类时需要手动将 `cicada` 内置的
 `ApplicationConfiguration` 加入其中。
@@ -178,7 +178,7 @@ ConfigurationHolder.addConfiguration(aClass.getName(), conf);
 
 其中 `ConfigurationHolder` 的定义如下。
 
-![](https://ws3.sinaimg.cn/large/0069RVTdgy1fv8dg57chxj31kw0m3jwa.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d15b7604e.jpg)
 
 其实也是利用一个 Map 来存放这些对象。
 
@@ -195,13 +195,13 @@ String brokerList = configuration.get("kafka.broker.list");
 
 现在看上去要清爽和直接的多：
 
-![](https://ws2.sinaimg.cn/large/0069RVTdgy1fv8dk1fnouj319k0o278y.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d15c784dc.jpg)
 
 其中也有一点需要注意的地方。
 
 大家如果查看日志的话会发现应用启动之后会打印本次的耗时，自然就是在启动时候记录一个时间，初始化完毕之后记录一个即可。
 
-![](https://ws1.sinaimg.cn/large/0069RVTdgy1fv8dn8zivjj31as0oq0xv.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d15e10f42.jpg)
 
 在之前的实现中由于都是在一个方法内，所以直接使用就行了。
 
@@ -219,13 +219,13 @@ ThreadLocalHolder.setLocalTime(System.currentTimeMillis());
 
 在最后记录日志的地方直接取出比较即可：
 
-![](https://ws3.sinaimg.cn/large/0069RVTdgy1fv8dr69m5cj31kw06pdia.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d15f2b6db.jpg)
 
 这样使用起来就完全不需要管什么参数传递了。
 
 同时 `ThreadLocalHolder` 的定义：
 
-![](https://ws1.sinaimg.cn/large/0069RVTdgy1fv8drrkdvej317m0k6wi5.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d16035ab1.jpg)
 
 这里还是有一点需要注意，在这种长生命周期的容器中一定得要记得**及时清除**。
 

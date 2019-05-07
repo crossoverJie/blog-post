@@ -8,7 +8,7 @@ tags:
 - Kafka
 ---
 
-![](https://ws2.sinaimg.cn/large/006tNbRwgy1fw2g4pw7ooj31kw11xwjh.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d10ebd53b.jpg)
 
 # 前言
 
@@ -30,7 +30,7 @@ tags:
 
 首先创建一个 `org.apache.kafka.clients.producer.Producer` 的 bean。
 
-![](https://ws1.sinaimg.cn/large/006tNbRwgy1fw2hc2t8oij30n507g0u6.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d11527115.jpg)
 
 主要关注 `bootstrap.servers`，它是必填参数。指的是 Kafka 集群中的 broker 地址，例如 `127.0.0.1:9094`。
 
@@ -38,7 +38,7 @@ tags:
 
 接着注入这个 bean 即可调用它的发送函数发送消息。
 
-![](https://ws4.sinaimg.cn/large/006tNbRwgy1fw2he841x7j30ou054751.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d1166034a.jpg)
 
 这里我给某一个 Topic 发送了 10W 条数据，运行程序消息正常发送。
 
@@ -50,11 +50,11 @@ tags:
 
 其实 `Producer` 的 `API` 已经帮我们考虑到了，发送之后只需要调用它的 `get()` 方法即可同步获取发送结果。
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fw3fsyrkpbj3103065mya.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d11748eb5.jpg)
 
 发送结果：
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fw3ftq0w5lj312g053770.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d118ac608.jpg)
 
 这样的发送效率其实是比较低下的，因为每次都需要同步等待消息发送的结果。 
 
@@ -72,11 +72,11 @@ Future<RecordMetadata> send(ProducerRecord<K, V> producer, Callback callback);
 
 `Callback` 是一个回调接口，在消息发送完成之后可以回调我们自定义的实现。
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fw3g4hce6aj30zv0b0dhp.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d119c9164.jpg)
 
 执行之后的结果：
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fw3g54ne3oj31do06t0wl.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d11badd71.jpg)
 
 同样的也能获取结果，同时发现回调的线程并不是上文同步时的`主线程`，这样也能证明是异步回调的。
 
@@ -89,7 +89,7 @@ Future<RecordMetadata> send(ProducerRecord<K, V> producer, Callback callback);
 
 所以正确的写法应当是：
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fw3g9fst9kj30zy07jab0.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d1216d13b.jpg)
 
 > 至于为什么会只有参数一个有值，在下文的源码分析中会一一解释。
 
@@ -104,7 +104,7 @@ Future<RecordMetadata> send(ProducerRecord<K, V> producer, Callback callback);
 
 为了直观的了解发送的流程，简单的画了几个在发送过程中关键的步骤。
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fw3j5x05izj30a40btmxt.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d12228c9b.jpg)
 
 从上至下依次是：
 
@@ -121,13 +121,13 @@ Future<RecordMetadata> send(ProducerRecord<K, V> producer, Callback callback);
 ### 初始化
 
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fw3jc9hvwbj30rc0273yn.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d12331873.jpg)
 
 调用该构造方法进行初始化时，不止是简单的将基本参数写入 `KafkaProducer`。比较麻烦的是初始化 `Sender` 线程进行缓冲区消费。
 
 初始化 IO 线程处：
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fw3jh4xtt2j31fo02pgms.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d1242d911.jpg)
 
 可以看到 Sender 线程有需要成员变量，比如：
 
@@ -141,11 +141,11 @@ acks,retries,requestTimeout
 
 在调用 `send()` 函数后其实第一步就是序列化，毕竟我们的消息需要通过网络才能发送到 Kafka。
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fw3job8ejaj31fw05owg2.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d12561bc2.jpg)
 
 其中的 `valueSerializer.serialize(record.topic(), record.value());` 是一个接口，我们需要在初始化时候指定序列化实现类。
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fw3jq5h0nyj30p607oq4e.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d12b5da80.jpg)
 
 我们也可以自己实现序列化，只需要实现 `org.apache.kafka.common.serialization.Serializer` 接口即可。
 
@@ -163,23 +163,23 @@ acks,retries,requestTimeout
 
 可以在构建 `ProducerRecord` 为每条消息指定分区。
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fw3jxiet6mj30pj06smyb.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d12c3c202.jpg)
 
 这样在路由时会判断是否有指定，有就直接使用该分区。
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fw3jybsavdj30zj077abj.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d12d27034.jpg)
 
 这种一般在特殊场景下会使用。
 
 #### 自定义路由策略
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fw3k0giiy6j30zm079ta7.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d12e065fd.jpg)
 
 如果没有指定分区，则会调用 `partitioner.partition` 接口执行自定义分区策略。
 
 而我们也只需要自定义一个类实现 `org.apache.kafka.clients.producer.Partitioner` 接口，同时在创建 `KafkaProducer` 实例时配置 `partitioner.class` 参数。
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fw3k5uqf68j30rm04pt94.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d135e046c.jpg)
 
 通常需要自定义分区一般是在想尽量的保证消息的顺序性。
 
@@ -193,7 +193,7 @@ acks,retries,requestTimeout
 
 来看看它的实现：
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fw3kajn4iyj30r20g2772.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d13759e66.jpg)
 
 简单的来说分为以下几步：
 
@@ -207,26 +207,26 @@ acks,retries,requestTimeout
 
 在 `send()` 方法拿到分区后会调用一个 `append()` 函数：
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fw3khecuqej313704uwg9.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d138711e9.jpg)
 
 该函数中会调用一个 `getOrCreateDeque()` 写入到一个内部缓存中 `batches`。
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fw3kih9wf1j30j005daaq.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d1394ac36.jpg)
 
 
 ### 消费缓存
 
 在最开始初始化的 IO 线程其实是一个守护线程，它会一直消费这些数据。
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fw3kntf8xlj30sn0ju42o.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d13fc139d.jpg)
 
 通过图中的几个函数会获取到之前写入的数据。这块内容可以不必深究，但其中有个 `completeBatch` 方法却非常关键。
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fw3kqrk5rnj312e0jbjve.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d141d52c5.jpg)
 
 调用该方法时候肯定已经是消息发送完毕了，所以会调用 `batch.done()` 来完成之前我们在 `send()` 方法中定义的回调接口。
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fw3kuprn02j30zo09qgnr.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d14327d87.jpg)
 
  > 从这里也可以看出为什么之前说发送完成后元数据和异常信息只会出现一个。
 
@@ -238,7 +238,7 @@ acks,retries,requestTimeout
 
 `acks` 是一个影响消息吞吐量的一个关键参数。
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fw3l52birsj30u607o0ta.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d14413679.jpg)
 
 主要有 `[all、-1, 0, 1]` 这几个选项，默认为 1。
 
@@ -271,9 +271,9 @@ producer 不会等待副本的任何响应，这样最容易丢失消息但同�
 
 但也不能极端，调太大会浪费内存。小了也发挥不了作用，也是一个典型的时间和空间的权衡。
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fw3l2ydx4tj311l0e9ae3.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d1453fc23.jpg)
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fw3l3mh0pqj312409940u.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d1464d1b3.jpg)
 
 上图是几个使用的体现。
 
@@ -306,7 +306,7 @@ producer 不会等待副本的任何响应，这样最容易丢失消息但同�
 最后则是 `Producer` 的关闭，Producer 在使用过程中消耗了不少资源（线程、内存、网络等）因此需要显式的关闭从而回收这些资源。
 
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fw3mw4a00rj311x0kp434.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d14dd3792.jpg)
 
 默认的 `close()` 方法和带有超时时间的方法都是在一定的时间后强制关闭。
 

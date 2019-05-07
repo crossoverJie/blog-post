@@ -9,13 +9,13 @@ tags:
 - SpringBoot
 ---
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fwo6yqzqkoj31kw11xn6h.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c697587d0.jpg)
 
 
 # 前言
 
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fwo7rifc2dj30e3035jru.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c69801b99.jpg)
 
 前段时间在某个第三方平台看到我写作字数居然突破了 10W 字，难以想象高中 800 字作文我都得巧妙的**利用换行**来完成(懂的人肯定也干过😏)。
 
@@ -35,7 +35,7 @@ java -jar nows-0.0.1-SNAPSHOT.jar /xx/Hexo/source/_posts
 
 传入需要扫描的文章目录即可输出结果（目前只支持 `.md` 结尾 `Markdown` 文件）
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fwo7xl25qnj311x03sdpa.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c69c8aeb9.jpg)
 
 当然结果看个乐就行（40 几万字），因为早期的博客我喜欢大篇的贴代码，还有一些英文单词也没有过滤，所以导致结果相差较大。
 
@@ -163,7 +163,7 @@ public class HttpFilterProcess implements FilterProcess{
 ---
 这样在初始化时需要将这些处理 `handle` 都加入责任链中，同时提供一个 `API` 供客户端执行即可。
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fwo925x6hnj30nw0i0772.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c69e73410.jpg)
 
 这样一个简单的统计字数的工具就完成了。
 
@@ -189,7 +189,7 @@ public class HttpFilterProcess implements FilterProcess{
 
 基于我本地的环境先看看单线程运行的结果：
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fwo9y5uz0xj31cb03aabw.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c6a0cf61d.jpg)
 
 总计为：414142 字。
 
@@ -237,7 +237,7 @@ public class ScanNumTask implements Runnable {
 > 使用线程池管理线程，更多线程池相关的内容请看这里：[《如何优雅的使用和理解线程池》](https://crossoverjie.top/2018/07/29/java-senior/ThreadPool/)
 
 执行结果：
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fwoa1bup8ij31g604jmz9.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c6a7b0f8f.jpg)
 
 我们会发现无论执行多少次，这个值都会小于我们的预期值。
 
@@ -278,7 +278,7 @@ public class TotalWords {
 
 > 如下图所示：
 
-![](https://ws2.sinaimg.cn/large/006tKfTcly1fmouu3fpokj31ae0osjt1.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c6a9c6546.jpg)
 
 > 所以在并发运行时可能会出现线程 B 所读取到的数据是线程 A 更新之前的数据。
 
@@ -309,7 +309,7 @@ public class TotalWords {
 
 只是使用了它的两个 `API` 而已。再来运行下程序会发现**结果居然还是不对**。
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fwoagwv1xdj315103f0ui.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c6ac29d9f.jpg)
 
 甚至为 0 了。
 
@@ -338,7 +338,7 @@ logger.info("total sum=[{}],[{}] ms",total,end-start);
 
 大概的方式有以下几种：
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fwoaod75wqj306u08idgc.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c6ad47413.jpg)
 
 这里我们使用线程池的方式：
 
@@ -356,7 +356,7 @@ logger.info("total sum=[{}],[{}] ms",total,end-start);
 
 这样我们再次尝试，发现无论多少次结果都是正确的了：
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fwoaqpt8v9j31fz04i0uv.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c6b0c711c.jpg)
 
 ## 效率提升
 
@@ -370,15 +370,15 @@ logger.info("total sum=[{}],[{}] ms",total,end-start);
 
 先看单线程运行需要耗时多久。
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fwoavhxvouj317l0500vl.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c6b2e840c.jpg)
 
 总共耗时：`[8404] ms`
 
 接着在线程池大小为 4 的情况下耗时：
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fwoawxtpecj30qw07zta1.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c6bc142b3.jpg)
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fwoaxid8odj317602tdha.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c6bfdb822.jpg)
 
 总共耗时：`[2350] ms`
 

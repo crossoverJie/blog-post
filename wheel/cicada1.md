@@ -10,7 +10,7 @@ tags:
 - Netty
 ---
 
-![](https://ws2.sinaimg.cn/large/006tNbRwgy1fuvn1m5mtjj315o0rsjzp.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d1720ab7a.jpg)
 
 # 前言
 
@@ -24,19 +24,19 @@ tags:
 
 也仅需要一行代码即可启动一个 `HTTP` 服务。
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fuvijd84vhj30zk0fignz.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d17354c8b.jpg)
 
 <!--more-->
 
 ---
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fuvibn4xavj31ei074dgj.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d1741f0cb.jpg)
 
 # 特性
 
 现在来谈谈重要的几个特性。
 
-![](https://ws2.sinaimg.cn/large/006tNbRwgy1fuvo0xp74gj30gy0fcmz6.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d175166b9.jpg)
 
 当前版本主要实现了基本的请求、响应、自定义参数以及拦截器功能。
 
@@ -111,13 +111,13 @@ public class DemoAction implements WorkAction {
 
 便能执行业务逻辑同时得到服务端的返回。
 
-![](https://ws2.sinaimg.cn/large/006tNbRwgy1fuvohu1awsj31fs0ukjv8.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d21b836c2.jpg)
 
 目前默认支持的是 `json` 响应，后期也会加上模板解析。
 
 服务中也会打印相关日志。
 
-![](https://ws2.sinaimg.cn/large/006tNbRwgy1fuvok113fbj31kw05nju9.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d21c7ebc4.jpg)
 
 ## 灵活的参数配置
 
@@ -200,7 +200,7 @@ public class LoggerInterceptorAbstract extends AbstractCicadaInterceptorAdapter 
 
 在测试条件为：`300 并发连续压测两轮；1G 内存、单核 CPU、1Mbps。`用 Jmeter 压测情况如下：
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fuvheff4smj317m0mgdhs.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d21d32a5f.jpg)
 
 同样的服务器用 Tomcat 来压测看看结果。
 
@@ -211,7 +211,7 @@ Tomcat 的线程池配置:
         maxThreads="510" minSpareThreads="10"/>
 ```
 
-![](https://ws2.sinaimg.cn/large/006tNbRwgy1fuvp37qdszj316u0deq4m.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d220bbdbf.jpg)
 
 我这里请求的是 Tomcat 的一个 doc 目录，虽说结果看似 `cicada` 的性能比 Tomcat  还强。
 

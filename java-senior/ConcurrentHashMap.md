@@ -10,7 +10,7 @@ tags:
 - concurrent
 ---
 
-![](https://ws1.sinaimg.cn/large/006tNc79gy1fthz5oibm0j31kw11xu0g.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d2be294c6.jpg)
 
 ## 前言
 
@@ -26,13 +26,13 @@ Map 这样的 `Key Value` 在软件开发中是非常经典的结构，常用于
 
 1.7 中的数据结构图：
 
-![](https://ws1.sinaimg.cn/large/006tNc79gy1ftiv16vu4aj30i30k4q47.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d2be77958.jpg)
 
 <!--more-->
 
 先来看看 1.7 中的实现。
 
-![](https://ws1.sinaimg.cn/large/006tNc79gy1fti10f33ssj30rq0lq0wf.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d2bfd6aba.jpg)
 
 这是 HashMap 中比较核心的几个成员变量；看看分别是什么意思？
 
@@ -78,7 +78,7 @@ Map 这样的 `Key Value` 在软件开发中是非常经典的结构，常用于
 
 这个数组，那么它又是如何定义的呢？
 
-![](https://ws3.sinaimg.cn/large/006tNc79gy1fti1v5hei4j30l40d4q4q.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d2c08e693.jpg)
 
 Entry 是 HashMap 中的一个内部类，从他的成员变量很容易看出：
 
@@ -198,7 +198,7 @@ Entry 是 HashMap 中的一个内部类，从他的成员变量很容易看出�
 
 1.8 HashMap 结构图：
 
-![](https://ws3.sinaimg.cn/large/006tNc79gy1ftivc5xwb2j30lh0c5dgh.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d2c1c1cd7.jpg)
 
 先来看看几个核心的成员变量：
 
@@ -245,7 +245,7 @@ Node 的核心组成其实也是和 1.7 中的 HashEntry 一样，存放的都�
 
 #### put 方法
 
-![](https://ws4.sinaimg.cn/large/006tNc79gy1ftius4g5wuj30pz0lk0x9.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d2c378090.jpg)
 
 看似要比 1.7 的复杂，我们一步步拆解：
 
@@ -321,9 +321,9 @@ for (int i = 0; i < 1000; i++) {
 
 如下图：
 
-![](https://ws1.sinaimg.cn/large/006tNc79gy1ftj05moamfj30n20iign7.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d2c4ede54.jpg)
 
-![](https://ws4.sinaimg.cn/large/006tNc79gy1ftj05syvuvj30n20iign7.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d2c58e4c2.jpg)
 
 ### 遍历方式
 
@@ -364,7 +364,7 @@ ConcurrentHashMap 同样也分为 1.7 、1.8 版，两者在实现上略有不�
 
 先来看看 1.7 的实现，下面是他的结构图：
 
-![](https://ws4.sinaimg.cn/large/006tNc79gy1ftj0evlsrgj30dw073gm2.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d2c5ce95c.jpg)
 
 
 如图所示，是由 Segment 数组、HashEntry 组成，和 HashMap 一样，仍然是数组加链表。
@@ -406,7 +406,7 @@ Segment 是 ConcurrentHashMap 的一个内部类，主要的组成如下：
 
 看看其中 HashEntry 的组成：
 
-![](https://ws1.sinaimg.cn/large/006tNc79gy1ftj0mugrgnj30mo06l0tq.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d2c635c69.jpg)
 
 和 HashMap 非常类似，唯一的区别就是其中的核心数据如 value ，以及链表都是 volatile 修饰的，保证了获取时的可见性。
 
@@ -484,13 +484,13 @@ Segment 是 ConcurrentHashMap 的一个内部类，主要的组成如下：
 
 首先第一步的时候会尝试获取锁，如果获取失败肯定就有其他线程存在竞争，则利用 `scanAndLockForPut()` 自旋获取锁。
 
-![](https://ws4.sinaimg.cn/large/006tNc79gy1ftj2a3a5b7j30qj0f9dis.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d2cc3c982.jpg)
 
 1. 尝试自旋获取锁。
 2. 如果重试的次数达到了 `MAX_SCAN_RETRIES` 则改为阻塞锁获取，保证能获取成功。
 
 
-![](https://ws4.sinaimg.cn/large/006tKfTcgy1ftj2lxexeqj30rw0lfwie.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d2cd25c37.jpg)
 
 再结合图看看 put 的流程。
 
@@ -540,14 +540,14 @@ ConcurrentHashMap 的 get 方法是非常高效的，**因为整个过程都不�
 
 首先来看下底层的组成结构：
 
-![](https://ws3.sinaimg.cn/large/006tNc79gy1fthpv4odbsj30lp0drmxr.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d2ce33795.jpg)
 
 
 看起来是不是和 1.8 HashMap 结构类似？
 
 其中抛弃了原有的 Segment 分段锁，而采用了 `CAS + synchronized` 来保证并发安全性。
 
-![](https://ws3.sinaimg.cn/large/006tNc79gy1fthq78e5gqj30nr09mmz9.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d2ceebe02.jpg)
 
 也将 1.7 中存放数据的 HashEntry 改为 Node，但作用都是相同的。
 
@@ -557,7 +557,7 @@ ConcurrentHashMap 的 get 方法是非常高效的，**因为整个过程都不�
 
 重点来看看 put 函数：
 
-![](https://ws3.sinaimg.cn/large/006tNc79gy1fthrz8jlo8j30oc0rbte3.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d2cfc3293.jpg)
 
 - 根据 key 计算出 hashcode 。
 - 判断是否需要进行初始化。
@@ -568,7 +568,7 @@ ConcurrentHashMap 的 get 方法是非常高效的，**因为整个过程都不�
 
 #### get 方法
 
-![](https://ws1.sinaimg.cn/large/006tNc79gy1fthsnp2f35j30o409hwg7.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d2d22c6cb.jpg)
 
 - 根据计算出来的 hashcode 寻址，如果就在桶上那么直接返回值。
 - 如果是红黑树那就按照树的方式获取值。

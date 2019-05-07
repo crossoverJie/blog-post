@@ -6,7 +6,7 @@ categories:
 ---
 # 前言
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fyiaehl295j31960u0h35.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c3667b05e.jpg)
 
 
 早在这个月初的时候我就很想写一篇年终总结了，因为这一年相对于去年确实是经历的太多了。
@@ -44,7 +44,7 @@ categories:
 
 让我意外的是我博客的访问量，下图是我`cnzz`的统计截图：
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fyiae4xuczj31lk0qqgrg.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c36b578a3.jpg)
 
 # 六月二十一-开源项目
 关于开源项目，之前我在`github`上面看很多优秀的开源项目，也很佩服那些作者，于是就想着自己能不能也搞一个，但是一来就造个轮子对我来说确实有点不现实。
@@ -56,7 +56,7 @@ categories:
 
 从六月二十一号到现在还是有100多颗星了：
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fyiaezuuv2j314m0ocjut.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c36f7774a.jpg)
 
 # 九月二十三-第二次跳槽
 看到这里是不是觉得我有病啊，怎么又是跳槽。。。

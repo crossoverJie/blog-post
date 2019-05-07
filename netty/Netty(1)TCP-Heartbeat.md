@@ -148,7 +148,7 @@ public class CustomerHandleInitializer extends ChannelInitializer<Channel> {
 
 所以当应用启动每隔 10 秒会检测是否发送过消息，不然就会发送心跳信息。
 
-![](https://ws3.sinaimg.cn/large/006tKfTcgy1frqd863hrhj31kw04taed.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d54648799.jpg)
 
 ## 服务端心跳
 
@@ -297,7 +297,7 @@ public class HeartbeatInitializer extends ChannelInitializer<Channel> {
 
 也是同样将IdleStateHandler 添加到 ChannelPipeline 中，也会有一个定时任务，每5秒校验一次是否有收到消息，否则就主动发送一次请求。
 
-![](https://ws1.sinaimg.cn/large/006tKfTcgy1frqe2hbxjfj31kw06rtej.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d54fe2535.jpg)
 
 因为测试是有两个客户端连上所以有两个日志。
 
@@ -485,10 +485,10 @@ public class HeartbeatDecoder extends ByteToMessageDecoder {
 就开启了 SpringBoot 的 actuator 监控功能，他可以暴露出很多监控端点供我们使用。
 
 如一些应用中的一些统计数据：
-![](https://ws1.sinaimg.cn/large/006tKfTcgy1frqeyocotnj31kw0b8tiy.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d555538b7.jpg)
 
 存在的 Beans：
-![](https://ws3.sinaimg.cn/large/006tKfTcgy1frqez1kr3dj31kw0onawi.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d569ca76a.jpg)
 
 更多信息请查看：[https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html)
 
@@ -547,10 +547,10 @@ public class EndPointConfig {
 这样我们就可以通过配置文件中的 `monitor.channel.map.key` 来访问了：
 
 一个客户端连接时：
-![](https://ws3.sinaimg.cn/large/006tKfTcgy1frqf7ic0wqj31kw07rq7a.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d56d1fd2d.jpg)
 
 两个客户端连接时：
-![](https://ws2.sinaimg.cn/large/006tKfTcgy1frqf8omlzkj31kw07xq7y.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d6e3140db.jpg)
 
 
 ## 整合 SBA
@@ -563,7 +563,7 @@ public class EndPointConfig {
 
 简单来说我们可以利用该工具将 actuator 暴露出来的接口可视化并聚合的展示在页面中：
 
-![](https://ws2.sinaimg.cn/large/006tKfTcgy1frqfbz359wj31kw0p513n.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d6e7c835b.jpg)
 
 接入也很简单，首先需要引入依赖：
 
@@ -620,7 +620,7 @@ public class AdminApplication {
 
 这样我们在 SpringBootAdmin 的页面中就可以查看很多应用信息了。
 
-![](https://ws4.sinaimg.cn/large/006tKfTcgy1frqfjuof2rj31kw10ldqk.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d6ed19d78.jpg)
 
 更多内容请参考官方指南：
 
@@ -679,21 +679,21 @@ public class IndexController {
 
 当我们调用该接口时：
 
-![](https://ws4.sinaimg.cn/large/006tKfTcgy1frqfv3vx0ej31hk0g6dj5.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d6f026a21.jpg)
 
-![](https://ws4.sinaimg.cn/large/006tKfTcgy1frqfvof9lpj31kw07l0z8.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d6f5911b1.jpg)
 
 在监控页面中可以查询刚才的调用情况：
 
-![](https://ws4.sinaimg.cn/large/006tKfTcgy1frqfwembi6j31kw0o0dot.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d6fa3cec7.jpg)
 
 服务端主动 push 消息也是类似，只是需要在发送时候根据客户端的 ID 查询到具体的 Channel 发送：
 
-![](https://ws4.sinaimg.cn/large/006tKfTcgy1frqfy9dcu5j31hu0f277i.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d6fd37fb9.jpg)
 
-![](https://ws2.sinaimg.cn/large/006tKfTcgy1frqfz0aticj31kw05jgol.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d7009a4ef.jpg)
 
-![](https://ws3.sinaimg.cn/large/006tKfTcgy1frqfztzxd8j31kw0iyn0t.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d704eb0a6.jpg)
 
 
 # 总结

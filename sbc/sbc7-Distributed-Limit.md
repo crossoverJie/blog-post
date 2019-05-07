@@ -8,7 +8,7 @@ tags:
 - Distributed Limited
 ---
 
-![](https://ws3.sinaimg.cn/large/006tKfTcly1fqrle104hwj31i6104aig.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d53453d1c.jpg)
 
 ## 前言
 
@@ -161,15 +161,15 @@ public void doSomething(){}
 
 > 为了验证分布式效果启动了两个 Order 应用。
 
-![](https://ws1.sinaimg.cn/large/006tKfTcly1fqrnxt2l8lj313x09rwfm.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d5375dfa5.jpg)
 
 效果如下：
-![](https://ws1.sinaimg.cn/large/006tKfTcly1fqrlvvj8cbj31kw0f1wws.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d539c6b86.jpg)
 
 
-![](https://ws4.sinaimg.cn/large/006tKfTcly1fqrlznycdnj31kw0gbh0n.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d54041832.jpg)
 
-![](https://ws1.sinaimg.cn/large/006tKfTcly1fqrm0jpbjjj31kw04wgq9.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d5431f7dd.jpg)
 
 
 ## 实现原理

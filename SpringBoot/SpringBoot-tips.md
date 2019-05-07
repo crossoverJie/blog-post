@@ -8,7 +8,7 @@ tags:
 - 加密
 ---
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fw85ta53i1j30hi0ckk57.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c6c1c0c74.jpg)
 
 # 前言
 
@@ -146,18 +146,18 @@ BaseResponse.createSuccess(DateUtil.getLongTime() + "", "mock orderNo success"))
 
 测试一下，当我们没有替换时调用刚才那个接口并且本地也没有启动 `OrderService`：
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fw87g73o1gj30qt0fr76j.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c6c3cc479.jpg)
 
 因为没有配置 fallback 所以会报错，表示找不到这个服务。
 
 
 替换掉 bean 时：
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fw87imdlhgj30qr0emdhh.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c6c68a740.jpg)
 
 再次请求没有报错，并且获得了我们默认的返回。
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fw87k3ut7yj319p07gq82.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c6cd7ba1d.jpg)
 
 通过日志也会发现 `OrderServiceClient` 最后已经被 `Mock` 代理了，并不会去调用真正的方法。
 

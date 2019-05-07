@@ -11,7 +11,7 @@ tags:
 - ThreadLocal
 ---
 
-![](https://ws4.sinaimg.cn/large/006tNbRwgy1fvyf0zkwadj31g80teqh0.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d11a5612f.jpg)
 
 # 前言
 
@@ -52,7 +52,7 @@ public class TextAction implements WorkAction {
 
 > 而响应输出 `application/json` 时只需要把需要响应的对象写入到 `json()` 方法中.
 
-![](https://ws1.sinaimg.cn/large/006tNbRwgy1fvzq2nideej30ou0dlwh2.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d121092ea.jpg)
 
 因此原有的业务 action 中也加入了一个上下文的参数：
 
@@ -93,7 +93,7 @@ void execute(CicadaContext context ,Param param) throws Exception;
 
 先来看看 `CicadaContext` 这个类的主要成员变量以及方法。
 
-![](https://ws2.sinaimg.cn/large/006tNbRwgy1fvzqkl5ct6j30nl0kb0w7.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d1220f5c8.jpg)
 
 成员变量是两个接口 `CicadaRequest、CicadaResponse`，名称就能看出肯定是存放请求和响应数据的。
 
@@ -102,7 +102,7 @@ void execute(CicadaContext context ,Param param) throws Exception;
 
 想要存放本次请求的上下文自然是在真正请求分发的地方 `HttpDispatcher`。
 
-![](https://ws3.sinaimg.cn/large/006tNbRwgy1fvzqt0dlwhj30ne0kudjn.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d1239db85.jpg)
 
 这里改的较大的就是两个红框处，第一部分是做上下文初始化及赋值。
 
@@ -117,13 +117,13 @@ void execute(CicadaContext context ,Param param) throws Exception;
 
 `CicadaHttpRequest` 自然是实现了 `CicadaRequest` 接口：
 
-![](https://ws3.sinaimg.cn/large/006tNbRwgy1fvzqx6hvpcj30gt0c70u7.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d124968a4.jpg)
 
 这里只保存了请求的 URL、method 等信息，后续要加的请求头也存放在此处即可。
 
 `Response` 也是同理的。
 
-![](https://ws2.sinaimg.cn/large/006tNbRwgy1fvzqyz3bfjj30l20gigod.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d125bda8d.jpg)
 
 > 这两个具体的实现类都私有化了构造函数，防止外部破坏了整体性。
 
@@ -157,7 +157,7 @@ CicadaContext.setContext(new CicadaContext(cicadaRequest,cicadaResponse));
 
 拿 `context.text()` 来说：
 
-![](https://ws4.sinaimg.cn/large/006tNbRwgy1fvzr73fkrsj30o404ygm8.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d12b3778f.jpg)
 
 其实就是设置了对应的响应方式、以及把响应内容写入了 `CicadaResponse` 的 `httpContent` 中。
 
@@ -182,7 +182,7 @@ responseContent(ctx,CicadaContext.getResponse().getHttpContent());
 
 最后还新增了一个停机的方法。
 
-![](https://ws3.sinaimg.cn/large/006tNbRwgy1fvzrfl6dsnj30j60bi75u.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d12c18a0f.jpg)
 
 其实也就是利用 `Hook` 函数实现的。
 

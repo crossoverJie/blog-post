@@ -31,7 +31,7 @@ categories:
 
 起床后磨蹭半天一不小心就到了饭点，由于女朋友上早班一个人的话就点了外卖。
 
-![](https://ws3.sinaimg.cn/large/006tKfTcly1g19mqbrbbjj30ta0ivqq5.jpg)
+![](https://i.loli.net/2019/05/08/5cd1beb5b9f63.jpg)
 吃饭的同时会看看一部下饭神剧《武林外传》。
 
 # 家务
@@ -40,7 +40,7 @@ categories:
 
 # 周报
 
-![](https://ws3.sinaimg.cn/large/006tKfTcly1g19msvqicqj30tb0iyngq.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bebc05aa7.jpg)
 
 准备开始写周报，结果一不小心沉浸于电视。。。
 
@@ -49,14 +49,14 @@ categories:
 
 # PPT
 
-![](https://ws4.sinaimg.cn/large/006tKfTcly1g19mv4ydp6j30tb0j0wro.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bebcb7a89.jpg)
 
 完成下周技术分享的 PPT，但受限于设计细胞整个 PPT 将比较难看。
 
 
 # 技术博客
 
-![](https://ws2.sinaimg.cn/large/006tKfTcly1g19my22yaoj30t60ivayd.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bebe980fd.jpg)
 
 开始写一篇技术博客，分享了我个人的一些习惯：
 
@@ -66,7 +66,7 @@ categories:
 
 # 消遣
 
-![](https://ws2.sinaimg.cn/large/006tKfTcly1g19n0eo4fsj30t70ivdjt.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bec0065b2.jpg)
 
 玩 `switch` ，买游戏花的钱已经都可以再买一个 `switch` 了，果真是买游戏送主机；主要玩：
 
@@ -77,7 +77,7 @@ categories:
 
 # 晚饭
 
-![](https://ws2.sinaimg.cn/large/006tKfTcly1g19n3cm9nhj30tc0iuqpb.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bec0ae362.jpg)
 
 作为王刚师傅的在线弟子，深的宽油真传，必将料理出感动人心的美味；本次为大家带来的是`口味猪肝`。
 

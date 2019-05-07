@@ -10,13 +10,13 @@ tags:
 - SpringBoot
 ---
 
-![](https://ws1.sinaimg.cn/large/006tKfTcgy1ftpwh3a2szj31kw11xh84.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d2a867bea.jpg)
 
 ## 前言
 
 平时接触过多线程开发的童鞋应该都或多或少了解过线程池，之前发布的《阿里巴巴 Java 手册》里也有一条：
 
-![](https://ws2.sinaimg.cn/large/006tKfTcgy1ftpxf3x1epj30la03s0tl.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d2a8dad64.jpg)
 
 可见线程池的重要性。
 
@@ -80,7 +80,7 @@ threadPool.execute(new Job());
 
 在具体分析之前先了解下线程池中所定义的状态，这些状态都和线程的执行密切相关：
 
-![](https://ws3.sinaimg.cn/large/006tKfTcgy1ftq1ks5qywj30jn03i3za.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d2a9bc566.jpg)
 
 - `RUNNING` 自然是运行状态，指可以接受任务执行队列里的任务
 - `SHUTDOWN` 指调用了 `shutdown()` 方法，不再接受新任务了，但是队列里的任务得执行完毕。
@@ -90,11 +90,11 @@ threadPool.execute(new Job());
 
 用图表示为：
 
-![](https://ws4.sinaimg.cn/large/006tKfTcgy1ftq2nxlwe5j30sp0ba0ts.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d2aa81655.jpg)
 
 然后看看 `execute()` 方法是如何处理的：
 
-![](https://ws1.sinaimg.cn/large/006tKfTcgy1ftq283zi91j30ky08mwgb.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d2ab921db.jpg)
 
 1. 获取当前线程池的状态。
 2. 当前线程数量小于 coreSize 时创建一个新的线程运行。
@@ -105,7 +105,7 @@ threadPool.execute(new Job());
 
 这里借助《聊聊并发》的一张图来描述这个流程：
 
-![](https://ws4.sinaimg.cn/large/006tKfTcgy1ftq2vzuv5rj30dw085q3i.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d2ac0936c.jpg)
 
 
 ### 如何配置线程
@@ -219,16 +219,16 @@ public class TreadPoolConfig {
 
 其实 ThreadPool 本身已经提供了不少 api 可以获取线程状态：
 
-![](https://ws1.sinaimg.cn/large/006tKfTcgy1ftq3xsrbs6j30bg0bpgnb.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d2accbbcf.jpg)
 
 很多方法看名字就知道其含义，只需要将这些信息暴露到 SpringBoot 的监控端点中，我们就可以在可视化页面查看当前的线程池状态了。
 
 
 甚至我们可以继承线程池扩展其中的几个函数来自定义监控逻辑：
 
-![](https://ws2.sinaimg.cn/large/006tKfTcgy1ftq40lkw9jj30mq07rmyt.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d2add4d31.jpg)
 
-![](https://ws4.sinaimg.cn/large/006tKfTcgy1ftq41asf8rj30kq07cabd.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d2aeea439.jpg)
 
 看这些名称和定义都知道，这是让子类来实现的。
 
@@ -396,7 +396,7 @@ public class CommandUser extends HystrixCommand<String> {
 
 运行结果：
 
-![](https://ws2.sinaimg.cn/large/006tKfTcgy1ftq4e0ukubj30ps04gtak.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d2b06ef2d.jpg)
 
 可以看到两个任务分成了两个线程池运行，他们之间互不干扰。
 
@@ -410,7 +410,7 @@ public class CommandUser extends HystrixCommand<String> {
 
 通过刚才的构造函数也能证明：
 
-![](https://ws2.sinaimg.cn/large/006tKfTcgy1ftq4i6xy2qj30uo09adhp.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d2b69cd32.jpg)
 
 还要注意的一点是：
 
@@ -429,7 +429,7 @@ public class CommandUser extends HystrixCommand<String> {
 
 [Java-Interview](https://github.com/crossoverJie/Java-Interview) 截止目前将近 8K star。
 
-![](https://ws3.sinaimg.cn/large/006tKfTcgy1ftq4ygnncrj30ru09p40i.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d2b777ec3.jpg)
 
 这次定个小目标：争取冲击 `1W star`。
 

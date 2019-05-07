@@ -7,7 +7,7 @@ tags:
 - Spring
 ---
 
-![](https://ws2.sinaimg.cn/large/006tNc79gy1fpjstgeir9j30v90kujyq.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d7c8810e7.jpg)
 
 ### 前言
 
@@ -15,7 +15,7 @@ Spring Bean 的生命周期在整个 Spring 中占有很重要的位置，掌握
 
 首先看下生命周期图：
 
-![](https://ws3.sinaimg.cn/large/006tNc79gy1fpjsamy6uoj30nt0cqq4i.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d7d0416f5.jpg)
 
 再谈生命周期之前有一点需要先明确：
 

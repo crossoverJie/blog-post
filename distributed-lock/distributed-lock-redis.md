@@ -7,7 +7,7 @@ tags:
 - Distributed Lock
 ---
 
-![](https://ws3.sinaimg.cn/large/006tKfTcgy1fpvathnbf6j31kw11xwl3.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d7a3c310a.jpg)
 
 ## 前言
 分布式锁在分布式应用中应用广泛，想要搞懂一个新事物首先得了解它的由来，这样才能更加的理解甚至可以举一反三。
@@ -274,7 +274,7 @@ public class RedisLockConfig {
 
 它的原理其实也挺简单，debug 的话可以很直接的看出来：
 
-![](https://ws2.sinaimg.cn/large/006tKfTcgy1fpxho866hbj311u0ej42f.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d7afe72f2.jpg)
 
 这里我们所依赖的 JedisCluster 其实是一个 `cglib 代理对象`。所以也不难想到它是如何工作的。
 

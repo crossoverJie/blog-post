@@ -8,7 +8,7 @@ tags:
 ---
 
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fugg2c7m89j31g80yun3p.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d24dd66d9.jpg)
 
 ## 前言
 
@@ -41,7 +41,7 @@ tags:
 
 这就和上篇[《如何成为一位「不那么差」的程序员》](https://crossoverjie.top/2018/08/12/personal/how-to-be-developer/)不谋而合：
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fuggs50rahj31kw106tj4.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d24f5692a.jpg)
 
 ### 项目特色
 
@@ -64,7 +64,7 @@ tags:
 
 再一个是基本错误尽量少出，比如这样的：
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fughq887jbj30ya0hqq6h.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d2503aa95.jpg)
 
 这是当时难得看到贴了 GitHub 地址，名字居然还写错。不过我还是点进去看了，也是没啥营养。
 
@@ -78,7 +78,7 @@ tags:
 
 word 就非常容易出现变形，比如下面这样的我只能看到身高。
 
-![](https://ws2.sinaimg.cn/large/006tNbRwgy1fugnu38lsoj30mo0gyahb.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d2510311a.jpg)
 
 
 ## 1~3 年

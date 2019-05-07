@@ -10,7 +10,7 @@ tags:
 - Netty
 ---
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fx7y63ed53j31hc0u046a.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c63f1bd4a.jpg)
 
 # 前言
 
@@ -34,13 +34,13 @@ tags:
 
 因此也有朋友给我提过这个 [issue](https://github.com/TogetherOS/cicada/issues/12)。
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fx7ytq4sj0j30sz0o40zv.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c64216f7d.jpg)
 
 ---
 
 于是改进后的使用方式如下：
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fx7yuvz6o1j30od0gcwhm.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c647f3a27.jpg)
 
 > 是否有点似曾相识的感觉😊。
 
@@ -69,19 +69,19 @@ tags:
 
 **扫描类以及写入映射关系**
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fx7z8xeztxj30tu094abn.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c64971c37.jpg)
 
 ---
 
 **请求时查询映射关系**
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fx7z9opcx8j30lb0a6jsz.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c64ade749.jpg)
 
 ---
 
 **反射调用这些方法**
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fx7zckbkh3j30ov07cgmy.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c64d6e772.jpg)
 
 
 
@@ -91,7 +91,7 @@ tags:
 
 大家都知道反射调用方法有两个重要的参数：
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fx7zfd77kaj30np0in44c.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c65023d49.jpg)
 
 - `obj` 方法执行的实例。
 - `args..` 自然是方法的参数。
@@ -131,26 +131,26 @@ method.invoke(method.getDeclaringClass().newInstance(), object);
 
 所以首先定义了一个接口；`CicadaBeanFactory`:
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fx805jyttnj30e003ewer.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c651de476.jpg)
 
 包含了注册和获取实例的接口。
 
 同时分别有两个不同的容器实现方案。
 
 默认实现；`CicadaDefaultBean`：
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fx8074vywrj30hj05yaap.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c65811e8e.jpg)
 
 也就是文中说道的，每次都会创建实例；由于这种方式其实根本就没有 bean 容器，所以也不存在注册了。
 
 接下来是真正的 IOC 容器；`CicadaIoc`：
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fx808jz2dtj30jx06nmy7.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c65b97711.jpg)
 
 > 它将所有的实例都存放在一个 Map 中。
 
 当然也少不了刚才提到的 `CicadaBeanManager`，它会在应用启动的时候将所有的实例注册到 `bean` 容器中。
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fx80baammgj30kw08mgn2.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c65e91a11.jpg)
 
 重点是图中标红的部分：
 
@@ -159,7 +159,7 @@ method.invoke(method.getDeclaringClass().newInstance(), object);
 
 同时也提供了一个获取实例的方法：
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fx80dmej6mj30f805emxm.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c65f98cbb.jpg)
 
 就是直接调用 `CicadaBeanFactory` 接口的方法。
 
@@ -167,7 +167,7 @@ method.invoke(method.getDeclaringClass().newInstance(), object);
 
 然后在上文提到的反射调用方法处就变为：
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fx80efy38xj30m004rgmd.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c666b4ec4.jpg)
 
 从 `bean` 容器中获取实例了；获取的过程可以是每次都创建一个新的对象，也可以是直接从容器中获取实例。这点对于这里的调用者来说**并不关心**。
 
@@ -175,7 +175,7 @@ method.invoke(method.getDeclaringClass().newInstance(), object);
 
 为了实现这个目的，我将 `CicadaIoc` 的实现单独放到一个模块中，以 jar 包的形式提供实现。
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fx80hpjmcoj30ph064q43.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c6680a66b.jpg)
 
 所以如果你想要使用 `IOC` 容器的方式获取实例时只需要在你的应用中额外加入这个 jar 包即可。
 

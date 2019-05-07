@@ -9,7 +9,7 @@ tags:
 - Hash
 ---
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fxjmn1eyr6j31hc0qr114.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c60f09a00.jpg)
 
 # 前言
 
@@ -61,11 +61,11 @@ tags:
 
 还是在这个基础上，写入 1000W 数据试试：
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxjn76zaoaj30fr07ejsh.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c6103f765.jpg)
 
 执行后马上就内存溢出。
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fxjn7zovu8j30my07rq4o.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c61188141.jpg)
 
 可见在内存有限的情况下我们不能使用这种方式。
 
@@ -94,7 +94,7 @@ tags:
 
 听起来比较绕，但是通过一个图就比较容易理解了。
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fxjo2ku62jj30ew0bzweu.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c612648cb.jpg)
 
 如图所示：
 
@@ -280,13 +280,13 @@ public class BloomFilters {
 
 执行结果如下：
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fxjow3df29j30le06d405.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c613ebab4.jpg)
 
 只花了 3 秒钟就写入了 1000W 的数据同时做出来准确的判断。
 
 ---
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fxjoxad1kmj30p8072dhe.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c61b6299a.jpg)
 
 当让我把数组长度缩小到了 100W 时就出现了一个误报，`400230340` 这个数明明没在集合里，却返回了存在。
 
@@ -297,7 +297,7 @@ public class BloomFilters {
 
 # Guava 实现
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fxjp1vluy8j30lj04iab8.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c61fbb3a9.jpg)
 
 刚才的方式虽然实现了功能，也满足了大量数据。但其实观察 `GC` 日志非常频繁，同时老年代也使用了 90%，接近崩溃的边缘。
 
@@ -336,7 +336,7 @@ public class BloomFilters {
 
 也是同样写入了 1000W 的数据，执行没有问题。
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fxjp57ga3oj30ma052gmt.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c622018c7.jpg)
 
 观察 GC 日志会发现没有一次 `fullGC`，同时老年代的使用率很低。和刚才的一对比这里明显的要好上很多，也可以写入更多的数据。
 
@@ -347,7 +347,7 @@ public class BloomFilters {
 构造方法中有两个比较重要的参数，一个是预计存放多少数据，一个是可以接受的误报率。
 我这里的测试 demo 分别是 1000W 以及 0.01。
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fxjp9reomaj30yq0cqjv9.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c62939dfe.jpg)
 
 `Guava` 会通过你预计的数量以及误报率帮你计算出你应当会使用的数组大小 `numBits` 以及需要计算几次 Hash 函数 `numHashFunctions` 。
 
@@ -357,7 +357,7 @@ public class BloomFilters {
 
 真正存放数据的 `put` 函数如下：
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxjpg55hszj30so082abx.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c62cc9f87.jpg)
 
 - 根据 `murmur3_128` 方法的到一个 128 位长度的 `byte[]`。
 - 分别取高低 8 位的到两个 `hash` 值。
@@ -372,7 +372,7 @@ bitsChanged |= bits.set((combinedHash & Long.MAX_VALUE) % bitSize);
 
 重点是 `bits.set()` 方法。
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fxjpl6uih0j30m30dxmz9.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c63425e23.jpg)
 
 其实 set 方法是 `BitArray` 中的一个函数，`BitArray` 就是真正存放数据的底层数据结构。
 
@@ -380,7 +380,7 @@ bitsChanged |= bits.set((combinedHash & Long.MAX_VALUE) % bitSize);
 
 所以 `set()` 时候也是对这个 `data` 做处理。
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fxjpnobodvj30iz06vwf7.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c6370a2ea.jpg)
 
 - 在 `set` 之前先通过 `get()` 判断这个数据是否存在于集合中，如果已经存在则直接返回告知客户端写入失败。
 - 接下来就是通过位运算进行`位或赋值`。
@@ -388,7 +388,7 @@ bitsChanged |= bits.set((combinedHash & Long.MAX_VALUE) % bitSize);
 
 ### mightContain 是否存在函数
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fxjprkzulxj30o408wabk.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c63b199b4.jpg)
 
 前面几步的逻辑都是类似的，只是调用了刚才的 `get()` 方法判断元素是否存在而已。
 

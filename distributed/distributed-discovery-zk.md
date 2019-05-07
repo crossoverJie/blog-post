@@ -9,7 +9,7 @@ tags:
 ---
 
 
-![](https://ws4.sinaimg.cn/large/006tNbRwgy1funbboybiaj31kw115e4k.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d22474b79.jpg)
 
 ## 背景
 
@@ -39,7 +39,7 @@ tags:
 
 如下图所示：
 
-![](https://ws1.sinaimg.cn/large/006tNbRwgy1func7s9260j305q0auwek.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d22a0ab9f.jpg)
 
 但这样会导致每次使用时都需要频繁的去查询 Redis，为了避免这个问题我们可以在每次查询之后在本地缓存一份最新的数据。这样优先从本地获取确实可以提高效率。
 
@@ -58,7 +58,7 @@ tags:
 
 用过的同学肯定对这张图不陌生。
 
-![](https://ws3.sinaimg.cn/large/006tNbRwgy1funblb2kj2j30f20boaan.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d22aa8afa.jpg)
 
 > 引用自 Dubbo [官网](https://dubbo.incubator.apache.org/en-us/)
 
@@ -75,7 +75,7 @@ tags:
 
 Zookeeper 实现了一个类似于文件系统的树状结构：
 
-![](https://ws2.sinaimg.cn/large/006tNbRwgy1funcpbul3tj30ab0cvdgd.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d22b37597.jpg)
 
 这些节点被称为 znode(名字叫什么不重要)，其中每个节点都可以存放一定的数据。
 
@@ -108,7 +108,7 @@ Zookeeper 是一个典型的观察者模式。
 
 这样实现方式就变为这样。
 
-![](https://ws2.sinaimg.cn/large/006tNbRwgy1fundatqf6uj30el06f0su.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d22ba62d5.jpg)
 
 为此我新建了一个应用来进行演示：
 
@@ -125,27 +125,27 @@ Zookeeper 是一个典型的观察者模式。
 
 两个应用启动完成：
 
-![](https://ws2.sinaimg.cn/large/006tNbRwgy1fundkas9okj312y02kgn0.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d22d1fd47.jpg)
 
-![](https://ws4.sinaimg.cn/large/006tNbRwgy1fundkn0eaaj316b03011l.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d22ed3d2f.jpg)
 
 ---
 
 当前 Zookeeper 的可视化树状结构：
 
-![](https://ws3.sinaimg.cn/large/006tNbRwgy1fundlpz7yrj30z408tq3y.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d2353b899.jpg)
 
 ---
 
 当想知道所有的服务节点信息时：
 
-![](https://ws4.sinaimg.cn/large/006tNbRwgy1fundmm5zu5j30qv0exdh4.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d235d30ea.jpg)
 
 ---
 
 想要获取一个可用的服务节点时：
 
-![](https://ws2.sinaimg.cn/large/006tNbRwgy1fundqlh99ug30go0cpe8a.gif)
+![](https://i.loli.net//2019//05//08//5cd1dc84306df.jpg)
 
 这里只是采取了简单的轮询。
 
@@ -154,22 +154,22 @@ Zookeeper 是一个典型的观察者模式。
 
 当 down 掉一个节点时：应用会收到通知更新本地缓存。同时 Zookeeper 中的节点会自动删除。
 
-![](https://ws4.sinaimg.cn/large/006tNbRwgy1fundshbop0j310e01vgmn.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d2b5b15fd.jpg)
 
-![](https://ws1.sinaimg.cn/large/006tNbRwgy1fundtstsdlj30x109t0tj.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d2b66b2b2.jpg)
 
 ---
 
 再次获取最新节点时：
 
-![](https://ws1.sinaimg.cn/large/006tNbRwgy1fundw0aww3g30gn08l1l1.gif)
+![](https://i.loli.net//2019//05//08//5cd1dd090d37e.jpg)
 
 ---
 当节点恢复时自然也能获取到最新信息。本地缓存也会及时更新。
 
-![](https://ws1.sinaimg.cn/large/006tNbRwgy1fundy1zq14j313202yjtf.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d4faa9cfc.jpg)
 
-![](https://ws2.sinaimg.cn/large/006tNbRwgy1fundztgw7ug30go08gx6s.gif)
+![](https://i.loli.net//2019//05//08//5cd1dd8cc097a.jpg)
 
 ## 编码实现
 
@@ -182,7 +182,7 @@ Zookeeper 是一个典型的观察者模式。
 
 > 启动注册 Zookeeper。
 
-![](https://ws3.sinaimg.cn/large/006tNbRwgy1funkbljpn0j30ny0cjgnv.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d52ed5080.jpg)
 
 主要逻辑都在这个线程中。
 

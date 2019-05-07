@@ -8,7 +8,7 @@ tags:
 - JVM
 ---
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fy25iirb5tj31hc0u0e81.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c38cba7ec.jpg)
 
 # 前言
 
@@ -23,7 +23,7 @@ tags:
 
 于是我刷刷一把梭的就把代码写好了，大概如下：
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fy2t4bjv5bj318s0hgjv4.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c3c278c42.jpg)
 
 写完之后我就在想一个问题，代码中的 `mem` 对象在方法执行完之后会不会被立即回收呢？我想肯定会有一部分人认为就是在方法执行完之后回收。
 
@@ -44,25 +44,25 @@ java -Djava.rmi.server.hostname=10.xx.xx.xx
 
 这样我就可以通过 JMX 端口远程连接到这个应用观察内存、GC 情况了。
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fy2xv0wnp8j30s80je405.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c39bc036e.jpg)
 
 ----
 
 如果是方法执行完毕就回收 `mem` 对象，当我分配 `250M` 内存时；内存就会有一个明显的曲线，同时 GC 也会执行。
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fy2ykiyz7cj31gs0b0dhr.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c39f7851e.jpg)
 
 ---
 
 这时观察内存曲线。
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fy2y2psuhzj318c0oatbp.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c3a9d62ef.jpg)
 
 会发现确实有明显的涨幅，但是之后并没有立即回收，而是一直保持在这个水位。同时左边的 GC 也没有任何的反应。
 
 用 `jstat` 查看内存布局也是同样的情况。
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fy2ynuuog3j317i0f2e81.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c3b066f78.jpg)
 
 不管是 `YGC,FGC` 都没有，只是 Eden 区的使用占比有所增加，毕竟分配了 250M 内存嘛。
 
@@ -70,9 +70,9 @@ java -Djava.rmi.server.hostname=10.xx.xx.xx
 
 我再次分配了两个 250M 之后观察内存曲线。
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fy2z2yxof0j30n60buab4.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c3b2edd01.jpg)
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fy2z7i5qrdj316m0eeb29.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c3b7b078d.jpg)
 
 发现第三个 250M 的时候 `Eden` 区达到了 `98.83%` 于是再次分配时就需要回收 `Eden` 区产生了 `YGC`。
 
@@ -80,7 +80,7 @@ java -Djava.rmi.server.hostname=10.xx.xx.xx
 
 整个的换算过程如图：
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fy2zn03yjoj30sy0mg4qp.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c3bad06b4.jpg)
 
 由于初始化的堆内存为 `4G`，所以算出来的 `Eden` 区大概为 `1092M` 内存。
 
@@ -88,7 +88,7 @@ java -Djava.rmi.server.hostname=10.xx.xx.xx
 
 再来回顾下刚才的问题：
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fy2t4bjv5bj318s0hgjv4.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c3c278c42.jpg)
 
 `mem` 对象既然在方法执行完毕后不会回收，那什么时候回收呢。
 
@@ -123,23 +123,23 @@ java -Djava.rmi.server.hostname=10.xx.xx.xx
 
 以前也写过相关的内容：
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fy359itj30j30mn0ecjuh.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c3c5ab0af.jpg)
 
 ## 大对象直接进入老年代
 
 而大对象则是直接分配到老年代中（至于多大算大，可以通过参数配置）。
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fy35t541v1j30qn06pjs4.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c3c730526.jpg)
 
 ---
 
 
 当我直接分配 1000M 内存时，由于 Eden 区不能直接装下，所以改为分配在老年代中。
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fy35u96ercj309n03eaa5.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c3ca2e8ae.jpg)
 
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fy37wlwaabj30lq09d4ax.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c3cd20694.jpg)
 
 可以看到 `Eden` 区几乎没有变动，但是老年代却涨了 37% ，根据之前计算的老年代内存 `2730M` 算出来也差不多是 `1000M` 的内存。
 
@@ -150,17 +150,17 @@ java -Djava.rmi.server.hostname=10.xx.xx.xx
 
 CPU 还好，本身就有一定的使用，同时每创建一个对象也会消耗一些 CPU。
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fy35yw0qw9j309w04ewed.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c3ceaf475.jpg)
 
 主要是内存,先来看下没启动这个应用之前的内存情况。
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fy3638jhdvj30lh02s422.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c3cfecdb7.jpg)
 
 大概只使用了 3G 的内存。
 
 启动应用之后大概只消耗了 600M 左右的内存。
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fy364kujo3j30ly05zjz6.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c3d7b8325.jpg)
 
 为了满足需求我需要分配一些内存，但这里有点需要讲究。
 
@@ -177,9 +177,9 @@ CPU 还好，本身就有一定的使用，同时每创建一个对象也会消�
 - 先分配一些小对象在新生代中（800M）保持新生代在90%
 - 接着又分配了`老年代内 *（100%-已使用的28%）；也就是 2730*60%=1638M` 让老年代也在 90% 左右。
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fy36g355cbj30av04wglr.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c3d9acf62.jpg)
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fy36jxum8kj30o20b4wvb.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c3e0ac17a.jpg)
 
 效果如上。
 
@@ -187,7 +187,7 @@ CPU 还好，本身就有一定的使用，同时每创建一个对象也会消�
 
 最终内存消耗了 3.5G 左右。
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fy36kw89b5j30mq08m4ae.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c3e398b1b.jpg)
 
 
 

@@ -9,7 +9,7 @@ tags:
 - Tprofile
 ---
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fx414pjlzkj31hc0u0jyv.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c65a7d9df.jpg)
 
 # 背景
 
@@ -33,7 +33,7 @@ tags:
 
 为了清晰的了解这个问题，我简单梳理了这个调用过程。
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fx4jffrt0hj30gp0ftt97.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c65c82a8f.jpg)
 
 整个的流程算是比较常见的分层架构：
 
@@ -131,13 +131,13 @@ excludePackageStartsWith = com.taobao.sketch;org.apache.velocity;com.alibaba;com
 
 为了模拟排查接口响应慢的问题，我用 [cicada](https://github.com/TogetherOS/cicada) 实现了一个 `HTTP` 接口。其中调用了两个耗时方法：
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fx4kh9jae6j30my0ac409.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c65e8d995.jpg)
 
 这样当我启动应用时，`Tprofile` 就会在我配置的目录记录它所收集的方法信息。
 
 我访问接口 `http://127.0.0.1:5688/cicada-example/demoAction?name=test&id=10` 几次后它就会把每个方法的明细响应写入 `tprofile.log`。
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fx4knnbbrnj308v08njrp.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c65f6352a.jpg)
 
 由左到右每列分别代表为：
 
@@ -159,7 +159,7 @@ flushmethod success
 
 再打开 `tmethod.log` ：
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fx4ktw47dyj30jz043t9x.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c66074125.jpg)
 
 其中会记录方法的信息。
 
@@ -178,7 +178,7 @@ print result success
 
 打开 `topmethod.log` 就是所有方法的平均耗时。
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fx4l0ambzhj30l302fwf0.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c66707fb8.jpg)
 
 - 4 为请求次数。
 - 205 为平均耗时。
@@ -208,7 +208,7 @@ print result success
 grep 2 tprofiler.log
 ```
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fx4l6hj8nnj30b907qjw8.jpg)
+![](https://i.loli.net/2019/05/08/5cd1c668a6d28.jpg)
 
 通过第三列方法编号为 2 的来查看每次执行的明细。
 

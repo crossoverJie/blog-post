@@ -6,7 +6,7 @@ categories:
 - LRU cache
 ---
 
-![](https://ws1.sinaimg.cn/large/006tNc79gy1fq3fey7n97j31340o8myw.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d7b5984ac.jpg)
 
 ## 前言
 LRU 是 `Least Recently Used` 的简写，字面意思则是`最近最少使用`。
@@ -684,7 +684,7 @@ public class LRUMap<K, V> {
 
 ### 初始化时
 
-![](https://ws1.sinaimg.cn/large/006tNc79gy1fq3h4xsf4cj30dh09hglr.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d7b842ebd.jpg)
 
 ### 写入数据时
 
@@ -693,24 +693,24 @@ LRUMap<String,Integer> lruMap = new LRUMap(3) ;
 lruMap.put("1",1) ;
 ```
 
-![](https://ws4.sinaimg.cn/large/006tNc79gy1fq3h892nalj30ef09jdg2.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d7bace008.jpg)
 
 
 ```java
 lruMap.put("2",2) ;
 ```
-![](https://ws3.sinaimg.cn/large/006tNc79gy1fq3hayffy1j30jr0b6q3a.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d7bdae29e.jpg)
 
 
 ```java
 lruMap.put("3",3) ;
 ```
-![](https://ws4.sinaimg.cn/large/006tNc79gy1fq3hcfq95pj30gp0bot93.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d7bf974c6.jpg)
 
 ```java
 lruMap.put("4",4) ;
 ```
-![](https://ws1.sinaimg.cn/large/006tNc79gy1fq3hfl5r8ij30kn0b374s.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d7c26fee5.jpg)
 
 
 ### 获取数据时
@@ -721,7 +721,7 @@ lruMap.put("4",4) ;
 Integer integer = lruMap.get("2");
 ```
 
-![](https://ws2.sinaimg.cn/large/006tNc79gy1fq3hjbou5pj30k70aj3yy.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d7c54a763.jpg)
 
 通过以上几张图应该是很好理解数据是如何存放的了。
 

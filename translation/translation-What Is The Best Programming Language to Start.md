@@ -10,7 +10,7 @@ categories:
 
 Python？Java？Ruby？JavaScript？有非常多的选择。选择一种编程语言开始你的编码之旅不应该是一件艰巨的任务。
 
-![](https://ws2.sinaimg.cn/large/006tKfTcgy1fq952y5gn6j318g0p0q88.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d7b300f5c.jpg)
 
 事实上：你将要学习的语言并不是特别重要，更重要的是学习编程的理念。对于任何编程语言来说知识的可传递性都是至关重要的。
 

@@ -10,7 +10,7 @@ tags:
 - JVM
 ---
 
-![](https://ws1.sinaimg.cn/large/006tNc79gy1ft2j8cuv3tj31kw0vy7wh.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d2fb7f975.jpg)
 
 ## 前言
 
@@ -65,7 +65,7 @@ tags:
 
 因为我清楚知道应用中开启的线程名称，所以直接根据线程名就可以在日志中找到相关的堆栈：
 
-![](https://ws1.sinaimg.cn/large/006tNc79gy1ft2fd0q5hhj30sn0cz0yn.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d2fedfc7f.jpg)
 
 > 所以通常建议大家线程名字给的有意义，在排查问题时很有必要。
 
@@ -123,7 +123,7 @@ public class HeapOOM {
 
 执行之后果不其然出现了异常：
 
-![](https://ws2.sinaimg.cn/large/006tNc79gy1ft2g4f80rfj30mc064tag.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d43d66d71.jpg)
 
 同时对应的内存 dump 文件也生成了。
 
@@ -138,15 +138,15 @@ public class HeapOOM {
 
 上传刚才生成的内存文件之后：
 
-![](https://ws2.sinaimg.cn/large/006tNc79gy1ft2gb4p08tj31460ojade.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d4418757d.jpg)
 
 因为是内存溢出，所以主要观察下大对象：
 
-![](https://ws3.sinaimg.cn/large/006tNc79gy1ft2gbw5g3pj30zx0g4wge.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d44485b1f.jpg)
 
 也有相应提示，这个很有可能就是内存溢出的对象，点进去之后：
 
-![](https://ws3.sinaimg.cn/large/006tNc79gy1ft2gcmd00lj30kz0bjmyo.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d445b728f.jpg)
 
 看到这个堆栈其实就很明显了：
 

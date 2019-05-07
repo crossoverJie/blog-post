@@ -64,13 +64,13 @@ tags:
 
 很明显这里的 `items` 就是存放数据的数组；在初始化时需要根据大小创建数组。
 
-![](https://ws1.sinaimg.cn/large/006tNc79ly1g1wd71n229j30wb0u043w.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bec756ce4.jpg)
 
 ## 写入队列
 
 写入队列比较简单，只需要依次把数据存放到这个数组中即可，如下图：
 
-![](https://ws3.sinaimg.cn/large/006tNc79ly1g1we7yeykej30b0060mxc.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bec7af131.jpg)
 
 但还是有几个需要注意的点：
 
@@ -136,7 +136,7 @@ tags:
 
 先来一个基本的测试：单线程的写入和消费。
 
-![](https://ws2.sinaimg.cn/large/006tNc79ly1g1wg97uqgpj30uu0dqwgu.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bec8576c4.jpg)
 
 ```log
 3
@@ -151,7 +151,7 @@ tags:
 
 当写入的数据超过队列的大小时，就只能消费之后才能接着写入。
 
-![](https://ws3.sinaimg.cn/large/006tNc79ly1g1wgmshqfyj316o0n2ae5.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bec927a3e.jpg)
 
 ```log
 2019-04-09 16:24:41.040 [Thread-0] INFO  c.c.concurrent.ArrayQueueTest - [Thread-0]123
@@ -165,9 +165,9 @@ tags:
 
 ---
 
-![](https://ws3.sinaimg.cn/large/006tNc79ly1g1wiskvki8j30yy0eo0ve.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bec9ce053.jpg)
 
-![](https://ws2.sinaimg.cn/large/006tNc79ly1g1witm4twpj31q60ai0vz.jpg)
+![](https://i.loli.net/2019/05/08/5cd1becf84deb.jpg)
 
 而当没有消费时，再往队列里写数据则会导致写入线程被阻塞。
 
@@ -175,7 +175,7 @@ tags:
 
 ### 并发测试
 
-![](https://ws3.sinaimg.cn/large/006tNc79ly1g1wiwyz4j5j30vz0u044f.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bed02da8a.jpg)
 
 三个线程并发写入300条数据，其中一个线程消费一条。
 
@@ -195,7 +195,7 @@ tags:
 
 ## 初始化队列
 
-![](https://ws1.sinaimg.cn/large/006tNc79ly1g1wkaau8w7j30ze0lcagb.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bed11c683.jpg)
 
 看似要复杂些，但其实逐步拆分后也很好理解：
 
@@ -215,8 +215,8 @@ tags:
 
 ## 写入队列
 
-![](https://ws2.sinaimg.cn/large/006tNc79ly1g1wktuhxzuj30tk0bqq55.jpg)
-![](https://ws2.sinaimg.cn/large/006tNc79ly1g1wktfkwu2j30ug09ugnn.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bed1c069c.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bed2c4cac.jpg)
 
 其实会发现阻塞写入的原理都是差不多的，只是这里使用的是 Lock 来显式获取和释放锁。
 
@@ -225,7 +225,7 @@ tags:
 
 当然它还是实现了超时阻塞的 `API`。
 
-![](https://ws4.sinaimg.cn/large/006tNc79ly1g1wl1n7ir5j30vm0iqdjb.jpg)
+![](https://i.loli.net/2019/05/08/5cd1beda6d368.jpg)
 
 也是比较简单，使用了一个具有超时时间的等待方法。 
 
@@ -233,8 +233,8 @@ tags:
 
 再看消费队列：
 
-![](https://ws1.sinaimg.cn/large/006tNc79ly1g1wl3vcsioj30tc0ayq4y.jpg)
-![](https://ws4.sinaimg.cn/large/006tNc79ly1g1wl4cfrnlj30u00eq0vm.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bedb08e53.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bedba07a7.jpg)
 
 也是差不多的，一看就懂。
 
@@ -257,7 +257,7 @@ tags:
 
 所以我们改进了方案：
 
-![](https://ws1.sinaimg.cn/large/006tNc79ly1g1wm1v7mfxj30qs0aiq4g.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bedc34bcb.jpg)
 
 其实就是一个典型的生产者消费者模型：
 

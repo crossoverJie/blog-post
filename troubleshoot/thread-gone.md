@@ -23,7 +23,7 @@ tags:
 
 因为之前没有接触过出问题这块的逻辑，所以简单理了下如图：
 
-![](https://ws2.sinaimg.cn/large/006tKfTcly1g101rrbfpuj30ha0kkmz7.jpg)
+![](https://i.loli.net/2019/05/08/5cd1be99551d0.jpg)
 
 1. 有一个生产线程一直源源不断的往队列写数据。
 2. 消费线程也一直不停的取出数据后写入后续的业务线程池。
@@ -41,7 +41,7 @@ tags:
 
 紧接着便 dump 了线程快照查看业务线程池中的线程都在干啥。
 
-![](https://ws2.sinaimg.cn/large/006tKfTcly1g102sbm3nzj31m20bm79h.jpg)
+![](https://i.loli.net/2019/05/08/5cd1be9a3cd7f.jpg)
 
 结果发现所有业务线程池都处于 `waiting` 状态，队列也是空的。
 
@@ -54,7 +54,7 @@ tags:
 
 于是查看了消费代码的业务逻辑，同时也发现消费线程是一个**单线程**。
 
-![](https://ws2.sinaimg.cn/large/006tKfTcly1g1039na4mtj31l40b2wjk.jpg)
+![](https://i.loli.net/2019/05/08/5cd1be9c9d525.jpg)
 
 结合之前的线程快照，我发现这个消费线程也是处于 waiting 状态，和后面的业务线程池一模一样。
 
@@ -73,8 +73,8 @@ tags:
 
 # 本地模拟
 
-![](https://ws1.sinaimg.cn/large/006tKfTcly1g103njc7wzj31160jeq5p.jpg)
-![](https://ws1.sinaimg.cn/large/006tKfTcly1g103og02o7j30y60is40t.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bea23336f.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bea2971ea.jpg)
 
 本地也是创建了一个单线程的线程池，分别执行了两个任务。
 
@@ -83,8 +83,8 @@ tags:
 
 接着我们来运行一下。
 
-![](https://ws4.sinaimg.cn/large/006tKfTcly1g103zsuu2mj311k0cutdb.jpg)
-![](https://ws3.sinaimg.cn/large/006tKfTcly1g1044fe64gj31ma0aedkq.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bea331666.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bea3dd8de.jpg)
 
 发现当任务中抛出一个没有捕获的异常时，线程池中的线程就会处于 `waiting` 状态，同时所有的堆栈都和生产相符。
 
@@ -92,11 +92,11 @@ tags:
 
 ## 解决问题
 
-![](https://ws4.sinaimg.cn/large/006tKfTcly1g1048r27i4j30w406y3ze.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bea429f43.jpg)
 
 当加入异常捕获后又如何呢？
 
-![](https://ws2.sinaimg.cn/large/006tKfTcly1g10480uffij31260lydnq.jpg)
+![](https://i.loli.net/2019/05/08/5cd1beaa83375.jpg)
 
 程序肯定会正常运行。
 
@@ -110,9 +110,9 @@ tags:
 
 ---
 
-![](https://ws3.sinaimg.cn/large/006tKfTcly1g104asx28lj314m04emyr.jpg)
+![](https://i.loli.net/2019/05/08/5cd1beab1d59c.jpg)
 
-![](https://ws2.sinaimg.cn/large/006tKfTcly1g104csaukgj31g90u0tgp.jpg)
+![](https://i.loli.net/2019/05/08/5cd1beac3a696.jpg)
 
 通过刚才的异常堆栈我们进入到 `ThreadPoolExecutor.java:1142` 处。
 
@@ -120,7 +120,7 @@ tags:
 - 在 `finally` 块中会执行 `processWorkerExit(w, completedAbruptly)` 方法。
 
 
-![](https://ws1.sinaimg.cn/large/006tKfTcly1g104ey1gyaj31mu0pwq9c.jpg)
+![](https://i.loli.net/2019/05/08/5cd1beb4cde74.jpg)
 
 看过之前[《如何优雅的使用和理解线程池》](https://crossoverjie.top/2018/07/29/java-senior/ThreadPool/)的朋友应该还会有印象。
 
@@ -133,12 +133,12 @@ tags:
 
 接下来看看 `addWorker()` 做了什么事情：
 
-![](https://ws2.sinaimg.cn/large/006tKfTcly1g104lk6vdij31lc0u0107.jpg)
+![](https://i.loli.net/2019/05/08/5cd1beb58e9f7.jpg)
 
 只看这次比较关心的部分；添加成功后会直接执行他的 `start()` 的方法。
 
 
-![](https://ws2.sinaimg.cn/large/006tKfTcly1g104q4mzb4j31mm0u0tgu.jpg)
+![](https://i.loli.net/2019/05/08/5cd1beb65d907.jpg)
 
 由于 `Worker` 实现了 `Runnable` 接口，所以本质上就是调用了 `runWorker()` 方法。
 
@@ -148,8 +148,8 @@ tags:
 
 在 `runWorker()` 其实就是上文 `ThreadPoolExecutor` 抛出异常时的那个方法。
 
-![](https://ws1.sinaimg.cn/large/006tKfTcly1g104st473vj31m40u0ai2.jpg)
-![](https://ws2.sinaimg.cn/large/006tKfTcly1g104tzsj2gj31fv0u0aik.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bebd51313.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bebe2496b.jpg)
 
 它会从队列里一直不停的获取待执行的任务，也就是 `getTask()`；在 `getTask` 也能看出它会一直从内置的队列取出任务。
 
@@ -159,9 +159,9 @@ tags:
 
 ## 线程名字的变化
 
-![](https://ws2.sinaimg.cn/large/006tKfTcly1g1050zwdylj31go0u0gtx.jpg)
-![](https://ws2.sinaimg.cn/large/006tKfTcly1g1051ei4ehj31my0580u4.jpg)
-![](https://ws4.sinaimg.cn/large/006tKfTcly1g10529y0qhj31m008276j.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bebf2cded.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bec02c9a8.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bec0c4ffe.jpg)
 
 上文还提到了异常后的线程名称发生了改变，其实在 `addWorker()` 方法中可以看到 `new Worker()`时就会重新命名线程的名称，默认就是把后缀的计数+1。
 
