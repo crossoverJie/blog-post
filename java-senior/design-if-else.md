@@ -35,7 +35,7 @@ if(a){
 
 比如这样：
 
-![](https://ws3.sinaimg.cn/large/006tNc79gy1fzomzhmdt4j31dt0u0akg.jpg)
+![](https://i.loli.net/2019/05/05/5ccef63089d79.jpg)
 
 > 摘自 [cim](https://github.com/crossoverJie/cim) 中的一个客户端命令的判断条件。
 
