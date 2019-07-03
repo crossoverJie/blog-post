@@ -1,6 +1,6 @@
 ---
 title: 常见的集合容器应当避免的坑
-date: 2019/07/03 01:10:16 
+date: 2019/07/04 01:10:16 
 categories: 
 - Java 进阶
 tags: 
@@ -9,7 +9,7 @@ tags:
 - LinkedList
 ---
 
-![](http://ww2.sinaimg.cn/large/006tNc79ly1g4luywwxfhj318d0u010f.jpg)
+![](https://i.loli.net/2019/07/04/5d1cdc7680acc67477.jpg)
 
 # 前言
 
@@ -27,14 +27,14 @@ for(String str : all) {
 }
 ```
 
-大家觉得这段代码有什么问题嘛？
+首先大家看看这段代码有什么问题嘛？
 
 其实在大部分情况下这都是没啥问题，无非就是循环的往 `ArrayList` 中写入数据而已。
 
 但在特殊情况下，比如这里的 `getData()` 返回数据非常巨大时后续 `temp.add(str)` 就会有问题了。
 
 
-比如我们在 review 代码时发现这里返回的数据有时会高达 2000W，这时 `ArrayList` 写入的问题就凸显出来了。
+比如我们在 `review` 代码时发现这里返回的数据有时会高达 2000W，这时 `ArrayList` 写入的问题就凸显出来了。
 
 ## 填坑指南
 
@@ -42,7 +42,7 @@ for(String str : all) {
 
 > 这里以插入到尾部为例 add(E e)。
 
-![](http://ww1.sinaimg.cn/large/006tNc79ly1g4n1md0105j30fr03sweh.jpg)
+![](https://i.loli.net/2019/07/04/5d1cdc77047aa18412.jpg)
 
 ```java
 ArrayList<String> temp = new ArrayList<>(2) ;
@@ -53,21 +53,20 @@ temp.add("3");
 
 当我们初始化一个长度为 2 的 `ArrayList` ，并往里边写入三条数据时 `ArrayList` 就得扩容了，也就是将之前的数据复制一份到新的数组长度为 3 的数组中。
 
-![](http://ww3.sinaimg.cn/large/006tNc79ly1g4n1rmxet5j30tl05875e.jpg)
+![](https://i.loli.net/2019/07/04/5d1cdc774fbe780989.jpg)
 
 > 之所以是 3 ，是因为新的长度=原有长度 * 1.5
 
 通过源码我们可以得知 `ArrayList` 的默认长度为 10.
 
-![](http://ww2.sinaimg.cn/large/006tNc79ly1g4n26uo6jqj30tm0893zs.jpg)
-![](http://ww4.sinaimg.cn/large/006tNc79ly1g4n27v4f88j30tq03g74m.jpg)
+![](https://i.loli.net/2019/07/04/5d1cdc78ce03788576.jpg)
+![](https://i.loli.net/2019/07/04/5d1cdc791275268933.jpg)
 
 但其实并不是在初始化的时候就创建了 `DEFAULT_CAPACITY = 10` 的数组。
 
-![](http://ww2.sinaimg.cn/large/006tNc79ly1g4n29ij73lj30tt07vq47.jpg)
+![](https://i.loli.net/2019/07/04/5d1cdc7a45b6264440.jpg)
 
 而是在往里边 `add` 第一个数据的时候会扩容到 10.
-
 
 既然知道了默认的长度为 10 ，那说明后续一旦写入到第九个元素的时候就会扩容为 `10*1.5 =15`。
 这一步为数组复制，也就是要重新开辟一块新的内存空间存放这 15 个数组。
@@ -126,9 +125,9 @@ public class CollectionsTest {
 }
 ```
 
-![](http://ww3.sinaimg.cn/large/006tNc79ly1g4n2gdny2cj30hu02oglq.jpg)
+![](https://i.loli.net/2019/07/04/5d1cdc7a910a851524.jpg)
 
-根据结果可以看出预设长度的效率会比用默认的效率高上许多。
+根据结果可以看出预设长度的效率会比用默认的效率高上很多（这里的 `Score` 指执行完函数所消耗的时间）。
 
 所以这里强烈建议大家：在有大量数据写入 `ArrayList` 时，一定要初始化指定长度。
 
@@ -136,7 +135,7 @@ public class CollectionsTest {
 
 再一个是一定要慎用 `add(int index, E element)` 向指定位置写入数据。
 
-![](http://ww3.sinaimg.cn/large/006tNc79ly1g4n2znxs6sj30tm04s0ti.jpg)
+![](https://i.loli.net/2019/07/04/5d1cdc7adefae63526.jpg)
 
 通过源码我们可以看出，每一次写入都会将 index 后的数据往后移动一遍，其实本质也是要复制数组；
 
@@ -146,7 +145,7 @@ public class CollectionsTest {
 
 提到 `ArrayList` 就不得不聊下 `LinkedList` 这个孪生兄弟；虽说都是 `List` 的容器，但本质实现却完全不同。
 
-![](http://ww3.sinaimg.cn/large/006tNc79ly1g4n2wr0s15j30t4094gms.jpg)
+![](https://i.loli.net/2019/07/04/5d1cdc7b0c7d526575.jpg)
 
 `LinkedList` 是由链表组成，每个节点又有头尾两个节点分别引用了前后两个节点；因此它也是一个双向链表。
 
@@ -175,31 +174,30 @@ public class CollectionsTest {
     }
 ```
 
-![](http://ww3.sinaimg.cn/large/006tNc79ly1g4n3ts4zadj30fi01k0sr.jpg)
+![](https://i.loli.net/2019/07/04/5d1cdc7b3353a90285.jpg)
 
-同样的也是对 `LinkedList` 写入 `1000W` 次数据，通过结果来看初始化数组长度的 `ArrayList` 效率明显是要高于 `LinkedList` 。
+这里测试看下结论是否符合；同样的也是对 `LinkedList` 写入 `1000W` 次数据，通过结果来看初始化数组长度的 `ArrayList` 效率明显是要高于 `LinkedList` 。
 
 但这里的前提是要提前预设 `ArrayList` 的数组长度，避免数组扩容，这样 `ArrayList` 的写入效率是非常高的，而 `LinkedList` 的虽然不需要复制内存，但却需要创建对象，变换指针等操作。
 
-
 而查询就不用多说了，`ArrayList` 可以支持下标随机访问，效率非常高。
 
-而 `LinkedList` 由于底层不是数组，不支持通过下标访问，而是需要根据查询 index 所在的位置来判断是从头还是从尾进行遍历。
+ `LinkedList` 由于底层不是数组，不支持通过下标访问，而是需要根据查询 index 所在的位置来判断是从头还是从尾进行遍历。
 
-![](http://ww2.sinaimg.cn/large/006tNc79ly1g4n42lwix1j30sx08i3zn.jpg)
+![](https://i.loli.net/2019/07/04/5d1cdc9f5b7d645892.jpg)
 
-但不管是哪种都得需要移动指针来一个个遍历，特别是 `index` 靠近中间位置时。
+但不管是哪种都得需要移动指针来一个个遍历，特别是 `index` 靠近中间位置时将会非常慢。
 
 
 # 总结
 
-高性能应用都是从小细节一点点堆砌起来的，就如这里提到的 ArrayList 的坑一样，日常使用没啥大问题，一旦数据量起来所有的小问题都会成为大问题。
+高性能应用都是从小细节一点点堆砌起来的，就如这里提到的 `ArrayList` 的坑一样，日常使用没啥大问题，一旦数据量起来所有的小问题都会成为大问题。
 
-所以总结下：
+所以再总结下：
 
 - 再使用 ArrayList 时如果能提前预测到数据量大小，比较大时一定要指定其长度。
 - 尽可能避免使用 `add(index,e)` api，会导致复制数组，降低效率。
-- 再额外提一点，我们常用的另一个 Map 容器 `HashMap` 也是推荐要初始化长度从而避免扩容。
+- 再额外提一点，我们常用的另一个 `Map` 容器 `HashMap` 也是推荐要初始化长度从而避免扩容。
 
 本文所有测试代码：
 
