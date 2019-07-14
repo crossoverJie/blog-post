@@ -1,6 +1,6 @@
 ---
 title: 设计一个全局异常处理器
-date: 2019/07/13 08:29:36 
+date: 2019/07/15 08:29:36 
 categories: 
 - cicada
 - 轮子
@@ -10,7 +10,7 @@ tags:
 - Netty
 ---
 
-![](http://ww2.sinaimg.cn/large/006tNc79ly1g4xl4ahkd8j31900u0gu0.jpg)
+![](https://i.loli.net/2019/07/14/5d2b4a7010e6815837.jpg)
 
 # 前言
 
@@ -20,7 +20,7 @@ tags:
 
 > cicada: 基于 Netty4 实现的快速、轻量级 WEB 框架；没有过多的依赖，核心 jar 包仅 `30KB`。
 
-![](http://ww4.sinaimg.cn/large/006tNc79ly1g4zog9ytroj30r50ajwfj.jpg)
+![](https://i.loli.net/2019/07/14/5d2b4a70635d532624.jpg)
 
 <!--more-->
 
@@ -46,8 +46,8 @@ tags:
 
 传统 `Spring` 版本：
 
-- 实现一个 `Spring` 自带的接口，重现其中的方法，最后的异常处理便在此处。
-- 将这个类配置在 `Spring` 的 `xml` 中，当做一个 bean 注册到 `Spring` 容器中。
+- 实现一个 `Spring` 自带的接口，重写其中的方法，最后的异常处理便在此处。
+- 将这个类配置在 `Spring` 的 `xml` ，当做一个 bean 注册到 `Spring` 容器中。
 
 ```java
 public class CustomExceptionResolver implements HandlerExceptionResolver {
@@ -55,7 +55,7 @@ public class CustomExceptionResolver implements HandlerExceptionResolver {
     @Override
     public ModelAndView resolveException(HttpServletRequest request,
             HttpServletResponse response, Object handler, Exception ex) {
-
+	//自定义处理
 }
 ```
 
@@ -63,20 +63,23 @@ public class CustomExceptionResolver implements HandlerExceptionResolver {
 <bean class="ssm.exception.CustomExceptionResolver"></bean> 
 ```
 
-当然现在流行的 `SpringBoot` 也有对应的简化配置：
+---
+
+当然现在流行的 `SpringBoot` 也有对应的简化版本：
 
 ```java
 @ControllerAdvice
 public class GlobalExceptionHandler {
     @ExceptionHandler(value = Exception.class)
     public Object defaultErrorHandler(HttpServletRequest req, Exception e) throws Exception {
+        //自定义处理
     }
 }
 ```
 
-全部都换为注解形式，但本质上还是一致的。
+全部都换为注解形式，但本质上还是一样的。
 
-> 都是要在容器中创建一个特殊的 bean，这个 bean 专门拿来处理异常，当系统运行时出现异常时，就从容器中找到该 bean，并执行其中的方法即可。
+> 都是要在容器中创建一个特殊的 bean，这个 bean 专门用于处理异常，当系统运行时出现异常，就从容器中找到该 bean，并执行其中的方法即可。
 
 至于这个特殊的 `bean` 如何标识出来，无非就是实现某个特定接口或者用注解声明，也就对应了传统 `Spring` 和 `SpringBoot` 的用法。
 
@@ -100,10 +103,10 @@ public class ExceptionHandle implements GlobalHandelException {
 }
 ```
 
-当请求出现异常时，页面和后台将会如下输出：
+自定义一个实现了 `GlobalHandelException` 接口的类，当请求出现异常时，页面和后台将会如下输出：
 
-![](http://ww4.sinaimg.cn/large/006tNc79ly1g4zpl5csm3j30lh03ewew.jpg)
-![](http://ww3.sinaimg.cn/large/006tNc79ly1g4zplr69f8j30ni0bw425.jpg)
+![](https://i.loli.net/2019/07/14/5d2b4a708987b32808.jpg)
+![](https://i.loli.net/2019/07/14/5d2b4a70e668052739.jpg)
 
 
 # 设计
@@ -111,15 +114,15 @@ public class ExceptionHandle implements GlobalHandelException {
 
 看得出用法和 `Spring` 非常类似，也是需要实现一个接口 `GlobalHandelException`，同时使用 `@CicadaBean` 注解该类将他加载到 `cicada` 内置的 `IOC` 容器内。
 
-当出现异常时则在这个 IOC 容器中找到该对象调用它的 `resolveException` 即可。
+当出现异常时则在这个 `IOC` 容器中找到该对象调用它的 `resolveException` 即可。
 
-其中还是可以通过 `CicadaContext` 全局上下文响应不同的输出（`json/text/html`）。
+其中还可以通过 `CicadaContext` 全局上下文响应不同的输出（`json/text/html`）。
 
 ## 核心原理
 
-![](http://ww1.sinaimg.cn/large/006tNc79ly1g4zqbzss5oj30ge09tmxu.jpg)
+![](https://i.loli.net/2019/07/14/5d2b4a712df5717670.jpg)
 
-简单花了下流程图，步骤如下：
+简单画了下流程图，步骤如下：
 
 - 初始化时会找到实现了 `GlobalHandelException` 接口的类，将它实例化并注册到 `IOC` 容器中。
 - 当发生异常时从容器中获取到异常处理器的对象，执行其中的处理函数即可。
@@ -128,21 +131,21 @@ public class ExceptionHandle implements GlobalHandelException {
 说了半天原理来看看源码是如何实现的。
 
 
-![](http://ww2.sinaimg.cn/large/006tNc79ly1g4zr9exajxj30se0begnt.jpg)
+![](https://i.loli.net/2019/07/14/5d2b4a716caeb94532.jpg)
 
 在初始化 `bean` 时，如果是一个异常处理器则会将他单独存放（也就相当于前文说的打标识）。
 
 其中的 `GlobalHandelException` 本身的定义也非常简单：
 
-![](http://ww4.sinaimg.cn/large/006tNc79ly1g4zrghphr8j30si07nmy3.jpg)
+![](https://i.loli.net/2019/07/14/5d2b4a7198bb390309.jpg)
 
 ---
 
 接下来是运行时：
 
-![](http://ww2.sinaimg.cn/large/006tNc79ly1g4zrc91i2bj30se03odh1.jpg)
-![](http://ww3.sinaimg.cn/large/006tNc79ly1g4zrbds77aj30sf0abwfx.jpg)
-![](http://ww2.sinaimg.cn/large/006tNc79ly1g4zrd3c6hij30sp05h757.jpg)
+![](https://i.loli.net/2019/07/14/5d2b4a71bc98986729.jpg)
+![](https://i.loli.net/2019/07/14/5d2b4a71f27d495514.jpg)
+![](https://i.loli.net/2019/07/14/5d2b4a7221b4f38396.jpg)
 
 而当出现异常时则会通过之前的保存的异常处理 `bean` 进行异常处理，在调用的同时将全局上下文及异常信息传递过去就齐活了。
 
@@ -150,9 +153,9 @@ public class ExceptionHandle implements GlobalHandelException {
 
 # 总结
 
-万一今后面试官问你们 SpringMVC 的异常处理是如何实现的？你该知道怎么回答了吧😏。
+万一今后面试官问你们 `SpringMVC` 的异常处理是如何实现的？你该知道怎么回答了吧😏。
 
-同时也可以发散一下，是否可以配置一个针对于某一个 `controller` 的异常处理，这样每个 `controller` 产生的异常单独处理，如果没有配置则进入全局异常；原理也差不多，感兴趣的朋友可以提个 PR 完成该需求。
+同时也可以发散一下，是否可以配置一个针对于某一个 `controller` 的异常处理，这样每个 `controller` 产生的异常可以单独处理，如果没有配置则进入全局异常；原理也差不多，感兴趣的朋友可以提个 `PR` 完成该 `feature`。
 
 项目源码：
 
