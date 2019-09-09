@@ -10,7 +10,7 @@ tags:
 - ascii
 ---
 
-![](https://tva1.sinaimg.cn/large/006y8mN6ly1g6mfpmkjdlj30xu0gywhn.jpg)
+![](https://i.loli.net/2019/09/10/GDoscUdhbC4k3AL.jpg)
 
 
 
@@ -22,7 +22,7 @@ tags:
 
 [https://github.com/crossoverJie/cim/issues/12](https://github.com/crossoverJie/cim/issues/12)
 
-![](https://tva1.sinaimg.cn/large/006y8mN6ly1g6s5y17zuvj30u00vvx0c.jpg)
+![](https://i.loli.net/2019/09/10/jwW5rIiUQdLMnkB.jpg)
 
 正好那段时间有空，加上这功能看着也比较简单准备把它实现了。
 
@@ -30,14 +30,14 @@ tags:
 
 但在真正实现时却发现没那么简单。
 
-![](https://tva1.sinaimg.cn/large/006y8mN6ly1g6s626dac1j30b40b3mxz.jpg)
+![](https://i.loli.net/2019/09/10/dTJSxgEQlAwuKeR.jpg)
 
 ---
 
 
 我首先尝试将一个 `emoji` 表情存入数据库看看：
 
-![](https://tva1.sinaimg.cn/large/006y8mN6ly1g6s4ngco0lj30nc076wkm.jpg)
+![](https://i.loli.net/2019/09/10/eyEfVD8SKiH23Uu.jpg)
 
 果不其然的出错了，导致这个异常的原因是目前数据库所支持的编码中并不能存放 `emoji`，那 `emoji` 表情到底是个什么东西呢。
 
@@ -72,15 +72,15 @@ tags:
     }
 ```
 
-![](https://tva1.sinaimg.cn/large/006y8mN6ly1g6sihcrgqoj30tk08qwfs.jpg)
+![](https://i.loli.net/2019/09/10/Xr6EwodnJepOqKT.jpg)
 
 所以基于这个基础库最终实现了表情功能。
 
-![](https://tva1.sinaimg.cn/large/006y8mN6ly1g6sj5lr7uwj31ia0noe1t.jpg)
+![](https://i.loli.net/2019/09/10/V4LGmUtx7k1Suvj.jpg)
 
 其实它本质上是自己维护了一个 emoji 的别名及它的 Unicode 编码(本质上是 `UTF-16`)的映射关系，再每次格式化数据的时候都会从这个表中进行翻译。
 
-![](https://tva1.sinaimg.cn/large/006y8mN6ly1g6sj9fww27j31m20qqtd7.jpg)
+![](https://i.loli.net/2019/09/10/FLs7w8NXfzbYKgH.jpg)
 
 
 # 编码知识回顾
@@ -97,7 +97,7 @@ tags:
 
 大家现在都知道在计算机内部存储数据本质上都是二进制的 0/1，对于一个字节来说有 8 位；每一位可以表示两种状态，也就是 0 或 1，这样排列组合下来，一个字节就可以表示 256(2∧8) 种不同的状态。
 
-![](https://tva1.sinaimg.cn/large/006y8mN6ly1g6tojdfdznj30g704s3zk.jpg)
+![](https://i.loli.net/2019/09/10/APbq73R4mWMI9Tj.jpg)
 
 ----
 
@@ -134,7 +134,7 @@ tags:
 
 UTF-8 便是实现这个需求的，它利用两种规则可以表示一个字节以及多字节的字符。
 
-![](https://tva1.sinaimg.cn/large/006y8mN6ly1g6tr6ngxddj30il04qwfg.jpg)
+![](https://i.loli.net/2019/09/10/DFOgGqsnAH2h56b.jpg)
 
 大致规则如下：
 
@@ -153,7 +153,7 @@ UTF-8 便是实现这个需求的，它利用两种规则可以表示一个字�
 
 刚才说到 `Unicode` 包含了世界上大部分的字符，`emoji` 自然也不例外。
 
-![](https://tva1.sinaimg.cn/large/006y8mN6ly1g6trcjekndj31ef0u0k8u.jpg)
+![](https://i.loli.net/2019/09/10/Aeo5tuh8HGsNijp.jpg)
 
 [https://apps.timwhitlock.info/emoji/tables/unicode](https://apps.timwhitlock.info/emoji/tables/unicode)
 
@@ -163,14 +163,14 @@ UTF-8 便是实现这个需求的，它利用两种规则可以表示一个字�
 
 很简单，debug 一下就知道了。
 
-![](https://tva1.sinaimg.cn/large/006y8mN6ly1g6ts2j36xsj31f20pyjus.jpg)
+![](https://i.loli.net/2019/09/10/CHZ3UjuQOmqAklY.jpg)
 
 
 在 `Java` 中也是通过 `char` 来存储 `emoji` 的，`char` 作为基本数据类型会占用 2 个字节；从刚才的图中可以看出，`emoji` 使用 `UTF-8` 会占用四个字节，这样很明显 `char` 是没法存储的，所以在这里其实是使用 `UTF-16` 编码进行存储。
 
 基于这个原理，我们也可以自己实现将一个 `emoji` 表情转换为字符串，同时也可通过字符串转换为 `emoji`。
 
-![](https://tva1.sinaimg.cn/large/006y8mN6ly1g6ttr5pon4j31tu0p0tdk.jpg)
+![](https://i.loli.net/2019/09/10/LwHmaYAy4Fx9kZD.jpg)
 
 # 总结
 
