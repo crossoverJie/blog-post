@@ -1,5 +1,5 @@
 ---
-title: 你应该了解的 Java SPI 机制
+title: Java SPI 的原理与应用
 date: 2020/02/24 08:29:36 
 categories: 
 - cicada
