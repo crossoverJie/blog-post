@@ -11,31 +11,34 @@ tags:
 - Netty
 ---
 
-![](https://tva1.sinaimg.cn/large/00831rSTly1gdb3u9j1h3j30lw12w12h.jpg)
+![](https://i.loli.net/2020/03/30/Rvbcd2soy3KWgAI.jpg)
 
 # 前言
 
-最近在用 `Python` 的 `SQLAlchemy` 库时（一个类似于 Hibernate 的 ORM 框架），发现它的 `Events` 事件还挺好用。
+最近在用 `Python` 的 `SQLAlchemy` 库时（一个类似于 `Hibernate` 的 `ORM` 框架），发现它的 `Events` 事件还挺好用。
 
-简单说就是当某张表的数据发生变化（曾、删、改）时会有一个事件回调，这样一些埋点之类的需求都可以实现在这里边，同时和业务代码完全解耦，维护起来也很方便。
+简单说就是当某张表的数据发生变化（曾、删、改）时会有一个事件回调，这样一些埋点之类的需求都可以实现在这里，同时和业务代码完全解耦，维护起来也很方便。
 
-比如当订单状态发生变化需要发异步通知这样的需求也可以利用这个实现。
+例如当订单状态发生变化需要发异步通知这样的需求也可以利用这个实现。
 
 
-根据我之前使用 Mybatis 的经验，好像没怎么注意有这个功能，查阅了下发现 Hibernate 是支持的，只是我用得少，所以也没怎么在意。
+根据我之前使用 `Mybatis` 的经验，好像没怎么注意有这个功能，查阅了下发现 `Hibernate` 是支持的，只是我用得也少，所以也没怎么在意。
 
-逐渐偏离主题。。。
+<!--more-->
 
-说这些的主要原因是我打算为之前写的 `cicada` (轻量的 http 框架)加一个数据库操作包，也实现类似的功能。
+
+>  逐渐偏离主题。。。
+
+说这些的主要原因是我打算为之前写的 [cicada](https://github.com/TogetherOS/cicada) (轻量的 http 框架)加一个数据库操作包，也实现类似的功能。
 
 # 示例
 
 最终的使用效果如下：
 
-> 第一版本还比较粗糙，但功能都具备了。
+> 第一版本还比较粗糙，但功能都具备。
 
 
-![](https://tva1.sinaimg.cn/large/00831rSTly1gdb60k07tuj31x60dq77n.jpg)
+![](https://i.loli.net/2020/03/30/6pZshMtufPGWECK.jpg)
 
 第一步：需要实现一个初始化接口，该接口会在应用初始化的时候执行。
 
@@ -78,17 +81,17 @@ CREATE TABLE `user` (
 ---
 
 当需要查询数据时：
-![](https://tva1.sinaimg.cn/large/00831rSTly1gdb6gkam79j31g80bg0vt.jpg)
-![](https://tva1.sinaimg.cn/large/00831rSTly1gdb6h4jiwej317u0j0ads.jpg)
+![](https://i.loli.net/2020/03/30/gIyDvedEM5oPGXV.jpg)
+![](https://i.loli.net/2020/03/30/PeTi685t7HQpDE3.jpg)
 
 便可以这样访问数据库。
 
 ---
 当需要更新数据时：
-![](https://tva1.sinaimg.cn/large/00831rSTly1gdb6jd4ssoj31gs0du420.jpg)
-![](https://tva1.sinaimg.cn/large/00831rSTly1gdb6jxc4u9j31dw0cq0ve.jpg)
+![](https://i.loli.net/2020/03/30/Z8G5w6O3ML7EmNJ.jpg)
+![](https://i.loli.net/2020/03/30/uJxo1vNPUcLIiZn.jpg)
 
-在初始化 DBHandle 时指定一个回调接口(也就是这里的 `UserUpdateListener`)，便可以在修改数据的时候拿到本次修改的实体。
+在初始化 `DBHandle` 时指定一个回调接口(也就是这里的 `UserUpdateListener`)，便可以在修改数据的时候拿到本次修改的数据实体。
 
 ```java
 @Slf4j
@@ -102,13 +105,13 @@ public class UserUpdateListener implements DataChangeListener {
 
 同时我们可以在控制台看到数据修改时的回调结果：
 
-![](https://tva1.sinaimg.cn/large/00831rSTly1gdb6nob0jqj31k4058dhz.jpg)
+![](https://i.loli.net/2020/03/30/mpoH9shziTjkfW5.jpg)
 
-这样就实现了文初所提到的功能，在这里就可以实现一些数据变化后需要执行的逻辑。
+这样就实现了文初所提到的功能，便可以实现一些数据变化后需要执行的业务逻辑。
 
 # 实现
 
-下面重点来看看这个事件的实现过程；其实通过生成 `DBHandle`（数据库增删改的接口）实例的 `API` 便可以看出些端倪。
+下面重点来看看这个功能的实现过程；其实通过生成 `DBHandle`（数据库增删改的接口）实例的 `API` 便可以看出些端倪。
 
 ```java
 DBHandle handle = (DBHandle) new HandleProxy(DBHandle.class).getInstance(new UserSaveListener());
@@ -120,35 +123,35 @@ DBHandle handle = (DBHandle) new HandleProxy(DBHandle.class).getInstance(new Use
 
 举个例子，比如现在你想买一个新手机。
 
-![](https://tva1.sinaimg.cn/large/00831rSTly1gdb7vba7agj30t81eo77a.jpg)
+![](https://i.loli.net/2020/03/30/S34Zyn8WtpbgoiX.jpg)
 
-第一种方式可以直接在官方旗舰店买一个官方标配的手机，没有额外的东西只有一个手机。
+第一种方式可以直接在官方旗舰店买一个标配的手机，没有额外的东西只有一个手机。
 
-当然你也可以在某些第三方经销商那里购买带套餐的，比如`套餐一`在标配的基础上多了保护壳、贴膜之类的。
+当然你也可以在某些第三方经销商那里购买带套餐的，比如`套餐一`在标配的基础上多了`保护壳、贴膜`之类的附加属性。
 
 
-这个经销商就类类似于我们这里的代理，他可以在原有实现的基础上新增一些东西，至于新增什么全看你自己的需要了。
+这个经销商就类似于我们这里的代理类，他可以在原有实现的基础上新增一些东西，至于新增什么全看你自己的需要了。
 
 而之所以叫**动态**代理，也是因为这个代理类是在程序运行过程中动态创建的，在编译过程中并不能确定这个类的全限定名。
 
 ---
 下面来看看这个代理类是如何生成的：
 
-![](https://tva1.sinaimg.cn/large/00831rSTly1gdb8hg20auj32080hin1n.jpg)
-主要利用 JDK 自带的 API 实现的，具体参数可以直接参考官方文档：
+![](https://i.loli.net/2020/03/30/4zhFiUrMO8Iu7cl.jpg)
+主要利用 `JDK` 自带的 `API` 实现的，具体参数可以直接参考官方文档：
 [https://docs.oracle.com/javase/8/docs/technotes/guides/reflection/proxy.html](https://docs.oracle.com/javase/8/docs/technotes/guides/reflection/proxy.html)
 
 总之这样便可以创建一个 `DBHandler` 接口的代理对象，而真正的代理过程是在 `InvocationHandler#invoke()` 函数中实现的：
 
-![](https://tva1.sinaimg.cn/large/00831rSTly1gdb8knnymmj31l20l842s.jpg)
+![](https://i.loli.net/2020/03/30/finMduc76swtCN5.jpg)
 
 这里的实现也是非常简单，在实现完代理对象的业务逻辑后便回调我们传入的事件接口，其中的参数便是当前的数据库 `Model` 实体对象。
 
-不过需要注意的是，这个事件回调和业务线程是同一个，所以写在这里的逻辑建议都为异步。
+>  不过需要注意的是，这个事件回调和业务线程是同一个，所以写在这里的逻辑建议都为异步(Hibernate 和 SQLAlchemy 都存在这个情况)。
 
 # 总结
 
-以上便是整个动态代理实现 `ORM` 监听机制的全过程，可以看出并没有它名称那样看起来高大上，当然本身实现也比较简单。
+以上便是整个动态代理实现 `ORM` 监听机制的全过程，其实可以看出并没有它名称那样看起来高大上，当然本身实现也比较简单。
 
 同时也不止这一种实现方式，例如:
 
@@ -162,11 +165,11 @@ etc..
 
 同时动态代理的应用也不止于此，比如：
 
-- RPC 中无感知的远程调用。
-- Spring 中的 AOP、拦截器等。
+- `RPC` 中无感知的远程调用。
+- `Spring` 中的 `AOP`、拦截器等。
 
 
-后续会继续完善这个 ORM 库，甚至可以独立出来作为一个小巧的数据库工具也未尝不可。
+后续会继续完善这个 `ORM` 库，甚至可以独立出来作为一个小巧的数据库工具也未尝不可。
 
 相关源码见此处：
 [https://github.com/TogetherOS/cicada](https://github.com/TogetherOS/cicada/blob/17dc61e419dd7fb9690cfe29859c792893598c5f/cicada-example/src/main/java/top/crossoverjie/cicada/example/action/RouteAction.java#L62)
