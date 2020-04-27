@@ -46,13 +46,69 @@ tags:
 3. 最终 ServerB 将消息通过与 ClientB 的长连接通道 push 下去，至此消息发送成功。
 
 
+这里我截取了 ClientA 向 Route 发起请求的代码：
+![](https://tva1.sinaimg.cn/large/007S8ZIlly1ge8ouj58zrj317r0u0q8u.jpg)
+可以看到这就是利用 `okhttp` 发起了一个 `http` 请求，这样虽然能实现功能，但其实并不优雅。
+
+举个例子，假设我们需要对接支付宝的接口，这里发送一个 http 请求自然是没问题；但对于支付宝内部各部门直接互相调用接口时那就不应该再使用原始的 http 请求了。
+
+应该是由服务提供方提供一个 api 包，服务消费者只需要依赖这个包就可以实现接口调用了。
+
+> 当然最终使用的是 http、还是自定义私有协议都可以。
+
+也类似于我们在使用 Dubbo 或者是 SpringCloud 时，都是直接依赖一个 api 包，便可以像调用一个本地方法一样调用远程服务了，并且完全屏蔽了底层细节，不管是使用的 http 还是 其他私有协议都没关系，对于调用者来说完全不关心。
+
+这么一说是不是有内味了，这不就是 RPC 的官方解释嘛。
+
+对应到这里也是同样的道理，Client 、Route、Server 本质上都是一个系统，他们互相的接口调用也应当是走 RPC 才合理。
+
+
+所以我重构之后的变成这样了：
+
+![](https://tva1.sinaimg.cn/large/007S8ZIlly1ge8q1mfa4wj31yr0u0u0x.jpg)
+
+确实就和调用本地方法一样了，而且这样也有几个好处：
+
+- 完全屏蔽了底层细节，可以更好的实现业务及维护代码。
+- 即便是服务提供方修改了参数，在编译期间就能很快发现，而像之前那样调用是完全不知情的，所以也增加了风险。
 
 
 
-# 绕不过去的动态代理
+# 绕不开的动态代理
+
+下面来聊聊具体是如何实现的。
+
+其实在上文[《动态代理的实际应用》](https://crossoverjie.top/2020/03/30/wheel/cicada9-proxy/) 中也有讲到，原来是类似的。
+
+要想做到对调用者无感知，就得创建一个接口的代理对象；在这个代理对象中实现对远程服务的编码、调用、解码的过程。
+
+![](https://tva1.sinaimg.cn/large/007S8ZIlly1ge8rfii52fj30aq11yjt6.jpg)
+
+对应到此处其实就是创建一个 `routeApi` 的代理对象，关键就是这段代码：
+
+```java
+RouteApi routeApi = new ProxyManager<>(RouteApi.class, routeUrl, okHttpClient).getInstance();
+```
+
+完整源码如下：
+![](https://tva1.sinaimg.cn/large/007S8ZIlly1ge8ro3tpf8j31540u00zg.jpg)
+
+其中的 `getInstance()` 函数就是返回了需要被代理的接口对象；而其中的 `ProxyInvocation` 则是一个实现了 `InvocationHandler` 接口的类，这套代码就是利用 `JDK` 实现动态代理的三板斧。
+
+![](https://tva1.sinaimg.cn/large/007S8ZIlly1ge8rqz7k04j318k0u0gs2.jpg)
+
+查看 `ProxyInvocation` 的源码会发现当我们调用被代理接口的任意一个方法时，都会执行这里的 `invoke()` 方法。
+
+而 `invoke()` 方法自然就实现了上图中提到的：编码、远程调用、解码的过程；相信大家很容易看明白，由于不是本次探讨的重点就不过多介绍了。
 
 # RPC
 
 # 总结
+
+其实理解这些就也就很容易看懂 `Dubbo` 这类 `RPC` 框架的核心源码了，总体的思路也是类似的，只不过使用的私有协议，所以在编解码时会有所不同。
+
+本文的所有源码：
+
+[https://github.com/crossoverJie/cim](https://github.com/crossoverJie/cim)
 
 **你的点赞与分享是对我最大的支持**
