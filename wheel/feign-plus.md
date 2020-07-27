@@ -9,7 +9,7 @@ tags:
 - SpringBoot
 ---
 
-![](https://tva1.sinaimg.cn/large/007S8ZIlly1gh5qdegc84j30jg0jg3zd.jpg)
+![](https://i.loli.net/2020/07/28/uA1BmwnQNs3GXHS.jpg)
 
 # 前言
 
@@ -33,7 +33,7 @@ tags:
 
 回到我们这个场景，需求其实很简单，就是想达到 `SpringCloud` 中的 `Feign` 这样的声明式+注解的方式调用。
 
-![](https://tva1.sinaimg.cn/large/007S8ZIlly1gh5xsltgbkj31vg0cydib.jpg)
+![](https://i.loli.net/2020/07/28/xnIo8mQbjHfURZg.jpg)
 
 ```java
     @Autowired
@@ -48,7 +48,7 @@ tags:
 
 其实 `spring-cloud-openfeign` 的核心就是 [Feign](https://github.com/OpenFeign/feign)，本身它也是可以开箱即用的，所以便尝试看 `Feign` 自己是否支持这样的用法。
 
-![](https://tva1.sinaimg.cn/large/007S8ZIlly1gh5y488nj8j31070u07bw.jpg)
+![](https://i.loli.net/2020/07/28/TXLH9rFSNyp1x4I.jpg)
 
 通过官方文档可以得知：是可以定义接口的形式来调用远程接口的，但它本质上是不依赖其他库便可以使用，所以它本身是没有和 `Spring` 整合也是合情合理，但也就造成了没有现成库可供我们使用。
 
@@ -100,7 +100,7 @@ public class DemoApplication {
 
 对于内部接口，也可以加上 `@RequestMapping("/path")` 注解：
 
-![](https://tva1.sinaimg.cn/large/007S8ZIlly1gh60yvpb3xj31do0iutcf.jpg)
+![](https://i.loli.net/2020/07/28/XetQ4EgyqiRhJdB.jpg)
 
 在请求时便会在 url 后拼接上 `/order`，这样在配置 `feign.order.service.url` 时只需要填入服务提供方的域名或 IP 即可。
 
@@ -130,7 +130,7 @@ feign.plus.read-timeout = 12000
 
 其中最为核心的便是 `top.crossoverjie.feign.plus.factory.FeignPlusBeanFactory` 类。
 
-![](https://tva1.sinaimg.cn/large/007S8ZIlly1gh5zft5momj31rw0pegrj.jpg)
+![](https://i.loli.net/2020/07/28/N3yep2SP1zniu6T.jpg)
 
 该类实现了 `org.springframework.beans.factory.FactoryBean`接口，并重写了 `getObject()` 方法返回一个对象。
 
@@ -138,7 +138,7 @@ feign.plus.read-timeout = 12000
 
 这里所返回的对象其实就是我们定义的接口的代理对象，而这个对象本身则是 `Feign` ，所以再往里说：我们的 `http` 请求编解码、发起请求等逻辑又被这个 `feign` 对象所代理了。
 
-![](https://tva1.sinaimg.cn/large/007S8ZIlly1gh61ysektrj31t40c0tbt.jpg)
+![](https://i.loli.net/2020/07/28/joLesbxGQrEkK37.jpg)
 
 这个 `HardCodedTarget` 则是 `Feign` 内部用于代理最终请求的对象。
 
@@ -148,7 +148,7 @@ feign.plus.read-timeout = 12000
 
 由于 `Feign` 支持多个客户端，所以这里的客户端可以通过配置文件动态指定。
 
-![](https://tva1.sinaimg.cn/large/007S8ZIlly1gh5zjvqtyij31re0u0jz8.jpg)
+![](https://i.loli.net/2020/07/28/q74soVAQbl5NyK6.jpg)
 
 利用 `SpringBoot` 提供的 `@ConditionalOnExpression` 注解可以根据配置动态的选择使用哪个 `httpclient`,也就是动态选择生成哪个 `Bean`。
 
