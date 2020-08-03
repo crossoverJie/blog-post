@@ -156,7 +156,7 @@ feign.plus.read-timeout = 12000
 
 这个库的逻辑非常简单，本质上就是封装了 `Feign` 并提供了 `SpringBoot` 的支持，欢迎有类似需求的朋友下载使用。
 
-`feign-plus`源码：[https://github.com/crossoverJie/feign-plus](feign-plus)
+`feign-plus`源码：[https://github.com/crossoverJie/feign-plus](https://github.com/crossoverJie/feign-plus)
 
 
 **你的点赞与分享是对我最大的支持**
