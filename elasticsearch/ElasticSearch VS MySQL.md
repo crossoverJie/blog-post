@@ -1,4 +1,15 @@
-# ElasticSearch 索引 VS MySQL 索引
+---
+title: ElasticSearch 索引 VS MySQL 索引
+date: 2020/08/24 08:10:36 
+categories: 
+- 数据结构
+tags: 
+- Elasticsearch
+- MySQL
+- 倒排索引
+- B+ 树
+---
+
 
 ![](https://tva1.sinaimg.cn/large/007S8ZIlly1gi01tzwikkj31hc0u0toq.jpg)
 
@@ -11,6 +22,8 @@
 这甚至比在我本地使用 `MySQL` 通过主键的查询速度还快。
 
 ![](https://tva1.sinaimg.cn/large/007S8ZIlly1gi18yukebvj30ps0363yo.jpg)
+
+<!--more-->
 
 为此我搜索了相关资料：
 
