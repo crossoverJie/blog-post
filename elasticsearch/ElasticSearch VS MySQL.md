@@ -11,23 +11,23 @@ tags:
 ---
 
 
-![](https://tva1.sinaimg.cn/large/007S8ZIlly1gi01tzwikkj31hc0u0toq.jpg)
+![](https://i.loli.net/2020/08/30/RfLEX7Ty1FlqbGm.jpg)
 
 # 前言
 
 这段时间在维护产品的搜索功能，每次在管理台看到 `elasticsearch` 这么高效的查询效率我都很好奇他是如何做到的。
 
-![](https://tva1.sinaimg.cn/large/007S8ZIlly1gi18y8no3wj318y0dcac1.jpg)
+![](https://i.loli.net/2020/08/30/IbN48xyOK9MBwQ1.jpg)
 
 这甚至比在我本地使用 `MySQL` 通过主键的查询速度还快。
 
-![](https://tva1.sinaimg.cn/large/007S8ZIlly1gi18yukebvj30ps0363yo.jpg)
+![](https://i.loli.net/2020/08/30/Mh6kDK5wBeIj2sc.jpg)
 
 <!--more-->
 
 为此我搜索了相关资料：
 
-![](https://tva1.sinaimg.cn/large/007S8ZIlly1gi18z0c7plj30u016z4er.jpg)
+![](https://i.loli.net/2020/08/30/jAl4zoIcvFCOLK6.jpg)
 
 这类问题网上很多答案，大概意思呢如下：
 
@@ -51,7 +51,7 @@ tags:
 
 首先我们应当想到的是散列表，这是一个非常常见且高效的查询、写入的数据结构，对应到 `Java` 中就是 `HashMap`
 
-![](https://tva1.sinaimg.cn/large/007S8ZIlly1gi18zcyxozj31ap0u0gph.jpg)
+![](https://i.loli.net/2020/08/30/ijdKm2BawDxCTtN.jpg)
 
 这个数据结构应该不需要过多介绍了，它的写入效率很高`O(1)`,比如我们要查询 `id=3` 的数据时，需要将 3 进行哈希运算，然后再这个数组中找到对应的位置即可。
 
@@ -59,7 +59,7 @@ tags:
 
 ### 有序数组
 
-![](https://tva1.sinaimg.cn/large/007S8ZIlly1gi18zpdguqj31600aiaax.jpg)
+![](https://i.loli.net/2020/08/30/PjQX6xFEcICUm2r.jpg)
 
 有序数组的查询效率也很高，当我们要查询 `id=4` 的数据时，只需要通过二分查找也能高效定位到数据`O(logn)`。
 
@@ -71,7 +71,7 @@ tags:
 
 既然有序数组的写入效率不高，那我们就来看看写入效率高的，很容易就能想到二叉树；这里我们以平衡二叉树为例：
 
-![](https://tva1.sinaimg.cn/large/007S8ZIlly1gi18zx774dj313g0jwn36.jpg)
+![](https://i.loli.net/2020/08/30/nth2my7eJSvCM1f.jpg)
 
 由于平衡二叉树的特性：
 
@@ -93,7 +93,7 @@ tags:
 
 但我们也可以巧妙的优化链表来变相的实现二分查找，如下图：
 
-![](https://tva1.sinaimg.cn/large/007S8ZIlly1gi190dy4wqj31bw0hc448.jpg)
+![](https://i.loli.net/2020/08/30/c2Ak7Wt1ZXUbplR.jpg)
 
 我们可以为最底层的数据提取出一级索引、二级索引，根据数据量的不同，我们可以提取出 N 级索引。
 
@@ -115,7 +115,7 @@ tags:
 
 刚才我们提到二叉树的区间查询效率不高，针对这一点便可进行优化：
 
-![](https://tva1.sinaimg.cn/large/007S8ZIlly1gi190og1h6j31o40u0k67.jpg)
+![](https://i.loli.net/2020/08/30/rajB1GNEzknXWif.jpg)
 
 在原有二叉树的基础上优化后：所有的非叶子都不存放数据，只是作为叶子节点的索引，数据全部都存放在叶子节点。
 
@@ -133,7 +133,7 @@ tags:
 
 那怎样才能降低树的高度呢？
 
-![](https://tva1.sinaimg.cn/large/007S8ZIlly1gi190wn3k2j311u0jo43r.jpg)	
+![](https://i.loli.net/2020/08/30/f1Ogz5DUMirth2E.jpg)	
 
 我们可以尝试把二叉树变为三叉树，这样树的高度就会下降很多，这样查询数据时的 IO 次数自然也会降低，同时查询效率也会提高许多。
 
@@ -159,7 +159,7 @@ tags:
 
 在 ES 中采用的是一种名叫`倒排索引`的数据结构；在正式讲倒排索引之前先来聊聊和他相反的`正排索引`。
 
-![](https://tva1.sinaimg.cn/large/007S8ZIlly1gi193iw11cj313u0bsgms.jpg)
+![](https://i.loli.net/2020/08/30/sWL8rjAKxtSMeh2.jpg)
 
 以上图为例，我们可以通过 `doc_id` 查询到具体对象的方式称为使用`正排索引`，其实也能理解为一种散列表。
 
@@ -175,7 +175,7 @@ tags:
 
 但如果我们重新构建一个索引结构：
 
-![](https://tva1.sinaimg.cn/large/007S8ZIlly1gi1940f4trj314e0f0q4e.jpg)
+![](https://i.loli.net/2020/08/30/vuG4wf1ZhaFEAxQ.jpg)
 
 当要查询 `name` 中包含 `li` 的数据时，只需要通过这个索引结构查询到 `Posting List` 中所包含的数据，再通过映射的方式查询到最终的数据。
 
@@ -201,13 +201,13 @@ tags:
 
 相对于 `MySQL` 中的 `B+树`来说也会减少了几次`磁盘IO`。
 
-![](https://tva1.sinaimg.cn/large/007S8ZIlly1gi191apu10j30ua0h0q7c.jpg)
+![](https://i.loli.net/2020/08/30/kvPE3we4gp8SAyZ.jpg)
 
 这个 `Term Index` 我们可以使用这样的 `Trie树` 也就是我们常说的`字典树` 来存放。
 
 更多关于字典树的内容请查看[这里](https://crossoverjie.top/2019/01/14/netty/cim02-v1.0.1/)。
 
-![](https://tva1.sinaimg.cn/large/007S8ZIlly1gi191fxwgxj318o094782.jpg)
+![](https://i.loli.net/2020/08/30/4kd7YJVH93Iigjo.jpg)
 
 如果我们是以 `j` 开头的 `Term` 进行搜索，首先第一步就是通过在内存中的 `Term Index` 查询出以 `j` 打头的 `Term` 在 `Term Dictionary` 字典文件中的哪个位置（这个位置可以是一个文件指针，可能是一个区间范围）。
 
@@ -221,7 +221,7 @@ tags:
 
 比如现在需要查询 `name=li and age=18` 的数据，这时我们需要通过这两个字段将各自的结果 `Posting List` 取出。
 
-![](https://tva1.sinaimg.cn/large/007S8ZIlly1gi194k1jk5j3138080t9e.jpg)
+![](https://i.loli.net/2020/08/30/EsajWOkZvro2qhz.jpg)
 
 最简单的方法是分别遍历两个集合，取出重复的数据，但这个明显效率低下。
 
@@ -245,7 +245,7 @@ tags:
 
 最后我们来总结一下：
 
-![](https://tva1.sinaimg.cn/large/007S8ZIlly1gi194xf948j315y0ca40z.jpg)
+![](https://i.loli.net/2020/08/30/qVy9lWMFfnD7KZt.jpg)
 
 通过以上内容可以看出再复杂的产品最终都是基础数据结构组成，只是会对不同应用场景针对性的优化，所以打好数据结构与算法的基础后再看某个新的技术或中间件时才能快速上手，甚至自己就能知道优化方向。
 
