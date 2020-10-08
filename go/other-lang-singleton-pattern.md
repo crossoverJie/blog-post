@@ -1,6 +1,6 @@
 ---
-title: ElasticSearch 索引 VS MySQL 索引
-date: 2020/08/24 08:10:36 
+title: 不同语言对单例模式的不同实现
+date: 2020/10/09 08:10:36 
 categories: 
 - 设计模式
 tags: 
