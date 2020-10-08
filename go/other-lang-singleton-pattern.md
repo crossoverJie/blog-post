@@ -9,7 +9,7 @@ tags:
 - Python
 ---
 
-![](https://tva1.sinaimg.cn/large/007S8ZIlly1gjg6557iywj31hc0u0te2.jpg)
+![](https://i.loli.net/2020/10/09/MbZHxvDFeyhmAtQ.jpg)
 
 # 前言
 
@@ -168,7 +168,7 @@ func main() {
 
 就不需要直接构造 `MySQLDriver`  ，而是通过`GetDriver()` 函数来获取，通过 `debug` 也能看到 `driver` 和 `driver1` 引用的是同一个内存地址。
 
-![](https://tva1.sinaimg.cn/large/007S8ZIlly1gjifba7suej30x606omz9.jpg)
+![](https://i.loli.net/2020/10/09/BkIGFx3tJjWRSiY.jpg)
 
 这样的实现常规情况是没有什么问题的，机智的朋友一定能想到和 `Java` 一样，一旦并发访问就没那么简单了。
 
@@ -274,7 +274,7 @@ func GetDriver() *MySQLDriver {
 
 本质上我们只需要不管在什么情况下  `MySQLDriver` 实例只初始化一次就能达到单例的目的，所以利用 `once.Do()` 就能让代码只执行一次。
 
-![](https://tva1.sinaimg.cn/large/007S8ZIlly1gjif9d6chaj30zw0eoaf2.jpg)
+![](https://i.loli.net/2020/10/09/kvKn5QFczBYH6j7.jpg)
 
 查看源码会发现 `once.Do()` 也是通过锁来实现，只是在加锁之前利用底层的原子操作做了一次校验，从而避免每次都要加锁，性能会更好。
 
