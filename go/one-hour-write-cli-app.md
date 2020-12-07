@@ -8,13 +8,13 @@ tags:
 - Golang
 ---
 
-![](https://tva1.sinaimg.cn/large/0081Kckwly1glfs4i8shzj31900u0dsr.jpg)
+![](https://i.loli.net/2020/12/08/DMPGzwab7TyWeo9.jpg)
 
 # 前言
 
 最近因为项目需要写了一段时间的 `Go` ，相对于 `Java` 来说语法简单同时又有着一些 `Python` 之类的语法糖，让人大呼”真香“。
 
-![](https://tva1.sinaimg.cn/large/0081Kckwly1glfrzron1wj306b0663yk.jpg)
+![](https://i.loli.net/2020/12/08/tEPj46risD7ahUH.jpg)
 
 <!--more-->
 
@@ -54,7 +54,7 @@ tags:
 
 它的目的和作用与 `Java` 中的 `maven`，`Python` 中的 `pip` 类似，但使用起来比 `maven` 简单许多。
 
-![](https://tva1.sinaimg.cn/large/0081Kckwly1glfs3cfb2cj313s0s4n1b.jpg)
+![](https://i.loli.net/2020/12/08/kxClhNWr13UZHzT.jpg)
 
 根据它的使用参考，需要首先在项目目录下执行 `go mod init` 用于初始化一个 `go.mod` 文件，当然如果你使用的是 `GoLang` 这样的 `IDE`，在新建项目时会自动帮我们创建好目录结构，当然也包含 `go.mod` 这个文件。
 
