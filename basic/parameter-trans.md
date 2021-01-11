@@ -9,7 +9,7 @@ tags:
 - Java
 ---
 
-![](https://tva1.sinaimg.cn/large/008eGmZEly1gmj52jjb2ej30ji0jggmr.jpg)
+![](https://i.loli.net/2021/01/12/1s37bXrxSl8Cp2f.jpg)
 
 # 前言
 
@@ -56,13 +56,13 @@ tags:
 
 在这之前还是先明确下值传递与引用传递的区别：
 
-![](https://tva1.sinaimg.cn/large/008eGmZEly1gmj4w063qsj317w08eac8.jpg)
+![](https://i.loli.net/2021/01/12/ztqLVPTjmacZf1X.jpg)
 
 这里咱们先抛出结论，`Java` 采用的是值传递；这样也能解释为什么上文的例子没有成功修改原始数据。
 
 参考下图更好理解：
 
-![](https://tva1.sinaimg.cn/large/008eGmZEly1gmj4u1bs8cj30e206nt8x.jpg)
+![](https://i.loli.net/2021/01/12/XJpdDAKOBhwtSxo.jpg)
 
 当发生函数调用的时候 `a` 将自己传入到 `modifyBasic` 方法中，同时将自己的值复制了一份并赋值给了一个新变量 `aa` 从图中可以看出这是 `a` 和 `aa` 两个变量没有一毛钱关系，所以对 `aa` 的修改并不会影响到 `a`。
 
@@ -121,7 +121,7 @@ a = modifyBasic(a);
 
 别急，通过下图分析后大家就能明白：
 
-![](https://tva1.sinaimg.cn/large/008eGmZEly1gmj4wcjfsij30xw0r2q4l.jpg)
+![](https://i.loli.net/2021/01/12/StL2o1wKqvTazcI.jpg)
 
 在 `test01` 方法中我们创建了一个 `car1` 的对象，该对象存放于堆内存中，假设内存地址为 `0x1102` ，于是 `car1` 这个变量便应用了这块内存地址。
 
@@ -184,7 +184,7 @@ a = modifyBasic(a);
 
 从结果又能佐证这里依然是值传递。
 
-![](https://tva1.sinaimg.cn/large/008eGmZEly1gmj4wp7rl4j30wa0rkmz1.jpg)
+![](https://i.loli.net/2021/01/12/QALiPJdkf4ZYuwX.jpg)
 
 如果是引用传递，原本的 `0x1102` 应该是被直接替换为新创建的 `0x1103` 才对；而实际情况如上图所示，`car2` 直接重新引用了一个对象，两个对象之间互不干扰。
 
@@ -196,7 +196,7 @@ a = modifyBasic(a);
 
 在 `Go` 语言中数据类型主要有以下两种：
 
-![](https://tva1.sinaimg.cn/large/008eGmZEly1gmj4x0jl2vj31760iy0ue.jpg)
+![](https://i.loli.net/2021/01/12/mZbnQ9jAEyJdz6H.jpg)
 
 值类型与引用类型；
 
@@ -217,7 +217,7 @@ func modifyValue(a int) {
 输出：最终 a=20
 ```
 
-![](https://tva1.sinaimg.cn/large/008eGmZEly1gmj4xmzws5j30q40dc75g.jpg)
+![](https://i.loli.net/2021/01/12/fdnDNxHQZw2hGlb.jpg)
 
 函数调用过程与之前的 `Java` 类似，本质上传递到函数中的值也是  `a`  的拷贝，所以对其的修改不会影响到原始数据。
 
@@ -305,7 +305,7 @@ type slice struct {
 
 在 `Python` 中变量是否可变是影响参数传递的重要因素：
 
-![](https://tva1.sinaimg.cn/large/008eGmZEly1gmj4xwu2i5j30ia08kwgb.jpg)
+![](https://i.loli.net/2021/01/12/wFc4tMbQgA26XWx.jpg)
 
 如上图所示，`bool int float` 这些不可变类型在参数传递过程中是不能修改原始数据的。
 
@@ -357,7 +357,7 @@ def modify(val):
 
 所以对这块数据的修改本质上改的是同一份数据，但一旦重新赋值就会创建一块新的内存从而不会影响到原始数据。
 
-![](https://tva1.sinaimg.cn/large/008eGmZEly1gmj4y5v9t4j30wa0rkmz1.jpg)
+![image.png](https://i.loli.net/2021/01/12/ira7WStCIhXwNET.png)
 
 与 `Java` 中的上图类似。
 
