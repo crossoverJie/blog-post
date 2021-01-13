@@ -1,5 +1,5 @@
 ---
-title: Python 里的面向接口编程
+title: Python 中的面向接口编程
 date: 2021/01/14 08:13:26 
 categories: 
 - 基础原理
