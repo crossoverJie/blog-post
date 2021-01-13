@@ -9,7 +9,7 @@ tags:
 - 鸭子类型
 ---
 
-![](https://tva1.sinaimg.cn/large/008eGmZEly1gmmkyd7lu6j31c00u0gx9.jpg)
+![](https://i.loli.net/2021/01/14/pPAYXUDmc2Vxr1d.jpg)
 
 # 前言
 
@@ -27,11 +27,11 @@ tags:
 
 作为一个”资深“ `Javaer`，需求还没看完我就洋洋洒洒的把各个实现类写好了：
 
-![](https://tva1.sinaimg.cn/large/008eGmZEly1gmmkyu72kgj30ho0bodgn.jpg)
+![](https://i.loli.net/2021/01/14/OanLP4i9VMIBw16.jpg)
 
 当然最终也顺利实现需求，甚至把组里一个没写过 `Java` 的大哥唬的一愣一愣的，直呼牛逼。
 
-![](https://tva1.sinaimg.cn/large/008eGmZEly1gmmkz0fp9mj301c01c742.jpg)
+![](https://i.loli.net/2021/01/14/VnFHiBELTesvXAW.jpg)
 
 不过事后也给我吐槽：
 
