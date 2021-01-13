@@ -214,7 +214,7 @@ func main() {
 func modifyValue(a int) {
 	a = 20
 }
-输出：最终 a=20
+输出：最终 a=10
 ```
 
 ![](https://i.loli.net/2021/01/12/fdnDNxHQZw2hGlb.jpg)
