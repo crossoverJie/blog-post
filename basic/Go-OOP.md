@@ -10,7 +10,7 @@ tags:
 - 鸭子类型
 ---
 
-![](https://tva1.sinaimg.cn/large/008eGmZEly1gnwtc1o62nj31fw0u01kz.jpg)
+![](https://i.loli.net/2021/02/23/hFc3XiSMYAZoRr7.jpg)
 
 ## 前言
 
@@ -28,7 +28,7 @@ tags:
 
 对于 `Go` 是否为面向对象的编程语言，这点也是讨论已久；不过我们可以先看看官方的说法:
 
-![](https://tva1.sinaimg.cn/large/008eGmZEly1gnwtcp5t8sj319k09en10.jpg)
+![](https://i.loli.net/2021/02/23/ZMnvzj1tAVXlBsu.jpg)
 
 其他的我们暂且不看，`Yes and No.` 这个回答就比较微妙了，为了这篇文章还能写下去我们先认为 `Go` 是面向对象的。
 
@@ -107,7 +107,7 @@ func upload(path string) {
 
 各位 `Javaer` 应该都看过这类图：
 
-![](https://tva1.sinaimg.cn/large/008eGmZEly1gnwtf8wzrvj30fe09e0t4.jpg)
+![](https://i.loli.net/2021/02/23/D28awlxb6HZIqS3.jpg)
 
 相信大部分新手看到这图时就已经懵逼，更别说研究各个类之间的关系了。
 
@@ -187,7 +187,7 @@ func main() {
 
 这种实现模式被称为”鸭子类型“，`Python` 中的接口也是类似的`鸭子类型`。
 
-![](https://tva1.sinaimg.cn/large/008eGmZEly1gnwtiifip5j312u0g0wgr.jpg)
+![](https://i.loli.net/2021/02/23/yScLUx7lVJWCojM.jpg)
 
 详细介绍可以参考这篇：[Python 中的面向接口编程](https://crossoverjie.top/2021/01/14/basic/python-oop/)
 
@@ -205,7 +205,7 @@ type RunService interface {
 }
 ```
 
-![](https://tva1.sinaimg.cn/large/008eGmZEly1gnwtjhvlhqj30z20d0dhk.jpg)
+![](https://i.loli.net/2021/02/23/tFmpBuxHcfSvZW2.jpg)
 
 得益于 `Go` 的强类型，刚才的 `struct` 也得实现 `DiService` 这个接口才能编译通过。
 
@@ -217,6 +217,6 @@ type RunService interface {
 
 例如官方标准库中就有许多利用接口编程的例子：
 
-![](https://tva1.sinaimg.cn/large/008eGmZEly1gnwtl9g49ij30u00vtn5a.jpg)
+![](https://i.loli.net/2021/02/23/yUEi7zVkCxjW863.jpg)
 
 由于公司技术栈现在主要由 `Go` 为主，后续也会继续更新 `Go` 相关的实战经验；如果你也对学习 `Go` 感兴趣那不妨点个关注吧。
