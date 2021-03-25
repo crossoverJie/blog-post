@@ -10,7 +10,7 @@ tags:
 - 乐观锁
 ---
 
-![](https://tva1.sinaimg.cn/large/e6c9d24ely1gojwsoe6oij21d00u0dnu.jpg)
+![](https://i.loli.net/2021/03/26/kiPBytpXJ7T4csH.jpg)
 
 # 前言
 
@@ -30,7 +30,7 @@ UPDATE `table` SET `amount`=100,`version`=version+1 WHERE `version` = 1 AND `id`
 
 需要在表中新增一个类似于 `version` 的字段，本质上我们只是执行这段 `SQL`，在更新时比较当前版本与数据库版本是否一致。
 
-![](https://tva1.sinaimg.cn/large/e6c9d24ely1gojwsxscq3j218j0u076y.jpg)
+![](https://i.loli.net/2021/03/26/FYTKZ2lS1WhDg6w.jpg)
 
 如上图所示：版本一致则更新成功，并且将版本号+1；如果不一致则认为出现并发冲突，更新失败。
 
@@ -40,7 +40,7 @@ UPDATE `table` SET `amount`=100,`version`=version+1 WHERE `version` = 1 AND `id`
 
 我们使用的是 `gorm` 这个 `orm` 库，不过我查阅了官方文档却没有发现乐观锁相关的支持，看样子后续也不打算提供实现。
 
-![](https://tva1.sinaimg.cn/large/e6c9d24ely1gojwt4j20zj21fg07kq47.jpg)
+![](https://i.loli.net/2021/03/26/CHGLJpvBn4SK89i.jpg)
 
 不过借助 `gorm` 实现也很简单：
 
@@ -185,7 +185,7 @@ func (o *Optimistic) SetVersion(version int64) {
 
 这样还带来了一个额外的好处：
 
-![](https://tva1.sinaimg.cn/large/e6c9d24ely1gojwzotvdkj21gq096775.jpg)
+![](https://i.loli.net/2021/03/26/nrA3FCHx4w1vLMV.jpg)
 
 一旦该结构体没有实现接口，在乐观锁更新时编译器便会提前报错，如果使用反射只能是在运行期间才能进行校验。
 
