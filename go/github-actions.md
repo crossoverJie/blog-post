@@ -11,7 +11,7 @@ tags:
 
 
 
-![](https://tva1.sinaimg.cn/large/008eGmZEly1gowm06si3fj30jg0jg3zv.jpg)
+![](https://i.loli.net/2021/03/26/UIZzdFfNb7exGvE.jpg)
 
 # 前言
 
@@ -106,9 +106,9 @@ jobs:
 
 之后一旦我们在 `main` 分支上推送代码，或者有其他分支的代码合并过来时都会自动运行单元测试，非常方便。
 
-![](https://tva1.sinaimg.cn/large/008eGmZEly1gowm0l4ucyj3093072q2y.jpg)
+![](https://i.loli.net/2021/03/26/K7YuUF2iTJzRpwd.jpg)
 
-![](https://tva1.sinaimg.cn/large/008eGmZEly1gowm0r240sj30p10ab3z6.jpg)
+![](https://i.loli.net/2021/03/26/NbIpDG1vA8fwK4z.jpg)
 
 与我们本地运行效果一致。
 
@@ -197,29 +197,27 @@ deploy:
 
 在这一步中我们需要登录到 `DockerHub`，所以首先需要在 GitHub 项目中配置 hub 的 `user_name` 以及 `access_token`.
 
-![](https://tva1.sinaimg.cn/large/008eGmZEly1gowm13r9v0j31mk062gm4.jpg)
+![](https://i.loli.net/2021/03/26/A8DtcYazfU1HC7O.jpg)
 
-![](https://tva1.sinaimg.cn/large/008eGmZEly1gowm18qwv7j30rs0pqwfx.jpg)
+![](https://i.loli.net/2021/03/26/XI8u4nU6lEP1bCF.jpg)
 
 配置好后便能在 action 中使用该变量了。
 
-![](https://tva1.sinaimg.cn/large/008eGmZEly1gowm1d85wqj30ro06q3zr.jpg)
+![](https://i.loli.net/2021/03/26/KzOQB8L7SRFDVNr.jpg)
 
 这里使用的是由 docker 官方提供的登录 action(`docker/login-action`)。
 
 有一点要非常注意，我们需要将镜像名称改为小写，不然会上传失败，比如我的名称中 `J` 字母是大写的，直接上传时就会报错。
 
-![](https://tva1.sinaimg.cn/large/008eGmZEly1gowm23o0trj31t406wwh0.jpg)
+![](https://i.loli.net/2021/03/26/a5WBhtEorzelfOK.jpg)
 
 所以在上传之前先要执行该步骤转换为小写。
 
-![](https://tva1.sinaimg.cn/large/008eGmZEly1gowm28jjvjj31080dimz3.jpg)
+![](https://i.loli.net/2021/03/26/LPcNBvznGqEd9jy.jpg)
 
 最后再用这两个变量上传到 Docker Hub。
 
-![](https://tva1.sinaimg.cn/large/008eGmZEly1gowm2gm4lhj30j8080gmb.jpg)
-
-![](https://tva1.sinaimg.cn/large/008eGmZEly1gowm2gm4lhj30j8080gmb.jpg)
+![](https://i.loli.net/2021/03/26/cw4EekaZXpJi1Kh.jpg)
 
 今后只要我们打上 `tag` 时，`Action` 就会自动执行单测、构建、上传的流程。
 
