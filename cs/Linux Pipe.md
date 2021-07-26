@@ -10,7 +10,7 @@ tags:
 - fd
 ---
 
-![](https://tva1.sinaimg.cn/large/008i3skNly1gqduiqi5evj31o00u0n84.jpg)
+![](https://i.loli.net/2021/07/03/TQEsbHyXncNkLV4.jpg)
 
 # 前言
 
@@ -18,7 +18,7 @@ tags:
 
 任务运行时偶尔会出现一些异常：
 
-![](https://tva1.sinaimg.cn/large/008i3skNly1gqexrlit2ij316406mgpd.jpg)
+![](https://i.loli.net/2021/07/03/dC5NDG7SJBxor3R.jpg)
 
 <!--more-->
 
@@ -84,25 +84,25 @@ IOError: [Errno 32] Broken pipe
 为什么会出现这个异常呢？
 
 首先得了解 `os.popen(command[, mode[, bufsize]])` 这个函数的运行原理。
-![](https://tva1.sinaimg.cn/large/008i3skNly1gqj4cfyd33j32j605iacq.jpg)
+![](https://i.loli.net/2021/07/03/hbYLUTvKAg1VDwH.jpg)
 
 根据官方文档的解释，该函数会执行 `fork` 一个子进程执行 `command` 这个命令，同时将子进程的标准输出通过管道连接到父进程；
 
 也就该方法返回的文件描述符。
 
 这里画个图能更好地理解其中的原理：
-![](https://tva1.sinaimg.cn/large/008i3skNly1gqjc7gr4q8j314n0rsgot.jpg)
+![](https://i.loli.net/2021/07/03/WDnmiu1p7hMFJVG.jpg)
 
 在这里的使用场景中并没有获取 `popen()` 的返回值，所以 `command` 的执行本质上是异步的；
 
 也就是说当 `task.py` 执行完毕后会自动关闭读取端的管道。
-![](https://tva1.sinaimg.cn/large/008i3skNly1gqjcct53t6j315l0rsdjw.jpg)
+![](https://i.loli.net/2021/07/03/IgsLnN1edWXPzDj.jpg)
 如图所示，关闭之后子进程会向 `pipe` 中输出  `print '1000'*1024`，由于这里输出的内容较多会一下子填满管道的缓冲区；
 
 于是写入端会收到 `SIGPIPE` 信号，从而导致 `Broken pipe` 的异常。
 
 从维基百科中我们也可以看出这个异常产生的一些条件：
-![](https://tva1.sinaimg.cn/large/008i3skNly1gqjcgq0j2tj31s605gabf.jpg)
+![](https://i.loli.net/2021/07/03/cL3xf6MozGKjT9D.jpg)
 
 其中也提到了 `SIGPIPE` 信号。
 
@@ -129,7 +129,7 @@ if __name__ == '__main__':
     print 'end****{}s'.format(end-start)
 ```
 
-![](https://tva1.sinaimg.cn/large/008i3skNly1gqjcx5dfnlj30go08qwii.jpg)
+![](https://i.loli.net/2021/07/03/kGqe4c2B7rQdz8l.jpg)
 
 运行 `task.py` 之后不会再抛异常，同时也将 `command` 的输出打印出来。
 
@@ -148,17 +148,17 @@ if __name__ == '__main__':
 很容易想到，父子进程之间可以通过上文提到的管道（匿名管道）来进行通信。
 
 还是以刚才的 Python 程序为例，当运行 task.py 后会生成两个进程：
-![](https://tva1.sinaimg.cn/large/008i3skNly1gqjewfzw7zj314w03ujvh.jpg)
+![](https://i.loli.net/2021/07/03/erJdoNmAuKI5RCD.jpg)
 
 分别进入这两个程序的` /proc/pid/fd` 目录可以看到这两个进程所打开的文件描述符。
 
 父进程：
 
-![](https://tva1.sinaimg.cn/large/008i3skNly1gqjeyky8ozj30nu07adk0.jpg)
+![](https://i.loli.net/2021/07/03/AF4rtxZf8UgM9HG.jpg)
 
 子进程：
 
-![](https://tva1.sinaimg.cn/large/008i3skNly1gqjeywrrlxj30kw058gmw.jpg)
+![](https://i.loli.net/2021/07/03/NYBF3rAGQhLgiaR.jpg)
 
 可以看到子进程的标准输出与父进程关联，也就是 `popen()` 所返回的那个文件描述符。
 
@@ -174,7 +174,7 @@ x = open("1.txt", "w")
 ```
 
 之后查看文件描述符时会发现父子进程都会有这个文件：
-![](https://tva1.sinaimg.cn/large/008i3skNly1gqjftaylgtj30pg0lk482.jpg)
+![](https://i.loli.net/2021/07/03/JhxpF5ict78l3yz.jpg)
 
 但相反的，子进程中打开的文件父进程是不会有的，这个应该很容易理解。
 

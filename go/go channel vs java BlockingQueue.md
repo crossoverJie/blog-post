@@ -10,7 +10,7 @@ tags:
 - BlockingQueue
 ---
 
-![](https://tva1.sinaimg.cn/large/008i3skNly1grzit9soenj31hc0u010l.jpg)
+![](https://i.loli.net/2021/07/03/PykYJp6qmdb2h1B.jpg)
 
 # 前言
 
@@ -308,3 +308,8 @@ ch :=make(chan T, 100)
 
 带着疑问来学习确实会事半功倍。
 
+最近和网友讨论后再补充一下，其实 `Go channel` 的底层实现也是通过对共享内存的加锁来实现的，这点任何语言都不可避免。
+
+既然都是共享内存那和我们自己使用共享内存有什么区别呢？主要还是 channel 的抽象层级更高，我们使用这类高抽象层级的方式编写代码会更易理解和维护。
+
+但在一些特殊场景，需要追求极致的性能，降低加锁颗粒度时用共享内存会更加合适，所以 Go 官方也提供有` sync.Map/Mutex` 这样的库；只是在并发场景下更推荐使用 `channel` 来解决问题。
