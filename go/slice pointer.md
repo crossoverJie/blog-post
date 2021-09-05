@@ -10,7 +10,7 @@ tags:
 - slice
 ---
 
-![](https://tva1.sinaimg.cn/large/008i3skNly1gssh9hca1lj30hs0dcabo.jpg)
+![](https://i.loli.net/2021/09/05/5oSTgOQHaIL6KdY.jpg)
 
 # 前言
 
@@ -153,7 +153,7 @@ main [1 2 3 4]
 
 直接查看源码会发现 slice 其实就是一个结构体，只是不能直接对外访问。
 
-![](https://tva1.sinaimg.cn/large/008i3skNly1gsuq60p1itj30iu074wer.jpg)
+![](https://i.loli.net/2021/09/05/6odYQRwDSm4rNxa.jpg)
 
 > 源码地址 `runtime/slice.go`
 
@@ -178,7 +178,7 @@ x1:=[6]int{0,1,2,3,4,5}
 x2 := x[1:4]
 fmt.Println(len(x2), cap(x2))
 ```
-![](https://tva1.sinaimg.cn/large/008i3skNly1gsurr980pvj30ri0cw74w.jpg)
+![](https://i.loli.net/2021/09/05/od62x5UpqahBQOX.jpg)
 
 其中 `x1` 的长度与容量都是6。
 
@@ -205,13 +205,13 @@ func appendA(x []int) {
 }
 ```
 
-![](https://tva1.sinaimg.cn/large/008i3skNly1gsusnh8r81j60xo0e8my602.jpg)
+![](https://i.loli.net/2021/09/05/T9FQXJlChyM3sm1.jpg)
 
 在函数传递过程中，`main` 中的 x 与 `appendA` 函数中的 x 切片所引用的是同个数组。
 
 所以在函数中对 `x[0]=100`，`main`函数中也能获取到。
 
-![](https://tva1.sinaimg.cn/large/008i3skNly1gsusvn0hkaj60uq0fimyc02.jpg)
+![](https://i.loli.net/2021/09/05/E3Yezc5GRWnoraI.jpg)
 
 本质上修改的就是同一块内存数据。
 
@@ -274,7 +274,7 @@ y [1 2 3 444 0] len=5,cap=5
 ```
 会神奇的发现 y 将所有数据都打印出来，在 `appendB` 函数中追加的数据其实已经写入了数组中，但为什么 `x` 本身没有获取到呢？
 
-![](https://tva1.sinaimg.cn/large/008i3skNly1gsutqq8y03j30ve0k6wg0.jpg)
+![](https://i.loli.net/2021/09/05/FTxiQ6HOLkaWJ4v.jpg)
 
 看图就很容易理解了：
 
@@ -321,7 +321,7 @@ y [1 2 3] len=3,cap=3
 
 这时会发现 main 函数中的 y 切片数据也没有发生变化，这是为什么呢？
 
-![](https://tva1.sinaimg.cn/large/008i3skNly1gsuufpsijqj31ey0mu417.jpg)
+![](https://i.loli.net/2021/09/05/ONairsIRJSX2PQH.jpg)
 
 这是因为初始化 x 切片时长度和容量都为3，当在 `appendB` 函数中追加数据时，会发现没有位置了。
 
