@@ -8,7 +8,7 @@ tags:
 - observer
 ---
 
-![](https://tva1.sinaimg.cn/large/008i3skNly1gtzamux9jcj61c00u0dpn02.jpg)
+![](https://i.loli.net/2021/10/25/QWzgA94m6MpIndl.jpg)
 
 # 前言
 
@@ -21,7 +21,7 @@ tags:
 背景如下：
 
 在用户创建完订单的标准流程中需要做额外一些事情：
-![](https://tva1.sinaimg.cn/large/008i3skNly1gu3e9roxqxj60bg057jrb02.jpg)
+![](https://i.loli.net/2021/10/25/H3ZKealzx4LfdIv.jpg)
 
 
 同时这些业务也是不固定的，随时会根据业务发展增加、修改逻辑。
@@ -38,7 +38,7 @@ tags:
 
 # 示例代码
 
-![](https://tva1.sinaimg.cn/large/008i3skNly1gu5y63kqrkj613u0tamzh02.jpg)
+![](https://i.loli.net/2021/10/25/185RJunI4wDX7TF.jpg)
 
 先大体看一下观察者模式所使用到的接口与关系：
 
@@ -145,7 +145,7 @@ b2.....data abc123
 
 > 这里所使用的容器是 [https://github.com/uber-go/dig](https://github.com/uber-go/dig)
 
-![](https://tva1.sinaimg.cn/large/008i3skNly1gu609u0i3kj613o0tejvx02.jpg)
+![](https://i.loli.net/2021/10/25/WXOG27IZ8x4EwDi.jpg)
 
 修改后的代码中，每当我们新增一个观察者（事件订阅）时，只需要使用容器所提供 `Provide` 函数注册进容器即可。
 
