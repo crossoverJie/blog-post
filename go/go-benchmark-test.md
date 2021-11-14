@@ -11,7 +11,7 @@ tags:
 - 设计模式
 ---
 
-![](https://tva1.sinaimg.cn/large/008i3skNly1gwer3yhu0dj30vn0u00v3.jpg)
+![go-benchmark-test.md---008i3skNly1gwer3yhu0dj30vn0u00v3.jpg](https://i.loli.net/2021/11/15/NPjnuqgBEMTRSJk.jpg)
 
 # 前言
 
@@ -29,7 +29,7 @@ tags:
 
 [https://github.com/crossoverJie/ptg/](https://github.com/crossoverJie/ptg/)
 
-![](https://tva1.sinaimg.cn/large/008i3skNly1gw04urcj16g30gn0571kz.gif)
+![go-benchmark-test.md---008i3skNly1gw04urcj16g30gn0571kz.gif](https://i.loli.net/2021/11/15/lrNwUd1HFZuiQoe.gif)
 
 也是一个命令行工具，使用起来效果如上图；完整的命令如下：
 
@@ -82,7 +82,7 @@ go get github.com/crossoverJie/ptg
 
 没有环境也没关系，可以再 release 页面下载与自己环境对应的版本解压使用。
 
-![](https://tva1.sinaimg.cn/large/008i3skNly1gwf1nq32qyj31ei0sqjts.jpg)
+![go-benchmark-test.md---008i3skNly1gwf1nq32qyj31ei0sqjts.jpg](https://i.loli.net/2021/11/15/fvrtNbmxW3AOzEu.jpg)
 [https://github.com/crossoverJie/ptg/releases](https://github.com/crossoverJie/ptg/releases)
 
 ## 设计模式
@@ -112,8 +112,8 @@ type (
 - 打印压测信息
 - 关闭程序、释放资源
 
-![](https://tva1.sinaimg.cn/large/008i3skNly1gwf21h4wa0j30pa09ewfo.jpg)
-![](https://tva1.sinaimg.cn/large/008i3skNly1gwf21psdzhj30p809odh6.jpg)
+![go-benchmark-test.md---008i3skNly1gwf21h4wa0j30pa09ewfo.jpg](https://i.loli.net/2021/11/15/TQ9jVHKtOeXlSnd.jpg)
+![go-benchmark-test.md---008i3skNly1gwf21psdzhj30p809odh6.jpg](https://i.loli.net/2021/11/15/QcmOHB6lxAUszTE.jpg)
 
 然后在两个不同的模式中进行实现。
 
@@ -135,8 +135,8 @@ type (
 	}
 )	
 ```
-![](https://tva1.sinaimg.cn/large/008i3skNly1gwf3la2wpgj30v6024aa8.jpg)
-![](https://tva1.sinaimg.cn/large/008i3skNly1gwf3lrt236j30ws020glt.jpg)
+![](https://i.loli.net/2021/11/15/s4SY6B97GVjotAz.jpg)
+![](https://i.loli.net/2021/11/15/2a8vRwb9skJhtqr.jpg)
 
 当然前提得是前期的接口定义需要考虑周全、不能之后频繁修改接口定义，这样的接口就没有意义了。
 
