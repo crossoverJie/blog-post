@@ -7,7 +7,7 @@ tags:
 - timer
 ---
 
-![](https://tva1.sinaimg.cn/large/008i3skNly1gvu8mu3mnpj30rs0rs0tv.jpg)
+![](https://i.loli.net/2021/11/15/yI7WFgfcobRiHkx.jpg)
 
 # 前言
 
@@ -31,7 +31,7 @@ output:
 2021-10-27 23:06:04.304596 +0800 CST m=+0.000085653
 2021-10-27 23:06:07.306311 +0800 CST m=+3.001711390
 ```
-![](https://tva1.sinaimg.cn/large/008i3skNly1gvu9vb43w6j30mw03s0sy.jpg)
+![](https://i.loli.net/2021/11/15/E4eIjN9nHrcTpOk.jpg)
 
 `time.After()` 会返回一个 `Channel`，该 `Channel` 会在延时 d 段时间后写入数据。
 
@@ -73,7 +73,7 @@ timer.After 取消，同时 Channel 发出消息，也可以关闭通道等通�
 # Context
 
 第二种方案是利用 context，go 的 context 功能强大；
-![](https://tva1.sinaimg.cn/large/008i3skNly1gvub7f2tlpj314a044gme.jpg)
+![](https://i.loli.net/2021/11/15/Z4pzi1THxMFXCWj.jpg)
 利用 `context.WithTimeout()` 方法会返回一个具有超时功能的上下文。
 
 ```go
@@ -164,7 +164,7 @@ Gin 提供的 `Shutdown(ctx)` 函数也充分使用了 `context`。
 	}
 	log.Println("Server exiting")
 ```
-![](https://tva1.sinaimg.cn/large/008i3skNly1gvuc7tt7flj30u00vxn0k.jpg)
+![](https://i.loli.net/2021/11/15/KhaxHcAbd3foJjZ.jpg)
 
 比如以上代码便是超时等待 10s 进行 `Gin` 的资源释放，实现的原理也和上文的例子相同。
 
@@ -174,8 +174,8 @@ Gin 提供的 `Shutdown(ctx)` 函数也充分使用了 `context`。
 
 因为写 go 的时间不长，所以自己写了一个练手的项目：一个接口压力测试工具。
 
-![](https://tva1.sinaimg.cn/large/008i3skNly1gvuchoqcm2g30gn0571kz.gif)
-![](https://tva1.sinaimg.cn/large/008i3skNly1gvucnczs4fj322e0g4djz.jpg)
+![go-benchmark-test.md---008i3skNly1gw04urcj16g30gn0571kz.gif](https://i.loli.net/2021/11/15/lrNwUd1HFZuiQoe.gif)
+![](https://i.loli.net/2021/11/15/VMFemnbtlI8JXZP.jpg)
 
 其中一个很常见的需求就是压测 N 秒后退出，这里正好就应用到了相关知识点，同样是初学 `go` 的小伙伴可以参考。
 
