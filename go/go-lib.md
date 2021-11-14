@@ -8,19 +8,19 @@ tags:
 - zerolog
 ---
 
-![](https://tva1.sinaimg.cn/large/008i3skNly1gvyvycad0ej30rs0rsta4.jpg)
+![](https://i.loli.net/2021/11/15/dTLx3bkmalG2HsE.jpg)
 
 不知不觉写 `Go` 已经快一年了，上线了大大小小好几个项目；心态也经历了几轮变化。
 
 因为我个人大概前五年时间写的是 `Java` ，中途写过一年多的 `Python`，所以刚接触到 Go 时的感觉如下图：
-![](https://tva1.sinaimg.cn/large/008i3skNly1gvywcqamm1j30ng0l6did.jpg)
+![](https://i.loli.net/2021/11/15/9DJWgIx4XRvFHpj.jpg)
 
 既没有 `Java` 的生态，也没有 `Python` 这么多语法糖。
 
 <!--more-->
 
 写到现在的感觉就是：
-![](https://tva1.sinaimg.cn/large/008i3skNly1gvywhbgtc3j31360na0wj.jpg)
+![](https://i.loli.net/2021/11/15/EUsdxVA51v3CoQ9.jpg)
 
 这里就不讨论这几门语言谁强谁弱了；重点和大家分享下我们日常开发中所使用到的一些第三方库与工具。
 
@@ -240,7 +240,7 @@ num, err := phonenumbers.Parse("6502530000", "US")
 
 - 提供可视化 web UI。
 - 与 IDE 集成显示单元覆盖率。
-![](https://tva1.sinaimg.cn/large/008i3skNly1gw01u0t73fj30yk0kkabx.jpg)
+![](https://i.loli.net/2021/11/15/OvbkDrHTsyMPXpJ.jpg)
 
 ## dig ⭐️⭐️⭐️⭐️⭐️
 [https://github.com/uber-go/dig](https://github.com/uber-go/dig) 这是一个依赖注入库，我们这里暂不讨论是否应该使用依赖注入，至少目前我们使用下来还是有几个好处：
@@ -261,7 +261,7 @@ num, err := phonenumbers.Parse("6502530000", "US")
 ## BloomRPC ⭐️⭐️⭐️⭐️
 [https://github.com/uw-labs/bloomrpc](https://github.com/uw-labs/bloomrpc) 一个 `gRPC` 可视化工具，比起自己写 `gRPC` 客户端的代码那确实是要简单许多。
 
-![](https://tva1.sinaimg.cn/large/008i3skNly1gw02u882h4j30qo0erwf0.jpg)
+![](https://i.loli.net/2021/11/15/81grVLXcMyFCNSD.jpg)
 但也有些小问题，比如精度。如果是 int64 超过了 2^56 服务端拿到的值会发生错误，这点目前还未解决。
 
 ## redis ⭐️⭐️⭐️⭐️
@@ -297,7 +297,7 @@ Pulsar 官方出品的 go 语言客户端，相对于 Java 来说其他语言的
 ## pb ⭐️⭐️⭐️
 [https://github.com/cheggaaa/pb](https://github.com/cheggaaa/pb) 一个命令行工具进度条，编写命令行工具时使用它交互会更优雅。
 
-![](https://tva1.sinaimg.cn/large/008i3skNly1gw04urcj16g30gn0571kz.gif)
+![go-benchmark-test.md---008i3skNly1gw04urcj16g30gn0571kz.gif](https://i.loli.net/2021/11/15/lrNwUd1HFZuiQoe.gif)
 
 
 
@@ -341,8 +341,8 @@ Pulsar 官方出品的 go 语言客户端，相对于 Java 来说其他语言的
 文中提到了我们内部有基于以上库整合了一个业务开发框架；也基于该框架上线了大大小小10几个项目，改进空间依然不少，目前还是在快速迭代中。
 
 大概的用法，入口 `main.go`:
-![](https://tva1.sinaimg.cn/large/008i3skNly1gw04ah9an7j30tq0emdhk.jpg)
-![](https://tva1.sinaimg.cn/large/008i3skNly1gw04ef29pcj31f40go40k.jpg)
+![](https://i.loli.net/2021/11/15/YWcphM86xnKBjsE.jpg)
+![](https://i.loli.net/2021/11/15/pZ4SxVoEuikPOB9.jpg)
 最后截取我在内部的分享就概括了整体的思想`--引用自公司一司姓同事`。
 
 也许我们内部经过多次迭代，觉得有能力开放出来给社区带来一些帮助时也会尝试开源；现阶段就不嫌丑了。
