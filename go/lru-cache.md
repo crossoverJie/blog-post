@@ -1,14 +1,10 @@
 ---
-title: 编写一个接口压测工具
+title: 用 Go 实现一个 LRU cache
 date: 2021/11/15 08:10:16 
 categories: 
 - Go
 tags: 
-- grpc
-- http
-- benchmark
-- performance
-- 设计模式
+- LRU cache
 ---
 
 ![go-benchmark-test.md---008i3skNly1gwer3yhu0dj30vn0u00v3.jpg](https://i.loli.net/2021/11/15/NPjnuqgBEMTRSJk.jpg)
