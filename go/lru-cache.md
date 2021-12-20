@@ -7,7 +7,7 @@ tags:
 - LRU cache
 ---
 
-![](https://s2.loli.net/2021/12/20/KQPWa8yO4nMYidw.jpg)
+![](https://s2.loli.net/2021/12/20/Q6LHFvrl81RUVAm.jpg)
 
 # 前言
 
@@ -26,11 +26,11 @@ Go 官方库中并没有相关的实现，考虑到程序的简洁就不打算�
 
 > 将每次的请求记录存储到 lru cache 中，最近使用到的历史记录排在靠前，同时也能提供相关的搜索功能；具体可见下图。
 
-![](https://s2.loli.net/2021/12/20/hZcT4sAbqt2iXGR.gif)
+![](https://s2.loli.net/2021/12/20/Arq5pxZoF2ksnXW.gif)
 
 # 实现
 
-![](https://s2.loli.net/2021/12/20/euEihbpYP2rn7f9.jpg)
+![](https://s2.loli.net/2021/12/20/1MXvgZ32WaQ8U4s.jpg)
 
 实现原理没什么好说的，和 `Java` 的一样：
 
@@ -41,11 +41,11 @@ Go 官方库中并没有相关的实现，考虑到程序的简洁就不打算�
 
 虽然 Go 比较简洁，但好消息是基本的双向链表结构还是具备的。
 
-![](https://s2.loli.net/2021/12/20/lKMYTkJyjupix9B.jpg)
+![](https://s2.loli.net/2021/12/20/nEHFimku5AYOqv9.jpg)
 
 所以基于此便定义了一个 `LruCache`:
 
-![](https://s2.loli.net/2021/12/20/h9H312Gr78C4xoS.jpg)
+![](https://s2.loli.net/2021/12/20/iT2ZORsy4tL5mBC.jpg)
 
 根据之前的分析：
 
@@ -54,7 +54,7 @@ Go 官方库中并没有相关的实现，考虑到程序的简洁就不打算�
 - `map` 存储数据。
 - `lock` 用于控制并发安全。
 
-![](https://s2.loli.net/2021/12/20/Nu8gUDramvPxpR2.jpg)
+![](https://s2.loli.net/2021/12/20/zpGjK4BWcITwfA2.jpg)
 
 接下来重点是两个函数：写入、查询。
 
@@ -63,7 +63,7 @@ Go 官方库中并没有相关的实现，考虑到程序的简洁就不打算�
 而获取数据时，这会将查询到的结点移动到头结点。
 
 这些结点操作都由 List 封装好了的。
-![](https://s2.loli.net/2021/12/20/NVtApDoyOEf2weL.jpg)
+![](https://s2.loli.net/2021/12/20/xUquXg2BMoTdGFC.jpg)
 
 所以使用起来也比较方便。
 
