@@ -8,14 +8,14 @@ tags:
 - gRPC
 ---
 
-![](https://tva1.sinaimg.cn/large/e6c9d24ely1h01rostdinj20rs0rsgmc.jpg)
+![](https://s2.loli.net/2022/03/13/EvoDe9JNqPLHwdF.jpg)
 # 介绍
 
 我猜测大部分长期使用 `Java` 的开发者应该较少会接触 `gRPC`，毕竟在 `Java` 圈子里大部分使用的还是 `Dubbo/SpringClound` 这两类服务框架。
 
 我也是近段时间有机会从零开始重构业务才接触到 `gRPC` 的，当时选择 `gRPC` 时也有几个原因：
 
-![](https://tva1.sinaimg.cn/large/e6c9d24ely1h01qoz27pej21ay0u07a8.jpg)
+![](https://s2.loli.net/2022/03/13/XCYkMxjpUgvZE5L.jpg)
 
 - 基于云原生的思路开发部署项目，而在云原生中 `gRPC` 几乎已经是标准的通讯协议了。
 - 开发语言选择了 Go，在 Go 圈子中 `gRPC` 显然是更好的选择。
@@ -41,7 +41,7 @@ tags:
 
 学习 `gRPC` 之前首先得知道它是通过什么协议通信的，我们日常不管是开发还是应用基本上接触到最多的还是 `HTTP/1.1` 协议。
 
-![](https://tva1.sinaimg.cn/large/e6c9d24ely1h016qe0ugfj20yy0f6gna.jpg)
+![](https://s2.loli.net/2022/03/13/r6w2Yvi9dkPqKEW.jpg)
 
 由于 `HTTP/1.1` 是一个文本协议，对人类非常友好，相反的对机器性能就比较低。
 
@@ -98,7 +98,7 @@ message OrderApiCreate{
     --go-grpc_out=. --go-grpc_opt=paths=source_relative \
     test.proto
 ```
-![](https://tva1.sinaimg.cn/large/e6c9d24ely1h01i8e4m1xj21700pk44p.jpg)
+![](https://s2.loli.net/2022/03/13/vAahTlgs54Pem7c.jpg)
 生成代码之后编写服务端就非常简单了，只需要实现生成的接口即可。
 
 ```go
@@ -117,19 +117,19 @@ func (o *Order) Create(ctx context.Context, in *v1.OrderApiCreate) (*v1.Order, e
 }
 ```
 
-![](https://tva1.sinaimg.cn/large/e6c9d24ely1h01itnbee7j218m0l4q5l.jpg)
+![](https://s2.loli.net/2022/03/13/wWJQ7Rv5BnqPrjo.jpg)
 
 客户端也非常简单，只需要依赖服务端代码，创建一个 `connection` 然后就和调用本地方法一样了。
 
 这是经典的 `unary`(一元)调用，类似于 http 的请求响应模式，一个请求对应一次响应。
 
-![](https://tva1.sinaimg.cn/large/e6c9d24ely1h01iy0uovfj20pm08hwep.jpg)
+![](https://s2.loli.net/2022/03/13/cxF2Xlj4BuWOEbz.jpg)
 
 ## Server stream
 
 `gRPC` 除了常规的 `unary` 调用之外还支持服务端推送，在一些特定场景下还是很有用的。
 
-![](https://tva1.sinaimg.cn/large/e6c9d24ely1h01okapx6bj212w0ck3zf.jpg) 
+![](https://s2.loli.net/2022/03/13/jz2CwFvfR6iuTMt.jpg) 
 
 ```go
 func (o *Order) ServerStream(in *v1.OrderApiCreate, rs v1.OrderService_ServerStreamServer) error {
@@ -159,13 +159,13 @@ func (o *Order) ServerStream(in *v1.OrderApiCreate, rs v1.OrderService_ServerStr
 
 为了能更直观的展示这个过程，优化了之前开发的一个 `gRPC` [客户端](https://github.com/crossoverJie/ptg)，可以直观的调试 `stream` 调用。
 
-![](https://tva1.sinaimg.cn/large/e6c9d24ely1h01ovauoulg20go0dpwgw.gif)
+![](https://s2.loli.net/2022/03/13/zqTm3bgysJcMEeZ.gif)
 
 > 上图便是一个服务端推送示例。
 
 ## Client Stream
 
-![](https://tva1.sinaimg.cn/large/e6c9d24ely1h01oojlus9j20op07wq3b.jpg)
+![](https://s2.loli.net/2022/03/13/rkSeCNVEzJ26sMd.jpg)
 
 除了支持服务端推送之外，客户端也支持。
 
@@ -203,12 +203,12 @@ func (o *Order) ClientStream(rs v1.OrderService_ClientStreamServer) error {
 
 代码与服务端推送类似，只是角色互换了。
 
-![](https://tva1.sinaimg.cn/large/e6c9d24ely1h01p1c7eaig20go0dp79y.gif)
+![](https://s2.loli.net/2022/03/13/lZzfH8yq3MGwKa9.gif)
 
 
 ## Bidirectional Stream
 
-![](https://tva1.sinaimg.cn/large/e6c9d24ely1h01op6ilcvj212w0ddgmm.jpg)
+![](https://s2.loli.net/2022/03/13/Le2OdbBN1DGScg6.jpg)
 
 同理，当客户端、服务端同时都在发送消息也是支持的。
 
@@ -249,7 +249,7 @@ func (o *Order) BdStream(rs v1.OrderService_BdStreamServer) error {
 
 其实就是将上诉两则合二为一。
 
-![](https://tva1.sinaimg.cn/large/e6c9d24ely1h01p8sel1pg20go0dpdo9.gif)
+![](https://s2.loli.net/2022/03/13/Lxy7dhbD8ewlpUf.gif)
 
 通过调用示例很容易理解。
 
@@ -280,7 +280,7 @@ func (o *Order) BdStream(rs v1.OrderService_BdStreamServer) error {
 
 为此社区便创建了 [https://github.com/grpc-ecosystem/grpc-gateway](https://github.com/grpc-ecosystem/grpc-gateway) 项目，可以将 gRPC 服务暴露为 RESTFUL API。
 
-![](https://tva1.sinaimg.cn/large/e6c9d24ely1h01pid7feaj20v40l4jsr.jpg)
+![](https://s2.loli.net/2022/03/13/Gt2sRplIADyvTHg.jpg)
 
 > 为了让测试可以习惯用 postman 进行接口测试，我们也将 gRPC 服务代理出去，更方便的进行测试。
 
