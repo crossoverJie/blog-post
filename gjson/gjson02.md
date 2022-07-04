@@ -2,7 +2,7 @@
 title: 用面向对象的方式操作 JSON 甚至还能做四则运算 JSON 库
 date: 2022/07/04 08:13:36 
 categories: 
-- gjson
+- xjson
 - compiler
 tags: 
 - go
@@ -10,10 +10,10 @@ tags:
 
 ![](https://tva1.sinaimg.cn/large/e6c9d24ely1h3t2n5n7tvj208u07tq33.jpg)
 # 前言
-在之前实现的 [`JSON` 解析器](https://crossoverjie.top/2022/06/28/gjson/gjson01/)中当时只实现了将一个 JSON 字符串转换为一个 `JSONObject`，并没有将其映射为一个具体的 `struct`；如果想要获取值就需要先做断言将其转换为 `map` 或者是切片再来获，会比较麻烦。
+在之前实现的 [`JSON` 解析器](https://crossoverjie.top/2022/06/28/xjson/xjson01/)中当时只实现了将一个 JSON 字符串转换为一个 `JSONObject`，并没有将其映射为一个具体的 `struct`；如果想要获取值就需要先做断言将其转换为 `map` 或者是切片再来获，会比较麻烦。
 
 ```go
-	decode, err := gjson.Decode(`{"glossary":{"title":"example glossary","age":1}}`)
+	decode, err := xjson.Decode(`{"glossary":{"title":"example glossary","age":1}}`)
 	assert.Nil(t, err)
 	glossary := v["glossary"].(map[string]interface{})
 	assert.Equal(t, glossary["title"], "example glossary")
@@ -22,7 +22,7 @@ tags:
 
 但其实转念一想，部分场景我们甚至我们只需要拿到 `JSON` 中的某个字段的值，这样还需要先声明一个 `struct` 会略显麻烦。
 
-经过查询发现已经有了一个类似的库来解决该问题，[https://github.com/tidwall/gjson](https://github.com/tidwall/gjson) 并且 star 数还很多（甚至名字都是一样的😂），说明这样的需求大家还是很强烈的。
+经过查询发现已经有了一个类似的库来解决该问题，[https://github.com/tidwall/xjson](https://github.com/tidwall/xjson) 并且 star 数还很多（甚至名字都是一样的😂），说明这样的需求大家还是很强烈的。
 
 于是我也打算增加类似的功能，使用方式如下：
 ![](https://tva1.sinaimg.cn/large/e6c9d24ely1h3t43ocuudj20zn0u0wha.jpg)
@@ -61,16 +61,16 @@ str := `
 }
 }`
 
-name := gjson.Get(str, "name")
+name := xjson.Get(str, "name")
 assert.Equal(t, name.String(), "bob")
 
-age := gjson.Get(str, "age")
+age := xjson.Get(str, "age")
 assert.Equal(t, age.Int(), 20)
 
-assert.Equal(t, gjson.Get(str,"skill.lang[0].go.feature[0]").String(), "goroutine")
-assert.Equal(t, gjson.Get(str,"skill.lang[0].go.feature[1]").String(), "channel")
-assert.Equal(t, gjson.Get(str,"skill.lang[0].go.feature[2]").String(), "simple")
-assert.Equal(t, gjson.Get(str,"skill.lang[0].go.feature[3]").Bool(), true)
+assert.Equal(t, xjson.Get(str,"skill.lang[0].go.feature[0]").String(), "goroutine")
+assert.Equal(t, xjson.Get(str,"skill.lang[0].go.feature[1]").String(), "channel")
+assert.Equal(t, xjson.Get(str,"skill.lang[0].go.feature[2]").String(), "simple")
+assert.Equal(t, xjson.Get(str,"skill.lang[0].go.feature[3]").Bool(), true)
 ```
 这样的语法使用个人觉得还是满符合直觉的，相信对使用者来说也比较简单。
 
@@ -132,7 +132,7 @@ func (r Result) Exists() bool
 
 有兴趣的可以看下解析过程的源码：
 
-[https://github.com/crossoverJie/gjson/blob/cfbca51cc9bc0c77e6cb9c9ad3f964b2054b3826/json.go#L46](https://github.com/crossoverJie/gjson/blob/cfbca51cc9bc0c77e6cb9c9ad3f964b2054b3826/json.go#L46)
+[https://github.com/crossoverJie/xjson/blob/cfbca51cc9bc0c77e6cb9c9ad3f964b2054b3826/json.go#L46](https://github.com/crossoverJie/xjson/blob/cfbca51cc9bc0c77e6cb9c9ad3f964b2054b3826/json.go#L46)
 
 # 对 JSON 做四则运算
 
@@ -180,4 +180,4 @@ func (r Result) Exists() bool
 后面会继续优化，比如支持转义字符、提高性能等。
 
 感兴趣的朋友请持续关注：
-[https://github.com/crossoverJie/gjson](https://github.com/crossoverJie/gjson)
+[https://github.com/crossoverJie/xjson](https://github.com/crossoverJie/xjson)

@@ -2,7 +2,7 @@
 title: 几百行代码实现一个 JSON 解析器
 date: 2022/06/28 08:13:36 
 categories: 
-- gjson
+- xjson
 - compiler
 tags: 
 - go
@@ -23,7 +23,7 @@ tags:
 首先还是来看看效果：
 
 ```go
-import "github.com/crossoverJie/gjson"
+import "github.com/crossoverJie/xjson"
 func TestJson(t *testing.T) {
 	str := `{
    "glossary": {
@@ -49,7 +49,7 @@ func TestJson(t *testing.T) {
        }
    }
 }`
-	decode, err := gjson.Decode(str)
+	decode, err := xjson.Decode(str)
 	assert.Nil(t, err)
 	fmt.Println(decode)
 	v := decode.(map[string]interface{})
@@ -169,7 +169,7 @@ const (
 
 感兴趣的朋友可以跑跑单例 debug 一下就很容易理解：
 
-[https://github.com/crossoverJie/gjson/blob/main/token_test.go](https://github.com/crossoverJie/gjson/blob/main/token_test.go)
+[https://github.com/crossoverJie/xjson/blob/main/token_test.go](https://github.com/crossoverJie/xjson/blob/main/token_test.go)
 
 以这段 JSON 为例：
 
@@ -273,7 +273,7 @@ EndObject  }
 因此这里就得把这三种情况都考虑到，其他的以此类推。
 
 具体解析过程可以参考源码：
-[https://github.com/crossoverJie/gjson/blob/main/parse.go](https://github.com/crossoverJie/gjson/blob/main/parse.go)
+[https://github.com/crossoverJie/xjson/blob/main/parse.go](https://github.com/crossoverJie/xjson/blob/main/parse.go)
 
 ---
 虽然是借助一个栈结构就能将 `JSON` 解析完毕，不知道大家发现一个问题没有：
@@ -304,10 +304,10 @@ PASS
 同时还有一些基础功能没有实现，比如将解析后的 `JSONObject` 可以反射生成自定义的 `Struct`，以及我最终想实现的支持 `JSON` 的四则运算：
 
 ```json
-gjson.Get("glossary.age+long*(a.b+a.c)")
+xjson.Get("glossary.age+long*(a.b+a.c)")
 ```
 
 目前我貌似没有发现有类似的库实现了这个功能，后面真的完成后应该会很有意思，感兴趣的朋友请持续关注。
 
 源码：
-[https://github.com/crossoverJie/gjson](https://github.com/crossoverJie/gjson)
+[https://github.com/crossoverJie/xjson](https://github.com/crossoverJie/xjson)
