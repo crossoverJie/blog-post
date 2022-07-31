@@ -8,7 +8,7 @@ tags:
 - go
 ---
 
-![](https://tva1.sinaimg.cn/large/e6c9d24ely1h3t2n5n7tvj208u07tq33.jpg)
+![](https://tva1.sinaimg.cn/large/e6c9d24ely1h3vuj0uxlcj208u07tmxb.jpg)
 # 前言
 在之前实现的 [`JSON` 解析器](https://crossoverjie.top/2022/06/28/xjson/xjson01/)中当时只实现了将一个 JSON 字符串转换为一个 `JSONObject`，并没有将其映射为一个具体的 `struct`；如果想要获取值就需要先做断言将其转换为 `map` 或者是切片再来获，会比较麻烦。
 
