@@ -3,6 +3,7 @@ title: 观察者模式的实际应用
 date: 2021/09/02 08:02:16 
 categories: 
 - Go
+- 设计模式
 tags: 
 - 设计模式
 - observer

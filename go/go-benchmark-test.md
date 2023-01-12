@@ -3,6 +3,7 @@ title: 编写一个接口压测工具
 date: 2021/11/15 08:10:16 
 categories: 
 - Go
+- 设计模式
 tags: 
 - grpc
 - http
