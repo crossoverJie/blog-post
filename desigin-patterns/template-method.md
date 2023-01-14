@@ -8,7 +8,7 @@ tags:
 - Java
 ---
 
-![](https://tva1.sinaimg.cn/large/008vxvgGgy1h9hfu41jcsj30wh0ixta6.jpg)
+![](https://s2.loli.net/2023/01/12/TG3RQnjKDOc7vaF.png)
 
 # 前言
 
@@ -125,7 +125,7 @@ public interface Event {
 显而易见 `Test1~3` 都继承了 `AbstractJobDefine` 同时实现了其中的 `run` 函数，使用的时候只需要创建不同的实例等待他们都执行完成即可。
 
 以前在 Java 中也有不同的应用：
-![](https://tva1.sinaimg.cn/large/008vxvgGgy1h9hj5tyqvnj30v60u0420.jpg)
+![](https://s2.loli.net/2023/01/12/dRl4DEIXj1BfNZ2.png)
 
 [https://crossoverjie.top/2019/03/01/algorithm/consistent-hash/?highlight=%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95#%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95](https://crossoverjie.top/2019/03/01/algorithm/consistent-hash/?highlight=%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95#%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95)
 
@@ -133,7 +133,7 @@ public interface Event {
 
 同样的示例用 Go 自然也可以实现：
 
-![](https://tva1.sinaimg.cn/large/008vxvgGgy1h9hhzhpfs7j30u015etd8.jpg)
+![](https://s2.loli.net/2023/01/12/Eu6OUrb7jGtLozN.png)
 
 ```go
 func TestJobDefine_start(t *testing.T) {

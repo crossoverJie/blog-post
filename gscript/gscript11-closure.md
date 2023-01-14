@@ -10,7 +10,7 @@ tags:
 - closure
 ---
 
-![](https://tva1.sinaimg.cn/large/008vxvgGly1h7fiwryyq4j30zk0k03zp.jpg)
+![](https://s2.loli.net/2023/01/14/QnYTwcpIxEH5WOm.png)
 # 前言
 闭包对于一个长期写 `Java` 的开发者来说估计鲜有耳闻，我在写 `Python` 和 `Go` 之前也是没怎么了解，光这名字感觉就有点"神秘莫测"，这篇文章的主要目的就是从编译器的角度来分析闭包，彻底搞懂闭包的实现原理。
 
@@ -79,7 +79,7 @@ varInner=22, varExternal=14
 
 闭包之所以不太好理解的主要原因是它不太符合自觉。
 
-![](https://tva1.sinaimg.cn/large/008vxvgGly1h7flvftfujj30n80ouwg5.jpg)
+![](https://s2.loli.net/2023/01/14/FwMJpUvdPgyhCNY.png)
 
 本质上就是作用域的关系，当我们调用 `f1()` 函数的时候，会在栈中分配变量 `varInner`，正常情况下调用完毕后 `f1` 的栈会弹出，里面的变量 `varInner` 自然也会销毁才对。
 
@@ -159,7 +159,7 @@ varInner=22, varExternal=14
 ----
 
 先来看看第一步扫描闭包变量：
-![](https://tva1.sinaimg.cn/large/008vxvgGly1h7fp22h48bj311m0ho41i.jpg)
+![](https://s2.loli.net/2023/01/14/uMxlDhkrs1g9zoT.png)
 
 `allVariable := c.allVariable(function)`
 查询所有的变量，包括父 `scope` 的变量。
@@ -168,10 +168,10 @@ varInner=22, varExternal=14
 查询当前 `scope` 包含下级所有 `scope` 中的变量，这样一减之后就能知道闭包变量了，然后将所有的闭包变量存放进闭包函数中。
 
 ## 闭包赋值
-![](https://tva1.sinaimg.cn/large/008vxvgGly1h7fpmtlr62j30om0f0wfr.jpg)
+![](https://s2.loli.net/2023/01/14/tLBOHCpdwfYj7DX.png)
 之后在 `return innerFun` 处，将闭包变量的数据赋值到变量中。
 
-![](https://tva1.sinaimg.cn/large/008vxvgGly1h7fpqkqqnyj311e0j8wia.jpg)
+![](https://s2.loli.net/2023/01/14/2jf6kYVHXBvbmNo.png)
 
 
 ## 闭包函数调用
@@ -186,7 +186,7 @@ func int(int) f3 = f1();
 
 ---
 
-![](https://tva1.sinaimg.cn/large/008vxvgGly1h7fpslouv1j31as0q4td8.jpg)
+![](https://s2.loli.net/2023/01/14/OmlVzJLASZpEP73.png)
 在调用函数变量时，判断到该变量是一个函数，则直接返回函数。
 
 之后直接调用该函数即可。
@@ -273,7 +273,7 @@ httpHandle("get", "/p", handle);
 - 调用函数变量时，需要判断为函数，而不是变量。
 
 
-![](https://tva1.sinaimg.cn/large/008vxvgGly1h7fqgz0qtfj30u00ukwg9.jpg)
+![](https://s2.loli.net/2023/01/14/y2zhcrXgWJbODju.png)
 可以在 [Playground](https://gscript.crossoverjie.top/) 中体验闭包函数打印裴波那切数列的运用。
 
 本文相关资源链接
