@@ -9,7 +9,7 @@ tags:
 ---
 
 
-![](https://tva1.sinaimg.cn/large/008vxvgGly1h75zxqn8bej30gq074aa9.jpg)
+![](https://s2.loli.net/2023/01/17/Ig7svqZCcPB9FuU.png)
 
 # 版本更新
 
@@ -26,14 +26,14 @@ tags:
 
 
 前段时间发布了 `GScript` 的在线 `playground`，
-![playground-min.gif](http://tva1.sinaimg.cn/large/72fbb941ly1h760l8xfm0g20go0dfnen.gif)
+![](https://s2.loli.net/2023/01/17/RmTtoqbxPipOgKj.gif)
 
 <!--more-->
 
 这是一个可以在线运行 `GScript` 脚本的网站，其本质原理是接收用户的输入源码从而在服务器上运行的服务；这简直就是后门大开的 `XSS` 攻击，为保住服务器我设置了运行 `API` 的后端服务的用户权限，这样可以避免执行一些恶意的请求。
 
 但也避免不了一些用户执行了一些耗时操作，比如一个死循环、或者是我提供 `demo` 里的打印杨辉三角。
-![](https://tva1.sinaimg.cn/large/008vxvgGly1h760uozudlj30u014bdi9.jpg)
+![](https://s2.loli.net/2023/01/17/LR7EAtxQnB42Wf9.png)
 
 这本质上是一个递归函数，当打印的三角层数过高时便会非常耗时，同时也非常消耗 CPU。
 
@@ -67,7 +67,7 @@ tags:
 docker pull crossoverjie/gscript
 docker run --rm -it  crossoverjie/gscript:latest gscript
 ```
-![](https://tva1.sinaimg.cn/large/008vxvgGly1h76148st1pj31ik0laq5r.jpg)
+![](https://s2.loli.net/2023/01/17/sg67rJAc4BafouI.png)
 
 当然也可以执行用 `Docker` 执行 `GScript` 脚本：
 
@@ -79,7 +79,7 @@ docker run --rm -v $PWD:/usr/src/gscript -w /usr/src/gscript crossoverjie/gscrip
 # 编写 GScript 标准库
 
 接下来重点聊聊 `GScript` 标准库的事情，其实编写标准库是一个费时费力的事情。
-![](https://tva1.sinaimg.cn/large/008vxvgGly1h761e5h3p3j31cw0tgwis.jpg)
+![](https://s2.loli.net/2023/01/17/oKnZq5mDPpkF7Ix.png)
 现在编译器已经提供了一些可用的内置函数，借由这些内置函数写一些常见的工具类是完全没有问题的。
 
 对写 `GScript` 标准库感谢的朋友可以当做一个参考，这里我打了一个样，先看下运行效果：
