@@ -9,20 +9,20 @@ tags:
 ---
 
 
-![gscript08-min.jpg](http://tva1.sinaimg.cn/large/72fbb941ly1h6wtyytk80j20zk0hsq3d.jpg)
+![](https://s2.loli.net/2023/01/29/Tr3H1wBh9NJi5lQ.png)
 
 # 前言
 
 
 前段时间在[《用自己的编程语言实现了一个网站》](https://crossoverjie.top/2022/09/14/gscript/gscript05-write-site/)用介绍了用 `GScript` 写的一个简单“网站”，虽然是打上引号的；页面长这样：
 
-![GScript-index.jpg](http://tva1.sinaimg.cn/large/72fbb941ly1h6wu59169mj21000cymyg.jpg)
+![](https://s2.loli.net/2023/01/29/kXMWY2Dy3RwatHb.png)
 
 看起来确实非常的挫，其实之前一直也想做一个 `GScript` 的在线 `playground` ，于是国庆期间学了一点  皮毛 `Vue` 加上老弟的帮忙（他是前端开发），最终完成了下面这个网站：
 
 [https://gscript.crossoverjie.top/](https://gscript.crossoverjie.top/)
 
-![image.png](http://tva1.sinaimg.cn/large/72fbb941ly1h6wubsl36rj21b60sun5a.jpg)
+![](https://s2.loli.net/2023/01/29/3iP94haxUzYWbwe.png)
 
 > ❤打印源码参考了：https://wa-lang.org/playground/
 
@@ -32,7 +32,7 @@ tags:
 
 > 不过有些提示与 GScript 的语法不兼容，毕竟编辑器的提示是基于 JavaScript 的语法。
 
-![image.png](http://tva1.sinaimg.cn/large/72fbb941ly1h6wuejlgbfj21a60t8qbt.jpg)
+![](https://s2.loli.net/2023/01/29/RTWZxm42MIJQCBE.png)
 
 内置了几个 demo，可以选择运行试试。
 
@@ -40,8 +40,8 @@ tags:
 
 > 虽然显示上还有待优化。
 
-![image.png](http://tva1.sinaimg.cn/large/72fbb941ly1h6wugjwr3yj21sm0pmn0r.jpg)
-![image.png](http://tva1.sinaimg.cn/large/72fbb941ly1h6wuhp7847j21ss0jk0yr.jpg)
+![](https://s2.loli.net/2023/01/29/4h1ySCk5QlVMcZG.png)
+![](https://s2.loli.net/2023/01/29/gXsqORWBdDaxry2.png)
 
 整个后端接口全都是用 `GScript` 原生代码编写的，所以这也算是 `GScript` 的一个实际应用案例。
 
@@ -89,7 +89,7 @@ if (len(args) ==3){
 
 为了能实现上述的需求，所以本次也更新了 `GScript` 的版本，新增了一些内置 `API`。
 
-![image.png](http://tva1.sinaimg.cn/large/72fbb941ly1h6wv0m6aj4j20z40qwqc2.jpg)
+![](https://s2.loli.net/2023/01/29/cQUbaZI9s8ONvXA.png)
 
 主要是新增了 `playground` 需要的一些 `OS api`、文件写入、执行系统命令、日期相关等。
 
@@ -99,12 +99,12 @@ if (len(args) ==3){
 ## 编译错误
 
 除此之外也新增了一些易用功能，比如现在提供了更友好的编译错误信息：
-![image.png](http://tva1.sinaimg.cn/large/72fbb941ly1h6wv67teksj21ru09qq6a.jpg)
+![](https://s2.loli.net/2023/01/29/Du3Xga8czBTiCQh.png)
 
 
 ## 运行时错误
 运行时的异常现在也有对应提示：
-![image.png](http://tva1.sinaimg.cn/large/72fbb941ly1h6wv8wbft3j21yc0d0wjj.jpg)
+![](https://s2.loli.net/2023/01/29/COwbQqXtlsaGdK6.png)
 
 只不过目前的显示还不太友好，打印的堆栈还是 `Go` 的，之后会优化为只显示 `GScript` 的堆栈。
 
