@@ -13,7 +13,7 @@ tags:
 # 前言
 
 前段时间我们在升级 Pulsar 版本的时候发现升级后最后一个节点始终没有流量。
-![](https://p.ipic.vip/cmid9a.jpg)
+![](https://s2.loli.net/2023/02/07/ZwQ7sfVhuzb4tyv.jpg)
 
 > 虽然对业务使用没有任何影响，但负载不均会导致资源的浪费。
 
@@ -99,7 +99,7 @@ public interface LoadSheddingStrategy {
 
 ## ThresholdShedder 原理
 `LoadSheddingStrategy` 接口目前有三个实现，这里以官方默认的 `ThresholdShedder` 为例：
-![](https://p.ipic.vip/fiu6oz.jpg)
+![](https://s2.loli.net/2023/02/07/9xqNPs31RtHOC2u.jpg)
 
 它的实现算法是根据带宽、内存、流量等各个指标的权重算出每个节点的负载值，之后为整个集群计算出一个平均负载值。
 
@@ -120,7 +120,7 @@ loadBalancerBrokerThresholdShedderPercentage=10
 - broker1
 - broker2
 
-![](https://p.ipic.vip/t1avr0.png)
+![](https://s2.loli.net/2023/02/07/9fpusPqY8BmkGdl.png)
 集群升级时会从 `broker2->0` 进行镜像替换重启，假设在升级前每个 broker 的负载值都是 10。
 
 - 重启 broker2 时，它所绑定的 bundle 被 broker0/1 接管。
@@ -134,18 +134,18 @@ loadBalancerBrokerThresholdShedderPercentage=10
 ```shell
 ./pulsar-perf monitor-brokers --connect-string pulsar-test-zookeeper:2181
 ```
-![](https://p.ipic.vip/bqau9n.png)
+![](https://s2.loli.net/2023/02/07/nDaOlsMprJ1hCwg.png)
 通过这个工具也可以查看各个节点的负载情况
 
 # 优化方案
 这种场景是当前 `ThresholdShedder` 所没有考虑到的，于是我在我们所使用的版本 2.10.3 的基础上做了简单的优化：
-![](https://p.ipic.vip/mu0wbf.png)
+![](https://s2.loli.net/2023/02/07/iRkm2FaBz4wtbG6.png)
 
 - 当原有逻辑走完之后也没有获取需要需要卸载的 bundle，同时也存在一个负载极低的 broker 时(`emptyBundle`)，再触发一次 bundle 查询。
 - 按照 broker 所绑定的数量排序，选择一个数量最多的 broker 的 第一个 bundle 进行卸载。
 
 修改后打包发布，再走一遍升级流程后整个集群负载就是均衡的了。
-![](https://p.ipic.vip/gi9k0m.jpg)
+![](https://s2.loli.net/2023/02/07/oCYzJBj7xavkLub.jpg)
 
 但其实这个方案并不严谨，第二步选择的重点是筛选出负载最高的集群中负载最高的 bundle；这里只是简单的根据数量来判断，并不够准确。
 
@@ -153,7 +153,7 @@ loadBalancerBrokerThresholdShedderPercentage=10
 
 https://github.com/apache/pulsar/pull/17456
 
-![](https://p.ipic.vip/xret8a.png)
+![](https://s2.loli.net/2023/02/07/7TKxPv8BfblngRc.png)
 
 整体思路是类似的，只是筛选负载需要卸载 bundle 时是根据 bundle 自身的流量来的，这样会更加精准。
 
