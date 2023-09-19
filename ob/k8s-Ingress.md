@@ -1,5 +1,5 @@
 ---
-title: k8s实战-使用Ingress
+title: k8s入门到实战-使用Ingress
 date: 2023/09/15 17:13:37
 categories: 
 - 
