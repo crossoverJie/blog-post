@@ -8,7 +8,7 @@ tags:
 - goroutine
 ---
 
-![](https://tva1.sinaimg.cn/large/008i3skNly1gxrpg1tweyj30rs0rsgnj.jpg)
+![](https://s2.loli.net/2023/09/24/gohfjR5CtU9Qvr6.png)
 
 # 前言
 
@@ -142,7 +142,7 @@ a b
 
 通过官方源码可以得知，`for range` 只是语法糖，本质上也是 for 循环；因为每次都是对同一个对象遍历赋值，所以便会出现这样的“乌龙”。
 
-![](https://tva1.sinaimg.cn/large/008i3skNly1gxsr5d5qlhj30mh07x74n.jpg)
+![](https://s2.loli.net/2023/09/24/ortJYa4fk3QCz18.png)
 
 
 

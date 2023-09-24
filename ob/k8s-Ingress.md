@@ -2,9 +2,9 @@
 title: k8s入门到实战-使用Ingress
 date: 2023/09/15 17:13:37
 categories: 
-- 
+- k8s
 tags: 
-- 
+- Ingress
 ---
 
 ![ingress.png](https://s2.loli.net/2023/09/14/Pe7DWCIS2UMKHQ8.png)
