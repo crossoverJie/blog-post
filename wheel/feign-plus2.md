@@ -9,7 +9,7 @@ tags:
 - SpringBoot
 ---
 
-![](https://tva1.sinaimg.cn/large/e6c9d24ely1h1wsydvy1mj20rs0rsmy3.jpg)
+![](https://s2.loli.net/2023/10/05/sKN6abRExi9wj1X.png)
 
 # 前言
 
@@ -72,14 +72,14 @@ public interface DemoApi {
 
 
 我这里写了两个 demo 来模拟调用：
-![](https://tva1.sinaimg.cn/large/e6c9d24ely1h1xw1ko6ivj21480iwgmj.jpg)
+![](https://s2.loli.net/2023/10/05/bSk2Gt3lghTOHdB.png)
 
 `provider`： 作为服务提供者提供了一系列接口供消费方调用，并对外提供了一个 api 模块。
-![](https://tva1.sinaimg.cn/large/e6c9d24ely1h1xw51ht2hj21dl0u0grh.jpg)
+![](https://s2.loli.net/2023/10/05/sOX7FkmSH183VNf.png)
 
 ---
 `demo`：作为服务消费者依赖 `provider-api` 模块，根据其中声明的接口进行远程调用。
-![](https://tva1.sinaimg.cn/large/e6c9d24ely1h1xwj1f191j21mv0u0k0a.jpg)
+![](https://s2.loli.net/2023/10/05/Y5yVQFf6jlTqPKW.png)
 配置文件：
 
 ```yaml
@@ -116,7 +116,7 @@ spring:
 ```
 
 当我们访问 `http://127.0.0.1:8181/hello/2` 接口时从控制台可以看到调用结果：
-![](https://tva1.sinaimg.cn/large/e6c9d24ely1h1xwo7u0m3j22xu0pswt2.jpg)
+![](https://s2.loli.net/2023/10/05/yM7INlJECUberOY.png)
 
 # 日志记录
 
@@ -157,9 +157,9 @@ public class CustomFeignInterceptor extends DefaultLogInterceptor {
 # 监控 metric
 
 `feign-plus` 会自行记录每个接口之间的调用耗时、异常等情况。
-![](https://tva1.sinaimg.cn/large/e6c9d24ely1h1xx0z05kej21sk0pgnfy.jpg)
+![](https://s2.loli.net/2023/10/05/iouq18vmefGQbXM.png)
 访问 `http://127.0.0.1:8181/actuator/prometheus` 会看到相关埋点信息，通过 `feign_call*` 的 key 可以自行在 `Grafana` 配置相关面板，类似于下图：
-![](https://tva1.sinaimg.cn/large/e6c9d24ely1h1wsgw07sdj21hg0u0wka.jpg)
+![](https://s2.loli.net/2023/10/05/qFjrXtoM3lVY4CZ.png)
 
 # 异常传递
 `rpc`（远程调用）要使用起来真的类似于本地调用，异常传递必不可少。
@@ -190,7 +190,7 @@ public class CustomFeignInterceptor extends DefaultLogInterceptor {
 3. 服务消费方需要自定义一个异常解码器的 bean。
 
 这里我在 `provider` 中自定义了一个 `DemoException`：
-![](https://tva1.sinaimg.cn/large/e6c9d24ely1h1xxixi872j214o0sedjz.jpg)
+![](https://s2.loli.net/2023/10/05/GuoaDLpC7JNR48n.png)
 
 > 通常这个类应该定义在公司内部的通用包中，这里为了演示方便。
 
@@ -211,10 +211,10 @@ public class HttpStatus {
 > 这个也应该放在通用包中。
 
 然后在 `provider` 中定义全局异常处理：
-![](https://tva1.sinaimg.cn/large/e6c9d24ely1h1xxm6hlj0j21q80sqwla.jpg)
+![](https://s2.loli.net/2023/10/05/F1CqAt5V2WlkxOQ.png)
 
 当出现异常时便会返回一个 http_code=500 的数据：
-![](https://tva1.sinaimg.cn/large/e6c9d24ely1h1xxqfm85wj22as0k41ax.jpg)
+![](https://s2.loli.net/2023/10/05/gPt4nIdQ7hV6Xr2.png)
 
 到这一步又会出现一个引战话题：HTTP 接口返回到底是全部返回 200 然后通过 code 来来判断，还是参考 http_code 进行返回?
 
@@ -224,7 +224,7 @@ public class HttpStatus {
 `feign-plus` 默认采用的 http_code !=200 才会认为发生了异常。
 
 而这里的 http_status 也是参考了 Google 的 api 设计：
-![](https://tva1.sinaimg.cn/large/e6c9d24ely1h1xxwgc5jej20u00zt0y6.jpg)
+![](https://s2.loli.net/2023/10/05/WcpTqtlwsfI9NaY.png)
 具体可以参考这个链接：
 [https://cloud.google.com/apis/design/errors#propagating_errors](https://cloud.google.com/apis/design/errors#propagating_errors)
 
@@ -248,7 +248,7 @@ public class FeignExceptionConfig {
 ---
 
 这样当服务提供方抛出异常时，消费者便能成功拿到该异常：
-![](https://tva1.sinaimg.cn/large/e6c9d24ely1h1xxyhn8gjj23fs0to19d.jpg)
+![](https://s2.loli.net/2023/10/05/EpNwAof1GrFBCUV.png)
 
 ## 实现原理
 
@@ -259,7 +259,7 @@ public class FeignExceptionConfig {
 所以 `provider` 抛出异常后，消费者只能拿到一串报文，我们只能根据这段报文解析出其中的异常信息，然后再重新创建一个内部自定义的异常（比如这里的 `DemoException`），也就是我们自定义异常解析器所干的事情。
 
 下图就是这个异常传递的大致流程：
-![](https://tva1.sinaimg.cn/large/e6c9d24ely1h1xzssxw0nj21460h0gmn.jpg)
+![](https://s2.loli.net/2023/10/05/2NracUKAhSX5ZJD.png)
 
 ## code message 模式
 
