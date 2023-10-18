@@ -14,6 +14,8 @@ tags:
 正好我自己也有听播客的习惯，只不过几乎都是中文，但现在我已经尝试听了一段时间的英文播客，觉得效果还不错。
 
 大部分都是和 IT 相关的内容，所以一些关键词还能听懂，同时也是自己的感兴趣的内容，如果是一次听不懂我就会反复收听。
+视频版：
+<iframe src="//player.bilibili.com/player.html?aid=961634958&bvid=BV1TH4y1Z77L&cid=1287992721&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 <!--more-->
 
 
@@ -113,3 +115,5 @@ I don't have all this `stuff` memorized:
 我没有记住所有这些东西
 `stuff`
 ![image.png](https://s2.loli.net/2023/10/03/nP8SpO2DTdHLj31.png)
+
+
