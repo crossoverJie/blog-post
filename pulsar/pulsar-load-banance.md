@@ -6,6 +6,7 @@ categories:
 tags: 
 - 消息队列
 - 负载均衡
+- Pulsar
 ---
 
 ![](https://s2.loli.net/2023/02/04/d4NqxaoulEXnr5s.png)

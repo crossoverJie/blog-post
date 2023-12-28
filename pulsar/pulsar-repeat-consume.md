@@ -5,6 +5,7 @@ categories:
 - Pulsar
 tags: 
 - Consumer
+- Pulsar
 ---
 
 ![](https://s2.loli.net/2023/02/26/Oz94bQasM2Einok.png)

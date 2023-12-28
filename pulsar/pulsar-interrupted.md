@@ -5,6 +5,7 @@ categories:
 - Pulsar
 tags: 
 - InterruptedException
+- Pulsar
 ---
 ![](https://s2.loli.net/2023/02/22/mQaCJMopS1WAjVN.png)
 # 背景
