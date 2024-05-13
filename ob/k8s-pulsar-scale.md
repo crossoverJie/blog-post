@@ -2,6 +2,7 @@
 title: 在 kubernetes 环境下如何优雅扩缩容 Pulsar
 date: 2024/03/27 16:13:42
 categories:
+  - Pulsar
   - OB
 tags:
 - Pulsar

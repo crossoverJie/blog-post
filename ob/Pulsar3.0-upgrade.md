@@ -2,8 +2,8 @@
 title: Pulsar3.0 升级指北
 date: 2023/12/24 17:08:27
 categories:
-  - OB
   - Pulsar
+  - OB
 tags:
   - Pulsar
 ---
