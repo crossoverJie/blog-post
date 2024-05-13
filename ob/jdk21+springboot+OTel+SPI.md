@@ -5,6 +5,7 @@ categories:
   - OB
   - OpenTelemetry
 tags:
+  - OpenTelemetry
 ---
 
 # 背景
