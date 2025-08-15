@@ -1,6 +1,8 @@
 ---
 title: 一年时间从小白成为 OpenTelemetry Member 有感
 date: 2025/04/15 17:40:37
+banner_img: https://s2.loli.net/2025/08/15/nwDGebNT9B17QOf.png
+index_img: https://s2.loli.net/2025/08/15/nwDGebNT9B17QOf.png
 categories:
   - OpenTelemetry
 tags:

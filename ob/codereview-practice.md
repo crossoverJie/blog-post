@@ -1,6 +1,8 @@
 ---
 title: 我的 CodeReview 实战经验
 date: 2025/05/21 10:39:04
+banner_img: https://s2.loli.net/2025/08/15/gzjQaI74vxCcUbA.png
+index_img: https://s2.loli.net/2025/08/15/gzjQaI74vxCcUbA.png
 categories:
   - OB
 tags:

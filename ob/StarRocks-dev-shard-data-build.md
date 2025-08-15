@@ -1,6 +1,8 @@
 ---
 title: StarRocks 开发环境搭建踩坑指北之存算分离篇
 Date: 2025-01-20T17:24:00
+banner_img: https://s2.loli.net/2025/08/15/P6IHONqyU4Jh3SR.png
+index_img: https://s2.loli.net/2025/08/15/P6IHONqyU4Jh3SR.png
 categories:
   - OB
   - StarRocks

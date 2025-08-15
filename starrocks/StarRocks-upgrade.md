@@ -1,6 +1,8 @@
 ---
 title: StarRocks 升级注意事项
 date: 2025/03/14 17:16:35
+banner_img: https://s2.loli.net/2025/08/15/uJ5RWbItMrUTc3h.png
+index_img: https://s2.loli.net/2025/08/15/uJ5RWbItMrUTc3h.png
 categories:
   - OB
 tags:

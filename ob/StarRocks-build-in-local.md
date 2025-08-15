@@ -1,6 +1,8 @@
 ---
 title: 如何在本地打包 StarRocks 发行版
 date: 2025/05/12 17:47:52
+banner_img: https://s2.loli.net/2025/08/15/YTsEFPUSt7yVH3k.png
+index_img: https://s2.loli.net/2025/08/15/YTsEFPUSt7yVH3k.png
 categories:
   - StarRocks
 tags:

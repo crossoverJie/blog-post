@@ -1,6 +1,8 @@
 ---
 title: Python 中的面向接口编程
-date: 2021/01/14 08:13:26 
+date: 2021/01/14 08:13:26
+banner_img: https://i.loli.net/2021/01/14/pPAYXUDmc2Vxr1d.jpg
+index_img: https://i.loli.net/2021/01/14/pPAYXUDmc2Vxr1d.jpg
 categories: 
 - 基础原理
 tags: 
